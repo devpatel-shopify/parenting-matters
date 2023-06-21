@@ -170,7 +170,7 @@
 }
 
 .footer-block__newsletter {
-  text-align: center;
+  /* text-align: center; */
   flex-grow: 1;
 }
 
@@ -212,6 +212,7 @@
     justify-content: flex-end;
     text-align: right;
   }
+  .footer-block .newsletter-form { max-width: 100%; }
 }
 
 @media screen and (max-width: 749px) {
@@ -508,3 +509,35 @@
     }
   }
 }
+
+
+
+
+
+
+.copyright__content {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: .01em;
+}
+.footer__content-logo.footer__content-bottom-wrapper--center .footer__copyright {
+  width: calc(100% - 330px);
+  margin-right: auto;
+}
+.footer__copyright {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

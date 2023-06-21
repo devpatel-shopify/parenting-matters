@@ -1167,3 +1167,38 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+
+
+
+
+var close_announcement = document.querySelector(".close-announcement");
+var announcement_bar = document.querySelector(".announcement-bar");
+close_announcement.addEventListener("click", (e) => {
+  announcement_bar.parentElement.remove();
+});
+
+var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
+ready(() => { 
+  AOS.init();
+});
+
+
+const headerElement = document.querySelector('.section-header');
+const headerHeight = headerElement.offsetHeight;
+let marginBottomValue = -headerHeight; 
+headerElement.style.marginBottom = marginBottomValue + "px";
+
+
+
+
+
+
+
+
+
+
