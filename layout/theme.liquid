@@ -240,11 +240,12 @@
         --color-badge-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
         --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
         --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+        --border-color: rgb({{ scheme.settings.border.rgb }});
       }
       {% endfor %}
 
       {{ scheme_classes | prepend: 'body' }} {
-        color: rgba(var(--color-foreground), 0.75);
+        color: rgba(var(--color-foreground));
         background-color: rgb(var(--color-background));
       }
 
@@ -399,9 +400,9 @@
         grid-template-columns: 100%;
         min-height: 100%;
         margin: 0;
-        font-size: 1.5rem;
-        letter-spacing: 0.06rem;
-        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-size: 1.6rem;
+        letter-spacing: 0.064rem;
+        line-height: 120%;
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
@@ -441,7 +442,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

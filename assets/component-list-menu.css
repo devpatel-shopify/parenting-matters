@@ -4,9 +4,12 @@
 
 .list-menu--disclosure {
   position: absolute;
-  min-width: 100%;
-  width: 20rem;
-  border: 1px solid rgba(var(--color-foreground), 0.2);
+  min-width: 174px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  letter-spacing: 0;
+  border: none !important;
+  top: calc(100% + 21px);
 }
 
 .list-menu--disclosure:focus {

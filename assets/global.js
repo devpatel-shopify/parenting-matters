@@ -1183,15 +1183,14 @@ var ready = (callback) => {
   if (document.readyState != "loading") callback();
   else document.addEventListener("DOMContentLoaded", callback);
 }
-ready(() => { 
-  AOS.init();
-});
+
 
 
 const headerElement = document.querySelector('.section-header');
+const bannerElement = document.querySelector('.section-header + main .banner_section:first-child');
 const headerHeight = headerElement.offsetHeight;
-let marginBottomValue = -headerHeight; 
-headerElement.style.marginBottom = marginBottomValue + "px";
+let marginTopValue = -headerHeight; 
+bannerElement.style.marginTop = marginTopValue + "px";
 
 
 

@@ -192,12 +192,12 @@
                             </label>
                             <button
                               type="submit"
-                              class="newsletter-form__button field__button"
+                              class="newsletter-form__button field__button button button--icon"
                               name="commit"
                               id="Subscribe"
                               aria-label="{{ 'newsletter.button_label' | t }}"
-                            >
-                              {% render 'icon-arrow' %}
+                            >Sign up
+                              <div class="icon-cover">{% render 'icon-arrow' %}</div>
                             </button>
                           </div>
                           {%- if form.errors -%}
