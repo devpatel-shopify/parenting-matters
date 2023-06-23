@@ -10,7 +10,7 @@
 
 {%- style -%}
   .footer-main-cover {
-    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    margin-top: {{ section.settings.margin_top1 | times: 0.75 | round: 0 }}px;
   }
 
   .section-{{ section.id }}-padding {
@@ -20,7 +20,7 @@
 
   @media screen and (min-width: 750px) {
     .footer-main-cover {
-      margin-top: {{ section.settings.margin_top }}px;
+      margin-top: {{ section.settings.margin_top1 }}px;
     }
 
     .section-{{ section.id }}-padding {
@@ -601,13 +601,13 @@
     },
     {
       "type": "range",
-      "id": "margin_top",
+      "id": "margin_top1",
       "min": 0,
       "max": 160,
       "step": 2,
       "unit": "px",
       "label": "t:sections.footer.settings.margin_top.label",
-      "default": 128
+      "default": 0
     },
     {
       "type": "header",
