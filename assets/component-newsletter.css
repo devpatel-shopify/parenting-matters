@@ -93,8 +93,13 @@
 
 
 
+@media only screen and (max-width: 749px) {
+
+.footer-block__newsletter .footer-block__heading {
+  margin-bottom: 2.4rem;
+}
 
 
 
-
+}
 

@@ -283,29 +283,10 @@ details[open].menu-opening > .menu-drawer__submenu {
 .js .menu-drawer__menu li:last-child {
   margin-bottom: 0;
 }
-
-}
-
-
-
-
-
-@media screen and (max-width: 767px) {
-
-.js .menu-drawer {
-  max-height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
-  height: auto;
-  transform: translate(0%, -100%);
-}
-.menu-drawer {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--border-color);
-  border-radius: 0 0 40px 40px;
-}
-.menu-drawer__menu-item:hover, .menu-drawer__menu-item:active {
+.menu-drawer__menu-item:hover, .menu-drawer__menu-item:focus {
   background: transparent;
 }
+
 div.icon-plus-minus {
   position: relative;
   display: block;
@@ -358,6 +339,26 @@ div.icon-plus-minus {
 
 .js .menu-drawer__submenu .menu-drawer__menu li:not(:last-child) {
   margin-bottom: 16px;
+}
+
+}
+
+
+
+
+
+@media screen and (max-width: 767px) {
+
+.js .menu-drawer {
+  max-height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+  height: auto;
+  transform: translate(0%, -130%);
+}
+.menu-drawer {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  border-radius: 0 0 40px 40px;
 }
 
 

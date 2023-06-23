@@ -1,21 +1,28 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "926b0172-6880-4198-b1e3-b19a9ae88af0": {
+      "type": "hero-section-homepage",
       "blocks": {
-        "heading": {
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-0": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Raising happy children with love and limits.",
             "heading_size": "h0"
           }
         },
-        "button": {
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-1": {
+          "type": "text",
+          "settings": {
+            "text": "Based on the latest research, Parenting Matters is an interactive, fun and highly effective online parenting course and community.",
+            "text_style": "body"
+          }
+        },
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "Get started",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -23,53 +30,22 @@
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-0",
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-1",
+        "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-2"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "top-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
+        "color_scheme": "background-1",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "show_text_below": true
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "926b0172-6880-4198-b1e3-b19a9ae88af0"
   ]
 }
