@@ -10,7 +10,7 @@
 
 {%- style -%}
   .footer-main-cover {
-    margin-top: {{ section.settings.margin_top1 | times: 0.75 | round: 0 }}px;
+    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
 
   .section-{{ section.id }}-padding {
@@ -20,7 +20,7 @@
 
   @media screen and (min-width: 750px) {
     .footer-main-cover {
-      margin-top: {{ section.settings.margin_top1 }}px;
+      margin-top: {{ section.settings.margin_top }}px;
     }
 
     .section-{{ section.id }}-padding {
@@ -601,7 +601,7 @@
     },
     {
       "type": "range",
-      "id": "margin_top1",
+      "id": "margin_top",
       "min": 0,
       "max": 160,
       "step": 2,
