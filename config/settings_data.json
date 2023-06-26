@@ -143,8 +143,9 @@
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#ffffff",
-          "secondary_button_label": "#c72457",
-          "shadow": "#121212"
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
         }
       },
       "background-2": {
@@ -155,7 +156,8 @@
           "button": "#121212",
           "button_label": "#f3f3f3",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "border": "#c9d9d3"
         }
       },
       "inverse": {
@@ -166,7 +168,8 @@
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#c72457",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "border": "#c9d9d3"
         }
       },
       "accent-1": {
@@ -174,10 +177,11 @@
           "background": "#9cbfb3",
           "background_gradient": "",
           "text": "#01333e",
-          "button": "#c72457",
+          "button": "#01333e",
           "button_label": "#fdf8ec",
-          "secondary_button_label": "#c72457",
-          "shadow": "#121212"
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
         }
       },
       "accent-2": {
@@ -188,7 +192,44 @@
           "button": "#ffffff",
           "button_label": "#000000",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "border": "#c9d9d3"
+        }
+      },
+      "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b": {
+        "settings": {
+          "background": "#c9d9d3",
+          "background_gradient": "",
+          "text": "#01333e",
+          "button": "#01333e",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
+        }
+      },
+      "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698": {
+        "settings": {
+          "background": "#ffd978",
+          "background_gradient": "",
+          "text": "#01333e",
+          "button": "#01333e",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
+        }
+      },
+      "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9": {
+        "settings": {
+          "background": "#fdf8ec",
+          "background_gradient": "",
+          "text": "#01333e",
+          "button": "#01333e",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
         }
       }
     }

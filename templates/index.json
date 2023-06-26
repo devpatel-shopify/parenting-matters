@@ -43,9 +43,257 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
+    },
+    "765f1e9f-d92c-4a1e-84ab-8b8d84334904": {
+      "type": "carousel-cards",
+      "blocks": {
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-0": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Illustration1.svg",
+            "url": "",
+            "title": "Whether you’re concerned  about your child."
+          }
+        },
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-1": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Illustration2.svg",
+            "url": "",
+            "title": "Whether you just want a closer relationship."
+          }
+        },
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-2": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Illustration3.svg",
+            "url": "",
+            "title": "Whether you’re battling challenging behaviour."
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-0",
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-1",
+        "template--19650833285418__765f1e9f-d92c-4a1e-84ab-8b8d84334904-1687762061a3b8ead4-2"
+      ],
+      "settings": {
+        "title": "An ideal route to making positive changes for you and your child.",
+        "heading_size": "h1",
+        "title_max_width": 84,
+        "color_scheme": "inverse",
+        "box_bg": "#fdf8ec",
+        "img_width": 230,
+        "cell_align1": "center",
+        "title_mb": 80,
+        "cell_width": "50%",
+        "cell_max_width": 61,
+        "wrap_around": "true",
+        "mr": 90,
+        "padding_top": 140,
+        "padding_bottom": 160
+      }
+    },
+    "c1c17d80-8753-42b7-b014-333ad8b27e01": {
+      "type": "card-information-section",
+      "blocks": {
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-0": {
+          "type": "text",
+          "settings": {
+            "card_icon": "shopify:\/\/shop_images\/Icon_9ab2c1da-99b5-4c66-9096-44d221aba9ed.svg",
+            "card_name": "Course",
+            "card_paragraph": "<p>Our course is thoughtfully split into engaging and inspirational sessions, designed to fit seamlessly into any schedule.<\/p>"
+          }
+        },
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-1": {
+          "type": "text",
+          "settings": {
+            "card_icon": "shopify:\/\/shop_images\/Icon_13.svg",
+            "card_name": "Connection",
+            "card_paragraph": "<p>We’re here to support you on your journey with your child and yourself as a parent.<\/p>"
+          }
+        },
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-2": {
+          "type": "text",
+          "settings": {
+            "card_icon": "shopify:\/\/shop_images\/Icon_14.svg",
+            "card_name": "Community",
+            "card_paragraph": "<p>Our safe and secure community connects you with likeminded parents looking to achieve similar goals.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-0",
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-1",
+        "template--19650833285418__c1c17d80-8753-42b7-b014-333ad8b27e01-16877827466466328e-2"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading_text": "If you have children aged 2-10, this is the place for you!",
+        "button_text": "Learn more",
+        "button_url": "",
+        "background_schema": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
+        "background_color": "#e9f0ed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "14fd4b8c-7862-489d-9388-41e07e8be3de": {
+      "type": "two-column-card",
+      "blocks": {
+        "template--19650833285418__14fd4b8c-7862-489d-9388-41e07e8be3de-16877555098e73e5cb-0": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_7.png",
+            "card_label": "Quiz",
+            "card_title": "What's your parenting style?",
+            "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
+            "card_btn": "Discover your parenting style",
+            "card_btn_mobile": "Learn more",
+            "card_btn_link": "#",
+            "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "margin_top": 0,
+            "margin_top_mobile": 0
+          }
+        },
+        "template--19650833285418__14fd4b8c-7862-489d-9388-41e07e8be3de-16877555098e73e5cb-1": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame.svg",
+            "card_label": "Resources",
+            "card_title": "Looking for specific help?",
+            "card_description": "<p>Whether it's understanding your child better or dealing with specific worries and challenging behaviours, we offer guidance on a wide range of parenting matters.<\/p>",
+            "card_btn": "Find out more",
+            "card_btn_mobile": "Learn more",
+            "card_btn_link": "#",
+            "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+            "margin_top": 70,
+            "margin_top_mobile": 64
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__14fd4b8c-7862-489d-9388-41e07e8be3de-16877555098e73e5cb-0",
+        "template--19650833285418__14fd4b8c-7862-489d-9388-41e07e8be3de-16877555098e73e5cb-1"
+      ],
+      "settings": {
+        "section_title": "",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "ef59aef4-2884-455e-9c1a-337b9f48573e": {
+      "type": "email-sing-up-section",
+      "settings": {
+        "full_width": false,
+        "email_image": "shopify:\/\/shop_images\/Frame_4192.svg",
+        "heading_text": "Sign up to receive free tips and the latest news",
+        "button_text": "Sign up",
+        "button_url": "",
+        "color_scheme": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
+        "border_color": "#c72457",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "44b31fca-2192-4c98-8fe6-4a04af6cb99a": {
+      "type": "accordion-section",
+      "blocks": {
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What age child is this course suitable for?",
+            "row_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>",
+            "page": ""
+          }
+        },
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the course take?",
+            "row_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>",
+            "page": ""
+          }
+        },
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the course take?",
+            "row_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-0",
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-1",
+        "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-2"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "button_text": "View all",
+        "button_url": "",
+        "heading_size": "h2",
+        "container_color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+        "select_style": "style_2",
+        "background_color": "#e9f0ed",
+        "open_first_collapsible_row": true,
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    },
+    "cc855bf0-99e0-47fd-b8ae-878122144c79": {
+      "type": "community-slider",
+      "blocks": {
+        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
+          }
+        },
+        "37a8384d-1da6-41aa-b62f-508ba445bd10": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+          }
+        },
+        "5c3f1c02-d084-4e17-8e9b-592eece0b834": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        },
+        "517326d9-1383-4fbf-9c39-4a645fd94f56": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0",
+        "37a8384d-1da6-41aa-b62f-508ba445bd10",
+        "5c3f1c02-d084-4e17-8e9b-592eece0b834",
+        "517326d9-1383-4fbf-9c39-4a645fd94f56"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_title": "Some words from <br> our Community.",
+        "top_border": false,
+        "bottom_border": true,
+        "padding_top": 60,
+        "padding_bottom": 64,
+        "bg_color": "#ffd978"
+      }
     }
   },
   "order": [
-    "926b0172-6880-4198-b1e3-b19a9ae88af0"
+    "926b0172-6880-4198-b1e3-b19a9ae88af0",
+    "765f1e9f-d92c-4a1e-84ab-8b8d84334904",
+    "c1c17d80-8753-42b7-b014-333ad8b27e01",
+    "14fd4b8c-7862-489d-9388-41e07e8be3de",
+    "ef59aef4-2884-455e-9c1a-337b9f48573e",
+    "44b31fca-2192-4c98-8fe6-4a04af6cb99a",
+    "cc855bf0-99e0-47fd-b8ae-878122144c79"
   ]
 }

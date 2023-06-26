@@ -281,7 +281,7 @@ h6,
 }
 
 .hxl {
-  font-size: calc(var(--font-heading-scale) * 54px);
+  font-size: calc(var(--font-heading-scale) * 42px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -291,7 +291,7 @@ h6,
 }
 
 .h0 {
-  font-size: calc(var(--font-heading-scale) * 54px);
+  font-size: calc(var(--font-heading-scale) * 42px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -302,7 +302,7 @@ h6,
 
 h1,
 .h1 {
-  font-size: calc(var(--font-heading-scale) * 54px);
+  font-size: calc(var(--font-heading-scale) * 30px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -314,7 +314,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 43.2px);
+  font-size: calc(var(--font-heading-scale) * 28px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -326,7 +326,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-scale) * 34.56px);
+  font-size: calc(var(--font-heading-scale) * 22px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -338,9 +338,7 @@ h3,
 
 h4,
 .h4 {
-  font-family: var(--font-heading-family);
-  font-style: var(--font-heading-style);
-  font-size: calc(var(--font-heading-scale) * 27.65px);
+  font-size: calc(var(--font-heading-scale) * 18px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -352,7 +350,7 @@ h4,
 
 h5,
 .h5 {
-  font-size: calc(var(--font-heading-scale) * 22.14px);
+  font-size: calc(var(--font-heading-scale) * 16px);
 }
 
 @media only screen and (min-width: 750px) {
@@ -365,10 +363,15 @@ h5,
 h6,
 .h6 {
   /* color: rgba(var(--color-foreground), 0.75); */
-  font-size: calc(var(--font-heading-scale) * 16px);
+  font-size: calc(var(--font-heading-scale) * 14px);
 }
 
-
+@media only screen and (min-width: 750px) {
+  h6,
+  .h6 {
+    font-size: calc(var(--font-heading-scale) * 16px);
+  }
+}
 
 
 .p1 {
@@ -752,11 +755,11 @@ summary::-webkit-details-marker {
   box-shadow: none;
 }
 
-*:focus-visible {
+/* *:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.3rem;
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
-}
+} */
 
 /* Fallback - for browsers that don't support :focus-visible, a fallback is set for :focus */
 .focused,
@@ -1330,25 +1333,12 @@ button.shopify-payment-button__button--unbranded {
   background: transparent;
 }
 .button.button--secondary>svg, .button.button--tertiary>svg {
-  background: rgb(var(--color-secondary-button-text));
+  /* background: rgb(var(--color-secondary-button-text)); */
   color: rgba(var(--color-secondary-button));
 }
 
 
-@media only screen and (max-width: 767px) {
-  .button {
-    font-size: 14px;
-    padding: 0.7rem 2.33rem;
-  }
-  .button>svg {
-    width: 24px;
-    height: 24px;
-    padding: 0.57rem;
-    margin-left: 12px;
-    margin-right: -15px;
-  }
-  
-}
+
 
 /* .button:before,
 .shopify-challenge__button:before,
@@ -1489,6 +1479,21 @@ button.shopify-payment-button__button--unbranded {
 
 .button.loading > .loading-overlay__spinner .path {
   stroke: rgb(var(--color-button-text));
+}
+
+@media only screen and (max-width: 767px) {
+  .button {
+    font-size: 14px;
+    padding: 0.7rem 1.53rem;
+  }
+  .button>svg {
+    width: 24px;
+    height: 24px;
+    padding: 0.57rem;
+    margin-left: 12px;
+    margin-right: -8px;
+  }
+  
 }
 
 /* Button - social share */
@@ -2320,7 +2325,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
 
 /* section-header */
 .section-header.shopify-section-group-header-group {
-  z-index: 3;
+  z-index: 9999;
 }
 
 .shopify-section-header-sticky {

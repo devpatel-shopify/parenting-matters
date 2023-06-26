@@ -1,0 +1,106 @@
+
+.email_sign-up_section .email_detail_fill .field__input:focus-visible{
+    box-shadow: none;
+}
+.email_sign-up_section .sign-up_email .newsletter-form {
+    max-width: 100%;
+    margin: 0;
+}
+.email_news {
+    border-radius: 40px;
+    padding: 64px;
+   
+}
+.sign-up_email {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.email_info {
+    width: 60%;
+}
+.email_form {
+    width: 40%;
+}
+.email_tips h2{
+    margin-top: 32px;
+    max-width: 500px;
+}
+.email_tips h2:first-child{
+    margin-top: 0;
+    
+}
+.email_sign-up_section .email_detail_fill .field {
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+.email_sign-up_section .email_detail_fill .field:nth-child(2) {
+    margin-bottom: 0;
+}
+.email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+.email_sign-up_section .newsletter-form__field-wrapper .button--icon {
+    margin-top: 48px;
+}
+.email_tips {
+    padding-right: 30px;
+}
+.email_sign-up_section .newsletter-form__field-wrapper .field__label {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-bottom: 6px;
+    letter-spacing: 0.14px;
+    font-size: 14px;
+}
+.email_sign-up_section .sign-up_email .email_tips img{
+max-width: 184px;
+max-height: 151px;
+}
+
+
+.newsletter-form__button .icon {
+    color: rgba(var(--color-secondary-button));
+}
+
+.email_sign-up_section .email_detail_fill input.field__input {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 15px 16px;
+    height: auto;
+    min-height: auto;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0.16px;
+    margin: 0;
+}
+
+.email_sign-up_section .email_detail_fill input.field__input::placeholder { display: block !important; opacity: 1; visibility: visible; color: #999; }
+
+
+@media screen and (max-width: 750px) {
+    .email_form,
+    .email_info {
+        width: 100%;
+    }
+    .email_tips h2 {
+        margin-top: 30px;
+        margin-bottom: 24px; 
+    }
+    .email_sign-up_section .newsletter-form__field-wrapper .button--icon {
+        margin-top: 32px;
+    }
+    .email_tips {
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 500px) {
+    .email_news {  
+        padding: 32px 24px;
+        border-radius: 21.824px;
+    }
+}
+ 
