@@ -258,8 +258,6 @@
       "settings": {
         "heading": "Read the latest from our blog.",
         "heading_size": "h2",
-        "button_text": "Explore our blog",
-        "button_url": "shopify:\/\/blogs\/news",
         "blog": "news",
         "post_limit": 3,
         "columns_desktop": 3,
