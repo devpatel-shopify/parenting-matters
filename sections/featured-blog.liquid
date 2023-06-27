@@ -145,13 +145,13 @@
           </div>
         </div>
       {%- endif -%}
-      {% if section.settings.button_text != blank %}
+      {% if section.settings.button_text1 != blank %}
         <div class="blog-main-button">
           <a
             class="button button--secondary"
             href="{{ section.settings.button_url }}"
           >
-            {{- section.settings.button_text -}}
+            {{- section.settings.button_text1 -}}
 
             {% render 'icon-arrow' %}
           </a>
@@ -202,7 +202,7 @@
     },
     {
       "type": "text",
-      "id": "button_text",
+      "id": "button_text1",
       "label": "Button text",
       "default": "Button"
     },
