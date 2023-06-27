@@ -119,14 +119,13 @@
             {%- endfor -%}
           </div>
         </div>
-        {% if section.settings.button_url != blank or section.settings.button_text != blank %}
+        {% if section.settings.button_text != blank %}
           <div class="custom_button">
             <a
               class="button button--secondary"
               href="{{ section.settings.button_url }}"
             >
               {{- section.settings.button_text -}}
-
               {% render 'icon-arrow' %}
             </a>
           </div>
@@ -211,7 +210,6 @@
       "default": "#E9F0ED",
       "label": "Style 2 background"
     },
-
     {
       "type": "checkbox",
       "id": "open_first_collapsible_row",

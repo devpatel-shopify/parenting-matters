@@ -96,7 +96,7 @@ html.no-js .no-js-hidden {
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section slideshow-component {
@@ -315,12 +315,14 @@ h1,
 h2,
 .h2 {
   font-size: calc(var(--font-heading-scale) * 28px);
+  letter-spacing: 0.28px;
 }
 
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
     font-size: calc(var(--font-heading-scale) * 43.2px);
+    letter-spacing: 0.43px;
   }
 }
 
@@ -351,12 +353,14 @@ h4,
 h5,
 .h5 {
   font-size: calc(var(--font-heading-scale) * 16px);
+  letter-spacing: 0.16px;
 }
 
 @media only screen and (min-width: 750px) {
   h5,
   .h5 {
     font-size: calc(var(--font-heading-scale) * 22.14px);
+    letter-spacing: 0.22px;
   }
 }
 

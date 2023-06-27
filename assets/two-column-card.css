@@ -37,11 +37,12 @@
     width: auto;
     display: inline-flex;
     align-items: center;
+    letter-spacing: 0.14px;
+    margin-bottom: 6px;
 }
 
 .two-column-card .card_title.title {
     margin-bottom: 16px;
-    margin-top: 6px;
 }
 
 .two-column-card .card_description {
@@ -97,6 +98,11 @@
 .two-column-card .breakdown_card_title {
     margin-bottom: 6px;
 }
+.two-column-card_inner .card_title {
+    margin-bottom: 16px;
+}
+
+
 
 @media screen and (max-width: 980px) {
     .two-column-card .two-column-card_wrapper {
@@ -144,5 +150,8 @@
     }
     .two-column-card .breakdown_card_title {
         font-size: calc(var(--font-body-scale) * 16px);
-    } 
+    }
+    .two-column-card_inner .card_title {
+        margin-bottom: 12px;
+    }
 }

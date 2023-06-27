@@ -535,9 +535,12 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 400px;
+  letter-spacing: 0.16px;
 }
 
-
+.banner__box .banner__heading {
+  letter-spacing: 0.68px;
+}
 
 
 

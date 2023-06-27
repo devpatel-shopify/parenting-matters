@@ -41,7 +41,7 @@
             <div class="two-column-card_wrapper_inner">
                 {%- if section.settings.section_title != blank -%}
                     <div class="two-column-card-title">
-                        <h1 class="title">{{ section.settings.section_title }}</h1>
+                        <h2 class="title h1">{{ section.settings.section_title }}</h2>
                     </div>  
                 {%- endif -%} 
                 {%- for block in section.blocks -%}
@@ -63,7 +63,7 @@
                                     {%- endif -%}    
 
                                     {%- if block.settings.card_title != blank -%}
-                                        <h2 class="card_title title">{{ block.settings.card_title }}</h2>
+                                        <h2 class="card_title">{{ block.settings.card_title }}</h2>
                                     {%- endif -%}
 
                                     {%- if block.settings.card_description != blank -%}
@@ -108,7 +108,7 @@
                                         {%- endif -%}    
 
                                         {%- if block.settings.card_heading != blank -%}
-                                            <h2 class="card_title title">{{ block.settings.card_heading }}</h2>
+                                            <h2 class="card_title">{{ block.settings.card_heading }}</h2>
                                         {%- endif -%}
                                     </div>
                                 </div>

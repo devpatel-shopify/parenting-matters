@@ -132,10 +132,67 @@
         "heading_text": "If you have children aged 2-10, this is the place for you!",
         "button_text": "Learn more",
         "button_url": "",
+        "top_radius": true,
         "background_schema": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
         "background_color": "#e9f0ed",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 160
+      }
+    },
+    "fd84d383-a0dc-4cc8-a4d1-11772bc163f5": {
+      "type": "join-banner-section",
+      "settings": {
+        "section_title": "Parenting Matters is here to help you bring out the best in your child.",
+        "background_schema": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
+        "button_text": "Join today",
+        "button_url": "",
+        "top_radius": true,
+        "padding_top": 160,
+        "padding_bottom": 110
+      }
+    },
+    "cc855bf0-99e0-47fd-b8ae-878122144c79": {
+      "type": "community-slider",
+      "blocks": {
+        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
+          }
+        },
+        "37a8384d-1da6-41aa-b62f-508ba445bd10": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+          }
+        },
+        "5c3f1c02-d084-4e17-8e9b-592eece0b834": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        },
+        "517326d9-1383-4fbf-9c39-4a645fd94f56": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0",
+        "37a8384d-1da6-41aa-b62f-508ba445bd10",
+        "5c3f1c02-d084-4e17-8e9b-592eece0b834",
+        "517326d9-1383-4fbf-9c39-4a645fd94f56"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_title": "Some words from <br> our Community.",
+        "top_border": false,
+        "bottom_border": true,
+        "padding_top": 60,
+        "padding_bottom": 64,
+        "bg_color": "#ffd978"
       }
     },
     "14fd4b8c-7862-489d-9388-41e07e8be3de": {
@@ -196,6 +253,25 @@
         "padding_bottom": 80
       }
     },
+    "f787626a-81b3-4c3a-bca6-f6eac39fa535": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Read the latest from our blog.",
+        "heading_size": "h2",
+        "button_text": "Explore our blog",
+        "button_url": "shopify:\/\/blogs\/news",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "44b31fca-2192-4c98-8fe6-4a04af6cb99a": {
       "type": "accordion-section",
       "blocks": {
@@ -241,59 +317,17 @@
         "padding_top": 80,
         "padding_bottom": 0
       }
-    },
-    "cc855bf0-99e0-47fd-b8ae-878122144c79": {
-      "type": "community-slider",
-      "blocks": {
-        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0": {
-          "type": "block",
-          "settings": {
-            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
-          }
-        },
-        "37a8384d-1da6-41aa-b62f-508ba445bd10": {
-          "type": "block",
-          "settings": {
-            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
-          }
-        },
-        "5c3f1c02-d084-4e17-8e9b-592eece0b834": {
-          "type": "block",
-          "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
-          }
-        },
-        "517326d9-1383-4fbf-9c39-4a645fd94f56": {
-          "type": "block",
-          "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0",
-        "37a8384d-1da6-41aa-b62f-508ba445bd10",
-        "5c3f1c02-d084-4e17-8e9b-592eece0b834",
-        "517326d9-1383-4fbf-9c39-4a645fd94f56"
-      ],
-      "settings": {
-        "full_width": false,
-        "section_title": "Some words from <br> our Community.",
-        "top_border": false,
-        "bottom_border": true,
-        "padding_top": 60,
-        "padding_bottom": 64,
-        "bg_color": "#ffd978"
-      }
     }
   },
   "order": [
     "926b0172-6880-4198-b1e3-b19a9ae88af0",
     "765f1e9f-d92c-4a1e-84ab-8b8d84334904",
     "c1c17d80-8753-42b7-b014-333ad8b27e01",
+    "fd84d383-a0dc-4cc8-a4d1-11772bc163f5",
+    "cc855bf0-99e0-47fd-b8ae-878122144c79",
     "14fd4b8c-7862-489d-9388-41e07e8be3de",
     "ef59aef4-2884-455e-9c1a-337b9f48573e",
-    "44b31fca-2192-4c98-8fe6-4a04af6cb99a",
-    "cc855bf0-99e0-47fd-b8ae-878122144c79"
+    "f787626a-81b3-4c3a-bca6-f6eac39fa535",
+    "44b31fca-2192-4c98-8fe6-4a04af6cb99a"
   ]
 }

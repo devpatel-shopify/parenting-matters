@@ -7,6 +7,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 60px;
 }
 .card_benefits_info {
     width: 40%;
@@ -38,6 +39,7 @@
 }
 .card_learn h4{
     margin: 0 0 6px;
+    letter-spacing: 0.28px;
 }
 .card_list {
     width: 60%;
@@ -73,6 +75,7 @@
 
 
 
+
 @media screen and (min-width: 750px) and (max-width: 999px) {
     .card_benefits_info svg {
         width: 230px;
@@ -99,6 +102,9 @@
     .card_list .card_image {
         width: 40px;
         min-width: 40px;
+    }
+    .card_detail {
+        margin-bottom: 40px;
     }
     
 }
@@ -130,6 +136,9 @@
     }
     .card_benefits_info {
         margin-bottom: 50px;
+    }
+    .card_benefits_info .child_card {
+        max-width: 306px;
     }
 }
  
