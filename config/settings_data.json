@@ -9,8 +9,8 @@
     "body_scale": 100,
     "page_width": 1360,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 8,
-    "spacing_grid_vertical": 8,
+    "spacing_grid_horizontal": 30,
+    "spacing_grid_vertical": 30,
     "animations_reveal_on_scroll": true,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
@@ -142,7 +142,7 @@
           "background_gradient": "",
           "text": "#01333e",
           "button": "#c72457",
-          "button_label": "#ffffff",
+          "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
           "border": "#c9d9d3"
@@ -202,7 +202,7 @@
           "background_gradient": "",
           "text": "#01333e",
           "button": "#01333e",
-          "button_label": "#ffffff",
+          "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
           "border": "#c9d9d3"
@@ -214,7 +214,7 @@
           "background_gradient": "",
           "text": "#01333e",
           "button": "#01333e",
-          "button_label": "#ffffff",
+          "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
           "border": "#c9d9d3"
@@ -226,8 +226,20 @@
           "background_gradient": "",
           "text": "#01333e",
           "button": "#01333e",
-          "button_label": "#ffffff",
+          "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
+        }
+      },
+      "scheme-32b52632-33b9-49f5-a7f4-917974f3d412": {
+        "settings": {
+          "background": "#c9d9d3",
+          "background_gradient": "",
+          "text": "#01333e",
+          "button": "#c72457",
+          "button_label": "#fdf8ec",
+          "secondary_button_label": "#c72457",
           "shadow": "#121212",
           "border": "#c9d9d3"
         }
