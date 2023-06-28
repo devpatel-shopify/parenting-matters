@@ -1,0 +1,306 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a": {
+      "type": "hero-section-about",
+      "blocks": {
+        "template--19754753196330__ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a-1687941566f7dab774-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why choose Parenting Matters online?",
+            "heading_size": "h0"
+          }
+        },
+        "template--19754753196330__ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a-1687941566f7dab774-1": {
+          "type": "text",
+          "settings": {
+            "text": "Based on the latest research, Parenting Matters is an interactive, fun and highly effective online parenting course and community.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a-1687941566f7dab774-0",
+        "template--19754753196330__ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a-1687941566f7dab774-1"
+      ],
+      "settings": {
+        "desktop_content_position": "top-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "16d0b00f-eefe-4648-8a19-37bc0023c8fa": {
+      "type": "course-highlights-section",
+      "blocks": {
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0": {
+          "type": "track_quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Family_star.svg",
+            "sub_title": "Quiz",
+            "heading_text": "Track your Family Star",
+            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
+            "button_text": "Take the quiz",
+            "button_url": "",
+            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "layout": "image_first"
+          }
+        },
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1": {
+          "type": "exercise_quiz",
+          "settings": {
+            "sub_heading": "Quiz",
+            "heading": "Bite Sized Exercises",
+            "about_quiz": "Split into easy daily exercise's, the course let’s you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.",
+            "button_name": "Take the quiz",
+            "button_link": "",
+            "status_image": "shopify:\/\/shop_images\/Frame_7347_1.png",
+            "status_image_2": "shopify:\/\/shop_images\/Image_20.png",
+            "rule_icon": "shopify:\/\/shop_images\/Icon_16.svg",
+            "rule_icon_2": "shopify:\/\/shop_images\/Icon_17.svg",
+            "update_text": "Rules: Part 2",
+            "task_button_name": "Complete",
+            "task_url": "",
+            "update_text_2": "Play: Part 1",
+            "task_button_name_2": "Start",
+            "task_url_2": "",
+            "background_color": "#FDF8EC",
+            "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
+            "layout_2": "image_first"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0",
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading_text": "Some highlights from <br>the course",
+        "text_alignment": "center",
+        "heading_size": "h1",
+        "padding_top": 140,
+        "padding_bottom": 160
+      }
+    },
+    "31fc5afb-d0b6-41a8-824d-2153581bde4e": {
+      "type": "love-limit-section",
+      "blocks": {
+        "template--19754753196330__31fc5afb-d0b6-41a8-824d-2153581bde4e-168794416891d2ef39-0": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_7363.svg",
+            "card_description": "Love means being a supportive parent, and is the foundation of everything.",
+            "bg_card_color": "#e9f0ed"
+          }
+        },
+        "template--19754753196330__31fc5afb-d0b6-41a8-824d-2153581bde4e-168794416891d2ef39-1": {
+          "type": "column",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_7363_1.svg",
+            "card_description": "Limits is about being an assertive parent.",
+            "bg_card_color": "#e9f0ed"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__31fc5afb-d0b6-41a8-824d-2153581bde4e-168794416891d2ef39-0",
+        "template--19754753196330__31fc5afb-d0b6-41a8-824d-2153581bde4e-168794416891d2ef39-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_title": "We look at the two sides to being a good parent, Love and Limits.",
+        "section_content": "Through improving your Love & Limits your child will feel more secure, leading to becoming happier and more confident.",
+        "school_content": "We have seen a boost in school achievements by...",
+        "content_percent": "10-20%",
+        "top_radius": true,
+        "padding_top": 160,
+        "padding_bottom": 170,
+        "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b"
+      }
+    },
+    "91165899-7dc1-43fc-b674-0b386b4d68b0": {
+      "type": "two-column-card",
+      "blocks": {
+        "a9eb8e1b-7874-4900-bcc9-99baae9b1968": {
+          "type": "breakdownlove",
+          "settings": {
+            "love_label": "Course",
+            "card_heading": "Love",
+            "cart_content_bg_color": "#ffe8ae",
+            "breakdown_card_image": "shopify:\/\/shop_images\/Icon.svg",
+            "breakdown_card_title": "Play",
+            "title_description": "<p>Building relationships, fun and learning through play.<\/p>",
+            "breakdown_card_image2": "shopify:\/\/shop_images\/Icon_2.svg",
+            "breakdown_card_title2": "Praise",
+            "title_description2": "<p>Encourage better behaviour, co-operation and learning. <\/p>",
+            "breakdown_card_image3": "shopify:\/\/shop_images\/Icon_3.svg",
+            "breakdown_card_title3": "Listen",
+            "title_description3": "<p>Understanding and responding to your child’s feelings.<\/p>",
+            "color_scheme": "inverse"
+          }
+        },
+        "331039c7-14bf-40fd-9d57-3350fd3cbcc2": {
+          "type": "breakdownlove",
+          "settings": {
+            "love_label": "Course",
+            "card_heading": "Limits",
+            "cart_content_bg_color": "#e9f0ed",
+            "breakdown_card_image": "shopify:\/\/shop_images\/Icon_4.svg",
+            "breakdown_card_title": "Rules",
+            "title_description": "<p>Setting and enforcing consistent boundaries.<\/p>",
+            "breakdown_card_image2": "shopify:\/\/shop_images\/Icon_5.svg",
+            "breakdown_card_title2": "Temper",
+            "title_description2": "<p>Avoid power struggles, manage anger and stay calm.<\/p>",
+            "breakdown_card_image3": "shopify:\/\/shop_images\/Icon_6.svg",
+            "breakdown_card_title3": "Plan",
+            "title_description3": "<p>Developing resilience and pulling it all together.<\/p>",
+            "color_scheme": "accent-1"
+          }
+        }
+      },
+      "block_order": [
+        "a9eb8e1b-7874-4900-bcc9-99baae9b1968",
+        "331039c7-14bf-40fd-9d57-3350fd3cbcc2"
+      ],
+      "settings": {
+        "section_title": "How we breakdown Love and Limits in the course",
+        "top_radius": true,
+        "color_scheme": "",
+        "padding_top": 160,
+        "padding_bottom": 160
+      }
+    },
+    "94b9701b-52a2-4b8a-8077-7edfefaf4f25": {
+      "type": "join-card-section",
+      "blocks": {
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-0": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Daily bite-sized exercises."
+          }
+        },
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-1": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Solutions to your greatest parenting challenges."
+          }
+        },
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-2": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Easy ways to connect with your child"
+          }
+        },
+        "3adc54e8-7974-48ad-812d-e80cff459c6d": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Parenting tips, exercises, videos and feedback on progress"
+          }
+        },
+        "a7aca6dd-cfd5-40ad-b39e-34d0a4af6935": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Access to a supported private Community"
+          }
+        },
+        "e075b1c5-7fdc-490f-9389-8d722d07ccab": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "A calmer, happier home and a more confident parent"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-0",
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-1",
+        "template--19754753196330__94b9701b-52a2-4b8a-8077-7edfefaf4f25-168793569806a5b415-2",
+        "3adc54e8-7974-48ad-812d-e80cff459c6d",
+        "a7aca6dd-cfd5-40ad-b39e-34d0a4af6935",
+        "e075b1c5-7fdc-490f-9389-8d722d07ccab"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading_text": "What you’ll get when you join",
+        "button_text": "Join today",
+        "button_url": "#",
+        "top_radius": true,
+        "color_scheme": "",
+        "background_color": "#c9d9d3",
+        "border_color": "#01333e",
+        "padding_top": 160,
+        "padding_bottom": 64
+      }
+    },
+    "4345c6d8-b16b-4b79-aaf6-8d815b85b129": {
+      "type": "community-slider",
+      "blocks": {
+        "template--19754753196330__4345c6d8-b16b-4b79-aaf6-8d815b85b129-1687929040a764d34f-0": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
+          }
+        },
+        "66207b46-1efe-484b-84f9-7dc195f5aa33": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+          }
+        },
+        "14c728da-a8c2-4ed5-a273-f289c8a229b6": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        },
+        "2d4819d2-0add-4a8f-9844-5e877672daca": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__4345c6d8-b16b-4b79-aaf6-8d815b85b129-1687929040a764d34f-0",
+        "66207b46-1efe-484b-84f9-7dc195f5aa33",
+        "14c728da-a8c2-4ed5-a273-f289c8a229b6",
+        "2d4819d2-0add-4a8f-9844-5e877672daca"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_title": "Some words from our Community",
+        "top_border": true,
+        "bottom_border": false,
+        "padding_top": 64,
+        "padding_bottom": 0,
+        "bg_color": "#c9d9d3",
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a",
+    "16d0b00f-eefe-4648-8a19-37bc0023c8fa",
+    "31fc5afb-d0b6-41a8-824d-2153581bde4e",
+    "91165899-7dc1-43fc-b674-0b386b4d68b0",
+    "94b9701b-52a2-4b8a-8077-7edfefaf4f25",
+    "4345c6d8-b16b-4b79-aaf6-8d815b85b129"
+  ]
+}

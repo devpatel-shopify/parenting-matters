@@ -1,0 +1,184 @@
+{{ 'our-team-section.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+    .ourteam--{{ section.id }}--padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        Background: {{ section.settings.section_bg_color }};
+    }
+    
+    @media screen and (max-width: 749px) {
+        .parent--{{ section.id }}--padding {
+            padding-top: calc({{ section.settings.padding_top }}px - 90px);
+            padding-bottom: calc({{ section.settings.padding_bottom }}px - 91px);
+        }
+    }
+
+    {%- for block in section.blocks -%}
+        .our_team_block_wrapper {
+            Background: {{ section.settings.bg_card_color }};
+        }
+    {%- endfor -%}
+</style>
+
+<section class="ourteam--{{ section.id }}--padding ourteam--{{ section.id }}">
+    <div class="our_team_main_wrapper{% unless section.settings.full_width %} page-width{% endunless %}">
+        <div class="our_team_main">
+            {%- if section.settings.our_team_section_title != blank -%}
+                <div class="our_team_title_section">
+                    <h2 class="our_section_title">{{ section.settings.our_team_section_title }}</h2>
+                </div>
+            {%- endif -%}
+            <div class="our_team_block">
+                {%- for block in section.blocks -%}
+                    <div class="our_team_wrapper-main">
+                        <div class="our_team_block_wrapper">
+                            <div class="our_team_wrapper">
+                                {%- if block.settings.blog_card_image != blank -%}
+                                    <div class="our_team_image">
+                                        {{ block.settings.blog_card_image | image_url: width: 500 | image_tag }} 
+                                    </div>
+                                {%- endif -%}
+                                {%- if block.settings.card_bour_team_titletn != blank or block.settings.our_team_sub_title -%}
+                                    <div class="our_team_content">
+                                        {%- if block.settings.our_team_title != blank -%}
+                                            <h4 class="our_team_title">{{ block.settings.our_team_title }}</h4>
+                                        {%- endif -%}
+                                        {%- if block.settings.our_team_sub_title != blank -%}
+                                            <div class="our_team_sub_title">{{ block.settings.our_team_sub_title }}</div>
+                                        {%- endif -%}
+                                    </div>
+                                {%- endif -%}
+                            </div>
+                            {%- if block.settings.card_btn != blank -%}
+                                <div class="card_btn">
+                                    {%- if block.settings.card_btn != blank -%}
+                                        <a
+                                        {% if block.settings.card_btn_link == blank %}
+                                            role="link" aria-disabled="true"
+                                        {% else %}
+                                            href="{{ block.settings.card_btn_link }}"
+                                        {% endif %}
+                                        class="button button--secondary"
+                                        >
+                                        {{- block.settings.card_btn | escape -}}
+                                        {%- render 'icon-arrow' -%}
+                                        </a>
+                                    {%- endif -%}
+                                </div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name":"our team section",
+    "class": "our_team_section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Make Section Full Width",
+            "default": false
+        },
+        {
+            "type":"text",
+            "id": "our_team_section_title",
+            "label": "Our Team Section Title",
+            "default":"Meet the team behind Parenting Matters Online"
+        },
+        {
+            "type": "color",
+            "id": "section_bg_color",
+            "label": "Section Background Color",
+            "default": "#FDF8EC"
+        },
+        {
+            "type": "color",
+            "id": "bg_card_color",
+            "label": "Bg Card Color",
+            "default": "#FDF8EC"
+        },
+        {
+            "type": "header",
+            "content": "section padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "name": "ourteam",
+            "type": "ourteam",
+            "settings": [
+                {
+                    "type":"image_picker",
+                    "id": "blog_card_image",
+                    "label": "Our Team Member Image"
+                },
+                {
+                    "type":"text",
+                    "id": "our_team_title",
+                    "label": "Our Team Title",
+                    "default":"Professor Stephen Scott"
+                },
+                {
+                    "type":"text",
+                    "id": "our_team_sub_title",
+                    "label": "Our Team Sub Title",
+                    "default": "Professor of Child Health and Behaviour"
+                },
+                {
+                    "type":"richtext",
+                    "id": "our_team_description",
+                    "label": "Our Team Description"
+                },
+                {
+                    "type": "url",
+                    "id": "card_btn_link",
+                    "label": "Card Button Link"
+                },
+                {
+                    "type": "text",
+                    "id": "card_btn",
+                    "label": "Card button" ,
+                    "default": "Read more"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "our team section",
+            "blocks": [
+                {
+                    "type": "ourteam"
+                }
+            ] 
+        }
+    ]
+}
+{% endschema %}

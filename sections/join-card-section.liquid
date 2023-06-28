@@ -1,0 +1,188 @@
+{{ 'email-sign-up-section.css' | asset_url | stylesheet_tag }}
+{{ 'join-card-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+   }
+
+   @media screen and (min-width: 750px) {
+     .section-{{ section.id }}-padding {
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+     }
+   }
+{%- endstyle -%}
+
+<div class="join_card_section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+  <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
+    <div class="email_news" style="border: 1px solid {{ section.settings.border_color }};">
+      <div class="join_card_list">
+        {% if section.settings.heading_text != blank %}
+          <div class="joining_heading">
+            <div class="join_info">
+              <h2>{{ section.settings.heading_text }}</h2>
+            </div>
+          </div>
+        {% endif %}
+        <div class="join_benefits">
+          {% for block in section.blocks %}
+            {% style %}
+              .block-{{ block.id }}.join_benefit_list{
+                background:{{ section.settings.background_color }};
+              }
+            {% endstyle %}
+            <div class="join_benefit_list block-{{ block.id }}" {{ block.shopify_attributes }}>
+              {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | img_url: 'master' }}"
+                  alt="{{ block.settings.icon.alt }}"
+                  width="{{ block.settings.icon.width }}"
+                  height="{{ block.settings.icon.height }}"
+                >
+              {% endif %}
+              {% if block.settings.checklist != blank %}
+                <p class="p1">{{ block.settings.checklist }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% if section.settings.button_url != blank or section.settings.button_text != blank %}
+      <div class="join_button">
+        <a
+          class="button"
+          href="{{ section.settings.button_url }}"
+        >
+          {{- section.settings.button_text -}}
+
+          {% render 'icon-arrow' %}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Join Card Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Show content make a full width",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "heading_text",
+      "label": "Heading text",
+      "default": "Heading Text"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+        "type": "checkbox",
+        "id": "top_radius",
+        "default": true,
+        "label": "Section top border radius"
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Card Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#C9D9D3",
+      "label": "Style 2 background"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#01333E"
+    },
+
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "name": "text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "checklist",
+          "label": "Checklist",
+          "default": "List Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Join Card Section",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,192 @@
+{{ 'love-limit-section.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+    .parent--{{ section.id }}--padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    
+    @media screen and (max-width: 749px) {
+        .parent--{{ section.id }}--padding {
+            padding-top: calc({{ section.settings.padding_top }}px - 90px);
+            padding-bottom: calc({{ section.settings.padding_bottom }}px - 91px);
+        }
+    }
+    {% for block in section.blocks %}
+        .parent_card {
+            Background: {{ block.settings.bg_card_color }};
+        }
+    {%- endfor -%}
+
+</style>
+<section class="parent--{{ section.id }}--padding parent--{{ section.id }} color-{{ section.settings.color_scheme }} {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+    <div class="parent_main_wrapper {% unless section.settings.full_width %} page-width {% endunless %}">
+        <div class="parent_main">
+            <div class="parent_title">
+                <h1 class="section_title">{{ section.settings.section_title }}</h1>
+            </div>
+                <div class="parent_card_wrapper">
+                    {%- for block in section.blocks -%}
+                        {%- case block.type -%}
+                            {%- when 'column' -%}
+                                {%- if block.settings.card_image != blank or block.settings.card_description != blank -%}
+                                    <div class="parent_card" {{ block.shopify_attributes }}>
+                                        {%- if block.settings.card_image != blank -%}
+                                            <div class="card_image_cover">
+                                                {{ block.settings.card_image | image_url: width: 500 | image_tag }}
+                                            </div>
+                                        {%- endif -%}
+                                        {%- if block.settings.card_description != blank -%}
+                                            <div class="h4 card_description_wrapper">
+                                                {{ block.settings.card_description }}
+                                            </div>
+                                    {%- endif -%}
+                                    </div>
+                            {%- endif -%}
+                        {%- endcase -%}    
+                    {%- endfor -%}
+                </div>
+            {%- if section.settings.section_content != blank -%}
+                <div class="section_content_wrapper">
+                    <h3 class="description_title">{{ section.settings.section_content }}</h3>
+                </div>  
+            {%- endif -%} 
+            <div class="school_content_wrapper">
+                {%- if section.settings.school_content != blank or section.settings.content_percent != blank -%}
+                    <div class="school_main_content">
+                        <div class="school_content-main">
+                            {%- if section.settings.school_content != blank -%}
+                                <h4 class="section_title_contrent">{{ section.settings.school_content }}</h4>
+                            {%- endif -%}
+                            {%- if section.settings.content_percent != blank -%} 
+                                <div class="h0 school_content_percent">{{ section.settings.content_percent }}</div>
+                            {%- endif -%}
+                        </div>   
+                        <div class="bg_svg_image">
+                            <svg width="338" height="314" viewBox="0 0 338 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M336.919 138.669C341.574 239.104 249.413 314 160.675 314C71.9364 314 0 243.709 0 157C0 70.2913 71.9364 0 160.675 0C249.413 0 336.919 51.9602 336.919 138.669Z" fill="#FFD978"/>
+                            </svg>                                
+                        </div> 
+                    </div>
+                {%- endif -%}
+            </div>   
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name":"love limit section",
+    "class": "love_limit_section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Make Section Full Width",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title",
+            "default": "Read the latest from our blog."
+        },
+        {
+            "type": "text",
+            "id": "section_content",
+            "label": "Content Description",
+            "default": "Through improving your Love & Limits your child will feel more secure, leading to becoming happier and more confident."
+        },
+        {
+            "type": "text",
+            "id": "school_content",
+            "label": "School Title",
+            "default": "We have seen a boost in school achievements by..."
+        },
+        {
+            "type": "text",
+            "id": "content_percent",
+            "label": "content percent",
+            "default": "10-20%"
+        },
+        {
+            "type": "checkbox",
+            "id": "top_radius",
+            "default": false,
+            "label": "Section top border radius"
+        },
+        {
+            "type": "header",
+            "content": "section padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 36
+        },
+        {
+            "type": "header",
+            "content": "section color"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "default": "background-1"
+        }
+    ],
+    "blocks": [
+     {
+        "name":"column",
+        "type": "column",
+        "settings": [
+            {
+                "type":"image_picker",
+                "id": "card_image",
+                "label": "Card Image"
+            },
+            {
+                "type": "text",
+                "id": "card_description",
+                "label": "Card Description",
+                "default": "Love means being a supportive parent, and is the foundation of everything."
+            },
+            {
+                "type": "color",
+                "id": "bg_card_color",
+                "label": "Bg Card Color",
+                "default": "#E9F0ED"
+            }
+        ] 
+     }   
+    ],
+    "presets": [
+        {
+            "name": "Love Limit Section",
+            "blocks": [
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                }
+            ] 
+        }
+    ]
+}
+{% endschema %}

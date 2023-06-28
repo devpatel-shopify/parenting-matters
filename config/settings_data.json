@@ -243,6 +243,18 @@
           "shadow": "#121212",
           "border": "#c9d9d3"
         }
+      },
+      "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89": {
+        "settings": {
+          "background": "#ffd978",
+          "background_gradient": "",
+          "text": "#01333e",
+          "button": "#c72457",
+          "button_label": "#fdf8ec",
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3"
+        }
       }
     }
   },

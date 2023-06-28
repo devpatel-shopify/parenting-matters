@@ -121,7 +121,9 @@
 .border-bottom .slider_wrapper_inner {
     margin-bottom: 64px;
 }
-
+.community-slider_section .border-top {
+    padding-top: 128px;
+}
 
 
 
@@ -216,5 +218,7 @@
         min-height: 198px;
 
     }
-     
+    .community-slider_section .border-top {
+        padding-top: 80px;
+    }
 }

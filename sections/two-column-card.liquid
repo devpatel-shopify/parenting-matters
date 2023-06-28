@@ -35,7 +35,7 @@
 {%- endfor -%}    
 </style>
 
-<section class="two-column-card--{{ section.id }}-padding">
+<section class="two-column-card--{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %} color-{{ section.settings.color_scheme }}">
     <div class="two-column-card_section">
         <div class="two-column-card_wrapper {% unless section.settings.full_width %} page-width {% endunless %}">
             <div class="two-column-card_wrapper_inner">
@@ -98,7 +98,7 @@
 
 
                         {%- when 'breakdownlove' -%}
-                        <div class="two-column-card_inner breakdown_card">
+                        <div class="two-column-card_inner breakdown_card" {{ block.shopify_attributes }}>
                             <div class="column-card_item block-{{ block.id }} color-{{ block.settings.color_scheme }}">
                                 {% comment %} breakdown Love block start {% endcomment %}
                                 <div class="breakdown_card-main">
@@ -199,6 +199,18 @@
             "label": "Section Title"
         },
         {
+            "type": "checkbox",
+            "id": "top_radius",
+            "default": false,
+            "label": "Section top border radius"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "default": "background-1"
+        },
+        {
             "type": "header",
             "content": "section padding"
         },
@@ -206,7 +218,7 @@
             "type": "range",
             "id": "padding_top",
             "min": 0,
-            "max": 160,
+            "max": 200,
             "step": 2,
             "unit": "px",
             "label": "Padding top",
@@ -216,7 +228,7 @@
             "type": "range",
             "id": "padding_bottom",
             "min": 0,
-            "max": 160,
+            "max": 200,
             "step": 2,
             "unit": "px",
             "label": "Padding bottom",

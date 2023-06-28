@@ -1271,6 +1271,8 @@ button.shopify-payment-button__button--unbranded,
 }
 .button--secondary {
   background: transparent;
+  color: rgb(var(--color-secondary-button-text));
+  border-color: rgb(var(--color-secondary-button-text));
 }
 .button,
 .shopify-challenge__button,
@@ -1335,9 +1337,11 @@ button.shopify-payment-button__button--unbranded {
 }
 .button--secondary {
   background: transparent;
+  color: rgb(var(--color-secondary-button-text));
+  border-color: rgb(var(--color-secondary-button-text));
 }
 .button.button--secondary>svg, .button.button--tertiary>svg {
-  /* background: rgb(var(--color-secondary-button-text)); */
+  background: rgb(var(--color-secondary-button-text));
   color: rgba(var(--color-secondary-button));
 }
 
