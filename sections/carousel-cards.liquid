@@ -19,39 +19,37 @@
       margin-bottom: 20px;
     }
 
-    @media screen and (min-width: 991px) {
-      .section-{{ section.id }} .carousel__cell {
-        width:{{ section.settings.cell_width }};
-        margin-right:{{ section.settings.mr }}px;
-        max-width: {{ section.settings.cell_max_width }}rem;
-      }
-      
-    }
-
-
     @media screen and (min-width: 750px) {
       .section-{{ section.id }} {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
 
-    .section-{{ section.id }} .carousel__cell {
-      width:{{ section.settings.cell_width }};
-      margin-right:{{ section.settings.mr | times: 0.50 | round: 0 }}px;
-      max-width: {{ section.settings.cell_max_width }}rem;
+      .section-{{ section.id }} .carousel__cell {
+        width:{{ section.settings.cell_width }};
+        margin-right:{{ section.settings.mr | times: 0.50 | round: 0 }}px;
+        max-width: 615px;
+      }
+
+      .flickity-section-{{ section.id }} .banner__heading {
+        max-width: {{ section.settings.title_max_width }}rem;
+        margin: 0 auto;
+        margin-bottom: {{ section.settings.title_mb }}px;
+        letter-spacing: 0.54px;
+      }
+
+
     }
 
-    .flickity-section-{{ section.id }} .banner__heading {
-      max-width: {{ section.settings.title_max_width }}rem;
-      margin: 0 auto;
-      margin-bottom: {{ section.settings.title_mb }}px;
-      letter-spacing: 0.54px;
+
+
+    @media screen and (min-width: 991px) {
+      .section-{{ section.id }} .carousel__cell {
+        width:{{ section.settings.cell_width }};
+        margin-right:{{ section.settings.mr }}px;
+      }
+      
     }
-
-
-    }
-
-
 
 
 {% endstyle %}
@@ -229,16 +227,6 @@
           }
         ],
         "default": "50%"
-      },
-      {
-        "type": "range",
-        "id": "cell_max_width",
-        "min": 30,
-        "max": 130,
-        "step": 1,
-        "unit": "rem",
-        "label": "Box max width",
-        "default": 60
       },
       {
         "type": "radio",

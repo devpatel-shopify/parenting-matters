@@ -33,7 +33,7 @@
 .quotation_image_wrapper-left .quotation-svg{
     position: absolute;
     right: 0;
-    top: -70px;
+    top: -65px;
     z-index: 1;
 }
 
@@ -107,7 +107,7 @@
     overflow: hidden;
 }
 .community-slider-cover .slider_wrapper_inner {
-    padding: 65px 0 60px;
+    padding: 57px 0 69px;
 }
 .community-slider_content {
     font-size: 22px;

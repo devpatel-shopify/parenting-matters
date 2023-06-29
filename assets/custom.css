@@ -179,6 +179,9 @@ sticky-header[data-sticky-type="always"] {
   padding: 40px 32px;
   border-radius: 40px;
   transition: 0.4s all;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flickity-section-main .flickity-viewport {
@@ -312,7 +315,9 @@ sticky-header[data-sticky-type="always"] {
   margin-bottom: 60px;
 }
 
-
+summary.list-menu__item {
+  margin-right: 1.6rem;
+}
 
 
 

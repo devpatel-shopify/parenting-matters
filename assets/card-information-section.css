@@ -4,14 +4,12 @@
 }
 .card_detail {
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 60px;
 }
 .card_benefits_info {
-    width: 40%;
-    height: 600px;
+    width: 400px;
 }
 .card_benefits_info svg {
     /* top: 83px; */
@@ -21,15 +19,17 @@
     top: -44px;
     z-index: -1;
     left: 15px;
+    width: 100%;
+    max-width: 385px;
 }
 .card_sticky {
     position: sticky;
     top: 125px;
     left: 0;
+    padding-bottom: 30%;
 }
 .child_card {
     margin-top: 44px;
-   max-width: 400px;
 }
 .card_learn {
     margin: 16px 0 0 16px;
@@ -42,7 +42,7 @@
     letter-spacing: 0.28px;
 }
 .card_list {
-    width: 60%;
+    width: calc(100% - 400px);
     padding: 0 0 0 30px;
     margin-top: 108px;
 }
@@ -81,6 +81,25 @@
         width: 230px;
         height: auto;
     }
+    .card_sticky {
+        padding-bottom: 0;
+    }
+    .card_benefits_info {
+        width: 100%;
+    }
+    .card_list {
+        width: 100%;
+        padding: 0;
+    }
+    slider-component {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    .title-wrapper--self-padded-tablet-down {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    
 }
 @media screen and (max-width: 749px) {
     .card_benefits_info {
@@ -91,7 +110,6 @@
     .card_list {
         width: 100%;
         padding: 0;
-        margin-top: 50px;
     }
     .card_benefits_info svg {
         width: 197px;
@@ -105,6 +123,17 @@
     }
     .card_detail {
         margin-bottom: 40px;
+    }
+
+    .card_sticky {
+        padding-bottom: 0;
+    }
+    .title-wrapper--self-padded-tablet-down {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .card_benefits_info {
+        margin-bottom: 60px;
     }
     
 }
@@ -134,11 +163,9 @@
         padding-right: 0;
         margin-top: 32px;
     }
-    .card_benefits_info {
-        margin-bottom: 50px;
-    }
     .card_benefits_info .child_card {
         max-width: 306px;
     }
+    
 }
  

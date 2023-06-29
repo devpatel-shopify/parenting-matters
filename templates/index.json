@@ -87,7 +87,6 @@
         "cell_align1": "center",
         "title_mb": 80,
         "cell_width": "50%",
-        "cell_max_width": 61,
         "wrap_around": "true",
         "mr": 90,
         "padding_top": 140,
@@ -135,7 +134,7 @@
         "top_radius": true,
         "background_schema": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
         "background_color": "#e9f0ed",
-        "padding_top": 80,
+        "padding_top": 160,
         "padding_bottom": 160
       }
     },
@@ -148,7 +147,7 @@
         "button_url": "",
         "top_radius": true,
         "padding_top": 160,
-        "padding_bottom": 110
+        "padding_bottom": 80
       }
     },
     "cc855bf0-99e0-47fd-b8ae-878122144c79": {
@@ -202,6 +201,7 @@
         "template--19650833285418__14fd4b8c-7862-489d-9388-41e07e8be3de-16877555098e73e5cb-0": {
           "type": "cardimage",
           "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_1.svg",
             "card_label": "Quiz",
             "card_title": "What's your parenting style?",
             "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
@@ -238,7 +238,7 @@
         "top_radius": false,
         "color_scheme": "",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 80
       }
     },
     "ef59aef4-2884-455e-9c1a-337b9f48573e": {

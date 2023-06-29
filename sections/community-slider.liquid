@@ -45,7 +45,7 @@
                                 {% render 'quotation-right' %}
                             </div> 
                         </div>
-                        <div class="community-slider-main">
+                        <div class="community-slider-main keen-slider" id="my-keen-slider">
                             {%- for block in section.blocks -%}
                                 <div class="carousel-cell" {{ block.shopify_attributes }}>
                                     <div class="community-slider-block">
@@ -75,7 +75,8 @@
         wrapAround: false,
         prevNextButtons: true,
         contain: true,
-      });      
+        groupCells: true,
+      });
 </script>   
 
 {% schema %}
