@@ -565,11 +565,13 @@
   display: block;
 }
 .hero_about .hero-background-design-cover>svg {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%);
+  object-fit: cover;
+  min-height: 100%;
 }
 
 
@@ -603,7 +605,15 @@
 .hero-background-design-cover{ display: block; }
 }
 
-
+@media only screen and (max-width: 1440px) {
+.hero_about .hero-background-design-cover>svg {
+  height: 100%;
+  width: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+}
 
 
 
@@ -663,6 +673,13 @@
 .hero-image-about {
   bottom: 60px;
 }
+.hero_about .hero-background-design-cover>svg {
+  width: 100%;
+}
+.hero_about .hero-background-design-cover {
+  max-height: 100vh;
+}
+
 
 }
 

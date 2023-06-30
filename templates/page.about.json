@@ -74,7 +74,7 @@
             "update_text_2": "Play: Part 1",
             "task_button_name_2": "Start",
             "task_url_2": "",
-            "background_color": "#FDF8EC",
+            "background_color": "#fdf8ec",
             "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
             "layout_2": "image_first"
           }
@@ -177,6 +177,60 @@
         "section_title": "How we breakdown Love and Limits in the course",
         "top_radius": true,
         "color_scheme": "",
+        "padding_top": 160,
+        "padding_bottom": 160
+      }
+    },
+    "7490e172-6b78-479f-a6c6-c501ac228350": {
+      "type": "our-team-section",
+      "blocks": {
+        "template--19754753196330__7490e172-6b78-479f-a6c6-c501ac228350-1688115238cd3592f2-0": {
+          "type": "ourteam",
+          "settings": {
+            "blog_card_image": "shopify:\/\/shop_images\/Image_1.png",
+            "our_team_title": "Professor Stephen Scott",
+            "our_team_sub_title": "Professor of Child Health and Behaviour",
+            "our_team_description": "<ul><li>Lorem ipsum dolor sit amet consectetur. Ante diam netus maecenas cursus in. <\/li><li>Eu turpis fringilla ullamcorper duis volutpat mi gravida aliquam. <\/li><li>Adipiscing at sed natoque amet augue et sapien id risus. Vitae et risus ut enim aenean vitae elementum pellentesque turpis.<\/li><li>Nunc viverra leo tempor aliquam rhoncus posuere sociis duis. Pellentesque magnis consectetur justo volutpat sit et lacus euismod. Vitae egestas eleifend eros varius eget ut tellus. Lectus tristique accumsan ut congue lacinia risus non fringilla.<\/li><\/ul>",
+            "our_team_description2": "<p>Lorem ipsum dolor sit amet consectetur. Laoreet egestas et viverra euismod. Ullamcorper maecenas vitae fames risus ridiculus tristique ut lorem cursus. Nunc felis nam ante ullamcorper a et cursus. Nisl neque convallis et consequat. Molestie consequat cursus sapien laoreet at nullam interdum vitae.Tincidunt ultricies mauris orci pretium gravida. Egestas ultricies convallis tellus at gravida rhoncus aliquam ut. Volutpat consectetur molestie morbi netus non fusce a praesent. Sit dictumst egestas.<\/p>",
+            "card_btn": "Read more"
+          }
+        },
+        "679bc8fe-2ae0-46cb-a08f-c907e7a8549a": {
+          "type": "ourteam",
+          "settings": {
+            "blog_card_image": "shopify:\/\/shop_images\/Image.png",
+            "our_team_title": "Dr Clare Bailey",
+            "our_team_sub_title": "Founder, Parenting Matters",
+            "our_team_description": "<ul><li>Lorem ipsum dolor sit amet consectetur. Ante diam netus maecenas cursus in. <\/li><li>Eu turpis fringilla ullamcorper duis volutpat mi gravida aliquam. <\/li><li>Adipiscing at sed natoque amet augue et sapien id risus. Vitae et risus ut enim aenean vitae elementum pellentesque turpis.<\/li><li>Nunc viverra leo tempor aliquam rhoncus posuere sociis duis. Pellentesque magnis consectetur justo volutpat sit et lacus euismod. Vitae egestas eleifend eros varius eget ut tellus. Lectus tristique accumsan ut congue lacinia risus non fringilla.<\/li><\/ul>",
+            "our_team_description2": "<p>Lorem ipsum dolor sit amet consectetur. Laoreet egestas et viverra euismod. Ullamcorper maecenas vitae fames risus ridiculus tristique ut lorem cursus. Nunc felis nam ante ullamcorper a et cursus. Nisl neque convallis et consequat. Molestie consequat cursus sapien laoreet at nullam interdum vitae.Tincidunt ultricies mauris orci pretium gravida. Egestas ultricies convallis tellus at gravida rhoncus aliquam ut. Volutpat consectetur molestie morbi netus non fusce a praesent. Sit dictumst egestas.<\/p>",
+            "card_btn": "Read more"
+          }
+        },
+        "c13cf0a1-61f3-497d-a09a-f40d192ce96a": {
+          "type": "ourteam",
+          "settings": {
+            "blog_card_image": "shopify:\/\/shop_images\/Untitled.png",
+            "our_team_title": "Dr Michael Mosely",
+            "our_team_sub_title": "BBC Science Broadcaster",
+            "our_team_description": "<ul><li>Lorem ipsum dolor sit amet consectetur. Ante diam netus maecenas cursus in. <\/li><li>Eu turpis fringilla ullamcorper duis volutpat mi gravida aliquam. <\/li><li>Adipiscing at sed natoque amet augue et sapien id risus. Vitae et risus ut enim aenean vitae elementum pellentesque turpis.<\/li><li>Nunc viverra leo tempor aliquam rhoncus posuere sociis duis. Pellentesque magnis consectetur justo volutpat sit et lacus euismod. Vitae egestas eleifend eros varius eget ut tellus. Lectus tristique accumsan ut congue lacinia risus non fringilla.<\/li><\/ul>",
+            "our_team_description2": "<p>Lorem ipsum dolor sit amet consectetur. Laoreet egestas et viverra euismod. Ullamcorper maecenas vitae fames risus ridiculus tristique ut lorem cursus. Nunc felis nam ante ullamcorper a et cursus. Nisl neque convallis et consequat. Molestie consequat cursus sapien laoreet at nullam interdum vitae.Tincidunt ultricies mauris orci pretium gravida. Egestas ultricies convallis tellus at gravida rhoncus aliquam ut. Volutpat consectetur molestie morbi netus non fusce a praesent. Sit dictumst egestas.<\/p>",
+            "card_btn": "Read more"
+          }
+        }
+      },
+      "block_order": [
+        "template--19754753196330__7490e172-6b78-479f-a6c6-c501ac228350-1688115238cd3592f2-0",
+        "679bc8fe-2ae0-46cb-a08f-c907e7a8549a",
+        "c13cf0a1-61f3-497d-a09a-f40d192ce96a"
+      ],
+      "settings": {
+        "full_width": false,
+        "top_radius": true,
+        "our_team_section_title": "Meet the team behind Parenting Matters Online",
+        "section_bg_color": "#fdf8ec",
+        "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+        "bg_card_color": "#fdf8ec",
+        "color_scheme2": "",
         "padding_top": 160,
         "padding_bottom": 160
       }
@@ -300,6 +354,7 @@
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa",
     "31fc5afb-d0b6-41a8-824d-2153581bde4e",
     "91165899-7dc1-43fc-b674-0b386b4d68b0",
+    "7490e172-6b78-479f-a6c6-c501ac228350",
     "94b9701b-52a2-4b8a-8077-7edfefaf4f25",
     "4345c6d8-b16b-4b79-aaf6-8d815b85b129"
   ]

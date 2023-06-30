@@ -140,5 +140,8 @@
     .school_content-main {
         width: 100%;
     }
-    
+    .card_image_cover img {
+        max-height: 150px;
+        max-width: 150px;
+    }
 }

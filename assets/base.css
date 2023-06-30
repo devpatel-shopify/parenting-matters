@@ -1330,6 +1330,7 @@ button.shopify-payment-button__button--unbranded {
 }
 .button.button-small>svg {
   width: 24px;
+  min-width: 24px;
   height: 24px;
   padding: 0.57rem;
   margin-left: 12px;
