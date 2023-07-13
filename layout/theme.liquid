@@ -61,7 +61,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Light.woff2' | asset_url }}) format('woff2'),
@@ -70,7 +70,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Italic.woff2' | asset_url }}) format('woff2'),
@@ -79,7 +79,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-BlackItalic.woff2' | asset_url }}) format('woff2'),
@@ -88,7 +88,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Medium.woff2' | asset_url }}) format('woff2'),
@@ -97,7 +97,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Extralight.woff2' | asset_url }}) format('woff2'),
@@ -106,7 +106,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-ExtralightItalic.woff2' | asset_url }}) format('woff2'),
@@ -115,7 +115,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-BoldItalic.woff2' | asset_url }}) format('woff2'),
@@ -124,7 +124,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-ExtraboldItalic.woff2' | asset_url }}) format('woff2'),
@@ -133,7 +133,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Black.woff2' | asset_url }}) format('woff2'),
@@ -142,7 +142,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Bold.woff2' | asset_url }}) format('woff2'),
@@ -151,7 +151,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-LightItalic.woff2' | asset_url }}) format('woff2'),
@@ -160,7 +160,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-MediumItalic.woff2' | asset_url }}) format('woff2'),
@@ -169,7 +169,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Semibold.woff2' | asset_url }}) format('woff2'),
@@ -178,7 +178,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Regular.woff2' | asset_url }}) format('woff2'),
@@ -187,7 +187,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-Thin.woff2' | asset_url }}) format('woff2'),
@@ -196,7 +196,7 @@
           font-style: normal;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-SemiboldItalic.woff2' | asset_url }}) format('woff2'),
@@ -205,7 +205,7 @@
           font-style: italic;
           font-display: swap;
       }
-      
+
       @font-face {
           font-family: 'Switzer';
           src: url({{ 'Switzer-ThinItalic.woff2' | asset_url }}) format('woff2'),
@@ -468,6 +468,8 @@
     </ul>
 
     <script>
+      
+      
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
@@ -495,6 +497,8 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
+
+
     </script>
 
     {%- if settings.predictive_search_enabled -%}

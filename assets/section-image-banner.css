@@ -7,15 +7,25 @@
 .banner__box {
   text-align: center;
 }
+.hero_homepage{
+  margin-bottom:-20px
+}
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
 .banner__box.gradient {
   transform: perspective(0);
 }
-
+@media only screen and (max-width: 1099px) {
+  h3.banner__heading {
+    font-size: 40px;
+  }
+}
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
     text-align: right;
+  }
+    h3.banner__heading {
+    font-size: 30px;
   }
 
   .banner--content-align-mobile-left .banner__box {
@@ -518,7 +528,7 @@
   height: 100%;
 }
 .banner_content_cover .banner__content .banner__box {
-  padding: 4.6rem;
+  padding: 80px 4.6rem;
   /* padding: 3rem; */
 }
 .hero-background-design-cover {
@@ -547,7 +557,7 @@
 
 .hero-image-about {
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -594,7 +604,7 @@
   height: 630px;
 }
 .banner__box .h0 {
-  font-size: 54px;
+  font-size: 52px;
   font-weight: 500;
   line-height: 120%;
   letter-spacing: .42px;
@@ -615,7 +625,11 @@
 }
 }
 
-
+@media only screen and (max-width: 920px) {
+  .hero-design-main{
+    height: calc(700px + var(--header-height));
+  }
+}
 
 @media only screen and (max-width: 749px) {
 
@@ -671,7 +685,7 @@
 }
 
 .hero-image-about {
-  bottom: 60px;
+  bottom: 0px;
 }
 .hero_about .hero-background-design-cover>svg {
   width: 100%;

@@ -1,5 +1,6 @@
 .accordion_section .collapsible-content__wrapper {
     border-radius: 40px;
+  background: #C9D9D3;
 }
 
 .accordion_section .collapsible-content-wrapper-narrow{
@@ -125,7 +126,15 @@
     width: 32px;
     height: auto;
 }
-
+@media screen and (max-width: 1099px){
+  .accordion_section .collapsible-content__heading{
+    font-size:40px;
+  }
+  
+  .accordion_section > div{
+    padding-top: 0px;
+  }
+}
 @media screen and (max-width: 991px) {
 
     .accordion_section .custom--style_2 .accordion_icon svg {
@@ -135,6 +144,13 @@
     .accordion_section .collapsible-content-wrapper-narrow {
         padding: 40px;
     }
+  .accordion_section .collapsible-content__grid {
+    width: 100%;
+}
+  .accordion_section .collapsible-content__header {
+    width: 100%;
+    margin-bottom: 30px;
+}
 }
 
 @media screen and (max-width: 750px) {
@@ -166,9 +182,12 @@
         border-radius: 21.824px;
     }
     .accordion_section .custom--style_2 .accordion_icon svg {
-        width: 16px;
+        width: 17px;
         height: auto;
     }
+  .accordion_section .collapsible-content__heading{
+    font-size:30px;
+  }
     
 }
 @media screen and (max-width: 500px) {
@@ -178,7 +197,7 @@
     .accordion_section .collapsible-content-wrapper-narrow {
       padding: 32px 24px;
        
-    }
+      }
     .accordion_section .custom--style_2 .accordion {
         margin-bottom: 16px;
         margin-top: 16px;
@@ -194,6 +213,9 @@
         padding: 0 0 16px;
        
     }
+  .accordion_section .custom--style_2 .accordion__content p{
+    font-size:12px;
+  }
    
 }
  

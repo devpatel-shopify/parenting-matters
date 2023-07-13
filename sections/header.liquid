@@ -29,7 +29,7 @@
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
   header-drawer {
     justify-self: start;
@@ -505,6 +505,12 @@
     }
   </script>
 {%- endif -%}
+
+<script>
+  $('.down-arrow').on('click', function(){
+      $('.jump-open-block').toggleClass('current');
+  });
+</script>
 
 {% schema %}
 {

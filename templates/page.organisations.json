@@ -2,13 +2,121 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+
+      ],
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "4f8065cf-c65b-4431-bfc6-0f855b70a16b": {
+      "type": "hero-section-about",
+      "blocks": {
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "How can we help  your organisation?",
+            "heading_size": "h1"
+          }
+        },
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-1": {
+          "type": "text",
+          "settings": {
+            "text": "Explore all the types of organisations we can offer help too below.",
+            "text_style": "body"
+          }
+        },
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-2": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-0",
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-1",
+        "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-2"
+      ],
+      "settings": {
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "b4a2a826-d74c-4f40-9459-f507250b14ce": {
+      "type": "jump-section",
+      "settings": {
+      }
+    },
+    "b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f": {
+      "type": "community-slider",
+      "blocks": {
+        "template--19831425138986__b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f-168922744199f58f8a-0": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“I have run a Parenting Matters group online in our school. There were many moving movements where the course would create opportunities for parents to hear and support each other with kindness and compassion, feel normal and less ‘rubbish parent’ While at the same time supporting each other to put into practice the strategies from the programme. “<\/p>"
+          }
+        },
+        "0a83bcae-e00c-4440-aad3-21abac2fa991": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“The Parenting Matters programme has made life and home so much easier and has enabled me to find a much better work\/life balance. Before I took the programme I was distracted at work and wondering about giving it up. Now I can really concentrate on work when I'm there and feel much more enthusiastic about my job while at the same time enjoying my children.”<\/p>"
+          }
+        },
+        "cef454b3-1ff9-4160-8b37-d96485b52946": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“I just wanted to say how helpful and great this course is. I wish I had had it earlier. Every parent should have this information. It's like a lightbulb has gone off in my head.”<\/p>"
+          }
+        },
+        "246507b6-6e4b-4c71-9d51-91ba36d2cb25": {
+          "type": "block",
+          "settings": {
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19831425138986__b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f-168922744199f58f8a-0",
+        "0a83bcae-e00c-4440-aad3-21abac2fa991",
+        "cef454b3-1ff9-4160-8b37-d96485b52946",
+        "246507b6-6e4b-4c71-9d51-91ba36d2cb25"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_title": "Some words from  our Community.",
+        "top_border": true,
+        "bottom_border": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "bg_color": "#ffd978",
+        "color_scheme": ""
+      }
+    },
+    "1cce3b64-fc85-424c-adae-9e06f0ad71af": {
+      "type": "get-in-touch",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "4f8065cf-c65b-4431-bfc6-0f855b70a16b",
+    "b4a2a826-d74c-4f40-9459-f507250b14ce",
+    "b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f",
+    "1cce3b64-fc85-424c-adae-9e06f0ad71af"
   ]
 }

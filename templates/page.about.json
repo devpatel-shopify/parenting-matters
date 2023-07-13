@@ -90,7 +90,7 @@
         "text_alignment": "center",
         "heading_size": "h1",
         "padding_top": 140,
-        "padding_bottom": 160
+        "padding_bottom": 104
       }
     },
     "31fc5afb-d0b6-41a8-824d-2153581bde4e": {
@@ -100,7 +100,7 @@
           "type": "column",
           "settings": {
             "card_image": "shopify:\/\/shop_images\/Frame_7363.svg",
-            "card_description": "Love means being a supportive parent, and is the foundation of everything.",
+            "card_description": "<span>Love<\/span> means being a supportive parent, and is the foundation of everything.",
             "bg_card_color": "#e9f0ed"
           }
         },
@@ -108,7 +108,7 @@
           "type": "column",
           "settings": {
             "card_image": "shopify:\/\/shop_images\/Frame_7363_1.svg",
-            "card_description": "Limits is about being an assertive parent.",
+            "card_description": "<span>Limits<\/span> is about being an assertive parent.",
             "bg_card_color": "#e9f0ed"
           }
         }
@@ -178,7 +178,7 @@
         "top_radius": true,
         "color_scheme": "",
         "padding_top": 160,
-        "padding_bottom": 160
+        "padding_bottom": 220
       }
     },
     "7490e172-6b78-479f-a6c6-c501ac228350": {
@@ -232,7 +232,7 @@
         "bg_card_color": "#fdf8ec",
         "color_scheme2": "",
         "padding_top": 160,
-        "padding_bottom": 160
+        "padding_bottom": 200
       }
     },
     "94b9701b-52a2-4b8a-8077-7edfefaf4f25": {
@@ -338,9 +338,9 @@
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from our Community",
+        "section_title": "Some words from  our Community.",
         "top_border": true,
-        "bottom_border": false,
+        "bottom_border": true,
         "padding_top": 64,
         "padding_bottom": 0,
         "bg_color": "#c9d9d3",

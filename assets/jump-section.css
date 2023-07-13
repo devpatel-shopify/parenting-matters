@@ -1,0 +1,335 @@
+.jump-details {
+  background: #c9d9d3;
+  padding: 64px;
+  border-radius: 40px;
+      margin-bottom: 32px;
+}
+.jump-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.jump-title {
+  width: 39%;
+}
+.jump-text {
+  width: 58%;
+}
+.jump-text h4 {
+  letter-spacing: 0.28px;
+  margin-bottom: 32px;
+}
+.jump-text p {
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0.2px;
+}
+.jump-title h2 {
+  font-size: 54px;
+}
+.down-arrow a svg {
+  width: 24px;
+  margin-left: 12px;
+  height: 24px;
+  margin-right: 0;
+  transform: rotate(90deg);
+}
+.down-arrow a {
+  font-size: 14px;
+  padding: 8px 8px 8px 16px;
+}
+.jump-click-btn p {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.jump-btn-block a {
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 25px;
+  border: 1px solid #01333e;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+      color: #01333E;
+}
+.jump-btn-block {
+  text-align: center;
+}
+.jump-block {
+  margin-top: 40px;
+}
+
+.jump-click-btn {
+  margin-bottom: 54px;
+}
+.inner-first-count {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-top: 48px;
+  position: relative;
+  margin-bottom: 48px;
+}
+.inner-first-count .count-text {
+  position: absolute;
+  top: 30px;
+  left: 53px;
+}
+.inner-first-count .count-text h2 {
+  font-size: 54px;
+  margin-bottom: 12px;
+}
+
+.inner-first-count .count-text p {
+  font-size: 21.866px;
+  line-height: 120%;
+  letter-spacing: 0.219px;
+  max-width: 495px;
+}
+.inner-second-count {
+  max-width: 750px;
+  margin-left: auto;
+  position: relative;
+}
+.inner-second-count .count-text {
+  position: absolute;
+  top: 27px;
+  left: 22px;
+}
+.inner-second-count .count-text h2 {
+  font-size: 54px;
+  margin-bottom: 12px;
+}
+.inner-second-count .count-text p {
+  font-size: 21.866px;
+  line-height: 120%;
+  letter-spacing: 0.219px;
+  max-width: 646px;
+}
+.inner-second-count {
+  margin-bottom: 80px;
+}
+.inner-grid-block .grid-box {
+  display: flex;
+  justify-content: space-between;
+}
+.inner-grid-block .grid-box .inner-title {
+  position: relative;
+  width: 30%;
+}
+.inner-grid-block .grid-box .inner-title .grid-title {
+  position: absolute;
+  top: 63px;
+  left: 25px;
+}
+.inner-grid-block .grid-box .inner-title .grid-title svg {
+  position: absolute;
+  right: 90px;
+  bottom: -150px;
+}
+.inner-card {
+  border-radius: 40px;
+  background: #e9f0ed;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.inner-icon {
+  width: 17%;
+}
+.card-text {
+  width: 83%;
+}
+.card-text h5 {
+  margin: 16px 0 6px;
+}
+
+.inner-grid-block .grid-box .inner-boxes {
+  width: 49%;
+  margin-top: 63px;
+}
+.round-text-block .button_space {
+  text-align: center;
+  margin-top: 36px;
+}
+.jump-open-block{
+  margin-bottom: 160px;
+}
+.jump-redirect-block.cream-bg .jump-details{
+  background: #F7C083;
+}
+.jump-redirect-block.cream-bg .inner-card{
+  background: #FCEAD6;
+}
+
+
+.jump-redirect-block.yellow-bg .jump-details{
+  background: #FFD978;
+}
+.jump-redirect-block.yellow-bg .inner-card{
+  background: #FFE8AE;
+}
+
+.jump-redirect-block.pink-bg .jump-details{
+  background: #F4D3DD;
+}
+.jump-redirect-block.pink-bg .inner-card{
+  background: #F4D3DD;
+}
+
+.jump-redirect-block:last-child .jump-open-block{
+  margin-bottom: 100px;
+}
+
+
+@media screen and (max-width: 1299px) {
+  .inner-grid-block .grid-box .inner-boxes {
+    width: 56%;
+  }
+}
+@media screen and (max-width: 1099px) {
+  .inner-grid-block .grid-box {
+    flex-wrap: wrap;
+  }
+  .inner-grid-block .grid-box .inner-title {
+    width: 100%;
+  }
+  .inner-grid-block .grid-box .inner-boxes {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .inner-icon {
+    width: 12%;
+  }
+  .card-text {
+    width: 88%;
+  }
+  .jump-title h2 {
+    font-size: 40px;
+  }
+  .jump-text h4 {
+    font-size: 23px;
+    margin-bottom: 22px;
+  }
+  .jump-text p {
+    font-size: 18px;
+  }
+  .jump-grid {
+    margin-bottom: 38px;
+  }
+  .inner-first-count .count-text h2 {
+    font-size: 40px;
+  }
+  .inner-first-count .count-text p {
+    font-size: 19.866px;
+  }
+  .inner-second-count .count-text h2 {
+    font-size: 40px;
+  }
+  .inner-second-count .count-text p {
+    font-size: 19.866px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .jump-details {
+    padding: 32px 24px;
+  }
+  .jump-title {
+    width: 100%;
+    margin-bottom: 48px;
+  }
+  .jump-title h2 {
+    font-size: 30px;
+  }
+  .jump-text {
+    width: 100%;
+  }
+  .jump-text h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .jump-text p {
+    font-size: 14px;
+  }
+  .jump-grid {
+    margin-bottom: 48px;
+  }
+  .inner-first-count {
+    margin-top: 22px;
+  }
+  .inner-first-count .count-text {
+    left: 0;
+  }
+  .inner-first-count svg {
+    position: relative;
+    left: -50px;
+  }
+  .inner-first-count .count-text h2 {
+    font-size: 42px;
+  }
+  .inner-first-count .count-text p {
+    font-size: 16px;
+  }
+  .inner-second-count .count-text h2 {
+    font-size: 42px;
+  }
+  .inner-second-count .count-text p {
+    font-size: 16px;
+  }
+  .inner-second-count svg {
+    position: relative;
+    left: 40px;
+  }
+  .inner-second-count .count-text {
+    left: 62px;
+  }
+  .inner-grid-block .grid-box .inner-title svg {
+    width: 188px;
+    height: 188px;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title svg {
+    display: none;
+  }
+  .inner-second-count {
+    margin-bottom: 30px;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title {
+    top: 43px;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title h2 {
+    max-width: 400px;
+  }
+  .inner-icon {
+    width: 16%;
+  }
+  .card-text {
+    width: 84%;
+  }
+}
+
+@media screen and (max-width: 641px) {
+  .inner-card {
+    flex-wrap: nowrap;
+    padding: 16px;
+  }
+  .inner-icon {
+    width: 50px;
+  }
+  .card-text {
+    width: 90%;
+  }
+  .inner-card {
+    margin-bottom: 16px;
+  }
+  .inner-icon svg {
+    width: 40px;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title h2 {
+    max-width: 219px;
+  }
+}

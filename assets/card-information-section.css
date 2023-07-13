@@ -40,6 +40,7 @@
 .card_learn h4{
     margin: 0 0 6px;
     letter-spacing: 0.28px;
+      
 }
 .card_list {
     width: calc(100% - 400px);
@@ -73,7 +74,16 @@
 
 
 
-
+@media screen and (max-width: 1099px) {
+  .child_card h2{
+    font-size:40px;
+  }
+  .card_information_section{
+    padding-top:110px !important;
+        padding-bottom: 110px !important;
+  }
+  
+}
 
 
 @media screen and (min-width: 750px) and (max-width: 999px) {
@@ -100,6 +110,23 @@
         padding-right: 5rem;
     }
     
+}
+@media screen and (max-width: 1099px) {
+  .card_learn p{
+    font-size:14px;
+  }
+  .card_learn h4{
+    font-size: 26px;
+  }
+  .child_card h2{
+    font-size:40px;
+            max-width: 380px;
+  }
+  .card_benefits_info svg{
+        top: -50px;
+  }
+  
+  
 }
 @media screen and (max-width: 749px) {
     .card_benefits_info {
@@ -154,6 +181,7 @@
     }
     .card_learn h4 {
         margin: 0 0 3px;
+      font-size: 18px;
     }
     .card_information_section .button_space{
         margin-top: 32px;
@@ -166,6 +194,12 @@
     .card_benefits_info .child_card {
         max-width: 306px;
     }
+   .child_card h2{
+    font-size:28px;
+  }
+  .card_learn p{
+        line-height: 120%;
+  }
     
 }
  

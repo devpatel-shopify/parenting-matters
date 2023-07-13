@@ -79,8 +79,27 @@ max-height: 151px;
 }
 
 .email_sign-up_section .email_detail_fill input.field__input::placeholder { display: block !important; opacity: 1; visibility: visible; color: #999; }
-
-
+@media screen and (max-width: 1099px) {
+  .email_tips h2{
+        font-size: 40px;
+  }
+  
+  .email_sign-up_section{
+      padding-top: 30px !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .email_info {
+    width: 100%;
+    margin-bottom: 20px;
+}
+  .email_tips {
+    padding-right: 0;
+}
+  .email_form {
+    width: 100%;
+}
+}
 @media screen and (max-width: 750px) {
     .email_form,
     .email_info {
@@ -96,6 +115,9 @@ max-height: 151px;
     .email_tips {
         padding-right: 0;
     }
+  .email_tips h2{
+        font-size: 28px;
+  }
 }
 @media screen and (max-width: 500px) {
     .email_news {  

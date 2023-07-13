@@ -24,6 +24,7 @@
 .two-column-card .column-card_item {
     padding: 64px;
     border-radius: 40px;
+      
 }
 
 .two-column-card .card_label {
@@ -96,7 +97,7 @@
 }
 
 .two-column-card .breakdown_card_title {
-    margin-bottom: 6px;
+    margin-bottom: 6px;margin-top: 16px;
 }
 .two-column-card_inner .card_title {
     margin-bottom: 12px;
@@ -107,7 +108,17 @@
 
 
 
-
+@media screen and (max-width: 1099px) {
+  .two-column-card_inner .card_title{
+    font-size: 44px;
+  }
+  .two-column-card .two-column-card-title .title{
+        font-size: 40px;
+  }
+  .two-column-card_inner .card_title{
+        max-width: 300px
+  }
+}
 
 
 @media screen and (max-width: 980px) {
@@ -124,6 +135,13 @@
     .two-column-card .breakdown_card:not(:last-child) {
         margin-bottom: 40px;
     }
+  
+  .two-column-card_inner .card_title{
+    font-size: 40px;
+  }
+   .two-column-card .breakdown_card_inner_main{
+    align-items: start;
+  }
 }
 @media screen and (max-width: 749px) {
     .two-column-card .column-card_item {
@@ -159,11 +177,29 @@
     }
     .two-column-card .breakdown_card_title {
         font-size: calc(var(--font-body-scale) * 16px);
+      margin-top: 12px;
     }
     .two-column-card_inner .card_title {
         margin-bottom: 12px;
+      
     }
     .two-column-card .column-card_item {
         border-radius: 21.824px;
     }
+  .two-column-card_inner .card_title{
+    font-size: 28px;
+          max-width: 220px;
+  }
+  .two-column-card .card_label{
+    font-size: 12px;
+  }
+  .two-column-card--template--19831424975146__14fd4b8c-7862-489d-9388-41e07e8be3de-padding{
+        padding-top: 17px !important;
+    
+  }
+  .two-column-card .card_description p{
+        font-size: 14px;
+    line-height: 120%;
+  }
+ 
 }

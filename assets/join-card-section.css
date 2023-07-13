@@ -9,7 +9,7 @@
 }
 .join_benefits {
     width: 60%;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 .join_benefit_list img {
     max-width: 32px;
@@ -33,10 +33,22 @@
     text-align: center;
     margin-top: 64px;
 }
+@media screen and (max-width: 1099px){
+  .join_info h2{
+    font-size:40px;
+  }
+  
+}
 @media screen and (max-width: 990px){
     .join_card_section .email_news {
         padding: 40px;
     }
+  .join_benefit_list p{
+        font-size: 18px;
+  }
+  .join_card_section {
+        padding-top: 115px !important;
+  }
 }
 @media screen and (max-width: 750px) {
     .joining_heading {
@@ -69,4 +81,14 @@
     .join_button {
         margin-top: 32px;
     }
+  .join_card_section {
+    padding-top: 80px !important;
+    padding-bottom: 16px !important;
+  }
+  .join_benefit_list p {
+    font-size: 14px;
+}
+  .join_info h2{
+    font-size:30px;
+  }
 }

@@ -41,6 +41,14 @@
 }
 
 
+@media only screen and (max-width: 1099px) {
+  .jb-text .section-title h2{
+      font-size:40px;
+  }
+  .join-banner-section section{
+    padding-top: 110px;
+  }
+}
 
 @media only screen and (max-width: 749px) {
 
@@ -60,6 +68,9 @@
 .jb-text .section-title {
     margin-bottom: 32px;
 }
+  .jb-text .section-title h2{
+      font-size:28px;
+  }
 
 }
 
