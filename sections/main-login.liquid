@@ -1,4 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -14,10 +15,11 @@
   }
 {%- endstyle -%}
 
-<div class="customer login section-{{ section.id }}-padding">
+<div class="customer contact-form login section-{{ section.id }}-padding">
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
+
   <div>
     <p>
       {{ 'customer.recover_password.subtext' | t }}
@@ -25,7 +27,10 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="field-box">
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           value=""
@@ -39,11 +44,8 @@
             aria-describedby="RecoverEmail-email-error"
             autofocus
           {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
+          placeholder="Enter your email"
         >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
       {%- if form.errors -%}
         <small id="RecoverEmail-email-error" class="form__message">
@@ -70,6 +72,7 @@
   <h1 id="login" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
+  <p>Quickly get started by signing in using your existing log-in details or hit Create account to sign up.</p>
   <div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
@@ -96,7 +99,10 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">
+      <div class="field-box">
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           name="customer[email]"
@@ -107,15 +113,15 @@
           {% if form.errors contains 'form' %}
             aria-invalid="true"
           {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
+          placeholder="Enter your email"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">
+        <div class="field-box">
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
           <input
             type="password"
             value=""
@@ -125,24 +131,41 @@
             {% if form.errors contains 'form' %}
               aria-invalid="true"
             {% endif %}
-            placeholder="{{ 'customer.login_page.password' | t }}"
+            placeholder="Enter your password"
           >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
         </div>
-
-        <a href="#recover">
-          {{ 'customer.login_page.forgot_password' | t }}
-        </a>
       {%- endif -%}
-
-      <button>
-        {{ 'customer.login_page.sign_in' | t }}
-      </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
+      <div class="login-button">
+        <button class="button button--primary">
+          {{ 'customer.login_page.sign_in' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <p>or</p>
+        <a class="button button--secondary" href="{{ routes.account_register_url }}">
+          {{ 'customer.login_page.create_account' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
+        </a>
+      </div>
+      <a href="#recover">
+        {{ 'customer.login_page.forgot_password' | t }}
       </a>
     {%- endform -%}
   </div>
@@ -160,7 +183,58 @@
     </div>
   {%- endif -%}
 </div>
-
+{% comment %}
+  <section class="contact-form-block">
+    <div class="page-width">
+      <div class="contact-form">
+        <h2>Welcome back</h2>
+        <p>Quickly get started by signing in using your existing log-in details or hit Create account to sign up.</p>
+        <form action="">
+          <div class="input-block">
+            <label for="">Email address*</label>
+            <input type="email" name="" placeholder="Enter your email" id="">
+          </div>
+          <div class="input-block">
+            <label for="">Password*</label>
+            <input type="password" name="" placeholder="Enter your password" id="">
+          </div>
+          <div class="button-block">
+            <button class="button button--primary">
+              Login
+              <svg
+                aria-hidden="true"
+                class="icon icon-arrow"
+                focusable="false"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <p>or</p>
+            <button class="button button--secondary">
+              Create account
+              <svg
+                aria-hidden="true"
+                class="icon icon-arrow"
+                focusable="false"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="forgot-link">
+            <a href="#">Forgotten password </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endcomment %}
 {% schema %}
 {
   "name": "t:sections.main-login.name",

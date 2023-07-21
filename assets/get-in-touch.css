@@ -15,20 +15,24 @@
 }
 .get-icon img{
         width: 131px;
+  height: 153px;
+    object-fit: cover;
 }
 .get-details p{
   margin: 32px 0;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 1099px) {
   .get-details h2{
         font-size: 37px;
   }
+  .get-info{
+    padding: 54px;
+  }
 }
 @media screen and (max-width: 991px) {
-  .get-info{
-    padding: 32px 24px;
-  }
+  
   .get-details h2{
     font-size: 28px;
   }
@@ -39,7 +43,7 @@
 
 @media screen and (max-width: 767px){
   .get-info{
-    gap: 24px;
+    gap: 22px;
     flex-wrap: wrap;
   }
   .get-details a{
@@ -51,5 +55,14 @@
     height: 24px;
     width: 24px;
    }
+  .get-details p{
+    margin: 12px 0 24px;
+        font-size: 14px;
+  }
+.get-icon img{
+  width: 96.066px;
+    height: 112px;
+}.get-info{
+    padding: 32px 24px;
+    }
 }
-

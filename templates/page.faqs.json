@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b4e584d7-92b3-425f-9c7a-ec0b7d687f55": {
+      "type": "faq-banner",
+      "settings": {
+      }
+    },
+    "9d621353-e509-441d-951a-c68648920678": {
+      "type": "faq-block",
+      "settings": {
+      }
+    },
+    "0418ea40-c8db-4fee-b9ed-8a74eab9c2ae": {
+      "type": "email-sing-up-section",
+      "settings": {
+        "full_width": false,
+        "email_image": "shopify:\/\/shop_images\/get-icon.png",
+        "heading_text": "Can’t find what your looking for?",
+        "heading_small": "Send us your question and we can get back to you.",
+        "button_text": "Button",
+        "button_url": "",
+        "color_scheme": "",
+        "border_color": "#c72457",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b4e584d7-92b3-425f-9c7a-ec0b7d687f55",
+    "9d621353-e509-441d-951a-c68648920678",
+    "0418ea40-c8db-4fee-b9ed-8a74eab9c2ae"
+  ]
+}

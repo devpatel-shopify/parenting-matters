@@ -124,7 +124,10 @@
 .community-slider_section .border-top {
     padding-top: 128px;
 }
-
+.template--organisations .community-slider-section .carousel-cell{
+  min-height: 400px;
+    max-width: 507px;
+}
 
 @media screen and (max-width: 1099px) {
   .community-slider-title h2{
@@ -165,6 +168,9 @@
         font-size: calc(var(--font-heading-scale) * 16px);
         line-height: calc(1 + 0.3 / var(--font-body-scale));
     }
+  .community-slider_content p{
+    font-size: 21px;
+  }
     
 }
 @media screen and (max-width: 749px) {
@@ -236,5 +242,11 @@
   }
   .section-template--19831424975146__765f1e9f-d92c-4a1e-84ab-8b8d84334904{
     padding-top: 100px;
+  }
+  .template--organisations .community-slider_section .border-top {
+    padding-top: 128px;
+}
+  .community-slider_content p{
+    font-size: 16.83px;
   }
 }

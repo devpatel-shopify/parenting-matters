@@ -237,11 +237,11 @@
     "contact": {
       "form": {
         "title": "Contact form",
-        "name": "Name",
-        "email": "Email",
-        "phone": "Phone number",
-        "comment": "Comment",
-        "send": "Send",
+        "name": "Full name",
+        "email": "Email address",
+        "phone": "Confirm phone number",
+        "comment": "Comments (optional)",
+        "send": "Submit",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:"
       }
@@ -381,13 +381,13 @@
     "login_page": {
       "cancel": "Cancel",
       "create_account": "Create account",
-      "email": "Email",
-      "forgot_password": "Forgot your password?",
+      "email": "Email address*",
+      "forgot_password": "Forgotten password ",
       "guest_continue": "Continue",
       "guest_title": "Continue as a guest",
-      "password": "Password",
-      "title": "Login",
-      "sign_in": "Sign in",
+      "password": "Password*",
+      "title": "Welcome back",
+      "sign_in": "Login",
       "submit": "Submit"
     },
     "order": {
@@ -432,12 +432,12 @@
       "success": "We've sent you an email with a link to update your password."
     },
     "register": {
-      "title": "Create account",
-      "first_name": "First name",
+      "title": "Welcome to Parenting matters",
+      "first_name": "Full name*",
       "last_name": "Last name",
-      "email": "Email",
-      "password": "Password",
-      "submit": "Create"
+      "email": "Email address*",
+      "password": "Confirm password*",
+      "submit": "Create account"
     },
     "reset_password": {
       "title": "Reset account password",

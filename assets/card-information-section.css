@@ -24,7 +24,8 @@
 }
 .card_sticky {
     position: sticky;
-    top: 125px;
+    /* top: 125px; */
+    top: 40%;
     left: 0;
     padding-bottom: 30%;
 }

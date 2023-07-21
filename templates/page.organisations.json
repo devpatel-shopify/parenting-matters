@@ -47,7 +47,8 @@
         "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-2"
       ],
       "settings": {
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "top-center",
+        "banner_img": "shopify:\/\/shop_images\/imgpsh_fullsize_anim_1.png",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
@@ -97,7 +98,7 @@
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from  our Community.",
+        "section_title": "Some words from <br> our Community.",
         "top_border": true,
         "bottom_border": false,
         "padding_top": 36,

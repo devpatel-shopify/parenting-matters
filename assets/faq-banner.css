@@ -1,0 +1,16 @@
+.faq-banner{
+  position: relative;
+  margin-bottom: 70px;
+      margin-top: -82px;
+}
+.faq-banner .faq-banner-text{
+  top: 180px;
+    position: absolute;
+}
+.faq-banner .faq-banner-text h2{
+  font-size: 72px;
+  
+}
+
+
+

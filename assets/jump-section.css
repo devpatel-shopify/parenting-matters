@@ -24,9 +24,11 @@
   font-size: 20px;
   line-height: 120%;
   letter-spacing: 0.2px;
+  margin: 32px 0 0
 }
 .jump-title h2 {
   font-size: 54px;
+  max-width: 400px;
 }
 .down-arrow a svg {
   width: 24px;
@@ -46,17 +48,23 @@
 }
 .jump-btn-block a {
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 5px 10px;
   border-radius: 25px;
   border: 1px solid #01333e;
   display: inline-block;
   font-size: 14px;
-  margin-left: 8px;
+
   margin-bottom: 8px;
       color: #01333E;
+  letter-spacing: 0.14px;
+    line-height: 120%;
 }
 .jump-btn-block {
   text-align: center;
+  display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 .jump-block {
   margin-top: 40px;
@@ -86,7 +94,7 @@
   font-size: 21.866px;
   line-height: 120%;
   letter-spacing: 0.219px;
-  max-width: 495px;
+  max-width: 495px;font-weight: 500;
 }
 .inner-second-count {
   max-width: 750px;
@@ -107,6 +115,7 @@
   line-height: 120%;
   letter-spacing: 0.219px;
   max-width: 646px;
+  font-weight: 500;
 }
 .inner-second-count {
   margin-bottom: 80px;
@@ -114,10 +123,15 @@
 .inner-grid-block .grid-box {
   display: flex;
   justify-content: space-between;
+  gap: 157px;
 }
 .inner-grid-block .grid-box .inner-title {
-  position: relative;
-  width: 30%;
+/*   position: relative; */
+/*   width: 30%; */
+  position: sticky;
+  /* top: 70px; */
+  top: 40%;
+  height: 100%;
 }
 .inner-grid-block .grid-box .inner-title .grid-title {
   position: absolute;
@@ -145,17 +159,39 @@
 .card-text {
   width: 83%;
 }
+.card-text a{
+      display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #01333E;
+  font-size: 14px;
+}
+.card-text a svg{
+  margin-left: 12px;
+}
 .card-text h5 {
   margin: 16px 0 6px;
 }
 
 .inner-grid-block .grid-box .inner-boxes {
-  width: 49%;
+/*   width: 53%; */
   margin-top: 63px;
+  position: relative;
 }
+.inner-grid-block .grid-box .inner-boxes .right-svg{
+      position: absolute;
+    top: 37%;
+    left: -150px;
+    z-index: -1;
+}
+.round-text-block{
+      max-width: 1160px;
+    margin: 0 auto;
+}
+
 .round-text-block .button_space {
-  text-align: center;
-  margin-top: 36px;
+/*   text-align: center; */
+  margin-top: 60px;
 }
 .jump-open-block{
   margin-bottom: 160px;
@@ -198,10 +234,16 @@
   }
   .inner-grid-block .grid-box .inner-title {
     width: 100%;
+    position: relative;
+    top: unset;
   }
   .inner-grid-block .grid-box .inner-boxes {
     width: 100%;
     margin-top: 30px;
+    margin-top: -30px;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title h2{
+    max-width: 400px;
   }
   .inner-icon {
     width: 12%;
@@ -223,51 +265,83 @@
     margin-bottom: 38px;
   }
   .inner-first-count .count-text h2 {
-    font-size: 40px;
+    font-size: 42px;
   }
   .inner-first-count .count-text p {
-    font-size: 19.866px;
+        max-width: 328px;
+    font-size: 19px;
   }
   .inner-second-count .count-text h2 {
-    font-size: 40px;
+    font-size: 42px;
   }
   .inner-second-count .count-text p {
-    font-size: 19.866px;
+    max-width: 338px;
+    font-size: 19px;
   }
-}
-@media screen and (max-width: 991px) {
-  .jump-details {
-    padding: 32px 24px;
+  .inner-grid-block .grid-box .inner-boxes .right-svg{
+        right: -30px;left: unset;
+  }
+  .jump-btn-block{
+    flex-wrap: nowrap;
+    overflow: auto;
+    white-space: nowrap;
+        justify-content: start;
+  }
+  .jump-click-btn p{
+        text-align: left;
+  }
+  .inner-first-count svg{
+        margin-left: -90px;
+  }
+  .inner-first-count .count-text{
+    left: 0;
+  }
+   .inner-grid-block .grid-box{
+         gap: unset;
+  }
+  .inner-grid-block .grid-box .inner-title .grid-title svg {
+    display: none;
   }
   .jump-title {
     width: 100%;
     margin-bottom: 48px;
   }
-  .jump-title h2 {
-    font-size: 30px;
-  }
-  .jump-text {
+   .jump-text {
     width: 100%;
   }
-  .jump-text h4 {
-    font-size: 18px;
-    margin-bottom: 12px;
+  .inner-card{
+    padding: 20px;
   }
-  .jump-text p {
-    font-size: 14px;
+  .jump-details {
+    padding: 54px;
+        margin-bottom: 22px;            
   }
+  .inner-grid-block .grid-box .inner-title svg{
+        position: relative;
+    left: 7px;
+  }
+}
+@media screen and (max-width: 991px) {
+  
+  
+ 
+ 
+ 
+ 
   .jump-grid {
     margin-bottom: 48px;
   }
   .inner-first-count {
     margin-top: 22px;
+    margin-bottom: 28px;
   }
   .inner-first-count .count-text {
     left: 0;
   }
   .inner-first-count svg {
     position: relative;
-    left: -50px;
+    left: -50px;height: 163px;
+    width: 175px;margin-left: -20px;
   }
   .inner-first-count .count-text h2 {
     font-size: 42px;
@@ -284,25 +358,28 @@
   .inner-second-count svg {
     position: relative;
     left: 40px;
+    width: 100px;
+    height: 93.143px;
   }
   .inner-second-count .count-text {
     left: 62px;
+        top: 13px;
   }
   .inner-grid-block .grid-box .inner-title svg {
     width: 188px;
     height: 188px;
   }
-  .inner-grid-block .grid-box .inner-title .grid-title svg {
-    display: none;
-  }
+  
   .inner-second-count {
-    margin-bottom: 30px;
+    margin-bottom: 80px;
   }
   .inner-grid-block .grid-box .inner-title .grid-title {
-    top: 43px;
+    top: 32px;
+    left: 0;
   }
   .inner-grid-block .grid-box .inner-title .grid-title h2 {
-    max-width: 400px;
+    max-width: 290px;
+    font-size: 30px;
   }
   .inner-icon {
     width: 16%;
@@ -310,6 +387,7 @@
   .card-text {
     width: 84%;
   }
+ 
 }
 
 @media screen and (max-width: 641px) {
@@ -318,18 +396,73 @@
     padding: 16px;
   }
   .inner-icon {
-    width: 50px;
+    width: 52px;
   }
   .card-text {
     width: 90%;
   }
   .inner-card {
     margin-bottom: 16px;
+    border-radius: 21.824px;
   }
   .inner-icon svg {
     width: 40px;
+    height:auto;
   }
+  .card-text p{
+    font-size: 14px;
+    letter-spacing: 0.14px;
+  }
+  .round-text-block .button_space {
+    margin-top: 32px;
+}
   .inner-grid-block .grid-box .inner-title .grid-title h2 {
     max-width: 219px;
+  }
+  .inner-grid-block .grid-box .inner-boxes{
+        margin-top: -40px;
+  }
+  .jump-text p{
+    margin-top:12px;
+  }
+  .card-text h5{
+        margin: 8px 0 6px;
+  }
+  .jump-details {
+    padding: 32px 24px;
+        margin-bottom: 22px;            
+  }
+  
+  .inner-first-count .count-text p{
+    max-width: 278px;
+  }
+  .inner-second-count .count-text p{
+        max-width: 284px;
+  }
+  .inner-second-count .count-text{
+    left: 56px;
+  }.inner-second-count .count-text h2{
+    margin-bottom: 10px;
+  }
+  .inner-grid-block .grid-box .inner-boxes .right-svg{
+        top: 20%;
+        right: -38px;
+  }
+  .inner-grid-block .grid-box .inner-boxes .right-svg svg{
+    width: 218.747px;
+      height: 209.58px;
+  }
+  .inner-first-count svg{
+    margin-left: 0px;
+  }
+   .jump-title h2 {
+    font-size: 30px;
+  }
+   .jump-text h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+   .jump-text p {
+    font-size: 14px;
   }
 }

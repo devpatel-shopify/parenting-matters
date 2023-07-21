@@ -1,6 +1,5 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
-
 {%- style -%}
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
@@ -29,14 +28,21 @@
   id="Banner-{{ section.id }}"
   class=" hero-design-main banner--content-align-{{ section.settings.desktop_content_alignment }} {% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
-  
   <div class="hero-background-design hero-background-home">
     <div class="hero-background-design-cover">
       {% render 'hero-bg-about' %}
     </div>
     <div class="hero-image-about {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="page-width">
-        {{ 'hero-about-illustration.svg' | asset_url | img_tag }}
+        {% comment %}
+          {{ 'hero-about-illustration.svg' | asset_url | img_tag }}
+        {% endcomment %}
+        <img
+          src="{{ section.settings.banner_img | img_url:'master' }}"
+          alt="{{ section.settings.banner_img.alt }}"
+          width="{{ section.settings.banner_img.width }}"
+          height="{{ section.settings.banner_img.height }}"
+        >
       </div>
     </div>
   </div>
@@ -71,7 +77,8 @@
                     {% endif %}
                     class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
                   >
-                    {{- block.settings.button_label_1 | escape -}} {% render 'icon-arrow' %}
+                    {{- block.settings.button_label_1 | escape -}}
+                    {% render 'icon-arrow' %}
                   </a>
                 {%- endif -%}
                 {%- if block.settings.button_label_2 != blank -%}
@@ -83,7 +90,8 @@
                     {% endif %}
                     class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
                   >
-                    {{- block.settings.button_label_2 | escape -}} {% render 'icon-arrow' %}
+                    {{- block.settings.button_label_2 | escape -}}
+                    {% render 'icon-arrow' %}
                   </a>
                 {%- endif -%}
               </div>
@@ -146,6 +154,11 @@
       ],
       "default": "middle-center",
       "label": "t:sections.image-banner.settings.desktop_content_position.label"
+    },
+    {
+        "type" : "image_picker",
+        "label" : "Banner Image add",
+        "id": "banner_img"
     },
     {
       "type": "checkbox",

@@ -445,7 +445,7 @@
     </script>
   </head>
 
-  <body class="{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -468,6 +468,9 @@
     </ul>
 
     <script>
+      
+      
+      
       
       
       window.shopUrl = '{{ request.origin }}';
@@ -497,6 +500,9 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
+
+
+
 
 
     </script>

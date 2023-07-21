@@ -71,6 +71,11 @@
   --shadow-visible: var(--media-shadow-visible);
 }
 
+
+html{
+scroll-behavior: smooth;
+}
+
 /* base */
 
 .no-js:not(html) {
@@ -546,8 +551,7 @@ h6:empty {
   display: none;
 }
 
-.link,
-.customer a {
+.link {
   cursor: pointer;
   display: inline-block;
   border: none;

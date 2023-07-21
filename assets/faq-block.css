@@ -1,0 +1,158 @@
+.faq-grid-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.tab-faq {
+  border-radius: 40px;
+  padding: 24px 24px;
+  background: #fff;
+  width: 23%;
+}
+.tab-faq ul {
+  list-style: none;
+  padding: 0;
+}
+.faq-div {
+  width: 66%;
+}
+.tab-faq ul li {
+  padding: 8px 0px;
+}
+.tab-faq ul li.active {
+  margin-bottom: 11px;
+  border-radius: 40px;
+  border: 1px solid #01333e;
+}
+.faq-div h3 {
+  color: #c72457;
+}
+
+.faq-div .accordion {
+  border-radius: 40px;
+  background: #e9f0ed;
+  padding: 24px;
+  margin-top: 25px;
+}
+.faq-div .accordion summary {
+  padding: 0px 0px !important;
+}
+.faq-div .accordion + .accordion {
+  margin-top: 25px;
+}
+.faq-div .accordion .icon-accordion {
+  display: none;
+}
+.faq-div .accordion__content {
+  padding: 0 10px !important;
+  margin-bottom: 0 !important;
+  margin-top: 24px;
+}
+.faq-div .accordion summary .accordion_icon svg {
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+  border-radius: 40px;
+  background: #01333e;
+}
+.faq-div .accordion summary .accordion_icon svg path {
+  stroke: #fdf8ec;
+}
+.px-128 {
+  margin-bottom: 128px;
+}
+.faq-div .accordion__title {
+  max-width: 699px;
+}
+.faq-div .px-128:last-child {
+  margin-bottom: 80px;
+}
+
+.faq-jump {
+  display: none;
+}
+
+@media only screen and (max-width: 1099px) {
+   .faq-banner-text h2 {
+    font-size: 42px !important;
+    max-width: 334px !important;
+  }
+  
+  .faq-grid-block {
+    flex-wrap: wrap;
+  }
+  .tab-faq {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  .tab-faq ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  .tab-faq ul li {
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: 1px solid #01333e;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.12px;
+  }
+  .faq-jump {
+    display: block;
+  }
+  .faq-banner {
+    margin-bottom: 81px;
+  }
+  .faq-div {
+    width: 100%;
+    margin-top: 32px;
+  }
+  .faq-div h3{
+        font-size: 22px;
+  }
+  .faq-div .accordion__title{
+        font-size: 20px;
+  }
+  .faq-div .accordion{
+    border-radius: 20px;
+  }
+  .faq-div .accordion summary{
+    align-items: flex-start;
+  }
+  .faq-div .accordion{
+        padding: 16px;
+    margin-top: 16px;
+  }
+  .faq-div .accordion summary .accordion_icon svg{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+  }
+  .px-128 {
+    margin-bottom: 64px;
+}
+  .faq-banner .svg-banner svg{
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .faq-banner .svg-banner svg{
+    
+  }
+  .faq-banner .faq-banner-text{
+    top: 170px;
+  }
+  .faq-div .accordion__content{
+    padding:0 !important;
+  }
+   .faq-div .accordion__content p{
+       font-size: 12px;
+  }
+}

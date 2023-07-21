@@ -1,5 +1,10 @@
 {
   "sections": {
+    "d992847c-81bd-406b-ae46-ec7291241118": {
+      "type": "contact-banner",
+      "settings": {
+      }
+    },
     "main": {
       "type": "main-register",
       "settings": {
@@ -9,6 +14,7 @@
     }
   },
   "order": [
+    "d992847c-81bd-406b-ae46-ec7291241118",
     "main"
   ]
 }
