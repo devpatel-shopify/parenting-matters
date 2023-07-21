@@ -32,6 +32,7 @@
       ],
       "settings": {
         "desktop_content_position": "top-center",
+        "banner_img": "shopify:\/\/shop_images\/Illustration.svg",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
