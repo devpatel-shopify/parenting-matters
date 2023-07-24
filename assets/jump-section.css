@@ -172,9 +172,7 @@
 .card-text h5 {
   margin: 16px 0 6px;
 }
-.down_arrow svg{
-  cursor:not-allowed;
-}
+
 .inner-grid-block .grid-box .inner-boxes {
 /*   width: 53%; */
   margin-top: 63px;

@@ -152,14 +152,14 @@
     hideButton.addEventListener("click",function(button){
       button.target.closest(".jump-redirect-block").querySelector(".js-hide-element").style.display = "block";
       button.target.closest(".jump-redirect-block").querySelector(".js-show-block").classList.remove("hidden");
-      button.target.classList.add("hidden");
+      button.target.closest(".js-hide-block").classList.add("hidden");
     });
   });
   showButtons.forEach(function(showButton){
     showButton.addEventListener("click",function(button){
       button.target.closest(".jump-redirect-block").querySelector(".js-hide-element").style.display = "none";
       button.target.closest(".jump-redirect-block").querySelector(".js-hide-block").classList.remove("hidden");
-      button.target.classList.add("hidden");
+      button.target.closest(".js-show-block").classList.add("hidden");
     });
   });
 </script>
