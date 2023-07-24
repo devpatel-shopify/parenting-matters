@@ -172,7 +172,9 @@
 .card-text h5 {
   margin: 16px 0 6px;
 }
-
+.down_arrow svg{
+  cursor:not-allowed;
+}
 .inner-grid-block .grid-box .inner-boxes {
 /*   width: 53%; */
   margin-top: 63px;
@@ -195,6 +197,7 @@
 }
 .jump-open-block{
   margin-bottom: 160px;
+  display: none;
 }
 .jump-redirect-block.cream-bg .jump-details{
   background: #F7C083;

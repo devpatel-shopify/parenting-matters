@@ -59,7 +59,66 @@
     },
     "b4a2a826-d74c-4f40-9459-f507250b14ce": {
       "type": "jump-section",
+      "blocks": {
+        "e3e4c7ea-3450-4181-907e-07927e9298c4": {
+          "type": "organisation_steps",
+          "settings": {
+            "tab_id": "Employee wellbeing",
+            "title": "Employee wellbeing",
+            "subtitle": "<p>Balancing work with being a good parent can be incredibly stressful for working parents.<\/p>",
+            "description": "<p>We work with employers offering working parents access to the Parenting Matters course and community with additional wraparound support for groups of parents, facilitated locally. This can be provided as part of an employee wellbeing programme.<\/p>",
+            "button_name": "Expand",
+            "percentage_count_1": "87%",
+            "organisation_text_1": "<p>of UK workers surveyed said that difficulties balancing work and family impact their job performance and work satisfaction.<\/p>",
+            "percentage_count_2": "53%",
+            "organisation_text_2": "<p>said their organisation supports them in managing their work and family commitments.*<\/p>",
+            "benifit_title": "The benefits include:",
+            "icon_1": "shopify:\/\/shop_images\/Icon_18.svg",
+            "title_1": "Better work-life integration",
+            "desc_1": "<p>Supporting working parents to achieve balance in their working and family lives.<\/p>",
+            "icon_2": "shopify:\/\/shop_images\/Icon_19.svg",
+            "title_2": "Improved relationships",
+            "desc_2": "<p>Working parents strengthen their relationships with their children resulting in a calmer, happier  home. Parents also use the skills learned to help improve relationships with partners and work colleagues too!<\/p>",
+            "icon_3": "shopify:\/\/shop_images\/Icon_20.svg",
+            "title_3": "Less stress",
+            "desc_3": "<p>Working parents who feel appreciated and supported by their employer. Employees who are less stressed at work and more focused as they are happier and more confident parents at home.<\/p>",
+            "button_text": "Get in touch",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "34a1d48a-335a-44b1-9e9f-2103d325c130": {
+          "type": "organisation_steps",
+          "settings": {
+            "tab_id": "Educational settings",
+            "title": "Educational settings",
+            "subtitle": "<p>Parenting Matters helps parents gain the knowledge and skills to support their child’s learning, creating a positive home learning environment.<\/p>",
+            "description": "<p>We work with nurseries and primary schools, offering their parents access to the Parenting Matters course and community, along with optional additional wraparound support for groups of parents, facilitated locally.<\/p>",
+            "button_name": "Expand",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "The benefits include:",
+            "icon_1": "shopify:\/\/shop_images\/Icon_18.svg",
+            "title_1": "Parental engagement",
+            "desc_1": "<p>Parenting Matters equips parents with knowledge and skills to support their child's learning and improve behaviour. Positively impacting children's motivation, self-esteem, and educational outcomes.<\/p>",
+            "icon_2": "shopify:\/\/shop_images\/Icon_19.svg",
+            "title_2": "Parent-School collaboration",
+            "desc_2": "<p>Happier children make better learners. Tools and strategies learned by parents are more likely to be aligned with educational goals. So the collaboration supports children's academic success and positive school experiences.<\/p>",
+            "icon_3": "shopify:\/\/shop_images\/Icon_20.svg",
+            "title_3": "Social-emotional learning",
+            "desc_3": "<p>By supporting parents in this way, children develop resilience, gain confidence and have improved social-emotional wellbeing.<\/p>",
+            "button_text": "Get in touch",
+            "button_link": "shopify:\/\/collections\/frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "e3e4c7ea-3450-4181-907e-07927e9298c4",
+        "34a1d48a-335a-44b1-9e9f-2103d325c130"
+      ],
       "settings": {
+        "tab_title": "Jump to:"
       }
     },
     "b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f": {
