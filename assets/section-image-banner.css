@@ -600,9 +600,50 @@
 }
 
 
+.template--parenting-quiz .hero-design-main{
+  height: calc(600px + var(--header-height));
+}
+.template--parenting-quiz .banner_content_cover .banner__content .banner__box{
+  padding: 180px 4.6rem;
+  max-width: unset;
+}
+.template--parenting-quiz .banner_content_cover .banner__content{
+  align-items:unset;
+}
+.template--parenting-quiz .hero-image-about img{
+      object-fit: contain;max-width: 700px;    height: auto;
+}
+.template--parenting-quiz .hero-design-main .banner__box .banner__text{
+  margin: unset;
+}
+.banner__box .banner__heading {
+  font-size: 68px;
+    margin-bottom: 12px;
+}
+.template--parenting-quiz .hero-design-main .banner__box .banner__text p{
+  font-size: 20px;
+    letter-spacing: 0.2px;
+    line-height: 120%;
+}
+.template--parenting-quiz .quiz_info{
+      padding: 64px;
+}
+.template--parenting-quiz .quiz_detail img {
+    width: auto;
+    max-height: unset;
+    max-width: unset;
+    border-radius: unset;
+}
+.template--parenting-quiz .quiz_detail{
+  text-align:left;
+}
 
-
-
+.template--parenting-quiz .hero-image-about .page-width{
+  max-width: unset;padding: 0;
+}
+.template--parenting-quiz .hero-image-about {
+  bottom: 0;
+}
 
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
 
@@ -625,6 +666,9 @@
 .hero-background-design-cover{ display: block; }
 }
 
+.template--organisations .only-desktop{
+  display:none;
+}
 @media only screen and (max-width: 1440px) {
 .hero_about .hero-background-design-cover>svg {
   height: 100%;
@@ -634,7 +678,14 @@
   transform: translateX(-50%);
 }
 }
-
+@media only screen and (max-width: 1099px) {
+  .template--parenting-quiz .banner_content_cover .banner__content .banner__box{
+    padding: 180px 4.6rem;
+  }
+  .banner__content.banner__content--middle-left{
+    align-items: unset;
+  }
+}
 @media only screen and (max-width: 920px) {
   .hero-design-main{
     height: calc(700px + var(--header-height));
@@ -682,6 +733,9 @@
 .hero-image-home {
   bottom: 42px;
 }
+  .template--organisations .only-mobile{
+  display:none;
+}
 
 .hero-image-home>img {
   min-width: calc(100% + 18px);
@@ -706,9 +760,30 @@
 .hero_about .hero-background-design-cover {
   max-height: 100vh;
 }
+
+  
 .template--organisations .banner__box .banner__heading {
     font-size: 42px;
 }
-
+ .template--parenting-quiz .banner__box .banner__heading{
+        font-size: 42px;
+    text-align: left;
+  }
+.template--parenting-quiz .banner_content_cover .banner__content .banner__box {
+    padding: 70px 20px;
+}
+  .template--parenting-quiz .hero-design-main .banner__box .banner__text p{
+    font-size: 14px;
+        text-align: left;
+  }
+  .template--parenting-quiz .quiz_info {
+    padding: 32px 24px;
+}
+  .template--parenting-quiz .hero-design-main {
+    height: auto;
+}
+  .template--parenting-quiz .hero-image-about img{
+        max-width: 490px;
+  }
 }
 

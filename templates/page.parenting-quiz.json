@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "e6d5ed6b-98c8-4ea5-a09d-63c8b002971f": {
+      "type": "hero-section-about",
+      "blocks": {
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our parenting quizzes",
+            "heading_size": "h1"
+          }
+        },
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "We’ve got a bunch of fun and informative quizzes which will help you identify different parenting features about yourself.",
+            "text_style": "body"
+          }
+        },
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-buttons-1": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-heading-1",
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-text-1",
+        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-buttons-1"
+      ],
+      "settings": {
+        "desktop_content_position": "middle-left",
+        "banner_img": "shopify:\/\/shop_images\/Frame_7435.png",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "show_text_below": true
+      }
+    },
+    "69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6": {
+      "type": "course-highlights-section",
+      "blocks": {
+        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-track_quiz-1": {
+          "type": "track_quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Frame.png",
+            "sub_title": "Quiz",
+            "heading_text": "What's your parenting style?",
+            "paragraph": "Be it warm and authoritative or hands-off and permissive, there's no right or wrong. The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz can swiftly identify your parenting style!",
+            "button_text": "Take the quiz",
+            "button_url": "",
+            "background_schema": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+            "layout": "image_first"
+          }
+        },
+        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-exercise_quiz-1": {
+          "type": "exercise_quiz",
+          "disabled": true,
+          "settings": {
+            "sub_heading": "Sub title",
+            "heading": "Heading Text",
+            "about_quiz": "Paragraph",
+            "button_name": "Button Name",
+            "button_link": "",
+            "update_text": "text",
+            "task_button_name": "Button",
+            "task_url": "",
+            "update_text_2": "text",
+            "task_button_name_2": "Button",
+            "task_url_2": "",
+            "background_color": "#FDF8EC",
+            "background_schema_2": "",
+            "layout_2": "image_first"
+          }
+        },
+        "8803416e-0856-424d-8243-bbf35b8a5bcb": {
+          "type": "track_quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Frame_1.png",
+            "sub_title": "Quiz",
+            "heading_text": "Track your Family Star",
+            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
+            "button_text": "Take the quiz",
+            "button_url": "",
+            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "layout": "text_first"
+          }
+        }
+      },
+      "block_order": [
+        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-track_quiz-1",
+        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-exercise_quiz-1",
+        "8803416e-0856-424d-8243-bbf35b8a5bcb"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading_text": "",
+        "text_alignment": "center",
+        "heading_size": "h2",
+        "padding_top": 128,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e6d5ed6b-98c8-4ea5-a09d-63c8b002971f",
+    "69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6"
+  ]
+}

@@ -1,14 +1,14 @@
 .faq-banner{
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 63px;
       margin-top: -82px;
 }
 .faq-banner .faq-banner-text{
-  top: 180px;
+  top: 260px;
     position: absolute;
 }
 .faq-banner .faq-banner-text h2{
-  font-size: 72px;
+  font-size: 68px;
   
 }
 

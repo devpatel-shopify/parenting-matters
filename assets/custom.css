@@ -69,14 +69,17 @@ p:last-child {
 }
 
 /* section-header */
-
+.template--organisations sticky-header[data-sticky-type=always] {
+    background: #ffd978;
+    border: none;
+}
 sticky-header[data-sticky-type="always"] {
   background: transparent;
   border: none;
 }
-.scrolled-past-header sticky-header[data-sticky-type=always].header-wrapper--border-bottom {
+/* .scrolled-past-header sticky-header[data-sticky-type=always].header-wrapper--border-bottom {
   border-bottom: 1px solid var(--border-color);
-} 
+} */
 .scrolled-past-header sticky-header[data-sticky-type="always"] {
   background: rgb(var(--color-background));
   background: var(--gradient-background);

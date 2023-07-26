@@ -128,10 +128,7 @@
 .inner-grid-block .grid-box .inner-title {
 /*   position: relative; */
 /*   width: 30%; */
-  position: sticky;
-  /* top: 70px; */
-  top: 40%;
-  height: 100%;
+  position: sticky;top: 70px;    height: 100%;
 }
 .inner-grid-block .grid-box .inner-title .grid-title {
   position: absolute;
@@ -195,7 +192,6 @@
 }
 .jump-open-block{
   margin-bottom: 160px;
-  display: none;
 }
 .jump-redirect-block.cream-bg .jump-details{
   background: #F7C083;
@@ -406,7 +402,7 @@
     margin-bottom: 16px;
     border-radius: 21.824px;
   }
-  .inner-icon svg {
+  .inner-icon img {
     width: 40px;
     height:auto;
   }
