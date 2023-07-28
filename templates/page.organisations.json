@@ -64,7 +64,7 @@
           "type": "organisation_steps",
           "settings": {
             "bg_color": "#c9d9d3",
-            "secondary_color": "#E9F0ED",
+            "secondary_color": "#e9f0ed",
             "tab_id": "Employee wellbeing",
             "title": "Employee wellbeing",
             "subtitle": "Balancing work with being a good parent can be incredibly stressful for working parents.",
@@ -85,7 +85,7 @@
             "title_3": "Less stress",
             "desc_3": "<p>Working parents who feel appreciated and supported by their employer. Employees who are less stressed at work and more focused as they are happier and more confident parents at home.<\/p>",
             "button_text": "Get in touch",
-            "button_link": "shopify:\/\/collections"
+            "button_link": "shopify:\/\/pages\/contact"
           }
         },
         "34a1d48a-335a-44b1-9e9f-2103d325c130": {
@@ -113,7 +113,7 @@
             "title_3": "Social-emotional learning",
             "desc_3": "<p>By supporting parents in this way, children develop resilience, gain confidence and have improved social-emotional wellbeing.<\/p>",
             "button_text": "Get in touch",
-            "button_link": "shopify:\/\/collections\/frontpage"
+            "button_link": "shopify:\/\/pages\/contact"
           }
         },
         "27fa342f-8305-4c5f-b927-73259d8727b4": {
@@ -141,7 +141,7 @@
             "title_3": "Scalability and reach",
             "desc_3": "<p>Parenting Matters allows coaching professionals to extend your reach beyond in-person sessions, offering online resources and support to a larger client base. <\/p>",
             "button_text": "Get in touch",
-            "button_link": ""
+            "button_link": "shopify:\/\/pages\/contact"
           }
         },
         "f5ab9c39-25fc-4bf6-9a7c-1e871772c842": {
@@ -169,14 +169,14 @@
             "title_3": "Better long-term outcomes for children and families",
             "desc_3": "<p>Parenting Matters also  addresses the social, emotional and behavioural aspects of health too. <\/p>",
             "button_text": "Get in touch",
-            "button_link": ""
+            "button_link": "shopify:\/\/pages\/contact"
           }
         },
         "baa76e19-d685-441d-97a2-74ae14d10f14": {
           "type": "organisation_steps",
           "settings": {
             "bg_color": "#c9d9d3",
-            "secondary_color": "#E9F0ED",
+            "secondary_color": "#e9f0ed",
             "tab_id": "Charities & family hubs",
             "title": "Charities & family hubs",
             "subtitle": "We help families thrive by providing information and tools to parents to help them raise happy children with whom they have a positive relationship, while also looking after their own wellbeing.",
@@ -197,7 +197,7 @@
             "title_3": "Empowerment and Resilience",
             "desc_3": "<p>The course equips parents with knowledge and skills, enhancing their resilience and empowering them to overcome obstacles in their parenting. This positively impacts the overall wellbeing of families and contributes to stronger communities.<\/p>",
             "button_text": "Get in touch",
-            "button_link": ""
+            "button_link": "shopify:\/\/pages\/contact"
           }
         }
       },

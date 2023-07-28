@@ -205,10 +205,11 @@
 }
   .template--parenting-quiz .quiz_detail{
     padding:0;
+    margin-bottom: 26px !important;
   }
   .template--parenting-quiz .quiz_detail img{
-    width: 185px;
-    height: 134.818px;
+    width: 100%;
+    height: auto;
   }
   .template--parenting-quiz .image-text--reverse .quiz_detail {
     text-align: left;
@@ -230,6 +231,7 @@
 }
  .template--parenting-quiz .course_highlights_section{
     padding-bottom: 64px!important;
+   padding-top: 128px!important;
   }
 }
 @media screen and (max-width: 500px){

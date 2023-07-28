@@ -4,13 +4,13 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
-        <div class="page-width page-width--narrow">
+        <div class="page-width">
           {% render block %}
         </div>
       {%- when 'featured_image' -%}
         {%- if article.image -%}
           <div
-            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="page-width article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             {{ block.shopify_attributes }}
           >
             <div
@@ -44,34 +44,76 @@
 
       {%- when 'title' -%}
         <header
-          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
+          {%- if block.settings.blog_show_date -%}
+            <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">
+              {{- article.published_at | time_tag: format: 'date' -}}
+            </span>
+          {%- endif -%}
           <h1
             class="article-template__title"
             itemprop="headline"
           >
             {{ article.title | escape }}
           </h1>
-          {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">
-              {{- article.published_at | time_tag: format: 'date' -}}
-            </span>
-          {%- endif -%}
+
           {%- if block.settings.blog_show_author -%}
             <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
               <span itemprop="name">{{ article.author }}</span>
             </span>
           {%- endif -%}
         </header>
-
       {%- when 'content' -%}
-        <div
-          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          itemprop="articleBody"
-          {{ block.shopify_attributes }}
-        >
-          {{ article.content }}
+        <div class="article-tag  ">
+          <div class="page-width">
+            <div class="article-two-grid">
+              <div class="share-tag">
+                <div class="share-block">
+                  <p>Share this:</p>
+                  <a href="">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.8475 9.76771L20.421 9.41109L21.1342 7.98462L19.3768 8.48388C18.9206 8.05821 18.3496 7.77546 17.7345 7.67051C17.1194 7.56557 16.487 7.64303 15.9154 7.89333C15.3438 8.14364 14.858 8.55583 14.518 9.07904C14.1779 9.60225 13.9985 10.2136 14.0019 10.8376V11.5508C11.4777 12.0715 9.27025 10.6949 7.22611 8.34124C6.86949 10.2432 7.22611 11.6697 8.29596 12.6207L6.15625 12.264C6.44511 13.7397 7.12768 14.903 9.0092 15.117L7.22611 15.8302C7.93935 17.2567 9.05628 17.4778 10.7923 17.6133C9.44208 18.5781 7.81526 19.0786 6.15625 19.0398C15.2536 23.0832 20.421 17.1397 20.421 11.9074V10.9602L21.8475 9.76771Z" stroke="#01333E" stroke-width="0.822581" stroke-linecap="round" stroke-linejoin="round"/>
+                      <rect x="0.5" y="0.5" width="27" height="27" rx="13.5" stroke="#01333E"/>
+                    </svg>
+                  </a>
+                  <a href="">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.0341 14.4073C16.1819 14.5737 16.3622 14.7082 16.5639 14.8026C16.7655 14.8969 16.9843 14.9491 17.2068 14.9559C17.4294 14.9627 17.6509 14.924 17.858 14.8421C18.065 14.7603 18.2532 14.6371 18.4109 14.4799L21.6455 11.2454C22.1036 10.7862 22.3608 10.1641 22.3608 9.51545C22.3608 8.86684 22.1036 8.2447 21.6455 7.7855L20.1918 6.33177C19.7326 5.8737 19.1104 5.61646 18.4618 5.61646C17.8132 5.61646 17.1911 5.8737 16.7319 6.33177L13.5191 9.58813C13.3622 9.74524 13.2391 9.93279 13.1573 10.1392C13.0756 10.3457 13.0369 10.5667 13.0437 10.7886C13.0505 11.0106 13.1027 11.2288 13.1969 11.4298C13.2912 11.6309 13.4256 11.8105 13.5918 11.9577" stroke="#01333E" stroke-width="0.858375" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11.9674 13.593C11.8189 13.4274 11.6385 13.2937 11.4368 13.2C11.2352 13.1063 11.0167 13.0544 10.7945 13.0476C10.5723 13.0408 10.351 13.0792 10.144 13.1605C9.93706 13.2417 9.74875 13.3641 9.5905 13.5203L6.35594 16.7548C5.89787 17.214 5.64063 17.8362 5.64062 18.4848C5.64062 19.1334 5.89787 19.7555 6.35594 20.2147L7.80967 21.6684C8.26887 22.1265 8.89101 22.3838 9.53962 22.3838C10.1882 22.3838 10.8104 22.1265 11.2696 21.6684L14.5041 18.4339C14.6612 18.2762 14.7845 18.088 14.8663 17.8809C14.9481 17.6739 14.9868 17.4523 14.98 17.2298C14.9732 17.0073 14.9211 16.7885 14.8267 16.5868C14.7324 16.3852 14.5979 16.2049 14.4314 16.057" stroke="#01333E" stroke-width="0.858375" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10.8359 17.1686L17.1742 10.8303" stroke="#01333E" stroke-width="0.858375" stroke-linecap="round" stroke-linejoin="round"/>
+                      <rect x="0.5" y="0.5" width="27" height="27" rx="13.5" stroke="#01333E"/>
+                    </svg>
+                  </a>
+                  <a href="">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.5994 10.625H15.3984V9.2C15.3842 9.09395 15.3935 8.98608 15.4257 8.88403C15.4578 8.78198 15.512 8.68825 15.5845 8.60951C15.6569 8.53077 15.7458 8.46894 15.8448 8.42841C15.9438 8.38788 16.0506 8.36965 16.1574 8.375C16.4709 8.375 18.3984 8.3825 18.3984 8.3825V5.375H15.1517C12.2064 5.375 11.6484 7.6055 11.6484 9.01625V10.625H9.39844V13.625H11.6484V22.625H15.3984V13.625H18.2867L18.5994 10.625Z" stroke="#01333E" stroke-width="0.932432" stroke-linecap="round" stroke-linejoin="round"/>
+                      <rect x="0.5" y="0.5" width="27" height="27" rx="13.5" stroke="#01333E"/>
+                    </svg>
+                  </a>
+                </div>
+                <div class="tag-block">
+                  <p>Tags:</p>
+                  <div class="tag-link">
+                    <a href="">children</a>
+                    <a href="">eating habits</a>
+                    <a href="">expert advice</a>
+                    <a href="">family</a>
+                  </div>
+                </div>
+              </div>
+              <div class="article-block">
+                <div
+                  class="article-template__content  rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  itemprop="articleBody"
+                  {{ block.shopify_attributes }}
+                >
+                  {{ article.content }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       {%- when 'share' -%}
