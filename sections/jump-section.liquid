@@ -24,10 +24,10 @@
   <div class=" page-width">
     <div class="jump-click-btn">
       <p>{{- section.settings.tab_title -}}</p>
-      <div class="jump-btn-block">
+      <div class="jump-btn-block" id ="section_link-bar">
         {%- for block in section.blocks -%}
           {%- if block.settings.tab_id != blank -%}
-            <a href="#{{- block.settings.tab_id -}}">{{- block.settings.tab_id -}}</a>
+            <a href="#{{- block.settings.tab_id -}}" id="{{- block.settings.tab_id -}}" data-section-scroll>{{- block.settings.tab_id -}}</a>
           {%- endif -%}
         {%- endfor -%}
         {% comment %}
@@ -196,6 +196,45 @@
   </div>
 </section>
 <script>
+  {% comment %} let elements = document.querySelectorAll("[data-section-scroll]");
+    elements.forEach(function(element){
+      element.addEventListener("click", _scrollToDown.bind(this),true);
+    });
+    function _scrollToDown(event){
+      console.log(event.currentTarget)
+      let elementToScrolls = event.currentTarget.closest(".jump-block").querySelectorAll(".jump-redirect-block");
+      elementToScrolls.forEach(function(elementToScroll){
+        if (elementToScroll) {
+          event.preventDefault();
+          let scrollDistance = elementToScroll.offsetTop - document.querySelector("#section_link-bar").offsetHeight - document.querySelector(".header") 
+          document.documentElement.scrollTo({
+            top: scrollDistance,
+            behavior: "smooth"
+          })
+          // elementToScroll.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      })
+    } {% endcomment %}
+    let elements = document.querySelectorAll("[data-section-scroll]");
+    elements.forEach(function(element){
+      element.addEventListener("click", _scrollToDown.bind(this),true);
+    });
+    function _scrollToDown(event){
+      let elementToScrolls = event.currentTarget.closest(".jump-block").querySelectorAll(".jump-redirect-block");
+      elementToScrolls.forEach(function(elementToScroll){
+        if (elementToScroll.getAttribute("id") == event.target.getAttribute("id")) {
+          console.log("yessssssssssss",document.querySelector(".header"))
+          event.preventDefault();
+          let scrollDistance = elementToScroll.offsetTop - document.querySelector(".header").offsetHeight 
+          document.documentElement.scrollTo({
+            top: scrollDistance,
+            behavior: "smooth"
+          })
+          // elementToScroll.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      })
+    }
+
   let hideButtons = document.querySelectorAll(".js-hide-block");
   let showButtons = document.querySelectorAll(".js-show-block");
   hideButtons.forEach(function(hideButton){
