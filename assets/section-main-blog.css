@@ -26,7 +26,7 @@
    padding: 8px 0px;
 }
 .filter-link ul li a.active{
-  padding: 8px 24px;
+  padding: 8px 22px;
     border-radius: 40px;
     border: 1px solid #01333E;
     
@@ -94,7 +94,7 @@
 }
 @media screen and (max-width: 1099px) {
   .main-template--blog .blog-articles{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .main-template--blog .card__information {
     padding: 16px 16px 0!important;
@@ -111,4 +111,10 @@
   .blog-articles__article {
     margin-bottom: 48px;
 }
+}
+
+@media screen and (max-width: 750px){
+  .main-template--blog .blog-articles{
+    grid-template-columns: 1fr;
+  }
 }

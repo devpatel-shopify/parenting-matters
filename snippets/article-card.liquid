@@ -82,7 +82,9 @@
             </h3>
             <div class="article-card__info caption-with-letter-spacing h5">
               {%- if show_date -%}
-                <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
+                {% comment %} <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span> {% endcomment %}
+                <span class="circle-divider">{{ article.published_at | date: "%d %b, %y" }}</span>
+
               {%- endif -%}
               {%- if show_author -%}
                 <span>{{ article.author }}</span>
@@ -119,7 +121,7 @@
               <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag">{{ tag }}</a>
             {%- endfor -%}
             {%- if show_date -%}
-              <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
+              <span class="circle-divider">{{ article.published_at |  date: "%d %b, %y"  }}</span>
             {%- endif -%}
             {%- if show_author -%}
               <span>{{ article.author }}</span>
