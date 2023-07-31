@@ -247,6 +247,7 @@
         "full_width": false,
         "email_image": "shopify:\/\/shop_images\/Frame_4192.svg",
         "heading_text": "Sign up to receive free tips and the latest news",
+        "heading_small": "",
         "button_text": "Sign up",
         "button_url": "",
         "color_scheme": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
@@ -319,6 +320,15 @@
         "padding_top": 80,
         "padding_bottom": 64
       }
+    },
+    "081fb480-6012-4cef-ace6-f94c0f357cbc": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n<div id=\"canvas_div\" style=\"margin: auto; display:blockl; overflow-x: auto;\">\n<canvas id=\"canvas\" width=\"900\" height=\"600\"><\/canvas>\n  <br>\n  <div class=\"clear\"><\/div>\n  \n<button onclick=\"javascript:clearArea();return false;\">Clear Area<\/button>\nLine width : <select id=\"selWidth\">\n    <option value=\"11\">11<\/option>\n    <option value=\"13\" selected=\"selected\">13<\/option>\n    <option value=\"15\">15<\/option>\n<\/select>\nColor : <select id=\"selColor\">\n    <option value=\"black\">black<\/option>\n    <option value=\"blue\" selected=\"selected\">blue<\/option>\n    <option value=\"red\">red<\/option>\n    <option value=\"green\">green<\/option>\n    <option value=\"yellow\">yellow<\/option>\n    <option value=\"gray\">gray<\/option>\n<\/select>\n<\/div>\n<\/div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -330,6 +340,7 @@
     "14fd4b8c-7862-489d-9388-41e07e8be3de",
     "ef59aef4-2884-455e-9c1a-337b9f48573e",
     "f787626a-81b3-4c3a-bca6-f6eac39fa535",
-    "44b31fca-2192-4c98-8fe6-4a04af6cb99a"
+    "44b31fca-2192-4c98-8fe6-4a04af6cb99a",
+    "081fb480-6012-4cef-ace6-f94c0f357cbc"
   ]
 }

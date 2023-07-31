@@ -213,6 +213,10 @@
 .article-tag .share-tag .share-block a{
   display:inline-block;
   margin-right:12px;
+  padding: 0;
+}
+.article-tag .share-tag .share-block .list-social{
+  justify-content: flex-start;
 }
 
 

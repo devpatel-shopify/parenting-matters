@@ -116,7 +116,24 @@
 .card__inner {
   width: 100%;
 }
-
+.main-template--blog .card__inner{
+      height: 240px;
+}
+.main-template--blog .card__information{
+  padding: 16px 24px 0 !important;
+}
+.main-template--blog .article-card__info {
+    margin-bottom: 12px;
+}
+.main-template--blog .blog-articles{
+  row-gap: unset;
+}
+.main-template--blog .blog-articles .card__content p{
+  margin-bottom:0;
+}
+.blog-articles__article{
+  margin-bottom:64px;
+}
 .card--media .card__inner .card__content {
   position: relative;
   padding: calc(var(--image-padding) + 1rem);

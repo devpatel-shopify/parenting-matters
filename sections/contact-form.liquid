@@ -20,10 +20,10 @@
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
       </h2>
-      <p>If you would like to send us comments or queries regarding the Course content please use the form below.</p>
+      <p>{{ section.settings.small_text }}</p>
     {%- else -%}
       <h2 class="">{{ 'templates.contact.form.title' | t }}</h2>
-      <p>If you would like to send us comments or queries regarding the Course content please use the form below.</p>
+      <p>{{ section.settings.small_text }}</p>
     {%- endif -%}
     {%- liquid
       assign contact_form_class = 'isolate'
@@ -155,6 +155,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "small_text",
+      "default": "Contact form",
+      "label": "Small Tax"
+    },
     {
       "type": "inline_richtext",
       "id": "heading",

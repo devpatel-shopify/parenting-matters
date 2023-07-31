@@ -8,6 +8,7 @@
     "main": {
       "type": "main-register",
       "settings": {
+        "small_text": "Enter your details below to create your account.",
         "padding_top": 36,
         "padding_bottom": 36
       }

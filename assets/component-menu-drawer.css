@@ -135,6 +135,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer summary.menu-drawer__menu-item {
   padding-right: 5.2rem;
+  margin: 0;
 }
 
 .no-js .menu-drawer__menu-item .icon-caret {
@@ -154,7 +155,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   background-color: rgba(var(--color-foreground), 0.08);
 }
 
-.js .menu-drawer__menu-item .icon-caret,
+/* .js .menu-drawer__menu-item .icon-caret, */
 .no-js .menu-drawer .icon-arrow {
   display: none;
 }

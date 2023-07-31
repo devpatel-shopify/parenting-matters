@@ -22,6 +22,19 @@
       {{ blog.title | escape }}
     </h1>
 
+    <div class="blog-filter">
+      <p>{{ section.settings.filter_title }}</p>
+      <div class="filter-link">
+        <ul>
+          {%- for block in section.blocks -%}
+            <li>
+              <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -56,6 +69,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "filter_title",
+      "label": "Filter Name"
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"
@@ -147,6 +165,19 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter-link",
+      "name": "filter link add",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_id",
+          "label": "Link name"
+        }
+      ]
     }
   ]
 }

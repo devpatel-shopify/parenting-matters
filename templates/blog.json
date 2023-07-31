@@ -1,19 +1,106 @@
 {
   "sections": {
+    "09cf6e6a-571c-4466-8914-c8ae274203ab": {
+      "type": "blog-bannner",
+      "settings": {
+        "blog_name": "The Parenting matters blog"
+      }
+    },
     "main": {
       "type": "main-blog",
+      "blocks": {
+        "1dc4f492-9e03-4343-bbd2-fa81fdefadfc": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "View all"
+          }
+        },
+        "39cbdca9-00f9-4cc1-8f4a-7da1380f4c83": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Healthy boundaries"
+          }
+        },
+        "9d4bb96f-3a42-47d8-b282-e13fc76710e0": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Children"
+          }
+        },
+        "185fd552-dfdf-4a2f-8a57-cef10ea0a67c": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Filter"
+          }
+        }
+      },
+      "block_order": [
+        "1dc4f492-9e03-4343-bbd2-fa81fdefadfc",
+        "39cbdca9-00f9-4cc1-8f4a-7da1380f4c83",
+        "9d4bb96f-3a42-47d8-b282-e13fc76710e0",
+        "185fd552-dfdf-4a2f-8a57-cef10ea0a67c"
+      ],
       "settings": {
-        "layout": "collage",
+        "filter_title": "Filter by:",
+        "layout": "grid",
         "show_image": true,
         "image_height": "medium",
         "show_date": true,
         "show_author": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
+      }
+    },
+    "70a584b6-ec0b-4970-8697-6410d6372d6f": {
+      "type": "two-column-card",
+      "blocks": {
+        "template--20267184816426__70a584b6-ec0b-4970-8697-6410d6372d6f-cardimage-1": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_2.png",
+            "card_label": "Quiz",
+            "card_title": "What's your parenting style?",
+            "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
+            "card_btn": "Discover your parenting style",
+            "card_btn_mobile": "Learn more",
+            "card_btn_link": "",
+            "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "margin_top": 0,
+            "margin_top_mobile": 0
+          }
+        },
+        "template--20267184816426__70a584b6-ec0b-4970-8697-6410d6372d6f-cardimage-2": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_3.png",
+            "card_label": "Resources",
+            "card_title": "Looking for specific help?",
+            "card_description": "<p>Whether it's understanding your child better or dealing with specific worries and challenging behaviours, we offer guidance on a wide range of parenting matters.<\/p>",
+            "card_btn": "Find out more",
+            "card_btn_mobile": "Find out more",
+            "card_btn_link": "",
+            "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+            "margin_top": 70,
+            "margin_top_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--20267184816426__70a584b6-ec0b-4970-8697-6410d6372d6f-cardimage-1",
+        "template--20267184816426__70a584b6-ec0b-4970-8697-6410d6372d6f-cardimage-2"
+      ],
+      "settings": {
+        "section_title": "",
+        "top_radius": false,
+        "color_scheme": "",
+        "padding_top": 160,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "main"
+    "09cf6e6a-571c-4466-8914-c8ae274203ab",
+    "main",
+    "70a584b6-ec0b-4970-8697-6410d6372d6f"
   ]
 }

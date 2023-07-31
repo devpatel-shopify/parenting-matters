@@ -1,3 +1,15 @@
+/* == Canvas CSS === */
+#canvas_div {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+canvas {
+  border: 1px solid #ccc;
+  max-width:100%;
+}
 
 body {
   letter-spacing: 0.12px;
@@ -72,6 +84,9 @@ p:last-child {
 .template--organisations sticky-header[data-sticky-type=always] {
     background: #ffd978;
     border: none;
+}
+.main-template--blog sticky-header[data-sticky-type=always]{
+  background: #ffd979;
 }
 sticky-header[data-sticky-type="always"] {
   background: transparent;

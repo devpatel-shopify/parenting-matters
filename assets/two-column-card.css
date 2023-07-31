@@ -16,6 +16,10 @@
     max-width: 1044px;
     margin: 0 auto;
 }
+.main-template--blog .card_btn_wrapper a{
+      cursor: pointer;
+    opacity: 1;
+}
 
 .two-column-card .two-column-card_inner {
     width: calc(50% - 15px);
@@ -132,6 +136,9 @@
         flex-wrap: wrap;
         gap: 0;
     }
+  .main-template--blog .two-column-card .two-column-card_wrapper_inner{
+        gap: 64px;
+  }
     .two-column-card .breakdown_card:not(:last-child) {
         margin-bottom: 40px;
     }

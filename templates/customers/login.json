@@ -8,6 +8,7 @@
     "main": {
       "type": "main-login",
       "settings": {
+        "small_text": "Quickly get started by signing in using your existing log-in details or hit Create account to sign up.",
         "padding_top": 36,
         "padding_bottom": 36
       }

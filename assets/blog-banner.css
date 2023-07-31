@@ -1,0 +1,42 @@
+.blog-banner{
+
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    padding: 180px 0;
+}
+
+.blog-banner h2{
+      font-size: 68px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    max-width: 460px;
+  letter-spacing: 0.68px;
+}
+
+@media screen and (max-width: 767px) {
+  .blog-banner h2{
+    font-size: 42px;
+    max-width: 335px;
+  }
+  .blog-banner{
+        padding: 70px 0 110px;
+        background-size: 100% !important;
+  }
+  .filter-link ul li a.active{
+        padding: 6px 10px;
+  }
+  .filter-link ul li a{
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+  }
+  .filter-link ul{
+    gap:8px !important;
+  }
+  .blog-filter p{
+     font-size: 12px !important;
+  }
+  .filter-link {
+    margin-bottom: 48px;
+}
+}

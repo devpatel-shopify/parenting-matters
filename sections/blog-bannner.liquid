@@ -1,0 +1,32 @@
+{{ 'blog-banner.css' | asset_url | stylesheet_tag }}
+<section
+  class="blog-banner"
+  style="background: url(https://cdn.shopify.com/s/files/1/0730/5868/1130/files/blog-banner.png?v=1690520575);"
+>
+  <div class="page-width">
+    <h2>{{ section.settings.blog_name }}</h2>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "BLog Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "blog_name",
+        "label": "Blog name"
+      }
+    ],
+"presets":[
+{
+  "name": "BLog Banner"
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
