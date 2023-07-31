@@ -120,10 +120,20 @@
   max-width: 380px;
 }
 
+.main-template--article .featured-blog-title h2{
+  font-size: 43px;
+    max-width: unset;
+    line-height: 120%;
+    letter-spacing: 0.43px;
+}
+
 
 @media screen and (max-width: 1099px){
   .featured-blog-title h2{
     font-size:40px;
+  }
+  .main-template--article .featured-blog-title h2{
+    font-size:30px;
   }
 }
 
