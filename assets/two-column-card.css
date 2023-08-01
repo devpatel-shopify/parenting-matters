@@ -30,6 +30,9 @@
     border-radius: 40px;
       
 }
+.two-column-card .breakdown_card .column-card_item{
+    padding: 0px;
+}
 
 .two-column-card .card_label {
     border: 1px solid rgba(var(--color-foreground));
@@ -83,9 +86,9 @@
 }
 
 .two-column-card .breakdown_card_content-info {
-    padding: 16px;
+    padding: 32px;
     margin-bottom: 24px;
-    border-radius: 20px;
+    border-radius: 40px;
 }
 
 .two-column-card .breakdown_card_content-info:last-child {
@@ -101,13 +104,20 @@
 }
 
 .two-column-card .breakdown_card_title {
-    margin-bottom: 6px;margin-top: 16px;
+    margin-bottom: 12px;margin-top: 0px;
+    font-size: 22px;
+}
+.two-column-card .breakdown_card_title span{
+    color: #C72457;
 }
 .two-column-card_inner .card_title {
     margin-bottom: 12px;
 }
 .two-column-card .two-column-card-image {
     display: flex;
+}
+.breakdown-btn{
+    margin-top: 60px;
 }
 
 
