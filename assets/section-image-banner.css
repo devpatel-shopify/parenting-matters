@@ -838,8 +838,8 @@
   }
   .template--organisations .hero-image-about img {
     height: 250px;
-    width: calc(100% + 34rem);
-    margin: 0 auto;
+    width: 240px;
+    margin: 0;
 
   }
   .jump-click-btn{
