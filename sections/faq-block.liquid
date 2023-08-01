@@ -30,7 +30,7 @@
                 <a
                   role="link"
                   aria-disabled="true"
-                  href="#{{ block.settings.content_title }}"
+                  href="#{{ block.settings.content_title | remove: '' }}"
                   class="button"
                 >
                   {{ block.settings.content_title | escape }}

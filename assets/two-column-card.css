@@ -30,7 +30,7 @@
     border-radius: 40px;
       
 }
-.two-column-card .breakdown_card .column-card_item{
+.template--parenting-quiz .two-column-card .breakdown_card .column-card_item{
     padding: 0px;
 }
 
@@ -86,8 +86,12 @@
 }
 
 .two-column-card .breakdown_card_content-info {
-    padding: 32px;
+    padding: 16px;
     margin-bottom: 24px;
+    border-radius: 20px;
+}
+.template--parenting-quiz .two-column-card .breakdown_card_content-info{
+    padding: 32px;
     border-radius: 40px;
 }
 

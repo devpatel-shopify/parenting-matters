@@ -148,7 +148,14 @@
             "breakdown_card_image3": "shopify:\/\/shop_images\/Icon_3.svg",
             "breakdown_card_title3": "Listen",
             "title_description3": "<p>Understanding and responding to your child’s feelings.<\/p>",
-            "color_scheme": "inverse"
+            "breakdown_card_title4": "",
+            "title_description4": "",
+            "button_label_2": "Take the quiz",
+            "button_style_secondary_2": false,
+            "button_link_2": "",
+            "color_scheme": "inverse",
+            "margin_top": 0,
+            "margin_top_mobile": 0
           }
         },
         "331039c7-14bf-40fd-9d57-3350fd3cbcc2": {
@@ -166,7 +173,14 @@
             "breakdown_card_image3": "shopify:\/\/shop_images\/Icon_6.svg",
             "breakdown_card_title3": "Plan",
             "title_description3": "<p>Developing resilience and pulling it all together.<\/p>",
-            "color_scheme": "accent-1"
+            "breakdown_card_title4": "",
+            "title_description4": "",
+            "button_label_2": "Take the quiz",
+            "button_style_secondary_2": false,
+            "button_link_2": "",
+            "color_scheme": "accent-1",
+            "margin_top": 0,
+            "margin_top_mobile": 0
           }
         }
       },
@@ -339,7 +353,7 @@
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from  our Community.",
+        "section_title": "Some words from <br> our Community.",
         "top_border": true,
         "bottom_border": true,
         "padding_top": 64,

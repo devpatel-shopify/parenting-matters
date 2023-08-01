@@ -8,6 +8,8 @@
   padding: 27px 24px;
   background: #fff;
   width: 23.2%;
+  position: sticky;
+    top: 100px;
 }
 .tab-faq ul {
   list-style: none;
@@ -19,7 +21,7 @@
       margin-top: 11px;
 }
 .tab-faq ul li {
-  padding: 8px 0px;
+  padding: 0px 0px;
   font-size: 14px;
   line-height: 150%;
     margin-bottom: 11px;
@@ -90,10 +92,12 @@
   cursor: pointer;
   opacity: unset;
   font-size: 14px;
+  padding: 8px 0px;
 }
-.active {
+.faq-block .tab-faq .button.active {
   border: 1px solid #01333E !important;
   transition: .4s all;
+  padding: 8px 24px;
 }
 @media only screen and (max-width: 1099px) {
    .faq-banner-text h2 {
@@ -114,6 +118,10 @@
     background: transparent;
     padding: 0;
     border-radius: 0;
+    position: unset;
+  }
+  .faq-block .tab-faq .button{
+    padding:0;
   }
   .tab-faq ul {
     display: flex;

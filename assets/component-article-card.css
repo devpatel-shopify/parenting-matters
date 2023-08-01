@@ -68,7 +68,7 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-.blog .card__heading a:after { display: none; }
+
 
 .blog-articles .article-card .card__information,
 .blog__posts .article-card .card__information {
