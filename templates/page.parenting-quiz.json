@@ -138,8 +138,8 @@
             "heading_text": "Track your Family Star",
             "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
             "button_text": "Take the quiz",
-            "button_url": "",
-            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "button_url": "shopify:\/\/pages\/contact",
+            "background_schema": "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef",
             "layout": "image_first"
           }
         }

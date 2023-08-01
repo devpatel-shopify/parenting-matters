@@ -430,7 +430,7 @@ h6,
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground));
-  border-left: 0.2rem solid rgba(var(--color-foreground), 0.2);
+  border-left: 1px solid #01333E;
   padding-left: 1rem;
 }
 
@@ -455,7 +455,7 @@ blockquote {
   font-size: 1rem;
   letter-spacing: 0.13rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .caption-with-letter-spacing--medium {
@@ -3209,9 +3209,9 @@ details-disclosure > details {
   text-decoration-thickness: 0.2rem;
 }
 
-.rte blockquote {
+/* .rte blockquote {
   display: inline-flex;
-}
+} */
 
 .rte blockquote > * {
   margin: -0.5rem 0 -0.5rem 0;
