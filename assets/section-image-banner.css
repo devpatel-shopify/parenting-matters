@@ -572,7 +572,7 @@
   overflow: hidden;
 }
 .template--organisations .hero-image-about{
-  bottom: 152px;
+  bottom: 180px;
 }
 .hero-image-about img {
   max-width: 1195px;
@@ -708,7 +708,10 @@
     padding: 80px 4.6rem 54px;
 }
 .template--organisations .hero-image-about {
-  bottom: 182px;
+  bottom: 210px;
+}
+.jump-click-btn{
+  margin-top: -160px;
 }
 }
 @media only screen and (max-width: 920px) {
@@ -721,6 +724,7 @@
   .template--organisations .hero-image-about{
     bottom: 87px;
   }
+  
 }
 
 @media only screen and (max-width: 749px) {
@@ -751,7 +755,8 @@
     letter-spacing: 0.14px;
   }
   .template--organisations .hero-image-about {
-    bottom: 107px;
+    bottom: 117px;
+
 }
 
   /* .hero-design-main {
@@ -833,6 +838,15 @@
   }
   .template--organisations .hero-image-about img {
     height: 250px;
+    width: calc(100% + 34rem);
+    margin: 0 auto;
+
+  }
+  .jump-click-btn{
+    margin-top: 0 !important;
+  }
+  .jump-block{
+    margin-top: -80px;
   }
 }
 

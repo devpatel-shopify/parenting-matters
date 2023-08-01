@@ -3,6 +3,7 @@
   padding: 64px;
   border-radius: 40px;
       margin-bottom: 48px;
+
 }
 .jump-grid {
   display: flex;
@@ -70,6 +71,9 @@
 
 .jump-click-btn {
   margin-bottom: 54px;
+  margin-top: -120px;
+    position: relative;
+    z-index: 9999;
 }
 .inner-first-count {
   max-width: 1000px;
@@ -190,6 +194,9 @@
 }
 .jump-open-block{
   margin-bottom: 160px;
+}
+.jump-redirect-block{
+  position: relative;
 }
 .jump-redirect-block.cream-bg .jump-details{
   background: #F7C083;
@@ -382,7 +389,9 @@
   .card-text {
     width: 84%;
   }
- 
+  .jump-click-btn{
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 641px) {
