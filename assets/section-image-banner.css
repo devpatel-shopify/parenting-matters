@@ -628,6 +628,10 @@
   font-size: 68px;
   margin-bottom: 12px;
 }
+.template--parenting-quiz .banner__box .banner__heading{
+  font-size: 72px;
+  max-width: 726px;
+}
 .template--parenting-quiz .hero-design-main .banner__box .banner__text p {
   font-size: 20px;
   letter-spacing: 0.2px;
@@ -846,7 +850,7 @@
     margin-top: 0 !important;
   }
   .jump-block{
-    margin-top: -110px;
+    margin-top: -144px;
   }
 }
 
