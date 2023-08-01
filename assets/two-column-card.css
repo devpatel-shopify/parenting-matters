@@ -194,7 +194,7 @@
     }
     .two-column-card .breakdown_card_title {
         font-size: calc(var(--font-body-scale) * 16px);
-      margin-top: 12px;
+     
     }
     .two-column-card_inner .card_title {
         margin-bottom: 12px;
