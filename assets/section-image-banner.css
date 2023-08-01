@@ -811,7 +811,7 @@
     .banner_content_cover
     .banner__content
     .banner__box {
-    padding: 70px 20px 38px;
+    padding: 70px 20px 34px;
   }
   .template--parenting-quiz .hero-design-main .banner__box .banner__text p {
     font-size: 14px;
@@ -851,6 +851,9 @@
   }
   .jump-block{
     margin-top: -144px;
+  }
+  .template--parenting-quiz .hero-image-about{
+    bottom: 40px;
   }
 }
 

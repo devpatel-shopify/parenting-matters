@@ -48,7 +48,7 @@
     display: inline-flex;
     align-items: center;
     letter-spacing: .14px;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     line-height: 120%;
 }
 
@@ -218,6 +218,7 @@
   }
   .two-column-card .card_label{
     font-size: 12px;
+    margin-bottom: 12px;
   }
   .two-column-card--template--19831424975146__14fd4b8c-7862-489d-9388-41e07e8be3de-padding{
         padding-top: 17px !important;
