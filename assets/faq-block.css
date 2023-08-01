@@ -242,4 +242,13 @@
     height: 18px;
     padding: 2px;
 }
+.tab-faq ul{
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+.tab-faq ul::-webkit-scrollbar {
+  display: none;
+}
 }

@@ -135,6 +135,8 @@
    background: #fff;
   padding: 32px;
     border-radius: 40px;
+    position: sticky;
+    top: 100px;
 }
 
 .tag-block .tag-link{

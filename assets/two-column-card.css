@@ -1,7 +1,7 @@
 .two-column-card img {
     width: 100%;
     object-fit: cover;
-    height: auto;
+    height: 180px;
 }
 
 .two-column-card .two-column-card-image {
