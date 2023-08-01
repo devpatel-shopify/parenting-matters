@@ -469,4 +469,11 @@
    .jump-text p {
     font-size: 14px;
   }
+  .jump-btn-block{
+    -ms-overflow-style: none; 
+   scrollbar-width: none;
+ }
+ .jump-btn-block::-webkit-scrollbar {
+     display: none;
+ }
 }
