@@ -618,7 +618,7 @@
 }
 .template--parenting-quiz .hero-image-about img {
   object-fit: contain;
-  max-width: 700px;
+  max-width: 910px;
   height: auto;
 }
 .template--parenting-quiz .hero-design-main .banner__box .banner__text {
@@ -655,7 +655,8 @@
   padding: 0;
 }
 .template--parenting-quiz .hero-image-about {
-  bottom: 57px;
+  bottom:67px;
+  left: -20px;
 }
 .template--organisations .banner_content_cover .banner__content .banner__box{
   padding: 80px 4.6rem 87px;
@@ -864,6 +865,7 @@
   }
   .template--parenting-quiz .hero-image-about{
     bottom: 40px;
+    left: 0;
   }
 }
 
