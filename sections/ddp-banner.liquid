@@ -1,0 +1,36 @@
+{{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="ddp-banner">
+    <div class="page-width">
+        <div class="ddp-inner-content">
+            <div class="ddp-left-text">
+                <h2>Struggling with particular difficulties with your child?</h2>
+                <p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.</p>
+            </div>
+            <div class="ddp-right-img">
+                <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-right.svg?v=1690953183" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    <div class="ddp-bottom-image">
+        <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-bottom.png?v=1690952576" alt="" srcset="">
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "DDP banner",
+  "settings": [],
+  "presets":[
+  {
+    "name": "DDP banner"
+  }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

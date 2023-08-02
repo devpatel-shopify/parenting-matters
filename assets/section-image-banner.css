@@ -655,10 +655,16 @@
   padding: 0;
 }
 .template--parenting-quiz .hero-image-about {
-  bottom: 0;
+  bottom: 57px;
 }
 .template--organisations .banner_content_cover .banner__content .banner__box{
   padding: 80px 4.6rem 87px;
+}
+.template--parenting-quiz .hero_about .hero-background-design-cover svg.only-desktop{
+  display: none;
+}
+.template--about .hero_about .hero-background-design-cover svg.quize-banner{
+  display: none;
 }
 
 @media only screen and (min-width: 750px) and (max-width: 1030px) {
@@ -707,7 +713,7 @@
     .banner_content_cover
     .banner__content
     .banner__box {
-    padding: 180px 4.6rem;
+    padding: 50px 4.6rem;
   }
   .banner__content.banner__content--middle-left {
     align-items: unset;

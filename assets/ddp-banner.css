@@ -1,0 +1,39 @@
+.ddp-banner{
+    background: #C9D9D3;
+    padding: 180px 0 93px;
+    position: relative;
+    z-index: 9;
+}
+.ddp-banner h2{
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    max-width: 723px;
+    margin-bottom: 12px;
+}
+.ddp-banner p{
+    max-width: 613px;
+}
+.ddp-banner .ddp-inner-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ddp-banner .ddp-inner-content .ddp-left-text{
+    width: 60%;
+}
+.ddp-banner .ddp-inner-content .ddp-right-img{
+    width: 34%;
+}
+.ddp-banner .ddp-bottom-image{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    z-index: -1
+}
+.ddp-banner .ddp-bottom-image img{
+    width: 100%;
+    height: 205px;
+}

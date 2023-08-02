@@ -2,13 +2,20 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "7a061b52-0729-4c7d-b9a2-2b3af0def55e": {
+      "type": "ddp-banner",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "7a061b52-0729-4c7d-b9a2-2b3af0def55e"
   ]
 }

@@ -19,11 +19,14 @@
       margin-top: 24px !important;
 }
 .article-template header span{
-      
+  letter-spacing: 0.14px;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+.article-template header span::after{
+  display: none;
 }
 .article-template__hero-container {
   /* max-width: 130rem; */
@@ -106,7 +109,7 @@
 
 .article-template__content {
   margin-top: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 75px;
 }
 
 .article-template__social-sharing {
@@ -181,7 +184,7 @@
   border-radius: 20px;
 }
 .article-template__content strong{
-  font-weight: 500;
+  font-weight: 600;
 }
 .article-template__content ol{
   list-style-position: unset;
@@ -335,6 +338,9 @@
 }
 .article-template__content h2{
   font-size: 30px;
+}
+.article-tag .article-block .article-template__content p{
+  font-size: 16px;
 }
   
 }

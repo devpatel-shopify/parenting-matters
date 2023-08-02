@@ -49,7 +49,7 @@
         >
           {%- if block.settings.blog_show_date -%}
             <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">
-              {{- article.published_at | date: "%dth %b, %y" -}}
+              {{- article.published_at | date: "%dth %b, %Y" -}}
             </span>
           {%- endif -%}
           <h1
