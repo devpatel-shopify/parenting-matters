@@ -667,6 +667,9 @@
 .template--about .hero_about .hero-background-design-cover svg.quize-banner{
   display: none;
 }
+.template--organisations .hero_about .hero-background-design-cover svg.quize-banner{
+  display: none;
+}
 
 @media only screen and (min-width: 750px) and (max-width: 1030px) {
   .hero-background-design-cover > svg {
@@ -729,7 +732,7 @@
   margin-top: -160px;
 }
 .template--parenting-quiz .hero-image-about{
-  bottom: 17px;
+  bottom: 40px;
 }
 .template--parenting-quiz .hero-image-about img{
   max-width: 720px;
