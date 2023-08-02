@@ -1,11 +1,82 @@
+{{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+<section class="ddp-list-block">
+    <div class="page-width">
+        <div class="ddp-tag-block">
+            <p>Filter:</p>
+            <div class="tag-link">
+                <a href="" class="active">View all</a>
+                <a href="">Parent</a>
+                <a href="">Child</a>
+            </div>
+        </div>
+        <div class="ddp-post-list">
+            {%- for block in section.blocks -%}
+            <div class="ddp-box">
+                <div class="ddp-post-img">
+                    <img src="{{ block.settings.ddp_image | img_url:'master' }}" >
+                    {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddppost.png?v=1690976850" > {% endcomment %}
+                </div>
+                
+                
+                <div class="ddp-post-details">
+                    <span class="ddp_label">{{block.settings.ddp_label}}</span>
+                    <h3>{{block.settings.ddp_heading}}</h3>
+                    <p>{{block.settings.ddp_text}}</p>
+                    <a class="button" href="">Read more
+                        <svg aria-hidden="true" class="icon icon-arrow" focusable="false" viewBox="0 0 21 20"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z"
+                                fill="currentColor">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+
+
 {% schema %}
 {
-  "name": "DDP post list",
-  "settings": [],
-  "presets": [
-  {
-    "name": "DDP post list"
-  }
+"name": "DDP post list",
+"settings": [],
+"blocks": [
+    {
+      "type": "ddp-post",
+      "name": "DDP Post",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "ddp_image",
+          "label": "DDP post image add"
+        },
+        {
+            "type": "text",
+            "id": "ddp_label",
+            "label": "DDP label"
+          },
+        {
+            "type": "text",
+            "id": "ddp_heading",
+            "label": "DDP heading"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "ddp_text",
+            "label": "DDP text"
+          }
+      ]
+    }
+  ],
+"presets": [
+{
+"name": "DDP post list"
+}
 ]
 }
 {% endschema %}

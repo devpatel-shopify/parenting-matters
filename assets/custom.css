@@ -80,7 +80,10 @@ p:last-child {
   justify-content: center;
 }
 
+
 /* section-header */
+
+
 .template--organisations sticky-header[data-sticky-type=always] {
     background: #ffd978;
     border: none;
