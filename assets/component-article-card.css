@@ -1,6 +1,6 @@
 @media screen and (max-width: 1199px) {
   .article-card__info .circle-divider{
-    width:100%;
+    width:auto;
   }
 }
 
@@ -135,6 +135,15 @@
   }
   .main-template--article .featured-blog-title h2{
     font-size:30px;
+  }
+  .article-card .card__heading{
+    font-size: 20px
+  }
+  .article-card__excerpt{
+    font-size: 14px;
+  }
+  .blog-bg-design svg{
+    width: 400px;
   }
 }
 

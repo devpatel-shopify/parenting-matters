@@ -25,6 +25,10 @@
     font-weight: 400;
     line-height: 120%;
 }
+.article-template header span:last-child{
+  font-size: 16px;
+  letter-spacing: 0.16px;
+}
 .article-template header span::after{
   display: none;
 }
@@ -109,7 +113,7 @@
 
 .article-template__content {
   margin-top: 0;
-  margin-bottom: 75px;
+  
 }
 
 .article-template__social-sharing {
@@ -178,10 +182,32 @@
     line-height: 120%;
     letter-spacing: 0.2px;
     font-weight: 400;
+    margin: 20px 0px;
+}
+.article-tag .article-block .article-template__content p:first-child{
+  margin-top: 0;
+}
+
+.article-tag .article-block .article-template__content h2{
+  margin: 80px 0 32px;
 }
 .article-template__content img{
   width:100%;
   border-radius: 20px;
+  margin-top: 60px;
+  margin-bottom: -8px;
+}
+.article-template__content span{
+  margin-bottom: 60px;
+  display: inline-block;
+  font-size: 16px;
+
+}
+.article-template__content iframe{
+  margin-top:80px ;
+}
+.article-template__content h2 strong{
+  font-weight: 500;
 }
 .article-template__content strong{
   font-weight: 600;
@@ -195,10 +221,12 @@
     font-weight: 400;
     line-height: 120%;
     letter-spacing: 0.2px;
+    margin: 20px 0;
+
 }
 .article-tag .article-block .article-template__content iframe{
       width: 100%;
-    border-radius: 29.735px;
+    border-radius: 29.735px; 
     height: 371px;
     object-fit: cover;
 }
@@ -210,6 +238,9 @@
   margin: 0;
   padding-left: 48px;
     font-style: normal;
+}
+.article-template__content blockquote{
+  margin-top: 80px;
 }
 .article-template__hero-adapt {
       background: transparent;
@@ -229,6 +260,9 @@
 }
 .article-tag .share-tag .share-block .list-social{
   justify-content: flex-start;
+}
+.article-tag .article-block .article-template__content p.quote-name{
+  font-size: 16px;
 }
 
 
@@ -315,10 +349,10 @@
     line-height: 120%;
   }
   .article-template header span{
-    font-size: 12px;
+    font-size: 14px;
   }
   .article-tag {
-    margin-top: 48px;
+    margin-top: 60px;
 }
   .article-tag .share-tag{
         order: 2;
@@ -354,7 +388,22 @@
   .article-tag .share-tag{
     padding: 24px;
   }
-  .article-template__content img{
-    margin: -50px 0;
+  .article-template header{
+    margin-bottom: 20px;
   }
+  .article-template__content img{
+    margin-top: 35px;
+  }
+  .article-template__content span{
+    margin-bottom: 35px;
+  }
+  .article-tag .article-block .article-template__content h2 {
+    margin: 55px 0 32px;
+}
+.article-template__content blockquote{
+  margin-top: 55px;
+}
+.article-template__content iframe{
+  margin-top: 55px;
+}
 }
