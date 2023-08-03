@@ -26,9 +26,13 @@
       <p>{{ section.settings.filter_title }}</p>
       <div class="filter-link">
         <ul>
-          {%- for block in section.blocks -%}
+          <li>
+            <a href="{{ blog.url }}" data-tag="all" class="active js_tag_select">View All</a>
+          </li>
+          {% for tag in blog.all_tags %}
             <li>
-              <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a>
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="js_tag_select" data-tag="{{- tag -}}">{{ tag }}</a>
+              {% comment %} <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a> {% endcomment %}
             </li>
           {%- endfor -%}
         </ul>
@@ -62,7 +66,23 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
-
+<script>
+  let tagElements = document.querySelectorAll(".js_tag_select")
+  tagElements.forEach(function(tagElement){
+      tagElement.classList.remove("active");
+    tagElement.addEventListener("click",function(event){
+        let tag = event.target.getAttribute("data-tag");
+        localStorage.setItem("tags", tag);
+    });
+    let getTag = localStorage.getItem("tags");
+    if(tagElement.getAttribute("data-tag") == getTag && getTag != "null"){
+      tagElement.classList.add("active");
+    }
+    if(getTag == null){
+      tagElements[0].classList.add("active")
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
@@ -170,25 +190,6 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "filter-link",
-      "name": "filter link add",
-      "settings": [
-        {
-          "type": "text",
-          "id": "link_id",
-          "label": "Link name"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_1",
-          "default": false,
-          "label": "button_style_secondary_1"
-        }
-      ]
     }
   ]
 }

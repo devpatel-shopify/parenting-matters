@@ -8,38 +8,6 @@
     },
     "main": {
       "type": "main-blog",
-      "blocks": {
-        "61f623c1-45ca-4262-8539-59853eec24ad": {
-          "type": "filter-link",
-          "settings": {
-            "link_id": "View all"
-          }
-        },
-        "5416c64a-a355-4d6e-b394-c775ddb65a6f": {
-          "type": "filter-link",
-          "settings": {
-            "link_id": "Healthy boundaries"
-          }
-        },
-        "94482c24-320a-41c9-9032-2c63124017de": {
-          "type": "filter-link",
-          "settings": {
-            "link_id": "Children"
-          }
-        },
-        "94b49730-a916-4b89-81a5-e24091d63730": {
-          "type": "filter-link",
-          "settings": {
-            "link_id": "Filter"
-          }
-        }
-      },
-      "block_order": [
-        "61f623c1-45ca-4262-8539-59853eec24ad",
-        "5416c64a-a355-4d6e-b394-c775ddb65a6f",
-        "94482c24-320a-41c9-9032-2c63124017de",
-        "94b49730-a916-4b89-81a5-e24091d63730"
-      ],
       "settings": {
         "filter_title": "Filter by:",
         "layout": "grid",
