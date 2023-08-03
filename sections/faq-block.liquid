@@ -31,7 +31,7 @@
                   role="link"
                   aria-disabled="true"
                   href="#{{ block.settings.content_title | remove: '' }}"
-                  class="button"
+                  class="button js_link"
                 >
                   {{ block.settings.content_title | escape }}
                 </a>
@@ -45,7 +45,7 @@
           {%- for block in section.blocks -%}
             {% if block.type == 'heading' %}
               {%- if block.settings.content_title != blank -%}
-                <h3 class="content_title_wrapper title--{{ block.id }}" id="{{ block.settings.content_title }}" >{{ block.settings.content_title }}</h3>
+                <h3 class="content_title_wrapper title--{{ block.id }} js_scroll_to_content" id="{{ block.settings.content_title }}" >{{ block.settings.content_title }}</h3>
               {%- endif -%}
             {% else %}
               <div class="accordion">
@@ -104,6 +104,22 @@
     </div>
   </div>
 </section>
+<script>
+  let linkElements = document.querySelectorAll(".js_link");
+  linkElements.forEach(function(linkElement){
+    console.log(linkElement)
+    linkElement.addEventListener("click", function(element){
+      linkElements.forEach(function(linkElement){
+        linkElement.classList.remove("active")
+      });
+      if(!event.target.classList.contains("active")){
+        event.target.classList.add("active");
+      }
+    });
+  });
+  
+  
+</script>
 
 {% schema %}
 {
@@ -181,7 +197,7 @@
           "type": "text",
           "id": "heading_title",
           "label": "Heading Text",
-          "default": "What if I don’t have particular concerns about my child, but would like to be a better parent?"
+          "default": "What if I don't have particular concerns about my child, but would like to be a better parent?"
         },
         {
           "type": "richtext",
