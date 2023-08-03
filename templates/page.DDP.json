@@ -12,7 +12,7 @@
       "type": "ddp-banner",
       "settings": {
         "ddp_heading": "Struggling with particular difficulties with your child?",
-        "ddp_text": "<p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
+        "ddp_text": "<p>We've highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
         "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
       }
     },
@@ -25,7 +25,7 @@
             "ddp_image": "shopify:\/\/shop_images\/pexels-photo-4740522_1.png",
             "ddp_label": "Parent",
             "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
+            "ddp_text": "<p>Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?</p>",
             "button_label_2": "Read more",
             "button_style_secondary_2": false,
             "button_link_2": "shopify:\/\/pages\/contact"
@@ -37,7 +37,7 @@
             "ddp_image": "shopify:\/\/shop_images\/ddppost.png",
             "ddp_label": "Parent",
             "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
+            "ddp_text": "<p>Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?</p>",
             "button_label_2": "Read more",
             "button_style_secondary_2": false,
             "button_link_2": "shopify:\/\/pages\/contact"

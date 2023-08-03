@@ -10,32 +10,32 @@
       </div>
     </div>
     <div class="ddp-post-list">
-      {%- for block in section.blocks -%}
+      {%- for blog in blog.metafields.custom.ddp_page.value -%}
         <div class="ddp-box">
           <div class="ddp-post-img">
-            <img src="{{ block.settings.ddp_image | img_url:'master' }}">
+            <img src="{{ blog.image.value |image_url }}">
             {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddppost.png?v=1690976850" > {% endcomment %}
           </div>
-
+        
           <div class="ddp-post-details">
-            <span class="ddp_label">{{ block.settings.ddp_label }}</span>
-            <h3>{{ block.settings.ddp_heading }}</h3>
-            <p>{{ block.settings.ddp_text }}</p>
+            <span class="ddp_label">{{ blog.label.value }}</span>
+            <h3>{{ blog.heading.value }}</h3>
+            <p>{{ blog.rich_text | metafield_tag }}</p>
 
             <div class="ddp-button">
               <a
-                {% if block.settings.button_link_2 == blank %}
+                {% if blog.button_url.value == blank %}
                     role="link" aria-disabled="false"
                     {% else %}
-                  href="{{ block.settings.button_link_2 }}"
+                  href="{{ blog.button_url | metafield_text }}"
                 {% endif %}
                 class="button {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
               >
-                {{- block.settings.button_label_2 | escape -}}
+                {{ blog.button_text.value }}
                 {% render 'icon-arrow' %}
               </a>
             </div>
-
+            
             {% comment %}
               <a class="button" href="">Read more
                   <svg aria-hidden="true" class="icon icon-arrow" focusable="false" viewBox="0 0 21 20"
@@ -58,52 +58,6 @@
 {
   "name": "DDP post list",
   "settings": [],
-  "blocks": [
-    {
-      "type": "ddp-post",
-      "name": "DDP Post",
-      "settings": [
-        
-        {
-          "type": "image_picker",
-          "id": "ddp_image",
-          "label": "DDP post image add"
-        },
-        {
-          "type": "text",
-          "id": "ddp_label",
-          "label": "DDP label"
-        },
-        {
-          "type": "text",
-          "id": "ddp_heading",
-          "label": "DDP heading"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "ddp_text",
-          "label": "DDP text"
-        },
-        {
-            "type": "text",
-            "id": "button_label_2",
-            "label": "Button text",
-            "default": "Read more"
-          },
-          {
-            "type": "checkbox",
-            "id": "button_style_secondary_2",
-            "default": false,
-            "label": "Solid button"
-          },
-          {
-            "type": "url",
-            "id": "button_link_2",
-            "label": "Button URL"
-          }
-      ]
-    }
-  ],
   "presets": [
     {
       "name": "DDP post list"

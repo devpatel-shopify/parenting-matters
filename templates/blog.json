@@ -64,11 +64,17 @@
         "padding_top": 160,
         "padding_bottom": 96
       }
+    },
+    "9eb3fc47-594d-4fbf-b764-935d1cb1c69e": {
+      "type": "ddp-post-list",
+      "settings": {
+      }
     }
   },
   "order": [
     "2778df54-ebf9-426b-9e19-3050cdd9f343",
     "main",
-    "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7"
+    "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7",
+    "9eb3fc47-594d-4fbf-b764-935d1cb1c69e"
   ]
 }
