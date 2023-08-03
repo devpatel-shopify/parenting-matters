@@ -75,6 +75,9 @@
     position: relative;
     z-index: 9;
 }
+.ddp-org-step .jump-click-btn{
+  margin-top: 0;
+}
 .inner-first-count {
   max-width: 1000px;
   margin-left: auto;
@@ -223,7 +226,9 @@
 .jump-redirect-block:last-child .jump-open-block{
   margin-bottom: 100px;
 }
-
+.ddp-org-step .jump-redirect-block:last-child .jump-open-block{
+  margin-bottom:45px;
+}
 
 @media screen and (max-width: 1299px) {
   .inner-grid-block .grid-box .inner-boxes {

@@ -306,6 +306,7 @@
       ],
       "settings": {
         "full_width": false,
+        "join_remove": true,
         "heading_text": "What you’ll get when you join",
         "button_text": "Join today",
         "button_url": "#",

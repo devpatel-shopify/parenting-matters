@@ -396,6 +396,7 @@
   }
   .article-template__content span{
     margin-bottom: 35px;
+    font-size: 14px;
   }
   .article-tag .article-block .article-template__content h2 {
     margin: 55px 0 32px;

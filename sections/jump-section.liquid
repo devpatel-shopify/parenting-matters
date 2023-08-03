@@ -20,7 +20,7 @@
    {%- endfor -%}  
 </style>
 
-<section class="jump-block">
+<section class="jump-block {{ section.settings.custom_class }}">
   <div class=" page-width">
     <div class="jump-click-btn">
       <p>{{- section.settings.tab_title -}}</p>
@@ -239,6 +239,11 @@
 {
 "name": "Jupm section",
 "settings": [
+  {
+    "type" : "text",
+    "id" : "custom_class",
+      "label" : "Custom class name"
+  },
   {
     "type": "text",
     "id": "tab_title",

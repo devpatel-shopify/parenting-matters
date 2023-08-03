@@ -7,7 +7,7 @@
   </div>
   <div class="page-width">
     <div class="faq-banner-text">
-      <h2>Frequently asked questions</h2>
+      <h2>{{section.settings.heading_text}}</h2>
     </div>
   </div>
 </section>
@@ -15,7 +15,13 @@
 {% schema %}
 {
   "name": "Faq Banner",
-  "settings": [],
+  "settings": [
+    {
+      "type" : "text",
+      "id" : "heading_text",
+      "label" : "Banner text"
+    }
+  ],
   "presets":[
   {
     "name": "Faq Banner"

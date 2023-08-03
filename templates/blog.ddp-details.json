@@ -1,0 +1,249 @@
+{
+  "sections": {
+    "14ad9f9d-00fa-4acc-9c15-7dc5197c953e": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "ddp-details-banner",
+        "ddp_heading": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children",
+        "ddp_text": "",
+        "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "blocks": {
+        "61f623c1-45ca-4262-8539-59853eec24ad": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "View all",
+            "button_style_secondary_1": false
+          }
+        },
+        "5416c64a-a355-4d6e-b394-c775ddb65a6f": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Healthy boundaries",
+            "button_style_secondary_1": false
+          }
+        },
+        "94482c24-320a-41c9-9032-2c63124017de": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Children",
+            "button_style_secondary_1": false
+          }
+        },
+        "94b49730-a916-4b89-81a5-e24091d63730": {
+          "type": "filter-link",
+          "settings": {
+            "link_id": "Filter",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "61f623c1-45ca-4262-8539-59853eec24ad",
+        "5416c64a-a355-4d6e-b394-c775ddb65a6f",
+        "94482c24-320a-41c9-9032-2c63124017de",
+        "94b49730-a916-4b89-81a5-e24091d63730"
+      ],
+      "settings": {
+        "filter_title": "Filter by:",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "1fa75ce9-5669-481a-ba5c-228ecc71475b": {
+      "type": "jump-section",
+      "blocks": {
+        "1d441852-7f14-4dd7-9c30-46dede5db110": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#f7c083",
+            "secondary_color": "#e9f0ed",
+            "tab_id": "",
+            "title": "Introduction",
+            "subtitle": "Most of us can relate to the unease and discomfort that arise from conflicts within our families.",
+            "description": "<p>Whether it's heated arguments with our partners or clashes with (or between) our children, these moments of tension can leave everyone feeling on edge and unhappy. <\/p>",
+            "button_name": "Expand",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "What can you do?",
+            "title_1": "Stay Calm",
+            "desc_1": "<p>During moments of conflict, it's crucial to remain calm and composed. Take a deep breath, step back, and give yourself a moment to collect your thoughts. Reacting impulsively may escalate the situation further.<\/p>",
+            "title_2": "Choose the Right Time and Place",
+            "desc_2": "<p>Timing is essential when addressing conflicts. Find a suitable moment when all parties involved are calm and receptive. Ensure privacy and create a safe space for open dialogue.<\/p>",
+            "title_3": "Practice Empathy",
+            "desc_3": "<p>Put yourself in the other person's shoes to better understand their perspective. Cultivating empathy allows for better communication and a deeper connection with your family members.<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "7ca87ae1-a760-4efc-a711-bccdf4222edb": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#c9d9d3",
+            "secondary_color": "#e9f0ed",
+            "tab_id": "",
+            "title": "Understanding the impact",
+            "subtitle": "To begin with, let’s understand the impact of conflict, especially conflict that occurs between the parents.",
+            "description": "<p>Inter-parental conflict can have significant consequences, especially on children who are sensitive to the emotional atmosphere around them. Frequent and unresolved conflicts can lead to heightened stress levels, anxiety, and a sense of insecurity in children.<\/p>",
+            "button_name": "Expand",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "What can you do?",
+            "title_1": "Stay Calm",
+            "desc_1": "<p>During moments of conflict, it's crucial to remain calm and composed. Take a deep breath, step back, and give yourself a moment to collect your thoughts. Reacting impulsively may escalate the situation further.<\/p>",
+            "title_2": "Choose the Right Time and Place",
+            "desc_2": "<p>Timing is essential when addressing conflicts. Find a suitable moment when all parties involved are calm and receptive. Ensure privacy and create a safe space for open dialogue.<\/p>",
+            "title_3": "Practice Empathy",
+            "desc_3": "<p>Put yourself in the other person's shoes to better understand their perspective. Cultivating empathy allows for better communication and a deeper connection with your family members.<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "6bec03f0-d2e0-408b-a964-91260e9019f1": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#ffd978",
+            "secondary_color": "#f4d3dd",
+            "tab_id": "",
+            "title": "Identifying the root causes",
+            "subtitle": "Conflicts within the family often stem from a combination of factors, including miscommunication, unmet expectations, differing parenting styles, and external stressors.",
+            "description": "<p>It's essential to identify these underlying causes to address conflicts effectively. By recognising patterns and triggers, we can begin to find solutions that promote understanding and compromise.<\/p>",
+            "button_name": "Expand",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "What can you do?",
+            "title_1": "Stay Calm",
+            "desc_1": "<p>During moments of conflict, it's crucial to remain calm and composed. Take a deep breath, step back, and give yourself a moment to collect your thoughts. Reacting impulsively may escalate the situation further.<\/p>",
+            "title_2": "Choose the Right Time and Place",
+            "desc_2": "<p>Timing is essential when addressing conflicts. Find a suitable moment when all parties involved are calm and receptive. Ensure privacy and create a safe space for open dialogue.<\/p>",
+            "title_3": "Practice Empathy",
+            "desc_3": "<p>Put yourself in the other person's shoes to better understand their perspective. Cultivating empathy allows for better communication and a deeper connection with your family members.<\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1d441852-7f14-4dd7-9c30-46dede5db110",
+        "7ca87ae1-a760-4efc-a711-bccdf4222edb",
+        "6bec03f0-d2e0-408b-a964-91260e9019f1"
+      ],
+      "settings": {
+        "custom_class": "ddp-org-step",
+        "tab_title": ""
+      }
+    },
+    "868d6d20-31e3-48c2-bf3d-f574d21ce62e": {
+      "type": "join-card-section",
+      "blocks": {
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-1": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Daily bite-sized exercises."
+          }
+        },
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-2": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Solutions to your greatest parenting challenges."
+          }
+        },
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-3": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Easy ways to connect with your child"
+          }
+        },
+        "810474d4-b97e-408c-b433-e392ea2887cd": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Parenting tips, exercises, videos and feedback on progress"
+          }
+        },
+        "97fdc0ab-ea8a-4dad-84f3-5e8e9a572b94": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "Access to a supported private Community"
+          }
+        },
+        "27baed79-d564-47db-b0b8-46c9da1c5e6e": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "checklist": "A calmer, happier home and a more confident parent"
+          }
+        }
+      },
+      "block_order": [
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-1",
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-2",
+        "template--20388335190314__868d6d20-31e3-48c2-bf3d-f574d21ce62e-text-3",
+        "810474d4-b97e-408c-b433-e392ea2887cd",
+        "97fdc0ab-ea8a-4dad-84f3-5e8e9a572b94",
+        "27baed79-d564-47db-b0b8-46c9da1c5e6e"
+      ],
+      "settings": {
+        "custom_class": "ddp-join-card",
+        "full_width": false,
+        "join_remove": false,
+        "join_inner_remove": true,
+        "heading_text": "The rest of this content is locked",
+        "small_text": "<p>To continue reading the rest of this article you can become a member by signing up to our course.<\/p>",
+        "button_text": "Join now",
+        "button_url": "shopify:\/\/pages\/contact",
+        "top_radius": false,
+        "color_scheme": "",
+        "background_color": "#fdf8ec",
+        "border_color": "rgba(0,0,0,0)",
+        "padding_top": 0,
+        "padding_bottom": 64
+      }
+    },
+    "ddb7b4ea-7a75-494a-a33f-2f18c8642bf5": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Related articles",
+        "heading_size": "h2",
+        "button_text1": "",
+        "button_url": "",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "14ad9f9d-00fa-4acc-9c15-7dc5197c953e",
+    "main",
+    "1fa75ce9-5669-481a-ba5c-228ecc71475b",
+    "868d6d20-31e3-48c2-bf3d-f574d21ce62e",
+    "ddb7b4ea-7a75-494a-a33f-2f18c8642bf5"
+  ]
+}

@@ -1,6 +1,6 @@
 {{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
 
-<section class="ddp-banner">
+<section class="ddp-banner {{ section.settings.custom_class }}">
   <div class="page-width">
     <div class="ddp-inner-content">
       <div class="ddp-left-text">
@@ -23,6 +23,11 @@
 {
   "name": "DDP banner",
   "settings": [
+    {
+      "type" : "text",
+      "id" : "custom_class",
+      "label" : "Custom class add"
+    },
     {
       "type": "text",
       "id": "ddp_heading",
