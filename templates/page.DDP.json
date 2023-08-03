@@ -11,6 +11,9 @@
     "7a061b52-0729-4c7d-b9a2-2b3af0def55e": {
       "type": "ddp-banner",
       "settings": {
+        "ddp_heading": "Struggling with particular difficulties with your child?",
+        "ddp_text": "<p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
+        "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
       }
     },
     "c66b83b9-8a74-44e5-b13a-cae4465e0cd0": {
@@ -22,7 +25,10 @@
             "ddp_image": "shopify:\/\/shop_images\/pexels-photo-4740522_1.png",
             "ddp_label": "Parent",
             "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?"
+            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
+            "button_label_2": "Read more",
+            "button_style_secondary_2": false,
+            "button_link_2": "shopify:\/\/pages\/contact"
           }
         },
         "dd23e47a-f288-4a94-95aa-3ae66a512041": {
@@ -31,7 +37,10 @@
             "ddp_image": "shopify:\/\/shop_images\/ddppost.png",
             "ddp_label": "Parent",
             "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?"
+            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
+            "button_label_2": "Read more",
+            "button_style_secondary_2": false,
+            "button_link_2": "shopify:\/\/pages\/contact"
           }
         },
         "a7fa7c24-23cc-4e8b-9cf2-5df16e9f6d90": {
@@ -40,7 +49,10 @@
           "settings": {
             "ddp_label": "",
             "ddp_heading": "",
-            "ddp_text": ""
+            "ddp_text": "",
+            "button_label_2": "Read more",
+            "button_style_secondary_2": false,
+            "button_link_2": ""
           }
         }
       },
