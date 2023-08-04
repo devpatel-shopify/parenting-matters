@@ -11,14 +11,12 @@
     },
     "2778df54-ebf9-426b-9e19-3050cdd9f343": {
       "type": "blog-bannner",
-      "disabled": true,
       "settings": {
         "blog_name": "The Parenting matters blog"
       }
     },
     "9eb3fc47-594d-4fbf-b764-935d1cb1c69e": {
       "type": "ddp-post-list",
-      "disabled": true,
       "settings": {
       }
     },
