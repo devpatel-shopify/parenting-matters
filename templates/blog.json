@@ -18,6 +18,7 @@
     },
     "9eb3fc47-594d-4fbf-b764-935d1cb1c69e": {
       "type": "ddp-post-list",
+      "disabled": true,
       "settings": {
       }
     },
