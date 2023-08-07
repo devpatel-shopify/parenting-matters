@@ -131,8 +131,8 @@
   }
   .tab-faq ul li {
     padding: 5px 10px;
-    border-radius: 25px;
-    border: 1px solid #01333e;
+    /* border-radius: 25px; */
+    /* border: 1px solid #01333e; */
     font-size: 12px;
     font-weight: 400;
     line-height: 120%;

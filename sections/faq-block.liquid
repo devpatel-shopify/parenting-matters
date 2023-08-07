@@ -11,7 +11,7 @@
   {%- for block in section.blocks -%}
       {% if block.type == 'heading' %}
         .title--{{ block.id }} {
-          Padding-top: {{ block.settings.padding_top }}px;
+          {% comment %} Padding-top: {{ block.settings.padding_top }}px; {% endcomment %}
           padding-bottom: {{ block.settings.padding_bottom }}px;
         }
       {%- endif -%}
@@ -20,7 +20,7 @@
 
 <section class="faq-block accordion_section section--{{ section.id }}-margin">
   <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
-    <div class="faq-grid-block">
+    <div class="faq-grid-block js-faqs">
       <div class="tab-faq">
         <p class="faq-jump">Jump to:</p>
         <ul>
@@ -31,7 +31,9 @@
                   role="link"
                   aria-disabled="true"
                   href="#{{ block.settings.content_title | remove: '' }}"
-                  class="button js_link"
+                  class="button js_link  {% if forloop.first %} active {% endif %}"
+                  data-section-scroll
+                  id="{{ block.settings.content_title  | remove: ''}}"
                 >
                   {{ block.settings.content_title | escape }}
                 </a>
@@ -45,10 +47,10 @@
           {%- for block in section.blocks -%}
             {% if block.type == 'heading' %}
               {%- if block.settings.content_title != blank -%}
-                <h3 class="content_title_wrapper title--{{ block.id }} js_scroll_to_content" id="{{ block.settings.content_title }}" >{{ block.settings.content_title }}</h3>
+                <h3 class="content_title_wrapper  faq-redirect-block title--{{ block.id }} js_scroll_to_content" id="{{ block.settings.content_title  | remove: ''}}" >{{ block.settings.content_title }}</h3>
               {%- endif -%}
             {% else %}
-              <div class="accordion">
+              <div class="accordion ">
                 <details class="custom_bg_color">
                   <summary>
                     <svg
@@ -105,9 +107,30 @@
   </div>
 </section>
 <script>
+  let elements = document.querySelectorAll("[data-section-scroll]");
+  elements.forEach(function(element){
+    element.addEventListener("click", _scrollToDown.bind(this),true);
+  });
+  function _scrollToDown(event){
+    let elementToScrolls = event.currentTarget.closest(".js-faqs").querySelectorAll(".faq-redirect-block");
+    elementToScrolls.forEach(function(elementToScroll){
+      console.log(elementToScroll.getAttribute("id"));
+      console.log(event.target)
+      if (elementToScroll.getAttribute("id") == event.target.getAttribute("id")) {
+        event.preventDefault();
+        let scrollDistance = elementToScroll.offsetTop - document.querySelector(".header").offsetHeight 
+        console.log(scrollDistance)
+        document.documentElement.scrollTo({
+          top: scrollDistance,
+          behavior: "smooth"
+        })
+        // elementToScroll.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    })
+  }
+
   let linkElements = document.querySelectorAll(".js_link");
   linkElements.forEach(function(linkElement){
-    console.log(linkElement)
     linkElement.addEventListener("click", function(element){
       linkElements.forEach(function(linkElement){
         linkElement.classList.remove("active")
