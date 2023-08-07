@@ -34,9 +34,9 @@
     margin-bottom: 12px;
     flex-wrap: wrap;
 }
-.email_sign-up_section .email_detail_fill .field:nth-child(2) {
+/* .email_sign-up_section .email_detail_fill .field:nth-child(2) {
     margin-bottom: 0;
-}
+} */
 .email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper {
     width: 100%;
     max-width: 100%;
@@ -82,7 +82,9 @@ max-height: 151px;
     letter-spacing: 0.16px;
     margin: 0;
 }
-
+.email_sign-up_section .email_detail_fill textarea.field__input{
+        height: 160px;
+}
 .email_sign-up_section .email_detail_fill .field__input::placeholder { display: block !important; opacity: 1; visibility: visible; color: #999; }
 @media screen and (max-width: 1099px) {
   .email_tips h2{
