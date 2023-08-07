@@ -25,6 +25,7 @@
 
 .newsletter-form__message {
   justify-content: center;
+  padding-left: 10px;
   margin-bottom: 0;
 }
 

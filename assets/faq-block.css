@@ -122,6 +122,9 @@
   }
   .faq-block .tab-faq .button{
     padding:0;
+    border: 1px solid #01333E!important;
+    transition: .4s all;
+    padding: 4px 6px;
   }
   .tab-faq ul {
     display: flex;
@@ -130,13 +133,21 @@
     margin-bottom: 0;
   }
   .tab-faq ul li {
-    padding: 5px 10px;
+    padding: 0;
     /* border-radius: 25px; */
     /* border: 1px solid #01333e; */
     font-size: 12px;
     font-weight: 400;
     line-height: 120%;
     letter-spacing: 0.12px;
+    
+  }
+  .tab-faq ul li:first-child{
+    padding-left: 0;
+  }
+
+  .faq-block .tab-faq .button.active{
+    padding: 4px 6px;
   }
   .faq-jump {
     display: block;

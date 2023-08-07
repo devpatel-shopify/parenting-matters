@@ -11,7 +11,7 @@
   {%- for block in section.blocks -%}
       {% if block.type == 'heading' %}
         .title--{{ block.id }} {
-          {% comment %} Padding-top: {{ block.settings.padding_top }}px; {% endcomment %}
+          Padding-top: {{ block.settings.padding_top }}px;
           padding-bottom: {{ block.settings.padding_bottom }}px;
         }
       {%- endif -%}

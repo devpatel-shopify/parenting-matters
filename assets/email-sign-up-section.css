@@ -34,7 +34,8 @@
     margin-bottom: 12px;
     flex-wrap: wrap;
 }
-/* .email_sign-up_section .email_detail_fill .field:nth-child(2) {
+
+/* .email_sign-up_section .email_detail_fill .field:last-child{
     margin-bottom: 0;
 } */
 .email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper {
@@ -45,7 +46,7 @@
   padding-left: 10px;
 }
 .email_sign-up_section .newsletter-form__field-wrapper .button--icon {
-    margin-top: 48px;
+    margin-top: 36px;
 }
 .email_tips {
     padding-right: 30px;
@@ -84,6 +85,7 @@ max-height: 151px;
 }
 .email_sign-up_section .email_detail_fill textarea.field__input{
         height: 160px;
+        font-family: var(--font-body-family);
 }
 .email_sign-up_section .email_detail_fill .field__input::placeholder { display: block !important; opacity: 1; visibility: visible; color: #999; }
 @media screen and (max-width: 1099px) {
@@ -93,6 +95,9 @@ max-height: 151px;
   
   .email_sign-up_section{
       padding-top: 30px !important;
+  }
+  .template--faqs .email_sign-up_section{
+    padding-top: 182px !important;
   }
 }
 @media screen and (max-width: 991px) {
@@ -117,7 +122,7 @@ max-height: 151px;
         margin-bottom: 0px; 
     }
     .email_sign-up_section .newsletter-form__field-wrapper .button--icon {
-        margin-top: 32px;
+        margin-top: 12px;
     }
     .email_tips {
         padding-right: 0;
