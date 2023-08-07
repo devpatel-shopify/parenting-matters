@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "edd2b023-0926-4573-965d-67137b87dcfe": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "",
+        "ddp_heading": "Struggling with particular difficulties with your child?",
+        "ddp_text": "<p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
+        "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
+      }
+    },
+    "2778df54-ebf9-426b-9e19-3050cdd9f343": {
+      "type": "blog-bannner",
+      "settings": {
+        "blog_name": "The Parenting matters blog"
+      }
+    },
+    "9eb3fc47-594d-4fbf-b764-935d1cb1c69e": {
+      "type": "ddp-post-list",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "filter_title": "Filter by:",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7": {
+      "type": "two-column-card",
+      "disabled": true,
+      "blocks": {
+        "template--20320564150570__a70cc92b-d6f2-45ef-b5fa-a98958acb5d7-cardimage-1": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_2.png",
+            "card_label": "Quiz",
+            "card_title": "What's your parenting style?",
+            "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
+            "card_btn": "Discover your parenting style",
+            "card_btn_mobile": "Learn more",
+            "card_btn_link": "",
+            "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "margin_top": 0,
+            "margin_top_mobile": 0
+          }
+        },
+        "template--20320564150570__a70cc92b-d6f2-45ef-b5fa-a98958acb5d7-cardimage-2": {
+          "type": "cardimage",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/Frame_3.png",
+            "card_label": "Quiz",
+            "card_title": "Looking for specific help?",
+            "card_description": "<p>Whether it's understanding your child better or dealing with specific worries and challenging behaviours, we offer guidance on a wide range of parenting matters.<\/p>",
+            "card_btn": "Discover your parenting style",
+            "card_btn_mobile": "Learn more",
+            "card_btn_link": "",
+            "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+            "margin_top": 70,
+            "margin_top_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--20320564150570__a70cc92b-d6f2-45ef-b5fa-a98958acb5d7-cardimage-1",
+        "template--20320564150570__a70cc92b-d6f2-45ef-b5fa-a98958acb5d7-cardimage-2"
+      ],
+      "settings": {
+        "section_title": "",
+        "top_radius": false,
+        "color_scheme": "",
+        "padding_top": 160,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "edd2b023-0926-4573-965d-67137b87dcfe",
+    "2778df54-ebf9-426b-9e19-3050cdd9f343",
+    "9eb3fc47-594d-4fbf-b764-935d1cb1c69e",
+    "main",
+    "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7"
+  ]
+}
