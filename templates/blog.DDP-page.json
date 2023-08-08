@@ -9,12 +9,6 @@
         "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
       }
     },
-    "2778df54-ebf9-426b-9e19-3050cdd9f343": {
-      "type": "blog-bannner",
-      "settings": {
-        "blog_name": "The Parenting matters blog"
-      }
-    },
     "9eb3fc47-594d-4fbf-b764-935d1cb1c69e": {
       "type": "ddp-post-list",
       "settings": {
@@ -22,6 +16,7 @@
     },
     "main": {
       "type": "main-blog",
+      "disabled": true,
       "settings": {
         "filter_title": "Filter by:",
         "layout": "grid",
@@ -35,7 +30,6 @@
     },
     "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7": {
       "type": "two-column-card",
-      "disabled": true,
       "blocks": {
         "template--20320564150570__a70cc92b-d6f2-45ef-b5fa-a98958acb5d7-cardimage-1": {
           "type": "cardimage",
@@ -83,7 +77,6 @@
   },
   "order": [
     "edd2b023-0926-4573-965d-67137b87dcfe",
-    "2778df54-ebf9-426b-9e19-3050cdd9f343",
     "9eb3fc47-594d-4fbf-b764-935d1cb1c69e",
     "main",
     "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7"
