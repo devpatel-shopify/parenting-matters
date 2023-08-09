@@ -1,10 +1,14 @@
 {{ 'blog-banner.css' | asset_url | stylesheet_tag }}
 <section
   class="blog-banner"
-  style="background: url(https://cdn.shopify.com/s/files/1/0730/5868/1130/files/blog-banner.png?v=1690520575);"
+  
 >
   <div class="page-width">
     <h2>{{ section.settings.blog_name }}</h2>
+  </div>
+  <div class="blog-img">
+    <img src="{{ section.settings.desktop_img | img_url:'master' }}" class="blog-display-img">
+    <img src="{{ section.settings.mobile_img | img_url:'master' }}" class="blog-mobile-img">
   </div>
 </section>
 {% schema %}
@@ -15,6 +19,16 @@
         "type": "text",
         "id": "blog_name",
         "label": "Blog name"
+      },
+      {
+        "type": "image_picker",
+        "id":"desktop_img",
+        "label": "Desktop image"
+      },
+      {
+        "type": "image_picker",
+        "id":"mobile_img",
+        "label": "Mobile image"
       }
     ],
 "presets":[

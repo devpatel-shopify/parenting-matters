@@ -3,6 +3,7 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
     padding: 180px 0;
+    position: relative;
 }
 
 .blog-banner h2{
@@ -12,6 +13,31 @@
     line-height: 120%;
     max-width: 460px;
   letter-spacing: 0.68px;
+}
+.blog-img{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  left: 0;
+  right: 0;
+}
+.blog-img img{
+  width: 100%;
+}
+.blog-img img.blog-display-img{
+    display: none;
+}
+.blog-img img.blog-mobile-img{
+  display: block;
+  
+}
+@media only screen and (min-width:750px) {
+  .blog-img img.blog-display-img{
+      display: block;
+  }
+  .blog-img img.blog-mobile-img{
+    display: none;
+}
 }
 
 @media screen and (max-width: 767px) {

@@ -3,7 +3,9 @@
     "2778df54-ebf9-426b-9e19-3050cdd9f343": {
       "type": "blog-bannner",
       "settings": {
-        "blog_name": "The Parenting matters blog"
+        "blog_name": "The Parenting matters blog",
+        "desktop_img": "shopify:\/\/shop_images\/Hero_1.png",
+        "mobile_img": "shopify:\/\/shop_images\/Hero_2.png"
       }
     },
     "main": {
