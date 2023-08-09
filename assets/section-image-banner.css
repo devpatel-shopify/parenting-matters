@@ -4,9 +4,9 @@
   flex-direction: column;
 }
 
-.banner__box {
+/* .banner__box {
   text-align: center;
-}
+} */
 .hero_homepage {
   margin-bottom: -20px;
 }
@@ -16,17 +16,17 @@
   transform: perspective(0);
 }
 @media only screen and (max-width: 1099px) {
-  h3.banner__heading {
+  /* h3.banner__heading {
     font-size: 40px;
-  }
+  } */
 }
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
     text-align: right;
   }
-  h3.banner__heading {
+  /* h3.banner__heading {
     font-size: 30px;
-  }
+  } */
 
   .banner--content-align-mobile-left .banner__box {
     text-align: left;
@@ -346,7 +346,7 @@
   position: relative;
   height: fit-content;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
   word-wrap: break-word;
   z-index: 1;
@@ -625,7 +625,7 @@
 .template--parenting-quiz .hero-design-main .banner__box .banner__text {
   margin: unset;
 }
-.banner__box .banner__heading {
+.banner__box .h0 {
   font-size: 68px;
   margin-bottom: 12px;
 }
@@ -891,4 +891,14 @@
   .template--parenting-quiz svg.only-mobile {
     width: 100%;
   }
+}
+
+.banner--content-align-left{
+  text-align: left;
+}
+.banner--content-align-center{
+  text-align: center;
+}
+.banner--content-align-right{
+  text-align: right;
 }

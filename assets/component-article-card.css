@@ -136,9 +136,7 @@
 }
 
 @media screen and (max-width: 1099px){
-  .featured-blog-title h2{
-    font-size:40px;
-  }
+ 
   .main-template--article .featured-blog-title h2{
     font-size:30px;
   }
@@ -250,8 +248,6 @@ slider-component {
   .article-card__excerpt{
     font-size: 12px;
   }
-  .featured-blog-title h2{
-    font-size:30px;
-  }
+ 
 }
 

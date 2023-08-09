@@ -40,7 +40,6 @@
         "desktop_content_alignment": "center",
         "color_scheme": "background-1",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
         "show_text_below": true
       }
     },
@@ -86,7 +85,7 @@
         "img_width": 230,
         "cell_align1": "center",
         "title_mb": 80,
-        "cell_width": "50%",
+        "cell_width": "100%",
         "wrap_around": "true",
         "mr": 90,
         "padding_top": 140,

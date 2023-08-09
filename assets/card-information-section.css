@@ -1,12 +1,14 @@
-.card_detail {
+.page-width .card_detail {
     max-width: 1044px;
     margin: 0 auto;
+    padding: 0;
 }
 .card_detail {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 60px;
+    padding: 0 20px;
 }
 .card_benefits_info {
     width: 400px;

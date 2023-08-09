@@ -75,7 +75,6 @@
             "percentage_count_2": "53%",
             "organisation_text_2": "<p>said their organisation supports them in managing their work and family commitments.*<\/p>",
             "benifit_title": "The benefits include:",
-            "benifit_sub_title": "",
             "icon_1": "shopify:\/\/shop_images\/Icon_18.svg",
             "title_1": "Better work-life integration",
             "desc_1": "<p>Supporting working parents to achieve balance in their working and family lives.<\/p>",
@@ -104,7 +103,6 @@
             "percentage_count_2": "",
             "organisation_text_2": "",
             "benifit_title": "The benefits include:",
-            "benifit_sub_title": "",
             "icon_1": "shopify:\/\/shop_images\/Icon_8287bd92-0365-4426-a12c-208c634a70d8.svg",
             "title_1": "Parental engagement",
             "desc_1": "<p>Parenting Matters equips parents with knowledge and skills to support their child's learning and improve behaviour. Positively impacting children's motivation, self-esteem, and educational outcomes.<\/p>",
@@ -133,7 +131,6 @@
             "percentage_count_2": "",
             "organisation_text_2": "",
             "benifit_title": "The benefits include:",
-            "benifit_sub_title": "",
             "icon_1": "shopify:\/\/shop_images\/3.svg",
             "title_1": "Enhanced professional offering",
             "desc_1": "<p>Parenting Matters expands the resources available to parenting coaches. Enabling you to provide an even more comprehensive, evidence-based approach to your clients.<\/p>",
@@ -162,7 +159,6 @@
             "percentage_count_2": "",
             "organisation_text_2": "",
             "benifit_title": "The benefits include:",
-            "benifit_sub_title": "",
             "icon_1": "shopify:\/\/shop_images\/6.svg",
             "title_1": "Additional support",
             "desc_1": "<p>Parenting Matters provides a variety of health professionals, including  health visitors,  paediatricians, GPs, school nurses and related counselling or pastoral services, with an additional.....<\/p>",
@@ -191,7 +187,6 @@
             "percentage_count_2": "",
             "organisation_text_2": "",
             "benifit_title": "The benefits include:",
-            "benifit_sub_title": "",
             "icon_1": "shopify:\/\/shop_images\/9.svg",
             "title_1": "Support for all families",
             "desc_1": "<p>Parenting Matters can be offered to vulnerable families who may face additional challenges in parenting. It provides accessible and practical guidance to help navigate parenthood, helping parents create a calmer, happier home and become a more confident parent.<\/p>",
@@ -214,7 +209,6 @@
         "baa76e19-d685-441d-97a2-74ae14d10f14"
       ],
       "settings": {
-        "custom_class": "",
         "tab_title": "Jump to:"
       }
     },
@@ -266,6 +260,12 @@
     "1cce3b64-fc85-424c-adae-9e06f0ad71af": {
       "type": "get-in-touch",
       "settings": {
+        "image": "shopify:\/\/shop_images\/get-icon.png",
+        "heading_text": "Want to know more about how we could work with your organisation?",
+        "small_text": "We’d be happy to talk to you.",
+        "button_label_2": "Get in touch",
+        "button_link_2": "shopify:\/\/pages\/contact",
+        "button_style_secondary_2": true
       }
     }
   },
