@@ -2,8 +2,8 @@
 
 <style>
       .two-column-card--{{ section.id }}-padding {
-          padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
-          padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+          padding-top: {{ section.settings.padding_top | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;
       }
 
       @media screen and (min-width: 750px) {
@@ -213,7 +213,8 @@
                       </div>
                     </div>
                   {%- endif -%}
-
+                
+                  {%- if block.settings.button_label_2 != blank -%}
                   <div class="breakdown-btn">
                     <a
                       {% if block.settings.button_link_2 == blank %}
@@ -226,6 +227,7 @@
                       {{- block.settings.button_label_2 | escape -}} {% render 'icon-arrow' %}
                     </a>
                   </div>
+                {%- endif -%}
 
                 </div>
               </div>

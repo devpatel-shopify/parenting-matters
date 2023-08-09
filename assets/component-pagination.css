@@ -1,10 +1,14 @@
 .pagination-wrapper {
-  margin-top: 4rem;
+  margin-top: 9px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid #9CBFB3;
 }
 
 @media screen and (min-width: 990px) {
   .pagination-wrapper {
-    margin-top: 5rem;
+    margin-top: 0rem;
+    padding-bottom: 64px;
+    border-bottom: 1px solid #9CBFB3;
   }
 }
 
@@ -14,6 +18,22 @@
   justify-content: center;
   gap: 24px;
   align-items: center;
+}
+.pagination__list li span{
+  width: 15px;
+  height: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1C8DA6;
+  border-radius: 4px;
+}
+.pagination__list li.total-page{
+  font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; 
+letter-spacing: 0.14px;
 }
 
 /* .pagination__list > li {
@@ -101,4 +121,22 @@ a.pagination__item:hover::after {
 
 .pagination__item-arrow:hover::after {
   display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .pagination__list a.prev svg{
+    margin-right: 12px;
+  }
+  .pagination__list a.prev {
+    padding: 7px 17px 7px 8px;
+}
+.pagination__list{
+  gap: 16px;
+}
+.pagination__list a.next{
+  padding: 7px 8px 7px 15px;
+}
+.pagination__list a.next svg{
+  margin-left: 12px;
+}
 }

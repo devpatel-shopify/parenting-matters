@@ -3,6 +3,9 @@
     object-fit: cover;
     height: 180px;
 }
+.template--about .two-column-card img{
+    height: auto;
+}
 
 .two-column-card .two-column-card-image {
     width: 247px;
@@ -120,7 +123,7 @@
     color: #C72457;
 }
 .two-column-card_inner .card_title {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 .two-column-card .two-column-card-image {
     display: flex;

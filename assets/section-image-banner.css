@@ -519,7 +519,8 @@
   bottom: 0;
 }
 .hero-image-home > img {
-  max-width: 63.9rem;
+  /* max-width: 63.9rem; */
+  max-width: 1104px;
   margin-right: 6rem;
   width: 100%;
 }
@@ -582,7 +583,7 @@
 }
 .template--organisations .hero-image-about img {
   max-width: unset;
-  width: auto;
+  width: 100%;
   margin: 0 auto;
 }
 .template--organisations .banner__box .banner__heading {
@@ -686,7 +687,7 @@
     letter-spacing: 0.42px;
   }
   .hero-image-home > img {
-    margin: 0;    max-width: 400px; 
+   margin: 0;  /*    max-width: 400px;  */
   }
   .hero-background-design-cover {
     display: block;
@@ -754,6 +755,7 @@
 @media only screen and (max-width: 749px) {
   .hero-image-home > img {
     margin: 0;
+
   }
   .banner__box .h0 {
     font-size: 42px;
@@ -799,6 +801,8 @@
   .hero-image-home > img {
     min-width: calc(100% + 18px);
     transform: translateX(-10px);
+    height: 298.435px;
+    object-fit: contain;
   }
   .hero-background-design-cover {
     max-height: 515px;
@@ -862,7 +866,7 @@
   }
   .template--organisations .hero-image-about img {
     height: 250px;
-    width: 240px;
+    width: 420px;
     margin: 0;
 
   }

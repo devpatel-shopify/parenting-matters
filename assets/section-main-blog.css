@@ -117,4 +117,7 @@
   .main-template--blog .blog-articles{
     grid-template-columns: 1fr;
   }
+  .filter-link{
+    margin-bottom: 48px;
+  }
 }

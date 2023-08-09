@@ -18,7 +18,7 @@
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
         
-          <li class="{%- if paginate.next -%} page-disable {%- endif -%}" >
+          <li class="{%- if paginate.next -%} page {%- endif -%}" >
             <a
               href="{{ paginate.previous.url }}{{ anchor }}"
               class=" button button--secondary prev"
@@ -30,8 +30,11 @@
             </a>
           </li>
        
-
-        {%- for part in paginate.parts -%}
+          <li class="total-page">
+            Page <span> {{ paginate.current_page }} </span> of {{ paginate.pages }}
+          </li>
+        
+          {% comment %} {%- for part in paginate.parts -%}
           <li>
             {%- if part.is_link -%}
               <a
@@ -57,10 +60,10 @@
               {%- endif -%}
             {%- endif -%}
           </li>
-        {%- endfor -%}
+          {%- endfor -%} {% endcomment %}
 
         
-          <li class="{%- if paginate.previous -%} page-disable {%- endif -%}" >
+          <li class="{%- if paginate.previous -%} page {%- endif -%}" >
             <a
               href="{{ paginate.next.url }}{{ anchor }}"
               class=" button button--secondary next"
