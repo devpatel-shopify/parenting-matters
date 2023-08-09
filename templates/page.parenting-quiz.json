@@ -45,7 +45,7 @@
       ],
       "settings": {
         "desktop_content_position": "middle-left",
-        "banner_img": "shopify:\/\/shop_images\/Group_1.png",
+        "banner_img": "shopify:\/\/shop_images\/Group_1_1.png",
         "show_text_box": false,
         "desktop_content_alignment": "left",
         "color_scheme": "",
@@ -56,6 +56,7 @@
     },
     "0df4b747-57c1-435e-858b-ee22bf0a8a05": {
       "type": "two-column-card",
+      "disabled": true,
       "blocks": {
         "template--20320564117802__0df4b747-57c1-435e-858b-ee22bf0a8a05-cardimage-1": {
           "type": "cardimage",
@@ -110,24 +111,17 @@
     "69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6": {
       "type": "course-highlights-section",
       "blocks": {
-        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-exercise_quiz-1": {
-          "type": "exercise_quiz",
-          "disabled": true,
+        "b5746d33-915d-42b8-bc36-ea73c4aaa74f": {
+          "type": "track_quiz",
           "settings": {
-            "sub_heading": "Sub title",
-            "heading": "Heading Text",
-            "about_quiz": "Paragraph",
-            "button_name": "Button Name",
-            "button_link": "",
-            "update_text": "text",
-            "task_button_name": "Button",
-            "task_url": "",
-            "update_text_2": "text",
-            "task_button_name_2": "Button",
-            "task_url_2": "",
-            "background_color": "#fdf8ec",
-            "background_schema_2": "",
-            "layout_2": "image_first"
+            "quiz_image": "shopify:\/\/shop_images\/Frame.png",
+            "sub_title": "Quiz",
+            "heading_text": "What's your <br> parenting style?",
+            "paragraph": "Be it warm and authoritative or hands-off and permissive, there's no right or wrong. The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz can swiftly identify your parenting style!",
+            "button_text": "Take the quiz",
+            "button_url": "",
+            "background_schema": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
+            "layout": "image_first"
           }
         },
         "8803416e-0856-424d-8243-bbf35b8a5bcb": {
@@ -140,12 +134,12 @@
             "button_text": "Take the quiz",
             "button_url": "shopify:\/\/pages\/contact",
             "background_schema": "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef",
-            "layout": "image_first"
+            "layout": "text_first"
           }
         }
       },
       "block_order": [
-        "template--20190738612522__69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6-exercise_quiz-1",
+        "b5746d33-915d-42b8-bc36-ea73c4aaa74f",
         "8803416e-0856-424d-8243-bbf35b8a5bcb"
       ],
       "settings": {

@@ -67,6 +67,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  position: relative;
+  z-index: 9;
 }
 
 

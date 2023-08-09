@@ -100,7 +100,7 @@
         "template--19754753196330__31fc5afb-d0b6-41a8-824d-2153581bde4e-168794416891d2ef39-0": {
           "type": "column",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/look1.svg",
+            "card_image": "shopify:\/\/shop_images\/Frame_7363_d49ac7ca-bed3-45ae-8a85-f3e8beef0714.png",
             "card_description": "Love means being a supportive parent, and is the foundation of everything.",
             "bg_card_color": "#e9f0ed"
           }
@@ -241,7 +241,7 @@
       "settings": {
         "full_width": false,
         "top_radius": true,
-        "our_team_section_title": "Meet the team behind Parenting Matters Online",
+        "our_team_section_title": "Meet the team behind <br> Parenting Matters Online",
         "section_bg_color": "#fdf8ec",
         "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
         "bg_card_color": "#fdf8ec",
