@@ -60,7 +60,7 @@
         "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1": {
           "type": "exercise_quiz",
           "settings": {
-            "sub_heading": "Quiz",
+            "sub_heading": "Course",
             "heading": "Bite Sized Exercises",
             "about_quiz": "Split into easy daily exercise's, the course let’s you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.",
             "button_name": "Take the quiz",
@@ -150,7 +150,7 @@
             "title_description3": "<p>Understanding and responding to your child’s feelings.<\/p>",
             "breakdown_card_title4": "",
             "title_description4": "",
-            "button_label_2": "Take the quiz",
+            "button_label_2": "",
             "button_style_secondary_2": false,
             "button_link_2": "",
             "color_scheme": "inverse",
@@ -175,7 +175,7 @@
             "title_description3": "<p>Developing resilience and pulling it all together.<\/p>",
             "breakdown_card_title4": "",
             "title_description4": "",
-            "button_label_2": "Take the quiz",
+            "button_label_2": "",
             "button_style_secondary_2": false,
             "button_link_2": "",
             "color_scheme": "accent-1",
@@ -305,9 +305,12 @@
         "e075b1c5-7fdc-490f-9389-8d722d07ccab"
       ],
       "settings": {
+        "custom_class": "",
         "full_width": false,
         "join_remove": true,
+        "join_inner_remove": false,
         "heading_text": "What you’ll get when you join",
+        "small_text": "",
         "button_text": "Join today",
         "button_url": "#",
         "top_radius": true,
