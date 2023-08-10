@@ -37,8 +37,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "mobile_content_alignment": "center"
       }
     },
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa": {
@@ -241,8 +240,8 @@
       "settings": {
         "full_width": false,
         "top_radius": true,
-        "our_team_section_title": "Meet the team behind <br> Parenting Matters Online",
-        "section_bg_color": "#fdf8ec",
+        "our_team_section_title": "Meet the team behind  Parenting Matters Online",
+        "section_bg_color": "#ffd978",
         "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
         "bg_card_color": "#fdf8ec",
         "color_scheme2": "",

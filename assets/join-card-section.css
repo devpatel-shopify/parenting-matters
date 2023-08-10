@@ -54,6 +54,10 @@
 .ddp-join-card .email_news{
     background: #C9D9D3;
 }
+.joining_heading .join_button {
+    margin: 32px 0;
+    text-align: left;
+}
 
 @media screen and (max-width: 1099px){
   .join_info h2{
@@ -68,9 +72,7 @@
   .join_benefit_list p{
         font-size: 18px;
   }
-  .join_card_section {
-        padding-top: 115px !important;
-  }
+
 }
 @media screen and (max-width: 750px) {
     .joining_heading {
@@ -103,10 +105,7 @@
     .join_button {
         margin-top: 32px;
     }
-  .join_card_section {
-    padding-top: 80px !important;
-    padding-bottom: 16px !important;
-  }
+
   .join_benefit_list p {
     font-size: 14px;
 }

@@ -630,8 +630,8 @@
   margin-bottom: 12px;
 }
 .template--parenting-quiz .banner__box .banner__heading{
-  font-size: 72px;
-  max-width: 726px;
+  /* font-size: 72px; */
+  max-width: 690px;
 }
 .template--parenting-quiz .hero-design-main .banner__box .banner__text p {
   font-size: 20px;
@@ -738,6 +738,9 @@
 .template--parenting-quiz .hero-image-about img{
   max-width: 720px;
 }
+.template--about .hero_about .hero-background-design-cover > svg {
+  height: auto;
+}
 }
 @media only screen and (max-width: 920px) {
   .hero-design-main {
@@ -765,6 +768,7 @@
   }
   .banner_content_cover .banner__content .banner__box {
     padding: 7rem 2rem;
+    background: transparent;
   }
   .banner__box .banner__heading + * {
     margin-top: 1.2rem;
@@ -824,13 +828,7 @@
     max-height: 100vh;
   }
 
-  .template--organisations .banner__box .banner__heading {
-    font-size: 42px;
-  }
-  .template--parenting-quiz .banner__box .banner__heading {
-    font-size: 42px;
-    text-align: left;
-  }
+
   .template--parenting-quiz
     .banner_content_cover
     .banner__content
@@ -839,14 +837,14 @@
   }
   .template--parenting-quiz .hero-design-main .banner__box .banner__text p {
     font-size: 14px;
-    text-align: left;
+   
   }
   .template--parenting-quiz .quiz_info {
     padding: 32px 24px;
   }
-  .template--parenting-quiz .hero-design-main {
+  /* .template--parenting-quiz .hero-design-main {
     height: auto;
-  }
+  } */
   .template--parenting-quiz .hero-image-about img {
     max-width: 490px;
   }
@@ -880,6 +878,9 @@
     bottom: 40px;
     left: 0;
   }
+  .template--about .hero-image-about {
+    bottom: 10px;
+  }
 }
 
 @media only screen and (min-width: 1039px) and (max-width: 1440px) {
@@ -890,6 +891,29 @@
 @media only screen and (min-width: 375px) and (max-width: 749px) {
   .template--parenting-quiz svg.only-mobile {
     width: 100%;
+  }
+  .banner__content--right {
+    text-align: right;
+  }
+  .banner__content--right .banner__text {
+    margin: 0 0 0 auto !important;
+    text-align: right;
+  }
+  .banner__content--right .banner__text p{
+    text-align: right;
+  }
+  .banner__content--center {
+    text-align: center;
+  }
+  .banner__content--center .banner__text {
+    margin: 0 auto !important;
+    text-align: center;
+  }
+  .banner__content--center .banner__text p{
+    text-align: center;
+  }
+  .banner__content--left .banner__box {
+    text-align: left;
   }
 }
 

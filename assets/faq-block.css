@@ -163,11 +163,11 @@
   .faq-div h3{
         font-size: 32px;
     letter-spacing: 0.22px;
-    padding-top: 64px;
+    
   }
-  .faq-div h3:first-child{
+  /* .faq-div h3:first-child{
     padding-top: 0;
-  }
+  } */
   .faq-div .accordion__title{
         font-size: 18px;
   }

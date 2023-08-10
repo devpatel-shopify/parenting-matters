@@ -14,7 +14,7 @@
         }
     }
     {% for block in section.blocks %}
-        .parent_card {
+        .parent-card--{{ block.id }} {
             Background: {{ block.settings.bg_card_color }};
         }
     {%- endfor -%}
@@ -31,7 +31,7 @@
                         {%- case block.type -%}
                             {%- when 'column' -%}
                                 {%- if block.settings.card_image != blank or block.settings.card_description != blank -%}
-                                    <div class="parent_card" {{ block.shopify_attributes }}>
+                                    <div class="parent_card parent-card--{{ block.id }}" {{ block.shopify_attributes }}>
                                         {%- if block.settings.card_image != blank -%}
                                             <div class="card_image_cover">
                                                 {{ block.settings.card_image | image_url: width: 500 | image_tag }}

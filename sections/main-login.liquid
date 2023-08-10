@@ -69,11 +69,11 @@
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
+  <h1 id="login" tabindex="-1" class=" {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
     {{ 'customer.login_page.title' | t }}
   </h1>
   <div>
-    <p>{{ section.settings.small_text }}</p>
+    <p class="section-{{ section.id }}-padding">{{ section.settings.small_text }}</p>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
@@ -188,6 +188,26 @@
 {
   "name": "t:sections.main-login.name",
   "settings": [
+    {
+      "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+    },
     {
       "type": "text",
       "id": "small_text",

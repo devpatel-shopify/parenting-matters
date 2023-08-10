@@ -116,9 +116,9 @@
 }
 
 @media screen and (max-width: 1099px){
-  .quiz_heading h2 {
+  /* .quiz_heading h2 {
     font-size: 40px;
-}
+} */
 }
 @media screen and (max-width: 990px){
     .quiz_info {
@@ -150,10 +150,7 @@
    .exercise_task  .quiz_about {
     order: 2;
    }
-  .course_highlights_section {
-    padding-bottom: 70px !important;
-        padding-top: 125px !important;
-  }
+ 
   .quiz_status .status_info{
     width: 100%;
   }
@@ -194,9 +191,9 @@
    .exercise_task  .quiz_about {
     order: 2;
    }
-  .quiz_heading h2 {
+  /* .quiz_heading h2 {
     font-size: 30px;
-}
+} */
   .quiz_rules h2 {
     font-size: 32px;
 }
@@ -275,9 +272,7 @@
     .quiz_detail {
         padding: 19.533px 0px 22.411px;
     }
-  .course_highlights_section {
-    padding-top: 80px !important;    padding-bottom: 128px !important;
-  }
+  
   .task_button .button svg{
     margin-left: 5px;
   }
