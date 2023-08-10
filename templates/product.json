@@ -74,6 +74,7 @@
         "buy_buttons"
       ],
       "settings": {
+        "border_bottom": true,
         "enable_sticky_info": true,
         "media_size": "large",
         "constrain_to_viewport": true,
@@ -84,8 +85,8 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 120,
+        "padding_bottom": 128
       }
     },
     "related-products": {
@@ -145,9 +146,9 @@
         "heading_text": "If you have children aged 2-10, this is the place for you!",
         "button_text": "Learn more",
         "button_url": "shopify:\/\/pages\/organisations",
-        "top_radius": true,
+        "top_radius": false,
         "background_schema": "",
-        "background_color": "#E9F0ED",
+        "background_color": "#e9f0ed",
         "padding_top": 128,
         "padding_bottom": 96
       }
