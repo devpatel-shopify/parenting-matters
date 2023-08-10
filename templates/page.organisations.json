@@ -18,7 +18,7 @@
           "type": "heading",
           "settings": {
             "heading": "How can we help  your organisation?",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         },
         "template--19831425138986__4f8065cf-c65b-4431-bfc6-0f855b70a16b-1688386224d3575b54-1": {
@@ -53,8 +53,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "mobile_content_alignment": "center"
       }
     },
     "b4a2a826-d74c-4f40-9459-f507250b14ce": {
