@@ -18,8 +18,10 @@
       </ul>
     </div>
   </div>
-
-
+  
+        {% for blog in blog.articles %}
+          =========>  {{ blog.title }}
+         {% endfor %}   
     <div class="ddp-post-list">
       {%- for blog in blog.metafields.custom.ddp_page.value -%}
         <div class="ddp-box">
