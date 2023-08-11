@@ -1,0 +1,60 @@
+.dashboard {
+    padding: 48px 0;
+}
+.dashboard span{
+    color: #C72457;
+}
+.dashbord_box {
+    width: 85%;
+}
+.tab_dash{
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.left_sidebar{
+    width: 13%;
+    position: relative;
+}
+.welcome-title{
+    margin-bottom: 24px;
+}
+.left_sidebar{
+    width: 13%;
+}
+.left_sidebar ul{
+    padding: 32px 16px;
+    list-style: none;
+    text-decoration: none;    margin: 0;
+    border-radius: 20px;
+background: #FFF0C9;
+}
+.left_sidebar ul li a{
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    padding: 5px 9px;
+    display: inline-block;
+    color: #01333E;
+    border-radius: 25px;
+}
+.tab_back_img{
+    position: absolute;
+    top: 5px;
+    z-index: 0;
+}
+.left_sidebar ul li a.active{
+    border: 1px solid #01333E;
+
+}
+.left_sidebar ul li{
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 9;
+}
+.left_sidebar ul li:last-child{
+    margin-bottom: 0;
+}

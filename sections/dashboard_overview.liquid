@@ -1,0 +1,30 @@
+{{ 'dashboard.css' | asset_url | stylesheet_tag }}
+<section class="dashboard dashboard_overview">
+    <div class="page-width">
+        <div class="welcome-title">
+            <h4>Welcome back <span>Dashboard overview</span> </h4>
+        </div>
+        <div class="dash_tab_block">
+            <div class="tab_dash">
+                <div class="left_sidebar">
+                    {% render 'left-sidebar' %}
+                </div>
+                <div class="dashbord_box dash_over_info">
+                    <h4>Dashboard overview</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dashboard Overview",
+  "settings": [],
+  "presets":[
+  {
+    "name": "Dashboard Overview"
+  }
+]
+}
+{% endschema %}
