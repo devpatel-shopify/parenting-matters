@@ -16,6 +16,11 @@
         "padding_bottom": 0
       }
     },
+    "e793ec3c-270a-4eb0-a71d-fc5ca36fe050": {
+      "type": "dashboard-parenting-style",
+      "settings": {
+      }
+    },
     "aa6987e4-5e55-49dc-9389-ee94441221a5": {
       "type": "dashboard-family-star",
       "settings": {
@@ -30,6 +35,7 @@
   "order": [
     "b7ddef97-5783-4ef5-a138-bf9eeddfda02",
     "main",
+    "e793ec3c-270a-4eb0-a71d-fc5ca36fe050",
     "aa6987e4-5e55-49dc-9389-ee94441221a5",
     "f659d971-daca-4b48-aed0-61e385298b96"
   ]

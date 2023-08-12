@@ -1,0 +1,72 @@
+{{ 'dashboard.css' | asset_url | stylesheet_tag }}
+
+<section class="dashboard parenting_style">
+  <div class="page-width">
+    <div class="welcome-title">
+      <h4>Welcome back <span>Dashboard Parenting Style</span></h4>
+    </div>
+    <div class="dash_tab_block">
+      <div class="tab_dash">
+        <div class="left_sidebar tab-transparent">
+          {% render 'left-sidebar' %}
+        </div>
+        <div class="dashbord_box dash_over_info">
+          <div class="family-graph-block">
+            <div class="family-block">
+              <div class="family-title">
+                <h5>Your parenting style</h5>
+                <p>
+                  Test taken on <b> [26 Jun 2023]</b>
+                  <br>
+                  <br>
+                  Your parenting style is balanced between Permissive-indulgent which means that you rate highly on warmth and engagement  with your children but lower on level of control and setting clear limits for them and ‘Hands-off’ which means that you tent to have more laissez-faire of less involved approach to your children.
+                </p>
+                <div class="click-info">
+                  {% render 'dash-info-icon' %}
+                  <p>To see the full assessment if your parenting click here, or click the download button below.</p>
+                </div>
+              </div>
+              <div class="course-btn">
+                <a class="button button--secondary" href="/pages/organisations"
+                  >Download PDF
+                  {% render 'download-icon' %}
+                </a>
+              </div>
+            </div>
+            <div class="graph-block">
+              <div class="graph--tab">
+                <ul>
+                  <li><a href="" class="active"> Overall result</a> </li>
+                  <li><a href=""> Peak score</a> </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-1">
+                    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" />
+                  </div>
+                </div>
+              </div>
+              <div class="click-info">
+                {% render 'dash-info-icon' %}
+                <p>The small dots on the chart above are examples of scores from other test results received - your result us shown by the larger dot.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dashboard Parenting style",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Dashboard Parenting style"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %} {% endstylesheet %}
+{% javascript %} {% endjavascript %}
