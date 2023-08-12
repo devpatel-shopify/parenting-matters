@@ -1,0 +1,59 @@
+
+{{ 'answer-gallery.css' | asset_url | stylesheet_tag }}
+
+<section class="gallery-banner">
+    <div class="page-width">
+        <div class="banner-content">
+            <div class="banner-tag">Gallery of answers</div>
+            <h2><span>Play Part 1:</span> Learning through play</h2>
+            <h4>Question 4: Building good relationships</h4>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="page-width">
+        <div class="answer-block">
+            <div class="answer-grid">
+                {% for i in (1..10) %}
+                    <div class="answer-box">
+                        <div class="que_ans">
+                            <h4>How it went:</h4>
+                            <p>We played a board game together, I think it went well. My child is understanding the concept of taking turns so this helped.</p>
+                        </div>
+                        <div class="que_ans">
+                            <h4>How it went:</h4>
+                            <p>We played a board game together, I think it went well. My child is understanding the concept of taking turns so this helped.</p>
+                        </div>
+                        <div class="ans-time">
+                            <span>19/06/2023 - 22:25</span>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+            <div class="load-more-btn">
+                <a class="button button--secondary" href="/pages/organisations">
+                    Load more
+                    {% render 'icon-arrow' %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Answer gallery",
+  "settings": [],
+  "presets":[
+        {
+            "name": "Answer gallery"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
