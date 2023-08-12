@@ -169,16 +169,18 @@ background: #FFF0C9;
     font-size: 14px;
     line-height: 120%;
 }
-.course-progress .course-btn{
+.course-progress .course-btn {
     background: #F9E9E6;
+}
+.course-btn{
     padding: 24px 40px;
     border-radius: 0 0 20px 20px;
 }
-.course-progress .course-btn a{
+.course-btn a{
     padding: 7px 8px 7px 15px;
     font-size: 14px;
 }
-.course-progress .course-btn a svg{
+.course-btn a svg{
     width: 24px;
     height: 24px;
     margin-left: 12px;
@@ -210,6 +212,101 @@ background: #FFF0C9;
     height: 24px;
     margin-left: 12px;
     margin-right: 0;
+}
+.family-graph-block .family-block .course-btn{
+    padding: 24px;
+}
+
+/* dashboard family star */
+
+.dashboard_family{
+    background: #E9F0ED;
+}
+.left_sidebar.tab-transparent ul{
+    background: #FDF8EC;
+}
+.family-graph-block{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.family-graph-block .family-block{
+    border-radius: 20px;
+    border: 1px solid #DADADA;
+    background: #FDF8EC;
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.family-graph-block .family-block .family-title h5{
+    padding: 24px;
+    background: #C9D9D3;
+    border-radius: 20px 20px 0px 0px;
+}
+.family-graph-block .family-block .family-title p{
+    padding: 24px 36px 24px 24px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+}
+.family-graph-block .family-block .family-title .click-info{
+    margin: 0px 36px 24px 24px;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid #DAD7D7;
+}
+.family-graph-block .family-block .family-title .click-info p{
+    padding: 0; 
+    font-size: 9px;
+
+}
+.family-graph-block .graph-block{
+    width: 74.7%;
+    border-radius: 20px;
+    border: 1px solid #DADADA;
+    background: #FDF8EC;
+}
+.family-graph-block .graph-block .graph--img img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid #EBE7DC;
+    height: 484px;
+    object-fit: cover;
+    object-position: top;
+}
+.family-graph-block .graph-block .graph--img{
+    display: flex;
+}
+.family-graph-block .graph-block .family-key{
+    background: #F3F4EC;
+    padding: 24px 24px 24px 48px;
+    border-radius: 0 0 20px 20px;
+}
+.family-graph-block .graph-block .family-key h6{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+.family-graph-block .graph-block .family-key .key-point p{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+.family-graph-block .graph-block .family-key .key-point p span{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: #01333E;
 }
 
 @media only screen and (max-width : 1299px){
