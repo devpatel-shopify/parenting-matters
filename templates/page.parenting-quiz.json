@@ -55,7 +55,6 @@
     },
     "0df4b747-57c1-435e-858b-ee22bf0a8a05": {
       "type": "two-column-card",
-      "disabled": true,
       "blocks": {
         "template--20320564117802__0df4b747-57c1-435e-858b-ee22bf0a8a05-cardimage-1": {
           "type": "cardimage",
@@ -99,6 +98,7 @@
         "template--20320564117802__0df4b747-57c1-435e-858b-ee22bf0a8a05-cardimage-1",
         "b4b914da-04df-4063-a903-980445c1ef3a"
       ],
+      "disabled": true,
       "settings": {
         "section_title": "",
         "top_radius": false,

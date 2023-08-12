@@ -1,10 +1,26 @@
-{{ "dashboard.css" | asset_url | stylesheet_tag }}
+{{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
-{% stylesheet %} .meter { background: #f6dae0; -webkit-border-radius: 25px;
--moz-border-radius: 25px; border-radius: 25px; display: block; height: 11px;
-margin-bottom: 0px; position: relative; } .meter > span { display: block;
-height: 100%; border-radius: 20px; background-color: #c72457; position:
-relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
+{% stylesheet %}
+  .meter {
+    background: #f6dae0;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    display: block;
+    height: 11px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+  .meter > span {
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #c72457;
+    position: relative;
+    overflow: hidden;
+    transition: width 2s ease-out;
+  }
+{% endstylesheet %}
 
 <section class="dashboard dashboard_overview">
   <div class="page-width">
@@ -22,13 +38,10 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/dash1.png?v=1691742778"
                   alt=""
                   srcset=""
-                />
+                >
               </div>
               <div class="icon-text">
-                <p>
-                  <b>My goal for myself is</b>to better understand my child and
-                  their feelings
-                </p>
+                <p><b>My goal for myself is</b>to better understand my child and their feelings</p>
               </div>
             </div>
             <div class="icon-box">
@@ -37,13 +50,10 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/dash2.png?v=1691742998"
                   alt=""
                   srcset=""
-                />
+                >
               </div>
               <div class="icon-text">
-                <p>
-                  <b>My goal for myself is</b>to better understand my child and
-                  their feelings
-                </p>
+                <p><b>My goal for myself is</b>to better understand my child and their feelings</p>
               </div>
             </div>
           </div>
@@ -229,9 +239,7 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
                       </svg>
                     </div>
                     <div class="link-text">
-                      <p class="text-bg">
-                        <span>Praise</span> <b>Part 2 - </b>Introduction
-                      </p>
+                      <p class="text-bg"><span>Praise</span> <b>Part 2 - </b>Introduction</p>
                       <p>How to give praise for the right things</p>
                     </div>
                   </div>
@@ -263,9 +271,7 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
                       </svg>
                     </div>
                     <div class="link-text">
-                      <p class="text-bg">
-                        <span>Praise</span> <b>Part 2 - </b>Introduction
-                      </p>
+                      <p class="text-bg"><span>Praise</span> <b>Part 2 - </b>Introduction</p>
                       <p>How to give praise for the right things</p>
                     </div>
                   </div>
@@ -297,7 +303,11 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
                 <h5>Family star results</h5>
               </div>
               <div class="family-graph">
-                <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/graph.png?v=1691754879" alt="" srcset="">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/graph.png?v=1691754879"
+                  alt=""
+                  srcset=""
+                >
               </div>
               <div class="course-btn">
                 <a class="button button--secondary" href="/pages/organisations"
@@ -327,9 +337,26 @@ relative; overflow: hidden; transition: width 2s ease-out; } {% endstylesheet %}
   </div>
 </section>
 
-{% schema %} { "name": "Dashboard Overview", "settings": [], "presets": [ {
-"name": "Dashboard Overview" } ] } {% endschema %} {% javascript %} var bars =
-document.querySelectorAll('.meter > span'); console.clear();
-setInterval(function () { bars.forEach(function (bar) { var getWidth =
-parseFloat(bar.dataset.progress); for (var i = 0; i < getWidth; i++) {
-bar.style.width = i + '%'; } }); }, 500); {% endjavascript %}
+{% schema %}
+{
+  "name": "Dashboard Overview",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Dashboard Overview"
+    }
+  ]
+}
+{% endschema %}
+{% javascript %}
+  var bars = document.querySelectorAll('.meter > span');
+  console.clear();
+  setInterval(function () {
+    bars.forEach(function (bar) {
+      var getWidth = parseFloat(bar.dataset.progress);
+      for (var i = 0; i < getWidth; i++) {
+        bar.style.width = i + '%';
+      }
+    });
+  }, 500);
+{% endjavascript %}
