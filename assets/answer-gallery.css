@@ -11,6 +11,10 @@
 .gallery-banner{
     padding: 121px 0 64px;
 }
+.gallery-banner .banner-content{
+    max-width: 680px;
+    margin: auto;
+}
 .gallery-banner .banner-content h2{
     margin: 12px 0;
 }
