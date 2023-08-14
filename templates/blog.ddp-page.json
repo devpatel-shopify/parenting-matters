@@ -2,10 +2,19 @@
   "sections": {
     "2778df54-ebf9-426b-9e19-3050cdd9f343": {
       "type": "blog-bannner",
+      "disabled": true,
       "settings": {
         "blog_name": "The Parenting matters blog",
-        "desktop_img": "shopify:\/\/shop_images\/Hero_1.png",
-        "mobile_img": "shopify:\/\/shop_images\/Hero_2.png"
+        "desktop_img": "shopify:\/\/shop_images\/ddp-bottom.png"
+      }
+    },
+    "56536982-cf0c-47cb-8595-92a214c24f2b": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "",
+        "ddp_heading": "Struggling with particular difficulties with your child?",
+        "ddp_text": "<p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
+        "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
       }
     },
     "main": {
@@ -79,6 +88,7 @@
   },
   "order": [
     "2778df54-ebf9-426b-9e19-3050cdd9f343",
+    "56536982-cf0c-47cb-8595-92a214c24f2b",
     "main",
     "a70cc92b-d6f2-45ef-b5fa-a98958acb5d7",
     "6cadaf58-4375-4b65-8b3c-0208e42a2fa1"

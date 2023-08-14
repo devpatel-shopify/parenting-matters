@@ -96,15 +96,18 @@ max-height: 151px;
 }
 .email_form .email_detail_fill form label{
     font-weight: 400 !important;
-    color: #01333E !important;
     font-family: var(--font-body-family) !important;
 }
 .email_form .email_detail_fill button{
-    width: 150px !important;
+    width: auto !important;
     font-size: 16px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     color: #01333E !important;
+    padding: 12px 62px 12px 32px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Active.svg?v=1692013947') !important;
+    background-repeat: no-repeat !important;
+    background-position: 90% 50% !important;
 }
 .go3176171171 {
     color: green !important;
