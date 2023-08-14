@@ -25,7 +25,7 @@
 <section class="dashboard dashboard_overview">
   <div class="page-width">
     <div class="welcome-title">
-      <h4>Welcome back <span>Dashboard overview</span></h4>
+      {% if customer %}<h4>Welcome back <span>{{ customer.first_name }}</span></h4>{% else %}<h4>Welcome, guest!</h4>{% endif %}
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
@@ -245,30 +245,8 @@
                   </div>
                   <div class="course-link">
                     <div class="link-icon">
-                      <p>Last time you learnt</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                      >
-                        <rect width="18" height="18" rx="9" fill="#C9D9D3" />
-                        <path
-                          d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524"
-                          stroke="#01333E"
-                          stroke-width="0.802083"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
-                          stroke="#01333E"
-                          stroke-width="0.802083"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <p>Learn next time</p>
+                      {% render 'icon-red-forword' %}
                     </div>
                     <div class="link-text">
                       <p class="text-bg"><span>Praise</span> <b>Part 2 - </b>Introduction</p>
@@ -311,7 +289,7 @@
               </div>
               <div class="course-btn">
                 <a class="button button--secondary" href="/pages/organisations"
-                  >Go to course
+                  >Read more
                   <svg
                     aria-hidden="true"
                     class="icon icon-arrow"

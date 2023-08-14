@@ -4,8 +4,7 @@
     border-radius: 20px 20px 0px 0px;
     margin: 0;
 }
-
-.course-progress {
+.dashboard_course .course-progress {
     max-width: 245px;
     min-width: 220px;
 
@@ -380,8 +379,7 @@
     .dashboard_course .family-graph-block {
         flex-wrap: wrap;
     }
-
-    .course-progress {
+.dashboard_course .course-progress {
         max-width: 100%;
         width: 100%;
     }

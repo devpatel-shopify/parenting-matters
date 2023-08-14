@@ -4,7 +4,7 @@
 <section class="dashboard_course dashboard dashboard_family">
   <div class="page-width">
     <div class="welcome-title">
-      <h4>Welcome back <span>Dashboard Family Star</span></h4>
+      <h4>Welcome back <span>{{ customer.first_name }}</span></h4>
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
@@ -211,7 +211,7 @@
                     <div class="content_footer_box item-1">
                       <div class="content_box-1">
                         <div class="icon">
-                          {% render 'icon-true-round'%}
+                          {% render 'icon-true-bg-round'%}
                         </div>
                         <div class="text">Last time you learnt</div>
                       </div>
@@ -225,7 +225,7 @@
                     <div class="content_footer_box item-2">
                       <div class="content_box-1">
                         <div class="icon">
-                          {% render 'icon-true-round'%}
+                          {% render 'icon-red-forword'%}
                         </div>
                         <div class="text">Last time you learnt</div>
                       </div>
@@ -266,6 +266,7 @@
     cellAlign: 'left',
     contain: true,
     pageDots: false,
+    arrowShape: 'M92.5,42.5H25.6L37.8,30.3A7.5,7.5,0,1,0,27.2,19.7l-25,25a7.5,7.5,0,0,0,0,10.6l25,25a7.5,7.5,0,0,0,10.6,0,7.5,7.5,0,0,0,0-10.6L25.6,57.5H92.5a7.5,7.5,0,0,0,0-15Z',
   });
 
   var elem = document.querySelector('.carousel-nav');

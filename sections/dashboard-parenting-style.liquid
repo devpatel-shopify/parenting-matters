@@ -3,7 +3,7 @@
 <section class="dashboard parenting_style">
   <div class="page-width">
     <div class="welcome-title">
-      <h4>Welcome back <span>Dashboard Parenting Style</span></h4>
+      <h4>Welcome back <span>{{ customer.first_name }}</span></h4>
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
@@ -34,14 +34,17 @@
               </div>
             </div>
             <div class="graph-block">
-              <div class="graph--tab">
-                <ul>
-                  <li><a href="" class="active"> Overall result</a> </li>
-                  <li><a href=""> Peak score</a> </li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-1">
+              <div class="wrapper graph--tab">
+                <div class="buttonWrapper">
+                  <button class="tab-button active" data-id="result">Overall result</button>
+                  <button class="tab-button" data-id="score">Peak score</button>
+                </div>
+                <div class="contentWrapper tab-content">
+                  <div class="content active" id="result">
                     <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" />
+                  </div>
+                  <div class="content" id="score">
+                    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/graph.png?v=1691754879" />
                   </div>
                 </div>
               </div>
@@ -68,5 +71,36 @@
   ]
 }
 {% endschema %}
-{% stylesheet %} {% endstylesheet %}
-{% javascript %} {% endjavascript %}
+{% stylesheet %} 
+
+.content {
+  display: none;
+}
+.content.active {
+  display: block;
+}
+
+{% endstylesheet %}
+{% javascript %} 
+
+const tabs = document.querySelector(".wrapper");
+const tabButton = document.querySelectorAll(".tab-button");
+const contents = document.querySelectorAll(".content");
+
+tabs.onclick = e => {
+  const id = e.target.dataset.id;
+  if (id) {
+    tabButton.forEach(btn => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+
+    contents.forEach(content => {
+      content.classList.remove("active");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+}
+
+{% endjavascript %}

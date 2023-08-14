@@ -2,13 +2,11 @@
   "sections": {
     "d992847c-81bd-406b-ae46-ec7291241118": {
       "type": "contact-banner",
-      "disabled": true,
       "settings": {
       }
     },
     "main": {
       "type": "main-register",
-      "disabled": true,
       "settings": {
         "heading_size": "h1",
         "small_text": "Enter your details below to create your account.",
@@ -18,6 +16,7 @@
     },
     "57111383-ced7-40b6-80be-84f2998a6c83": {
       "type": "dashboard-course",
+      "disabled": true,
       "settings": {
       }
     }
