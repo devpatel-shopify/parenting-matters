@@ -7,7 +7,7 @@
 
 .course-progress {
     max-width: 245px;
-    min-width: 200px;
+    min-width: 220px;
 
 }
 
@@ -113,14 +113,17 @@
 }
 
 .content_top {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
     column-gap: 24px;
 }
 
 .content_item.box-1 {
     display: flex;
     align-items: center;
+}
+
+.content_top .content_item {
+    width: 50%;
 }
 
 .content_item {
@@ -352,4 +355,34 @@
     line-height: 120%;
     /* 16.8px */
     letter-spacing: 0.14px;
+}
+
+@media screen and (max-width:1299px) {
+    .content_top .content_item {
+        width: 100%;
+    }
+
+    .content_top {
+        display: block;
+    }
+
+    .content_item.box-2 {
+        margin-top: 24px;
+    }
+
+    .content_footer_main {
+        grid-template-columns: 100%;
+        row-gap: 24px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .dashboard_course .family-graph-block {
+        flex-wrap: wrap;
+    }
+
+    .course-progress {
+        max-width: 100%;
+        width: 100%;
+    }
 }
