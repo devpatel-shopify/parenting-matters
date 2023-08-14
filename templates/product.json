@@ -54,6 +54,11 @@
           "settings": {
           }
         },
+        "0a2c13c7-7ab0-4d17-a248-86f91df66ada": {
+          "type": "collapsible_tab_meta",
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -71,6 +76,7 @@
         "cfd0eb05-eb2b-46e3-bc61-731030810f55",
         "variant_picker",
         "quantity_selector",
+        "0a2c13c7-7ab0-4d17-a248-86f91df66ada",
         "buy_buttons"
       ],
       "settings": {

@@ -21,9 +21,9 @@
       <div class="card_benefits_info">
         <div class="card_sticky">
           <div class="child_card">
-            {% if section.settings.heading_text != blank %}
-              <h2>{{ section.settings.heading_text }}</h2>
-            {% endif %}
+            {%- for child_card_heading in product.metafields.custom.card_information_heading.value -%}
+              <h2>{{ child_card_heading }}</h2>
+            {%- endfor -%}
           </div>
           <svg width="386" height="359" viewBox="0 0 386 359" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M385.236 158.542C390.558 273.37 285.18 359 183.717 359C82.2527 359 0 278.635 0 179.5C0 80.3649 82.2527 0 183.717 0C285.18 0 385.236 59.4067 385.236 158.542Z" fill="#FAD5AC"/>
@@ -31,30 +31,28 @@
         </div>
       </div>
       <div class="card_list">
-        {% for block in section.blocks %}
+        {%- for child_card in product.metafields.custom.card_information_image.value -%}
           {% style %}
             .block-{{ block.id }}.card_identy{
               background:{{ section.settings.background_color }};
             }
           {% endstyle %}
           <div class="card_identy block-{{ block.id }}" {{ block.shopify_attributes }}>
-            {% if block.settings.card_icon != blank %}
               <div class="card_image">
                 <img
-                  src="{{ block.settings.card_icon | img_url: 'master' }}"
+                  src="{{ child_card | img_url: 'master' }}"
                   alt="{{ block.settings.card_icon.alt }}"
                   width="{{ block.settings.card_icon.width }}"
                   height="{{ block.settings.card_icon.height }}"
                 >
               </div>
-            {% endif %}
             <div class="card_learn">
-              {% if block.settings.card_name != blank %}
-                <h4>{{ block.settings.card_name }}</h4>
-              {% endif %}
-              {% if block.settings.card_paragraph != blank %}
-                <p>{{ block.settings.card_paragraph }}</p>
-              {% endif %}
+              {%- for child_card_title in product.metafields.custom.card_information_title.value [forloop.index0]-%}
+                <h4>{{ child_card_title }}</h4>
+              {%- endfor -%}
+              {%- for child_card_content in product.metafields.custom.card_information_content.value [forloop.index0]-%}
+                <p>{{ child_card_content }}</p>
+              {%- endfor -%}
             </div> 
           </div>
         {% endfor %}
@@ -90,12 +88,6 @@
       "default": false
     },
     {
-      "type": "textarea",
-      "id": "heading_text",
-      "label": "Heading text",
-      "default": "Heading text"
-    },
-    {
       "type": "text",
       "id": "button_text",
       "label": "Button text",
@@ -107,10 +99,10 @@
       "label": "Button url"
     },
     {
-        "type": "checkbox",
-        "id": "top_radius",
-        "default": true,
-        "label": "Section top border radius"
+      "type": "checkbox",
+      "id": "top_radius",
+      "default": true,
+      "label": "Section top border radius"
     },
     {
       "type": "header",
@@ -153,45 +145,11 @@
       "default": 80
     }
   ],
-  "blocks": [
-    {
-      "name": "text",
-      "type": "text",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "card_icon",
-          "label": "Card icon"
-        },
-        {
-          "type": "text",
-          "id": "card_name",
-          "default": "Card name",
-          "label": "Card name"
-        },
-        {
-          "type": "richtext",
-          "id": "card_paragraph",
-          "default": "<p>Card paragraph</p>",
-          "label": "Card paragraph"
-        }
-      ]
-    }
-  ],
+
   "presets": [
     {
-      "name": "CardInformation Metafield",
-      "blocks": [
-        {
-          "type": "text"
-        },
-        {
-          "type": "text"
-        },
-        {
-          "type": "text"
-        }
-      ]
+      "name": "CardInformation Metafield"
+      
     }
   ]
 }
