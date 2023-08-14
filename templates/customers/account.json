@@ -6,9 +6,53 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "a284c080-3ec2-48e6-b283-a8ffb36668d4": {
+      "type": "dashboard_overview",
+      "settings": {
+      }
+    },
+    "43b41532-24a2-4aaf-a4ed-2974b7d19eee": {
+      "type": "dashboard-course",
+      "settings": {
+      }
+    },
+    "785bac68-0bc1-40f7-9ba9-3d916c18595d": {
+      "type": "dashboard-family-star",
+      "settings": {
+      }
+    },
+    "43603a6d-1538-4c19-b581-c8f57f84d816": {
+      "type": "dashboard-parenting-style",
+      "settings": {
+      }
+    },
+    "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "More resources",
+        "heading_size": "h2",
+        "button_text1": "",
+        "button_url": "",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "a284c080-3ec2-48e6-b283-a8ffb36668d4",
+    "43b41532-24a2-4aaf-a4ed-2974b7d19eee",
+    "785bac68-0bc1-40f7-9ba9-3d916c18595d",
+    "43603a6d-1538-4c19-b581-c8f57f84d816",
+    "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409"
   ]
 }
