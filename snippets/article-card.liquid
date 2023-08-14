@@ -105,7 +105,20 @@
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
                 {%- endif -%}
               </div>
+              
+                  
             {%- endif -%}
+            <div class="blog-main-button">
+              <a
+                class="button button--secondary"
+                href="{{ article.url }}"
+              >
+               Read more
+    
+                {% render 'icon-arrow' %}
+              </a>
+            </div>
+          
           </div>
           {%- if show_badge -%}
             <div class="card__badge {{ settings.badge_position }}">
@@ -142,6 +155,16 @@
                 {%- endif -%}
               </p>
             {%- endif -%}
+            <div class="blog-read-more {% unless section.settings.read_more_remove %} read_more_add {% endunless %}">
+              <a
+                class="button button--primary"
+                href="{{ article.url }}"
+              >
+               Read more
+    
+                {% render 'icon-arrow' %}
+              </a>
+            </div>
             <div class="article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
@@ -149,6 +172,7 @@
             </div>
           {%- endif -%}
         </div>
+        
         {%- if show_badge -%}
           <div class="card__badge {{ settings.badge_position }}">
             <span class="badge color-{{ settings.color_schemes | first }}">{{ 'blogs.article.blog' | t }}</span>

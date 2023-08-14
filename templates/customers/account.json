@@ -30,6 +30,7 @@
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
       "type": "featured-blog",
       "settings": {
+        "read_more_remove": true,
         "heading": "More resources",
         "heading_size": "h2",
         "button_text1": "",

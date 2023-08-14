@@ -293,6 +293,9 @@
 .content_footer_main .title {
     margin: 0;
     background: #F9E8E2;
+    border-radius: 44px;
+    display: inline-block;
+    padding: 0 3px;
 }
 
 .bottom_line svg circle {

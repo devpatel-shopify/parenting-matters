@@ -2,6 +2,9 @@
   margin: 0 1.5rem;
   background: rgb(var(--color-background));
 }
+.read_more_add{
+  display: none;
+}
 
 @media screen and (min-width: 750px) {
   .blog-placeholder {
@@ -17,13 +20,28 @@
 }
 
 .blog-placeholder .placeholder {
-  position: relative;
+  position: relative; 
 }
 
 .blog-placeholder .placeholder .placeholder-svg {
   height: auto;
 }
-
+.blog-read-more{
+  margin-top: 24px;
+}
+.blog-read-more a{
+  padding: 7px 8px 7px 15px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+.blog-read-more a svg{
+  margin-right: 0;
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
 .blog-placeholder h2 {
   margin: 0;
 }
