@@ -2,49 +2,42 @@
 <section class="ddp-list-block">
   <div class="page-width">
 
-  <div class="blog-filter">
-    <p>{{ section.settings.filter_title }}</p>
-    <div class="filter-link">
-      <ul>
-        <li>
-          <a href="{{ blog.url }}" data-tag="all" class="active js_tag_select">View All</a>
-        </li>
-        {% for tag in blog.all_tags %}
+    <div class="blog-filter">
+      <p>Filters</p>
+      <div class="filter-link">
+        <ul>
           <li>
-              <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="js_tag_select" data-tag="{{- tag -}}">{{ tag }}</a>
-            {% comment %} <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a> {% endcomment %}
+            <a href="{{ blog.url }}" data-tag="all" class="active js_tag_select">View All</a>
           </li>
-        {%- endfor -%}
-      </ul>
+          {% for tag in blog.all_tags %}
+            <li>
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="js_tag_select" data-tag="{{- tag -}}">{{ tag }}</a>
+              {% comment %} <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a> {% endcomment %}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
     </div>
-  </div>
-  
-        {% for blog in blog.articles %}
-          =========>  {{ blog.title }}
-         {% endfor %}   
     <div class="ddp-post-list">
-      {%- for blog in blog.metafields.custom.ddp_page.value -%}
+      {% for article in blog.articles %}
         <div class="ddp-box">
           <div class="ddp-post-img">
-            <img src="{{ blog.image.value |image_url }}">
+            <img src="{{ article.image |image_url }}">
             {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddppost.png?v=1690976850" > {% endcomment %}
           </div>
         
           <div class="ddp-post-details">
-            <span class="ddp_label">{{ blog.label.value }}</span>
-            <h3>{{ blog.heading.value }}</h3>
+            <span class="ddp_label">{{ article.tags }}</span>
+              <h3>{{ article.title }}</h3>  
+              <p>{{ article.excerpt }}</p>
             <p>{{ blog.rich_text | metafield_tag }}</p>
 
             <div class="ddp-button">
               <a
-                {% if blog.button_url.value == blank %}
-                    role="link" aria-disabled="false"
-                    {% else %}
-                  href="{{ blog.button_url | metafield_text }}"
-                {% endif %}
+                href="{{ section.settings.button_link.url }}"
                 class="button {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
               >
-                {{ blog.button_text.value }}
+                {{ section.settings.button_text }}
                 {% render 'icon-arrow' %}
               </a>
             </div>
@@ -86,7 +79,20 @@
 {% schema %}
 {
   "name": "DDP post list",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+    
+  ],
   "presets": [
     {
       "name": "DDP post list"
@@ -97,4 +103,3 @@
 
 {% stylesheet %}
 {% endstylesheet %}
-
