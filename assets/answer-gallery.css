@@ -52,7 +52,7 @@
 }
 .answer-block .load-more-btn{
     text-align: center;
-    margin: 64px 0;
+    margin: 64px 0 96px ;
 }
 .answer-block .load-more-btn a svg{
     transform: rotate(90deg);
