@@ -18,49 +18,6 @@
     },
     "c66b83b9-8a74-44e5-b13a-cae4465e0cd0": {
       "type": "ddp-post-list",
-      "blocks": {
-        "df1e8bb3-bd97-45eb-9e68-48d91829d72e": {
-          "type": "ddp-post",
-          "settings": {
-            "ddp_image": "shopify:\/\/shop_images\/pexels-photo-4740522_1.png",
-            "ddp_label": "Parent",
-            "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
-            "button_label_2": "Read more",
-            "button_style_secondary_2": false,
-            "button_link_2": "shopify:\/\/pages\/contact"
-          }
-        },
-        "dd23e47a-f288-4a94-95aa-3ae66a512041": {
-          "type": "ddp-post",
-          "settings": {
-            "ddp_image": "shopify:\/\/shop_images\/ddppost.png",
-            "ddp_label": "Parent",
-            "ddp_heading": "Resolving conflict between parents",
-            "ddp_text": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children?",
-            "button_label_2": "Read more",
-            "button_style_secondary_2": false,
-            "button_link_2": "shopify:\/\/pages\/contact"
-          }
-        },
-        "a7fa7c24-23cc-4e8b-9cf2-5df16e9f6d90": {
-          "type": "ddp-post",
-          "disabled": true,
-          "settings": {
-            "ddp_label": "",
-            "ddp_heading": "",
-            "ddp_text": "",
-            "button_label_2": "Read more",
-            "button_style_secondary_2": false,
-            "button_link_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "df1e8bb3-bd97-45eb-9e68-48d91829d72e",
-        "dd23e47a-f288-4a94-95aa-3ae66a512041",
-        "a7fa7c24-23cc-4e8b-9cf2-5df16e9f6d90"
-      ],
       "settings": {
       }
     }
