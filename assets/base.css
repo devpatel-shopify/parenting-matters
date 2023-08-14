@@ -1506,7 +1506,7 @@ button.shopify-payment-button__button--unbranded {
     margin-left: 12px;
     margin-right: -8px;
   }
-  
+
 }
 
 /* Button - social share */
@@ -2498,7 +2498,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
     text-align: center;
     justify-self: flex-start;
   }
-  
+
 
   .header--mobile-left .header__heading,
   .header--mobile-left .header__heading-link {
@@ -3458,4 +3458,10 @@ details-disclosure > details {
     --easter-egg: none;
     --sparkle: url('./sparkle.gif');
   }
+}
+
+svg.icon-left-arrow {
+  transform: rotate(180deg);
+  margin-right: 16px;
+  margin-left: -1.6rem;
 }

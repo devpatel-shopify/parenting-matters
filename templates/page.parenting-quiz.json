@@ -1,31 +1,23 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "e6d5ed6b-98c8-4ea5-a09d-63c8b002971f": {
+    "f21a889b-197e-4353-9bfd-e8091afafbca": {
       "type": "hero-section-about",
       "blocks": {
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-heading-1": {
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-heading-1": {
           "type": "heading",
           "settings": {
             "heading": "Our parenting quizzes",
             "heading_size": "h1"
           }
         },
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-text-1": {
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1": {
           "type": "text",
           "settings": {
             "text": "We’ve got a bunch of fun and informative quizzes which will help you identify different parenting features about yourself.",
             "text_style": "body"
           }
         },
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-buttons-1": {
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-buttons-1": {
           "type": "buttons",
           "disabled": true,
           "settings": {
@@ -39,9 +31,9 @@
         }
       },
       "block_order": [
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-heading-1",
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-text-1",
-        "template--20190738612522__e6d5ed6b-98c8-4ea5-a09d-63c8b002971f-buttons-1"
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-heading-1",
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1",
+        "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-buttons-1"
       ],
       "settings": {
         "desktop_content_position": "middle-left",
@@ -53,108 +45,342 @@
         "mobile_content_alignment": "left"
       }
     },
-    "0df4b747-57c1-435e-858b-ee22bf0a8a05": {
-      "type": "two-column-card",
+    "main": {
+      "type": "section-parenting-quiz",
       "blocks": {
-        "template--20320564117802__0df4b747-57c1-435e-858b-ee22bf0a8a05-cardimage-1": {
-          "type": "cardimage",
+        "9c19e878-f8a6-46ac-89c6-682ab196c536": {
+          "type": "range",
           "settings": {
-            "card_image": "shopify:\/\/shop_images\/Frame.png",
-            "card_label": "Quiz",
-            "card_title": "What's your parenting style?",
-            "card_description": "<p>Be it warm and authoritative or hands-off and permissive, there's no right or wrong. The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz can swiftly identify your parenting style!<\/p>",
-            "card_btn": "",
-            "card_btn_mobile": "",
-            "card_btn_link": "",
-            "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
-            "margin_top": 0,
-            "margin_top_mobile": 0
+            "klaviyo_id": "pq_rules",
+            "q": "Which statement do you agree with most?",
+            "a1": "Rules aren't set in stone and may change depending on the situation",
+            "a2": "Rules should be accepted as given"
           }
         },
-        "b4b914da-04df-4063-a903-980445c1ef3a": {
-          "type": "breakdownlove",
+        "41470317-6ba0-4fb0-bd19-68f654abe4e0": {
+          "type": "range",
           "settings": {
-            "love_label": "",
-            "card_heading": "",
-            "cart_content_bg_color": "#ffe8ae",
-            "breakdown_card_title": "<span>Positive<\/span> Parenting",
-            "title_description": "<p>You prefer to highlight your child’s inner strengths and skills, as opposed to focusing on more negative thoughts and feelings.<\/p>",
-            "breakdown_card_title2": "<span>Slow<\/span> Parenting",
-            "title_description2": "<p>You don’t follow the rat-race culture of western parenting, but like to take things at a more natural pace for your child and focusing on their journey.<\/p>",
-            "breakdown_card_title3": "<span>Authoritarian<\/span> Parenting",
-            "title_description3": "<p>You have a high sense of behavioural control over your child, with a sense of strictness and insensitivity.<\/p>",
-            "breakdown_card_title4": "<span>Permissive<\/span> Parenting",
-            "title_description4": "<p>You loosen up on the harsher rules of parenting and opt for allowing your child to develop independently with full support and care.<\/p>",
-            "button_label_2": "Take the quiz",
-            "button_style_secondary_2": false,
-            "button_link_2": "shopify:\/\/pages\/contact",
-            "color_scheme": "background-1",
-            "margin_top": 50,
-            "margin_top_mobile": 50
+            "klaviyo_id": "pq_expression",
+            "q": "Which statement do you agree with most?",
+            "a1": "I am generally warm and engaged when with my children",
+            "a2": "I am not very expressive on the whole"
+          }
+        },
+        "e5a980fd-72cb-4166-9233-d171c3c1a642": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_playtime",
+            "q": "Which statement do you agree with most?",
+            "a1": "It is better to do messy play at school\/ playgroup",
+            "a2": "I usually encourage creativity even when messy at home"
+          }
+        },
+        "e03a33df-5e0f-4514-8186-ebea3015c8a2": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_physical",
+            "q": "Which statement do you agree with most?",
+            "a1": "I am not a very physical person",
+            "a2": "I like cuddling \/ physical contact with my children"
+          }
+        },
+        "2aad07ff-407c-4c32-84ad-8367d0e2f13e": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_expectations",
+            "q_group_title": "How much do you agree with...",
+            "q": "I expect my child to do as asked without an argument",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "d33351df-137b-40e7-a7ac-98fba6b2424e": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "Children need to learn to fit in and not to make a fuss",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "792d64c3-4c3b-40ce-846b-ab0ea77d383f": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "Clear boundaries (limits) are important",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "4b9fe844-a508-4ed5-a5a2-8f8c90d893c3": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "I often spend time having fun with my child",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "7597dc50-57c1-411f-857f-ccab97643401": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "At times consequences are needed to help children learn how to behave",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "f6a2412d-92e8-4a7e-b761-41dadb414c2e": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "Each child has different needs and so needs to be accommodated to",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "9f96bdf9-451a-467d-90c6-6a7ce3ff661c": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "How much do you agree with...",
+            "q": "I often tell\/show my child how to behave",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "0c5b22b9-5e3f-4e0d-8ecb-fa94947e08c9": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_childasking",
+            "q": "Do you...",
+            "a1": "Find yourself nagging and asking your child to do something lots of times",
+            "a2": "Expect to ask once or twice only"
+          }
+        },
+        "4db3c368-a474-41b2-a8f6-639cd03d51c5": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_praise",
+            "q": "Do you...",
+            "a1": "Rarely give praise and encouragement when with your child",
+            "a2": "Frequently give praise & encouragement when with your child"
+          }
+        },
+        "55e15460-7845-467e-b694-77f057c8f604": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_attention",
+            "q": "Do you...",
+            "a1": "Try to give your undivided attention\/play with your child for at least 10 minutes a day",
+            "a2": "Rarely have time to give your full attention and play"
+          }
+        },
+        "39f5d560-1420-4fc6-9904-2fbd97ba780d": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_familyrules",
+            "q": "Do you...",
+            "a1": "Have quite a lot of family rules",
+            "a2": "Have few family rules, if any"
+          }
+        },
+        "9e96dd67-a170-43c4-bda6-b90ee95e7cc8": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_love",
+            "q": "How much do you agree with...",
+            "a1": "Assume they know you love them, (a bit reserved)",
+            "a2": "Often show warmth or tell your children you love them"
+          }
+        },
+        "a5ce4dd5-ca8b-4e06-9f01-21a31064d890": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_confrontation",
+            "q": "How much do you agree with...",
+            "a1": "Follow through if they don’t do as asked",
+            "a2": "Avoid confrontation if possible, even when they don’t do as asked"
+          }
+        },
+        "65f15e6b-d376-40bd-8ed6-982543b01022": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_plans",
+            "q": "How much do you agree with...",
+            "a1": "Change plans according to the children's wishes",
+            "a2": "Children should get on with things and muck in"
+          }
+        },
+        "8ce2971d-9ecf-4ad7-a7d0-2d5398a708a1": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_charge",
+            "q": "How much do you agree with...",
+            "a1": "Prefer to take charge",
+            "a2": "Prefer to go along with things"
+          }
+        },
+        "fea42b20-de3c-41cc-b0bf-b83c18838295": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_ecouragement",
+            "q_group_title": "Do you...",
+            "q": "Make an effort to encourage your child’s self expression and creativity",
+            "a1": "Often",
+            "a2": "Sometimes",
+            "a3": "Rarely",
+            "a4": "Hardly ever"
+          }
+        },
+        "3c4347ad-1837-4d49-89a8-d0eebd1e8e04": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_indepentantplay",
+            "q_group_title": "Do you...",
+            "q": "Leave your children to play independently as much as possible",
+            "a1": "Often",
+            "a2": "Sometimes",
+            "a3": "Rarely",
+            "a4": "Hardly ever"
+          }
+        },
+        "1c68dfb2-9232-4c5f-be90-1699bb31f5c2": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_joininwithfun",
+            "q_group_title": "Do you...",
+            "q": "Join in with some of your child’s activities and interests",
+            "a1": "Often",
+            "a2": "Sometimes",
+            "a3": "Rarely",
+            "a4": "Hardly ever"
+          }
+        },
+        "4e74062a-dc84-44a0-8e9b-10bb6996ad47": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_childrentold",
+            "q_group_title": "Do you...",
+            "q": "Believe children need to be told how to behave",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "39abfde1-a6a6-4e0f-8bb0-3520feb79f8a": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_valuesexpectation",
+            "q_group_title": "Do you...",
+            "q": "Expect your child to accept your values on the whole",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "dd84750f-f2fd-494d-b686-5c2785cd2cca": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "pq_childfollowing",
+            "q_group_title": "Do you...",
+            "q": "Expect your child to do as asked, when asked",
+            "a1": "Agree",
+            "a2": "Somewhat agree",
+            "a3": "Somewhat disagree",
+            "a4": "Disagree"
+          }
+        },
+        "65a7584f-4af0-4847-9e6e-cdb5d92fca72": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "pq_familydictatorship",
+            "q": "Lastly...",
+            "a1": "Family is a benign dictatorship",
+            "a2": "Family is a democracy"
+          }
+        },
+        "1dc3d262-74e6-4fb5-bda8-1f507da4e8ac": {
+          "type": "dropdown",
+          "settings": {
+            "klaviyo_id": "pq_childrelation",
+            "q_group_title": "Relationship to child",
+            "q": "",
+            "options": "Mother, Father, Grandmother, Grandfather, Other"
+          }
+        },
+        "e8a4db1e-1b99-4067-8c29-a0843d33e617": {
+          "type": "textfield",
+          "settings": {
+            "klaviyo_id": "pq_comment",
+            "q_group_title": "Comment or description to save with these test results",
+            "q": ""
           }
         }
       },
       "block_order": [
-        "template--20320564117802__0df4b747-57c1-435e-858b-ee22bf0a8a05-cardimage-1",
-        "b4b914da-04df-4063-a903-980445c1ef3a"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_title": "",
-        "top_radius": false,
-        "color_scheme": "",
-        "padding_top": 126,
-        "padding_bottom": 36
-      }
-    },
-    "69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6": {
-      "type": "course-highlights-section",
-      "blocks": {
-        "b5746d33-915d-42b8-bc36-ea73c4aaa74f": {
-          "type": "track_quiz",
-          "settings": {
-            "quiz_image": "shopify:\/\/shop_images\/Frame.png",
-            "sub_title": "Quiz",
-            "heading_text": "What's your  parenting style?",
-            "paragraph": "Be it warm and authoritative or hands-off and permissive, there's no right or wrong. The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz can swiftly identify your parenting style!",
-            "button_text": "Take the quiz",
-            "button_url": "shopify:\/\/pages\/parenting-style-quiz",
-            "background_schema": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
-            "layout": "image_first"
-          }
-        },
-        "8803416e-0856-424d-8243-bbf35b8a5bcb": {
-          "type": "track_quiz",
-          "settings": {
-            "quiz_image": "shopify:\/\/shop_images\/Frame_1.png",
-            "sub_title": "Quiz",
-            "heading_text": "Track your Family Star",
-            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
-            "button_text": "Take the quiz",
-            "button_url": "shopify:\/\/pages\/contact",
-            "background_schema": "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef",
-            "layout": "text_first"
-          }
-        }
-      },
-      "block_order": [
-        "b5746d33-915d-42b8-bc36-ea73c4aaa74f",
-        "8803416e-0856-424d-8243-bbf35b8a5bcb"
+        "9c19e878-f8a6-46ac-89c6-682ab196c536",
+        "41470317-6ba0-4fb0-bd19-68f654abe4e0",
+        "e5a980fd-72cb-4166-9233-d171c3c1a642",
+        "e03a33df-5e0f-4514-8186-ebea3015c8a2",
+        "2aad07ff-407c-4c32-84ad-8367d0e2f13e",
+        "d33351df-137b-40e7-a7ac-98fba6b2424e",
+        "792d64c3-4c3b-40ce-846b-ab0ea77d383f",
+        "4b9fe844-a508-4ed5-a5a2-8f8c90d893c3",
+        "7597dc50-57c1-411f-857f-ccab97643401",
+        "f6a2412d-92e8-4a7e-b761-41dadb414c2e",
+        "9f96bdf9-451a-467d-90c6-6a7ce3ff661c",
+        "0c5b22b9-5e3f-4e0d-8ecb-fa94947e08c9",
+        "4db3c368-a474-41b2-a8f6-639cd03d51c5",
+        "55e15460-7845-467e-b694-77f057c8f604",
+        "39f5d560-1420-4fc6-9904-2fbd97ba780d",
+        "9e96dd67-a170-43c4-bda6-b90ee95e7cc8",
+        "a5ce4dd5-ca8b-4e06-9f01-21a31064d890",
+        "65f15e6b-d376-40bd-8ed6-982543b01022",
+        "8ce2971d-9ecf-4ad7-a7d0-2d5398a708a1",
+        "fea42b20-de3c-41cc-b0bf-b83c18838295",
+        "3c4347ad-1837-4d49-89a8-d0eebd1e8e04",
+        "1c68dfb2-9232-4c5f-be90-1699bb31f5c2",
+        "4e74062a-dc84-44a0-8e9b-10bb6996ad47",
+        "39abfde1-a6a6-4e0f-8bb0-3520feb79f8a",
+        "dd84750f-f2fd-494d-b686-5c2785cd2cca",
+        "65a7584f-4af0-4847-9e6e-cdb5d92fca72",
+        "1dc3d262-74e6-4fb5-bda8-1f507da4e8ac",
+        "e8a4db1e-1b99-4067-8c29-a0843d33e617"
       ],
       "settings": {
-        "full_width": false,
-        "heading_text": "",
-        "text_alignment": "center",
-        "heading_size": "h2",
-        "padding_top": 128,
-        "padding_bottom": 64
+        "form_id": "parenting style quiz",
+        "success_title": "You have now completed the parenting quiz!",
+        "success_overview": "<p>Lorem ipsum domest ipsular est. <a href=\"\/pages\/contact\" title=\"Contact\">Click here to go somewhere<\/a>.<\/p>",
+        "color_scheme": "background-1",
+        "heading_font": "h3",
+        "progress_bar_radius": 44
       }
     }
   },
   "order": [
-    "main",
-    "e6d5ed6b-98c8-4ea5-a09d-63c8b002971f",
-    "0df4b747-57c1-435e-858b-ee22bf0a8a05",
-    "69fbb0ef-5986-4c3f-885a-22f8fbc0c7a6"
+    "f21a889b-197e-4353-9bfd-e8091afafbca",
+    "main"
   ]
 }

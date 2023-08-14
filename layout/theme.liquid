@@ -233,6 +233,7 @@
           --gradient-background: {{ scheme.settings.background }};
         {% endif %}
         --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --inner-block-background:{{ scheme.settings.inner_block_bg }};
         --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
         --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
         --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
@@ -244,6 +245,8 @@
         --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
         --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
         --border-color: rgb({{ scheme.settings.border.rgb }});
+        --progress-bar:{{ scheme.settings.progress_bar }};
+        --progress-bar-icon:{{ scheme.settings.progress_bar_icon }};
       }
       {% endfor %}
 
@@ -469,11 +472,6 @@
     </ul>
 
     <script>
-      
-      
-      
-      
-      
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
@@ -501,11 +499,6 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
-
-
-
-
-
     </script>
 
     {%- if settings.predictive_search_enabled -%}

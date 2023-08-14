@@ -149,132 +149,165 @@
         "settings": {
           "background": "#fdf8ec",
           "background_gradient": "",
+          "inner_block_bg": "#c9d9d3",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#f6dae0",
+          "progress_bar_icon": "#c72457"
         }
       },
       "background-2": {
         "settings": {
           "background": "#f3f3f3",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#121212",
           "button": "#121212",
           "button_label": "#f3f3f3",
           "secondary_button_label": "#121212",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "inverse": {
         "settings": {
           "background": "#ffd978",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#c72457",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "accent-1": {
         "settings": {
           "background": "#9cbfb3",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#01333e",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "accent-2": {
         "settings": {
           "background": "#1c8da6",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#fdf8ec",
           "button": "#ffffff",
           "button_label": "#000000",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b": {
         "settings": {
           "background": "#c9d9d3",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#01333e",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698": {
         "settings": {
           "background": "#ffd978",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#01333e",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9": {
         "settings": {
           "background": "#fdf8ec",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#01333e",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-32b52632-33b9-49f5-a7f4-917974f3d412": {
         "settings": {
           "background": "#c9d9d3",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#c72457",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89": {
         "settings": {
           "background": "#ffd978",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       },
       "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef": {
         "settings": {
           "background": "#dfe8e5",
           "background_gradient": "",
+          "inner_block_bg": "",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
           "secondary_button_label": "#01333e",
           "shadow": "#121212",
-          "border": "#c9d9d3"
+          "border": "#c9d9d3",
+          "progress_bar": "#d3d3d3",
+          "progress_bar_icon": "#000"
         }
       }
     }

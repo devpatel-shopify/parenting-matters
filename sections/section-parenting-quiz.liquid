@@ -1,0 +1,428 @@
+{{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
+
+{% assign ss = section.settings %}
+{%- liquid
+  assign heading_font = section.settings.heading_font
+-%}
+
+{% if ss.form_id != blank %}
+  {% assign formID = ss.form_id | handleize %}
+
+  <section class="ps-quiz color-{{ section.settings.color_scheme }}">
+    <div class="page-width">
+      {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
+      <form
+        class="quiz-section"
+        id="{{ formID }}"
+        style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
+      >
+        {% for block in section.blocks %}
+          {% assign bs = block.settings %}
+          {% case block.type %}
+            {% when 'range' %}
+              <div class="slide">
+                {% if bs.q != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.a1 != blank and bs.a2 != blank %}
+                  <div class="range_container">
+                    <div class="labels">
+                      <p>{{ bs.a1 }}</p>
+                      <p>{{ bs.a2 }}</p>
+                    </div>
+                    <input type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                  </div>
+                {% endif %}
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                  {% else %}
+                    <span></span>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button">Submit</button>
+                  {% else %}
+                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'button' %}
+              <div class="slide">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="qtype-button">
+                  {% if bs.a1 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a1 | handleize }}-{{forloop.index}}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a1 | handleize }}"
+                        data-val="-2"
+                      >
+                      <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a2 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a2 | handleize }}-{{forloop.index}}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a2 | handleize }}"
+                        data-val="-1"
+                      >
+                      <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a3 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a3 | handleize }}-{{forloop.index}}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a3 | handleize }}"
+                        data-val="1"
+                      >
+                      <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a4 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a4 | handleize }}-{{forloop.index}}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a4 | handleize }}"
+                        data-val="2"
+                      >
+                      <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button">Submit</button>
+                  {% else %}
+                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'textfield' %}
+              <div class="slide" data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="textfield-container">
+                  <textarea
+                    name="{{ bs.klaviyo_id }}"
+                    id="{{ bs.klaviyo_id }}"
+                    placeholder="Enter your answer here..."
+                  ></textarea>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button">Submit </button>
+                  {% else %}
+                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'dropdown' %}
+              <div class="slide" data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="dropdown-container">
+                  <select name="" id=""></select>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button">Submit</button>
+                  {% else %}
+                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                  {% endif %}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </form>
+
+      <div class="form-success-msg">
+        {% if ss.success_title != blank %}
+          <h2>{{ ss.success_title }}</h2>
+        {% endif %}
+        {{ ss.success_overview }}
+      </div>
+    </div>
+  </section>
+
+  <script defer>
+    document.addEventListener(
+      'DOMContentLoaded',
+      function () {
+        $(function () {
+          $(document).on('change', '.range_container input', function () {
+            var val = $(this).val();
+
+            if (val == 1) {
+              $(this).data('val', -2);
+            } else if (val == 2) {
+              $(this).data('val', -1);
+            } else if (val == 3) {
+              $(this).data('val', 1);
+            } else if (val == 4) {
+              $(this).data('val', 2);
+            }
+
+            var dataVal = $(this).data('val');
+            console.log(dataVal);
+          });
+
+          $(document).on('submit', '.quiz-section', function (e) {
+            e.preventDefault();
+          });
+        });
+      },
+      false
+    );
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Parenting quiz",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "Form ID",
+      "info": "This name is used to feed the data into Klaviyo. This form ID will be handleized."
+    },
+    {
+      "type": "textarea",
+      "id": "success_title",
+      "label": "Success title"
+    },
+    {
+      "type": "richtext",
+      "id": "success_overview",
+      "label": "Success overview"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading Font Size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "progress_bar_radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "default": 44,
+      "label": "Progress Bar Radius"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "range",
+      "name": "Question type: Range",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1",
+          "info": "Enter the first answer value"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2",
+          "info": "Enter the last answer value"
+        }
+      ]
+    },
+
+    {
+      "type": "button",
+      "name": "Question type: Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "a3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "text",
+          "id": "a4",
+          "label": "Answer 4"
+        }
+      ]
+    },
+
+    {
+      "type": "dropdown",
+      "name": "Question type: Dropdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options",
+          "info": "Add a comma between each option",
+          "default": "Option 1, Option 2, Option 3, Option 4"
+        }
+      ]
+    },
+
+    {
+      "type": "textfield",
+      "name": "Question type: Textfield",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Parenting quiz"
+    }
+  ]
+}
+{% endschema %}

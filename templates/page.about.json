@@ -313,9 +313,7 @@
         "button_text": "Join today",
         "button_url": "shopify:\/\/pages\/contact",
         "top_radius": true,
-        "color_scheme": "",
-        "background_color": "#c9d9d3",
-        "border_color": "#01333e",
+        "color_scheme": "background-1",
         "padding_top": 160,
         "padding_bottom": 64
       }
