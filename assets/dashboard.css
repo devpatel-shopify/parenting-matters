@@ -258,7 +258,9 @@ background: #FFF0C9;
     background-position: center;
 }
 .dashboard_course .family-graph-block .flickity-button.previous{
-    transform: rotate(180deg);
+    background: url('https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Arrow_Right_6a81fd5f-4632-4edc-a879-3f9ceecb6803.svg?v=1692191497');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .dashboard_course .family-graph-block .flickity-button:disabled {
     display: flex !important;

@@ -380,6 +380,22 @@
     letter-spacing: 0.14px;
 }
 
+.carousel-main .carousel-cell.is-selected:after {
+    content: "";
+    background: #FBF0E7;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: -57px;
+    /* left: 0; */
+    border-radius: 10px;
+    transform: rotate(45deg);
+    right: 40px;
+}
+.carousel-main .flickity-viewport{
+    overflow: visible;
+}
+
 @media screen and (max-width:1299px) {
     .content_top .content_item {
         width: 100%;
