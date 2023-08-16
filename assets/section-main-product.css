@@ -55,7 +55,7 @@
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 40%;
+    max-width: 40.3%;
     width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
@@ -382,7 +382,9 @@ a.product__text {
   padding: 0 0 !important;
 }
 .product__accordion .accordion__content ul{
-  padding-left: 1rem;
+  list-style-position: unset;
+    padding-left: 2rem;
+    list-style: disc;
 }
 .product .price .badge {
   margin-bottom: 0.5rem;
@@ -749,7 +751,7 @@ a.product__text {
 .product-media-modal[open] {
   visibility: visible;
   opacity: 1;
-  z-index: 101;
+  z-index: 10111;
 }
 
 .product-media-modal__dialog {
@@ -1648,6 +1650,7 @@ a.product__text {
 
 .product__info-wrapper .faq-div .accordion{
   margin-top: 24px;
+  padding: 23px;
 }
 
 .product__info-wrapper  .faq-div .accordion__title{
@@ -1658,9 +1661,15 @@ a.product__text {
 }
 .product__accordion .accordion__content p{
   margin-bottom: 24px;
+  font-size: 16px;
 }
 .product__accordion .accordion__content p:last-child{
   margin-bottom: 0;
+}
+@media only screen and (max-width:1299px) {
+  .product__info-wrapper .faq-div .accordion{
+    padding: 16px;
+  }
 }
 @media only screen and (max-width:990px) {
   .product-media-container.constrain-height.media-fit-contain{
@@ -1672,5 +1681,8 @@ a.product__text {
 }
 .product.grid{
   gap: 50px;
+}
+.product__info-container .product__description{
+  font-size: 18px;
 }
 }
