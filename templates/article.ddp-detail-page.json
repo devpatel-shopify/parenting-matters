@@ -1,5 +1,70 @@
 {
   "sections": {
+    "d502b487-b237-4d62-905a-bb306cabf036": {
+      "type": "jump-section-meta",
+      "blocks": {
+        "10999068-dd60-4bdf-a428-cd0ae116e7fc": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#c9d9d3",
+            "secondary_color": "#E9F0ED",
+            "tab_id": "",
+            "title": "",
+            "subtitle": "",
+            "description": "",
+            "button_name": "",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "whe",
+            "benifit_sub_title": "",
+            "title_1": "",
+            "desc_1": "",
+            "title_2": "",
+            "desc_2": "",
+            "title_3": "",
+            "desc_3": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "41900abb-14c1-429a-843f-e953d13ef9ec": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#c9d9d3",
+            "secondary_color": "#E9F0ED",
+            "tab_id": "",
+            "title": "",
+            "subtitle": "",
+            "description": "",
+            "button_name": "",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "",
+            "benifit_sub_title": "",
+            "title_1": "",
+            "desc_1": "",
+            "title_2": "",
+            "desc_2": "",
+            "title_3": "",
+            "desc_3": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "10999068-dd60-4bdf-a428-cd0ae116e7fc",
+        "41900abb-14c1-429a-843f-e953d13ef9ec"
+      ],
+      "settings": {
+        "custom_class": "",
+        "tab_title": ""
+      }
+    },
     "main": {
       "type": "main-article",
       "blocks": {
@@ -27,12 +92,14 @@
         "featured_image",
         "content"
       ],
+      "disabled": true,
       "settings": {
       }
     },
     "f56ca04b-aeee-4361-9840-0994bb30ef76": {
       "type": "featured-blog",
       "settings": {
+        "read_more_remove": false,
         "heading": "Related articles",
         "heading_size": "h1",
         "button_text1": "Explore our blog",
@@ -51,6 +118,7 @@
     }
   },
   "order": [
+    "d502b487-b237-4d62-905a-bb306cabf036",
     "main",
     "f56ca04b-aeee-4361-9840-0994bb30ef76"
   ]

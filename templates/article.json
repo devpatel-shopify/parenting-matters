@@ -1,12 +1,5 @@
 {
   "sections": {
-    "18480f4c-08ec-44aa-aa19-b0f34af3b5ea": {
-      "type": "jump-section-meta",
-      "settings": {
-        "custom_class": "",
-        "tab_title": ""
-      }
-    },
     "main": {
       "type": "main-article",
       "blocks": {
@@ -34,7 +27,6 @@
         "featured_image",
         "content"
       ],
-      "disabled": true,
       "settings": {
       }
     },
@@ -60,7 +52,6 @@
     }
   },
   "order": [
-    "18480f4c-08ec-44aa-aa19-b0f34af3b5ea",
     "main",
     "f56ca04b-aeee-4361-9840-0994bb30ef76"
   ]
