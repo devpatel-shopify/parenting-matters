@@ -88,9 +88,15 @@ p:last-child {
     background: #ffd978;
     border: none;
 }
+
+
 .main-template--blog sticky-header[data-sticky-type=always]{
   background: #ffd979;
 }
+.template--blogddp-page sticky-header[data-sticky-type=always] {
+  background: #c9d9d3;
+}
+
 sticky-header[data-sticky-type="always"] {
   background: transparent;
   border: none;

@@ -449,7 +449,7 @@
     </script>
   </head>
 
-  <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} template--{{ template | handlize | remove:'.' }}  {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}" id="{{ template | handlize }}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

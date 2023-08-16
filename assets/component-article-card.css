@@ -122,7 +122,9 @@
 }
 
 
-
+.read_more_add{
+  display: none;
+}
 .featured-blog-title h2 {
   margin-bottom: 0;
   max-width: 380px;
