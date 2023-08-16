@@ -40,6 +40,7 @@ background: #FFF0C9;
     display: inline-block;
     color: #01333E;
     border-radius: 25px;
+    background: #fff0c9;
 }
 .tab_back_img{
     position: absolute;
@@ -87,6 +88,9 @@ background: #FFF0C9;
 .icon-with-text-block .icon-box .icon-text p{
     max-width: 329px;
 }
+.icon-with-text-block .icon-box .icon-text p b{
+    font-weight: 600;
+}
 .progress-start-block{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -109,7 +113,7 @@ background: #FFF0C9;
 .course-grid .white-box{
     background: #FDF8EC;
     border-radius: 16px 16px 0 0;
-    padding: 17px;  
+    padding: 18px;  
 }
 .course-grid .white-box .icon-text{
     display: inline-flex;
@@ -132,11 +136,15 @@ background: #FFF0C9;
 .course-grid .white-box .progress-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 8px;
 }
 .course-grid .white-box.top-border {
     border-radius: 0 0 16px 16px;
     border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+.course-grid .progress-grid .meter{
+    
+    height: 11px;
 }
 .progress-details .course-link{
     background: #FDF8EC;
@@ -158,11 +166,15 @@ background: #FFF0C9;
 .progress-details .course-link .link-text .text-bg{
     border-radius: 44px;
     background: #F9E9E6;
+    margin-bottom: 8px;
 }
 
 .progress-details .course-link .link-text p{
     font-size: 14px;
     line-height: 120%;
+}
+.progress-details .course-link .link-text p b{
+    font-weight: 600;
 }
 .progress-details .course-link .link-icon p{
     margin: 0;
@@ -194,12 +206,13 @@ background: #FFF0C9;
 }
 .progress-start-block .family-block .family-graph{
     text-align: center;
-    padding: 26px;
+    padding: 24px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     background: #DFE8E5;
 }
 .progress-start-block .family-block .family-graph img{
-    height: 322px;
+    height: 306px;
+    max-width: 279px;
     object-fit: contain;
 }
 .progress-start-block .family-block .course-btn{
@@ -236,11 +249,21 @@ background: #FFF0C9;
     top: unset;
     width: 23%;
     height: 23%;
-    display: flex;
+    /* display: flex; */
+    display: none;
+}
+.dashboard_course .family-graph-block .flickity-button{
+    background: url('https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Arrow_Right.svg?v=1692169071');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.dashboard_course .family-graph-block .flickity-button.previous{
+    transform: rotate(180deg);
 }
 .dashboard_course .family-graph-block .flickity-button:disabled {
     display: flex !important;
     border: 1px solid #DADADA;
+    opacity: 1;
 }
 
 /* dashboard family star */
@@ -250,6 +273,9 @@ background: #FFF0C9;
 }
 .left_sidebar.tab-transparent ul{
     background: #FDF8EC;
+}
+.left_sidebar.tab-transparent ul li a{
+    background: transparent;
 }
 .family-graph-block{
     display: flex;
@@ -351,7 +377,8 @@ background: #FFF0C9;
     height: auto;
 }
 .family-graph-block .family-block .family-title .click-info svg{
-    width: 20px;
+    width: 24px;
+    height: 17px;
 }
 .family-graph-block .family-block .family-title .click-info p{
     width: 100%;
@@ -459,6 +486,9 @@ background: #FFF0C9;
         display: inline-flex;
         align-items: center;
         margin: 0 36px 0px 24px;
+    }
+    .family-graph-block .graph-block .graph--img img{
+        height: auto;
     }
 }
 @media only screen and (max-width : 991px){

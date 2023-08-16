@@ -6,7 +6,7 @@
 }
 .dashboard_course .course-progress {
     max-width: 245px;
-    min-width: 220px;
+    min-width: 245px;
 
 }
 
@@ -21,9 +21,10 @@
 }
 
 .progress_bar_item .button {
-    padding: 6px 10px;
+    padding: 6px 4px;
     height: 21px;
     font-size: 12px;
+    min-width: 57px;
 }
 
 .progress_bar_item {
@@ -97,6 +98,11 @@
 
 .course_bottom .text {
     text-align: center;
+    font-size: 13px;
+    line-height: 120%;  
+}
+.course_bottom .text span{
+    font-weight: 600;
 }
 
 .dashboard_family.dashboard_course {
@@ -140,6 +146,7 @@
     font-weight: 500;
     line-height: 120%;
     letter-spacing: 0.2px;
+    font-size: 20px;
 }
 
 .content_box .icon {
@@ -187,7 +194,16 @@
     border-radius: 16px;
     border: 1px solid #F6F2E7;
     background: rgba(249, 232, 226, 0.50);
-    padding: 18px;
+    padding: 5px;
+    width: 106px;
+    height: 105px;
+}
+.internal_box_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
 }
 
 .internal_box_main .icon {
@@ -205,16 +221,16 @@
     padding: 25px;
 }
 
-.carousel.carousel-nav {
+.carousel.carousel-main {
     background: #FDF8EC;
 }
 
-.carousel.carousel-main {
+.carousel.carousel-nav {
     background-color: #FBF0E7;
 }
 
 
-.carousel-main .carousel-cell {
+.carousel-nav .carousel-cell {
     padding: 0 12px;
 }
 
@@ -223,6 +239,8 @@
     border: 1px solid #CAD0C9;
     border-radius: 10px;
     background: #FDF8EC;
+    width: 168px;
+    height: 176px;
 }
 
 .top_text {
@@ -247,16 +265,16 @@
     margin-top: 24px;
 }
 
-.carousel-nav .carousel-cell .internal_box_upper {
+.carousel-main .carousel-cell .internal_box_upper {
     padding: 0 12px;
 }
 
-.carousel-main .carousel-cell.is-selected .content_text {
+.carousel-nav .carousel-cell.is-selected .content_text {
     border: 1px solid var(--brand-primary-pink, #C72457);
 
 }
 
-.carousel-nav .carousel-cell.is-selected .internal_box {
+.carousel-main .carousel-cell.is-selected .internal_box {
     border: 1px solid var(--brand-primary-pink, #C72457);
 }
 
@@ -276,11 +294,11 @@
 .bottom_line .line {
     height: 1px;
     width: 100%;
-    background-color: red;
+    background-color: #9CBFB3;
     display: block !important;
 }
 
-.carousel-nav .carousel-cell {
+.carousel-main .carousel-cell {
     padding-bottom: 20px;
 }
 
@@ -296,6 +314,7 @@
     border-radius: 44px;
     display: inline-block;
     padding: 0 3px;
+    font-size: 14px;
 }
 
 .bottom_line svg circle {
@@ -347,6 +366,8 @@
 
 .content_footer_main .text_content .text {
     margin-top: 8px;
+    font-size: 14px;
+    line-height: 120%;
 }
 
 .content_footer_box .title span {
