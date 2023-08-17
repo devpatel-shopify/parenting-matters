@@ -7,7 +7,7 @@
           "type": "text",
           "settings": {
             "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
+            "text_style": "body"
           }
         },
         "title": {
@@ -31,22 +31,34 @@
           "settings": {
           }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
         "description": {
           "type": "description",
           "settings": {
           }
         },
-        "share": {
-          "type": "share",
+        "77a1f310-67a0-4794-9ee8-72a83e9109ce": {
+          "type": "collapsible_tab",
           "settings": {
-            "share_label": "Share"
+            "heading": "About the course",
+            "icon": "check_mark",
+            "content": "<p>Follow the course material at your own pace, online, anytime. Become a member of our exclusive parent community, where you can get support and share your experiences.<\/p><p>Split into easy daily exercises, the course let’s you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.<\/p><p>We look at the two sides to being a good parent, Love and Limits.  Love means being a supportive parent, and Limits is about being an assertive parent. Through improving your Love & Limits you child will feel more secure, leading to happier more confident children. We have also seen a boost in achievements at school by 10-20%!<\/p>",
+            "page": ""
+          }
+        },
+        "1c7b84b0-cb40-4254-968e-b9b3622e080e": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What you’ll get",
+            "icon": "check_mark",
+            "content": "<ul><li>Daily bite-sized exercises<\/li><li>Solutions to your greatest parenting challenges<\/li><li>Easy ways to connect with your child<\/li><li>Easy ways to connect with your child<\/li><li>Access to a supported private Community<\/li><li>happier home and a more confident parent<\/li><\/ul>",
+            "page": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
           }
         }
       },
@@ -56,12 +68,13 @@
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
         "description",
-        "share"
+        "77a1f310-67a0-4794-9ee8-72a83e9109ce",
+        "1c7b84b0-cb40-4254-968e-b9b3622e080e",
+        "buy_buttons"
       ],
       "settings": {
-        "heading_size": "h1",
+        "heading_size": "h3",
         "border_bottom": true,
         "enable_sticky_info": true,
         "media_size": "large",
@@ -69,11 +82,11 @@
         "media_fit": "contain",
         "gallery_layout": "stacked",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "hover",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 120,
         "padding_bottom": 12
       }
     },
@@ -103,7 +116,7 @@
         "button_url": "shopify:\/\/collections\/all",
         "top_radius": true,
         "background_schema": "",
-        "background_color": "#E9F0ED",
+        "background_color": "#e9f0ed",
         "padding_top": 80,
         "padding_bottom": 80
       }
