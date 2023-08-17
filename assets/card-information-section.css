@@ -1,7 +1,7 @@
 .page-width .card_detail {
     max-width: 1044px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 30px;
 }
 .card_detail {
     display: flex;
@@ -104,8 +104,8 @@
         padding: 0;
     }
     slider-component {
-        padding-left: 5rem;
-        padding-right: 5rem;
+        padding-left: 0;
+        padding-right: 0;
     }
     .title-wrapper--self-padded-tablet-down {
         padding-left: 5rem;
