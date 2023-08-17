@@ -113,7 +113,7 @@
         height: 95px;
     }
     .ddp-post-list .ddp-box{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .ddp-post-list .ddp-box .ddp-post-img {
         width: 100%;
@@ -134,11 +134,12 @@
     .ddp-banner{
         padding: 180px 0 105px;
     }
+    .ddp-post-list .ddp-box .ddp-post-details h3{
+        font-size: 25px;
+    }
 }
 @media only screen and (max-width:750px) {
-    .ddp-banner h2 {
-        font-size: 30px;
-    }
+   
     .ddp-banner .ddp-inner-content .ddp-left-text{
         width: 100%;
         margin-bottom: 25px;
@@ -185,6 +186,7 @@
     }
     .ddp-post-list .ddp-box{
         gap: 15px;
+        grid-template-columns: 1fr;
     }
     .ddp-post-list .ddp-box .ddp-post-details .ddp_label{
         font-size: 12px;
