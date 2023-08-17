@@ -1,4 +1,5 @@
 {{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+{%- assign currentTag = current_tags | first | handleize -%}
 <section class="ddp-list-block">
   <div class="page-width">
 
@@ -7,11 +8,12 @@
       <div class="filter-link">
         <ul>
           <li>
-            <a href="{{ blog.url }}" data-tag="all" class="active js_tag_select">View All</a>
+            <a href="{{ blog.url }}" data-tag="all" class="{% if currentTag == "" %}active{% endif %} js_tag_select">View All</a>
           </li>
           {% for tag in blog.all_tags %}
             <li>
-                <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="js_tag_select" data-tag="{{- tag -}}">{{ tag }}</a>
+              {%- assign tagHandlize = tag | handleize -%}
+                <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="{% if currentTag == tagHandlize %}active{% endif %} js_tag_select" data-tag="{{- tag -}}">{{ tag }}</a>
               {% comment %} <a href="" class="{% if forloop.index == 1 %}active {% endif %}">{{- block.settings.link_id -}}</a> {% endcomment %}
             </li>
           {%- endfor -%}
@@ -59,23 +61,7 @@
     </div>
   </div>
 </section>
-<script>
-  let tagElements = document.querySelectorAll(".js_tag_select")
-  tagElements.forEach(function(tagElement){
-      tagElement.classList.remove("active");
-    tagElement.addEventListener("click",function(event){
-        let tag = event.target.getAttribute("data-tag");
-        localStorage.setItem("tags", tag);
-    });
-    let getTag = localStorage.getItem("tags");
-    if(tagElement.getAttribute("data-tag") == getTag && getTag != "null"){
-      tagElement.classList.add("active");
-    }
-    if(getTag == null){
-      tagElements[0].classList.add("active")
-    }
-  });
-</script>
+
 {% schema %}
 {
   "name": "DDP post list",
