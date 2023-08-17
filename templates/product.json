@@ -36,22 +36,9 @@
           "settings": {
           }
         },
-        "77a1f310-67a0-4794-9ee8-72a83e9109ce": {
-          "type": "collapsible_tab",
+        "5ea9e561-6fdf-417b-b551-ac39e9d9606c": {
+          "type": "collapsible_tab_meta",
           "settings": {
-            "heading": "About the course",
-            "icon": "check_mark",
-            "content": "<p>Follow the course material at your own pace, online, anytime. Become a member of our exclusive parent community, where you can get support and share your experiences.<\/p><p>Split into easy daily exercises, the course let’s you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.<\/p><p>We look at the two sides to being a good parent, Love and Limits.  Love means being a supportive parent, and Limits is about being an assertive parent. Through improving your Love & Limits you child will feel more secure, leading to happier more confident children. We have also seen a boost in achievements at school by 10-20%!<\/p>",
-            "page": ""
-          }
-        },
-        "1c7b84b0-cb40-4254-968e-b9b3622e080e": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "What you’ll get",
-            "icon": "check_mark",
-            "content": "<ul><li>Daily bite-sized exercises<\/li><li>Solutions to your greatest parenting challenges<\/li><li>Easy ways to connect with your child<\/li><li>Easy ways to connect with your child<\/li><li>Access to a supported private Community<\/li><li>happier home and a more confident parent<\/li><\/ul>",
-            "page": ""
           }
         },
         "buy_buttons": {
@@ -69,8 +56,7 @@
         "variant_picker",
         "quantity_selector",
         "description",
-        "77a1f310-67a0-4794-9ee8-72a83e9109ce",
-        "1c7b84b0-cb40-4254-968e-b9b3622e080e",
+        "5ea9e561-6fdf-417b-b551-ac39e9d9606c",
         "buy_buttons"
       ],
       "settings": {
@@ -87,7 +73,7 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 120,
-        "padding_bottom": 12
+        "padding_bottom": 64
       }
     },
     "related-products": {

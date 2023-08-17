@@ -385,6 +385,7 @@ a.product__text {
   list-style-position: unset;
     padding-left: 2rem;
     list-style: disc;
+    margin: 0;
 }
 .product .price .badge {
   margin-bottom: 0.5rem;
@@ -1685,4 +1686,12 @@ a.product__text {
 .product__info-container .product__description{
   font-size: 18px;
 }
+.product__accordion .accordion__content ul li{
+  font-size: 15px;
+}
+.product__accordion .accordion__content p{
+  font-size: 15px;
+  line-height: 19px;
+}
+
 }
