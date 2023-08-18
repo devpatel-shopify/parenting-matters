@@ -44,3 +44,9 @@
     width: 100%;
     height: 205px;
 }
+
+@media screen and (max-width:991px) {
+    .ddp-banner .ddp-inner-content .ddp-right-img{
+        width: 37%;
+    }
+}

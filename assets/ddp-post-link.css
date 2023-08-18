@@ -109,6 +109,7 @@
     }
     .ddp-banner h2{
         font-size: 42px;
+        max-width: 483px;
     }
     .ddp-banner .ddp-bottom-image img{
         height: 95px;
@@ -126,6 +127,7 @@
     }
     .ddp-post-list .ddp-box .ddp-post-details {
         max-width: unset;
+        padding: 0 13px;
     }
     .ddp-post-list .ddp-box .ddp-post-details p {
         margin-bottom: 25px;
@@ -156,11 +158,13 @@
         width: 100%;
         text-align: center;
         position: absolute;
-        bottom: -130px;
+        bottom: -50px;
         left: -10px;
     }
     .ddp-banner .ddp-inner-content .ddp-right-img img {
-        width: 300px;
+        width: 241px;
+        height: 202px;
+        object-fit: contain;
     }
     .ddp-banner .ddp-bottom-image img {
         height: 65px;
@@ -189,7 +193,7 @@
         line-height: 120%;
     }
     .ddp-banner {
-        padding: 70px 0 104px;
+        padding: 70px 0 144px;
         margin-bottom: 160px;
     }
     .ddp-post-list .ddp-box{
