@@ -100,6 +100,39 @@ p:last-child {
   background: #c9d9d3;
 }
 
+/* dashboard */
+
+.template--pagecustom-overview sticky-header[data-sticky-type=always]{
+  border-bottom: 1px solid #C9D9D3;
+}
+.template--pagecustom-overview .scrolled-past-header sticky-header[data-sticky-type=always]{
+  border: 0;
+}
+
+.template--pagecustom-course sticky-header[data-sticky-type=always]{
+  border-bottom: 1px solid #C9D9D3;
+  background: #F9E8E2;
+}
+.template--pagecustom-course .scrolled-past-header sticky-header[data-sticky-type=always]{
+  border: 0;
+}
+
+.template--pagecustom-family-star-result sticky-header[data-sticky-type=always]{
+  border-bottom: 1px solid #C9D9D3;
+  background: #E9F0ED;
+}
+.template--pagecustom-family-star-result .scrolled-past-header sticky-header[data-sticky-type=always]{
+  border: 0;
+}
+
+.template--pagecustom-parenting-style sticky-header[data-sticky-type=always]{
+  border-bottom: 1px solid #C9D9D3;
+  background: #FFF0C9;
+}
+.template--pagecustom-parenting-style .scrolled-past-header sticky-header[data-sticky-type=always]{
+  border: 0;
+}
+
 sticky-header[data-sticky-type="always"] {
   background: transparent;
   border: none;

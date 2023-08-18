@@ -94,6 +94,7 @@
       "email": "Email",
       "message": "Comment",
       "post": "Post comment",
+      "button_ddp_post":"Read more",
       "back_to_blog": "Back to blog",
       "share": "Share this article",
       "success": "Your comment was posted successfully! Thank you!",
