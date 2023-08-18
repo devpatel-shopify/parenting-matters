@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-account",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -10,21 +11,64 @@
     "a284c080-3ec2-48e6-b283-a8ffb36668d4": {
       "type": "dashboard_overview",
       "settings": {
+        "title_1": "Overview",
+        "link_1": "shopify:\/\/pages\/custom-dashboard-overview",
+        "title_2": "Course",
+        "link_2": "shopify:\/\/pages\/custom-course",
+        "title_3": "Community",
+        "link_3": "",
+        "title_4": "Family star",
+        "link_4": "shopify:\/\/pages\/custom-family-star-result",
+        "title_5": "Parenting style",
+        "link_5": "shopify:\/\/pages\/custom-parenting-style"
       }
     },
     "43b41532-24a2-4aaf-a4ed-2974b7d19eee": {
       "type": "dashboard-course",
+      "disabled": true,
       "settings": {
+        "title_1": "",
+        "link_1": "",
+        "title_2": "",
+        "link_2": "",
+        "title_3": "",
+        "link_3": "",
+        "title_4": "",
+        "link_4": "",
+        "title_5": "",
+        "link_5": ""
       }
     },
     "785bac68-0bc1-40f7-9ba9-3d916c18595d": {
       "type": "dashboard-family-star",
+      "disabled": true,
       "settings": {
+        "title_1": "",
+        "link_1": "",
+        "title_2": "",
+        "link_2": "",
+        "title_3": "",
+        "link_3": "",
+        "title_4": "",
+        "link_4": "",
+        "title_5": "",
+        "link_5": ""
       }
     },
     "43603a6d-1538-4c19-b581-c8f57f84d816": {
       "type": "dashboard-parenting-style",
+      "disabled": true,
       "settings": {
+        "title_1": "",
+        "link_1": "",
+        "title_2": "",
+        "link_2": "",
+        "title_3": "",
+        "link_3": "",
+        "title_4": "",
+        "link_4": "",
+        "title_5": "",
+        "link_5": ""
       }
     },
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {

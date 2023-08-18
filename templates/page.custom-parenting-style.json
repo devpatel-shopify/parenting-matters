@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "d3896c67-79a8-4d64-954d-f8519b2ccc71": {
+      "type": "dashboard-parenting-style",
+      "settings": {
+        "title_1": "Overview",
+        "link_1": "shopify:\/\/pages\/custom-dashboard-overview",
+        "title_2": "Course",
+        "link_2": "shopify:\/\/pages\/custom-course",
+        "title_3": "Family star",
+        "link_3": "shopify:\/\/pages\/custom-family-star-result",
+        "title_4": "Parenting style",
+        "link_4": "shopify:\/\/pages\/custom-parenting-style",
+        "title_5": "",
+        "link_5": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d3896c67-79a8-4d64-954d-f8519b2ccc71"
+  ]
+}

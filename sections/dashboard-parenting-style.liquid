@@ -8,7 +8,7 @@
     <div class="dash_tab_block">
       <div class="tab_dash">
         <div class="left_sidebar tab-transparent">
-          {% render 'left-sidebar' %}
+          {% render 'left-sidebar' section:section %}
         </div>
         <div class="dashbord_box dash_over_info">
           <div class="family-graph-block">
@@ -63,7 +63,58 @@
 {% schema %}
 {
   "name": "Dashboard Parenting style",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title 1"
+    },
+    {
+      "type": "url",
+      "id": "link_1",
+      "label": "Link 1"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title 2"
+    },
+    {
+      "type": "url",
+      "id": "link_2",
+      "label": "Link 2"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Title 3"
+    },
+    {
+      "type": "url",
+      "id": "link_3",
+      "label": "Link 3"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Title 4"
+    },
+    {
+      "type": "url",
+      "id": "link_4",
+      "label": "Link 4"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Title 5"
+    },
+    {
+      "type": "url",
+      "id": "link_5",
+      "label": "Link 5"
+    }
+  ],
   "presets": [
     {
       "name": "Dashboard Parenting style"
