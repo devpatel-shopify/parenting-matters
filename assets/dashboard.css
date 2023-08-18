@@ -46,10 +46,23 @@ background: #FFF0C9;
     position: absolute;
     top: 5px;
     z-index: 0;
+    display: none;
 }
 .left_sidebar ul li a.active{
     border: 1px solid #01333E;
-
+    position: relative;
+}
+.left_sidebar ul li a.active::after{
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: -100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0730/5868/1130/files/dash-active.svg?v=1692348061');
+    height: 74px;
+    width: 58px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 .left_sidebar ul li{
     margin-bottom: 24px;
@@ -277,7 +290,7 @@ background: #FFF0C9;
     background: #FDF8EC;
 }
 .left_sidebar.tab-transparent ul li a{
-    background: transparent;
+    background: #fdf8ec;
 }
 .family-graph-block{
     display: flex;
