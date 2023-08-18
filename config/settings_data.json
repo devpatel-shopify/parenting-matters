@@ -172,7 +172,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "inverse": {
@@ -187,7 +187,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "accent-1": {
@@ -202,7 +202,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "accent-2": {
@@ -217,7 +217,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b": {
@@ -232,7 +232,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698": {
@@ -247,7 +247,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9": {
@@ -262,14 +262,14 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-32b52632-33b9-49f5-a7f4-917974f3d412": {
         "settings": {
           "background": "#c9d9d3",
           "background_gradient": "",
-          "inner_block_bg": "",
+          "inner_block_bg": "#f5f5f5",
           "text": "#01333e",
           "button": "#c72457",
           "button_label": "#fdf8ec",
@@ -277,7 +277,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89": {
@@ -292,7 +292,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       },
       "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef": {
@@ -307,7 +307,7 @@
           "shadow": "#121212",
           "border": "#c9d9d3",
           "progress_bar": "#d3d3d3",
-          "progress_bar_icon": "#000"
+          "progress_bar_icon": "#000000"
         }
       }
     }

@@ -21,28 +21,26 @@
   {%- endfor -%}
 </style>
 
-<section class="jump-block {{ section.settings.custom_class }}">
+<section class="jump-block">
   <div class=" page-width">
-    {% comment %} <div class="jump-click-btn">
+    <div class="jump-click-btn">
       <p>{{- section.settings.tab_title -}}</p>
       <div class="jump-btn-block" id="section_link-bar">
         {%- for block in section.blocks -%}
           {%- if block.settings.tab_id != blank -%}
-            <a
-              href="#{{- block.settings.tab_id -}}"
-              id="{{- block.settings.tab_id -}}"
-              data-section-scroll>{{- block.settings.tab_id -}}</a>
-
+            <a href="#{{- block.settings.tab_id -}}" id="{{- block.settings.tab_id -}}" data-section-scroll>{{- block.settings.tab_id -}}</a>
           {%- endif -%}
         {%- endfor -%}
       </div>
-    </div> {% endcomment %}
+    </div> 
+    
+
 
     {%- for article in article.metafields.custom.ddp_detail_page.value -%}
-      {% assign benefit_title = article.benefit_title.value %}
+     
       <div
-        class="jump-redirect-block section--{{ block.id }}"
-        id="{{- block.settings.tab_id -}}"
+        class="jump-redirect-block section--{{ forloop.index }} "
+        id="{{- forloop.index -}}"
         {{ block.shopify_attributes }}>
         <div class="jump-details">
           <div class="jump-grid">
@@ -57,7 +55,6 @@
               </p>
             </div>
           </div>
-
           <div class="down-arrow">
             <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
               <h6>Expand</h6>
@@ -93,67 +90,80 @@
             </svg>
           </a>
         </div>
-      </div>
-
-      <div class="jump-open-block js-hide-element" style="display: none;">
-        <div class="round-text-block">
-          <div class="inner-grid-block">
-            <div class="grid-box">
-              <div class="inner-title">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="330"
-                  height="308"
-                  viewBox="0 0 330 308"
-                  fill="none">
-                  <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="#C9D9D3" />
-                </svg>
-
-                <div class="grid-title">
-                  <h2>{{- article.title.value[1] -}}</h2>
-                  <h6>{{- article.subtitle.value[1] -}}</h6>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="73"
-                    height="71"
-                    viewBox="0 0 73 71"
-                    fill="none">
-                    <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="#E9F0ED" />
-                  </svg>
-                </div>
-              </div>
-              <div class="inner-boxes">
-                {%- for i in (1..benefit_title.size) -%}
-                  {% liquid 
-                      assign variable = article.benefit_title.value.size 
-                      assign benefit_title = article.benefit_title.value
-                  %}
-                  {% if article.benefit_title.value[forloop.index0] %}
-                    <div class="inner-card">
-                      <div class="card-text">
-                        <h5>{{ article.benefit_title.value[forloop.index0] }}</h5>
-                        <p>{{ article.benefit_description.value[forloop.index0] }}</p>
-                      </div>  
-                    </div>
-                  {% endif %}
-                
-                  <div class="right-svg">
+       
+          <div class="jump-open-block js-hide-element" style="display: none;">
+            <div class="round-text-block">
+              <div class="inner-grid-block">
+                <div class="grid-box">
+                  <div class="inner-title">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="209"
-                      height="195"
-                      viewBox="0 0 209 195"
+                      width="330"
+                      height="308"
+                      viewBox="0 0 330 308"
                       fill="none">
-                      <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="#C9D9D3" />
+                      <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="#C9D9D3" />
                     </svg>
+                    
+                    <div class="grid-title">
+                      <h2>introduction</h2>
+                      <h6>introduction</h6>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="73"
+                        height="71"
+                        viewBox="0 0 73 71"
+                        fill="none">
+                        <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="#E9F0ED" />
+                      </svg>
+                    </div>
                   </div>
-                {% endfor %}
+                  <div class="inner-boxes">
+                    {% for benefit_metaobject in article.benefit_metaobject.value %}
+                      <div class="inner-icon">
+                        <img src="{{- benefit_metaobject.benefit_image | file_url | image_url -}}">
+                      </div>
+                      
+                        <div class="inner-card">
+                          <div class="card-text">
+                              <h5>{{ benefit_metaobject.benefit_title.value }}</h5>
+                              <p>{{ benefit_metaobject.benefit_description | metafield_tag }}</p>
+                          </div>  
+                        </div>
+                      {% endfor %}   
+                      <div class="button_space">
+                        <a class="button button--secondary" href="{{- block.settings.button_link -}}">
+                          {{- article.button_title.value -}}
+                          <svg
+                            aria-hidden="true"
+                            class="icon icon-arrow"
+                            focusable="false"
+                            viewBox="0 0 21 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                          </svg>
+                        </a>
+                      </div>
+                      <div class="right-svg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="209"
+                          height="195"
+                          viewBox="0 0 209 195"
+                          fill="none">
+                          <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="#C9D9D3" />
+                        </svg>
+                      </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
-    {% endfor %}  
+    {% endfor %} 
+    
   </div>
 </section>
 <script>
@@ -226,7 +236,7 @@
 
 {% schema %}
   {
-    "name": "Jupm section",
+    "name": "Jump section meta",
     "settings": [
       {
         "type": "text",
@@ -238,125 +248,9 @@
         "label": "Title of tab section"
       }
     ],
-    "blocks": [
-      {
-        "type": "organisation_steps",
-        "name": "Organisation Steps",
-        "settings": [
-          {
-            "type": "color",
-            "id": "bg_color",
-            "label": "Primary backgroud color",
-            "default": "#c9d9d3"
-          },
-          {
-            "type": "color",
-            "id": "secondary_color",
-            "label": "Secondary backgroud color",
-            "default": "#E9F0ED"
-          },
-          {
-            "type": "text",
-            "id": "tab_id",
-            "label": "Tab name"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subtitle"
-          }, {
-            "type": "richtext",
-            "id": "description",
-            "label": "Description"
-          }, {
-            "type": "text",
-            "id": "button_name",
-            "label": "Button name"
-          }, {
-            "type": "header",
-            "content": "percentage count"
-          }, {
-            "type": "text",
-            "id": "percentage_count_1",
-            "label": "Percentage count of the organisation 1"
-          }, {
-            "type": "richtext",
-            "id": "organisation_text_1",
-            "label": "Text of the organisation 1"
-          }, {
-            "type": "text",
-            "id": "percentage_count_2",
-            "label": "Percentage count of the organisation 2"
-          }, {
-            "type": "richtext",
-            "id": "organisation_text_2",
-            "label": "Text of the organisation 2"
-          }, {
-            "type": "header",
-            "content": "The benefits section"
-          }, {
-            "type": "text",
-            "id": "benifit_title",
-            "label": "Title"
-          }, {
-            "type": "text",
-            "id": "benifit_sub_title",
-            "label": "Sub-Title"
-          }, {
-            "type": "image_picker",
-            "id": "icon_1",
-            "label": "icon 1"
-          }, {
-            "type": "text",
-            "id": "title_1",
-            "label": "Text 1"
-          }, {
-            "type": "richtext",
-            "id": "desc_1",
-            "label": "Description 1"
-          }, {
-            "type": "image_picker",
-            "id": "icon_2",
-            "label": "icon 2"
-          }, {
-            "type": "text",
-            "id": "title_2",
-            "label": "Text 2"
-          }, {
-            "type": "richtext",
-            "id": "desc_2",
-            "label": "Description 2"
-          }, {
-            "type": "image_picker",
-            "id": "icon_3",
-            "label": "icon 3"
-          }, {
-            "type": "text",
-            "id": "title_3",
-            "label": "Text 3"
-          }, {
-            "type": "richtext",
-            "id": "desc_3",
-            "label": "Description 3"
-          }, {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button text"
-          }, {
-            "type": "url",
-            "id": "button_link",
-            "label": "Button link"
-          }
-        ]
-      }
-    ],
     "presets": [
       {
-        "name": "Jupm section meta"
+        "name": "Jump section meta"
       }
     ]
   }

@@ -1,77 +1,32 @@
 {
   "sections": {
-    "27bfe92b-7045-4e5d-a86b-3f61614cee53": {
-      "type": "ddp-banner",
+    "aebe27a9-f374-4572-b989-8bff1a05d3a8": {
+      "type": "ddp-banner-meta",
       "settings": {
-        "custom_class": "",
-        "ddp_heading": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children",
-        "ddp_text": "",
-        "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
       }
     },
     "d502b487-b237-4d62-905a-bb306cabf036": {
       "type": "jump-section-meta",
-      "blocks": {
-        "10999068-dd60-4bdf-a428-cd0ae116e7fc": {
-          "type": "organisation_steps",
-          "settings": {
-            "bg_color": "#c9d9d3",
-            "secondary_color": "#e9f0ed",
-            "tab_id": "",
-            "title": "",
-            "subtitle": "",
-            "description": "",
-            "button_name": "",
-            "percentage_count_1": "",
-            "organisation_text_1": "",
-            "percentage_count_2": "",
-            "organisation_text_2": "",
-            "benifit_title": "whe",
-            "benifit_sub_title": "",
-            "title_1": "",
-            "desc_1": "",
-            "title_2": "",
-            "desc_2": "",
-            "title_3": "",
-            "desc_3": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "41900abb-14c1-429a-843f-e953d13ef9ec": {
-          "type": "organisation_steps",
-          "settings": {
-            "bg_color": "#c9d9d3",
-            "secondary_color": "#e9f0ed",
-            "tab_id": "",
-            "title": "",
-            "subtitle": "",
-            "description": "",
-            "button_name": "",
-            "percentage_count_1": "",
-            "organisation_text_1": "",
-            "percentage_count_2": "",
-            "organisation_text_2": "",
-            "benifit_title": "",
-            "benifit_sub_title": "",
-            "title_1": "",
-            "desc_1": "",
-            "title_2": "",
-            "desc_2": "",
-            "title_3": "",
-            "desc_3": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "10999068-dd60-4bdf-a428-cd0ae116e7fc",
-        "41900abb-14c1-429a-843f-e953d13ef9ec"
-      ],
       "settings": {
         "custom_class": "",
         "tab_title": ""
+      }
+    },
+    "ca35a7c8-87f2-405d-ada6-ba383bb2d43c": {
+      "type": "join-card-section-meta",
+      "settings": {
+        "custom_class": "",
+        "full_width": false,
+        "join_remove": false,
+        "join_inner_remove": false,
+        "heading_text": "Heading Text",
+        "small_text": "",
+        "button_text": "Button",
+        "button_url": "",
+        "top_radius": false,
+        "color_scheme": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "main": {
@@ -127,8 +82,9 @@
     }
   },
   "order": [
-    "27bfe92b-7045-4e5d-a86b-3f61614cee53",
+    "aebe27a9-f374-4572-b989-8bff1a05d3a8",
     "d502b487-b237-4d62-905a-bb306cabf036",
+    "ca35a7c8-87f2-405d-ada6-ba383bb2d43c",
     "main",
     "f56ca04b-aeee-4361-9840-0994bb30ef76"
   ]

@@ -1,0 +1,41 @@
+{{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
+{{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+
+
+<section class="ddp-banner {{ section.settings.custom_class }}">
+  <div class="page-width">
+    <div class="ddp-inner-content">
+      <div class="ddp-left-text">
+        <h2>{{ article.metafields.custom.banner_title }}</h2>
+        <p>
+            {{ article.metafields.custom.banner_description | metafield_tag }}
+        </p>
+      </div>
+      <div class="ddp-right-img">
+        <img src="{{ article.metafields.custom.banner_media | img_url:'master' }}" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+  <div class="ddp-bottom-image">
+    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-bottom.png?v=1690952576" alt="" srcset="">
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DDP banner meta",
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "DDP banner meta"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

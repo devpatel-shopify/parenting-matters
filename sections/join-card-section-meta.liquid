@@ -1,0 +1,126 @@
+{{ 'email-sign-up-section.css' | asset_url | stylesheet_tag }}
+{{ 'join-card-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+    px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}
+      px;
+      padding-bottom: {{ section.settings.padding_bottom }}
+      px;
+    }
+  }
+{%- endstyle -%}
+
+{% for card in article.metafields.custom.join_card_section.value %}
+  <div class="join_card_section   color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+    <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
+      <div class="email_news">
+        <div class="join_card_list">
+
+          <div class="joining_heading">
+            <div class="join_info">
+              <h2>{{ card.title.value }}</h2>
+              <p>{{ card.description | metafield_tag }}</p>
+              <div class="join_button ">
+                <a class="button" href="{{ section.settings.button_url }}">
+                  {{ card.button_title.value }}
+                  {% render 'icon-arrow' %}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="join_benefits">
+            {% for row in card.join_card_row.value %}
+              <div class="join_benefit_list block-{{ block.id }}" {{ block.shopify_attributes }}>
+                <img
+                  src="{{ block.settings.icon | img_url: 'master' }}"
+                  alt="{{ block.settings.icon.alt }}"
+                  width="{{ block.settings.icon.width }}"
+                  height="{{ block.settings.icon.height }}">
+                <p class="p1">
+                  {{ row.title.value }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if section.settings.button_url != blank %}
+        <div class="join_button {% unless section.settings.join_remove %} join_button-add {% endunless %}">
+          <a class="button" href="{{ section.settings.button_url }}">
+
+            {% render 'icon-arrow' %}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+{% schema %}
+  {
+    "name": "Join Card Section meta",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Show content make a full width",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "join_remove",
+        "label": "join button add",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "top_radius",
+        "default": true,
+        "label": "Section top border radius"
+      },
+      {
+        "type": "header",
+        "content": "Section Background"
+      }, {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "default": "scheme_1",
+        "label": "Color scheme"
+      }, {
+        "type": "header",
+        "content": "Section spacing"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 80
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 80
+      }
+    ],
+    "presets": [
+      {
+        "name": "Join Card Section meta"
+      }
+    ]
+  }
+{% endschema %}
