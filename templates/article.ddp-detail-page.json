@@ -1,5 +1,14 @@
 {
   "sections": {
+    "27bfe92b-7045-4e5d-a86b-3f61614cee53": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "",
+        "ddp_heading": "Resolving parental conflict and reducing family stress: how to nurture harmony for happier children",
+        "ddp_text": "",
+        "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
+      }
+    },
     "d502b487-b237-4d62-905a-bb306cabf036": {
       "type": "jump-section-meta",
       "blocks": {
@@ -7,7 +16,7 @@
           "type": "organisation_steps",
           "settings": {
             "bg_color": "#c9d9d3",
-            "secondary_color": "#E9F0ED",
+            "secondary_color": "#e9f0ed",
             "tab_id": "",
             "title": "",
             "subtitle": "",
@@ -33,7 +42,7 @@
           "type": "organisation_steps",
           "settings": {
             "bg_color": "#c9d9d3",
-            "secondary_color": "#E9F0ED",
+            "secondary_color": "#e9f0ed",
             "tab_id": "",
             "title": "",
             "subtitle": "",
@@ -118,6 +127,7 @@
     }
   },
   "order": [
+    "27bfe92b-7045-4e5d-a86b-3f61614cee53",
     "d502b487-b237-4d62-905a-bb306cabf036",
     "main",
     "f56ca04b-aeee-4361-9840-0994bb30ef76"

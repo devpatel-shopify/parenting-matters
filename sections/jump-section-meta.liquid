@@ -23,7 +23,7 @@
 
 <section class="jump-block {{ section.settings.custom_class }}">
   <div class=" page-width">
-    <div class="jump-click-btn">
+    {% comment %} <div class="jump-click-btn">
       <p>{{- section.settings.tab_title -}}</p>
       <div class="jump-btn-block" id="section_link-bar">
         {%- for block in section.blocks -%}
@@ -36,7 +36,7 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
-    </div>
+    </div> {% endcomment %}
 
     {%- for article in article.metafields.custom.ddp_detail_page.value -%}
       {% assign benefit_title = article.benefit_title.value %}

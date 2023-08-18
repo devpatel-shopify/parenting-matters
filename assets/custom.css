@@ -96,6 +96,9 @@ p:last-child {
 .template--blogddp-page sticky-header[data-sticky-type=always] {
   background: #c9d9d3;
 }
+.template--articleddp-detail-page sticky-header[data-sticky-type=always] {
+  background: #c9d9d3;
+}
 
 sticky-header[data-sticky-type="always"] {
   background: transparent;
