@@ -309,6 +309,21 @@
           "progress_bar": "#d3d3d3",
           "progress_bar_icon": "#000000"
         }
+      },
+      "scheme-5849700f-ff29-41e9-a34f-481e22379e16": {
+        "settings": {
+          "background": "#c9d9d3",
+          "background_gradient": "",
+          "inner_block_bg": "#fdf8ec",
+          "text": "#01333e",
+          "button": "#c72457",
+          "button_label": "#fdf8ec",
+          "secondary_button_label": "#01333e",
+          "shadow": "#121212",
+          "border": "#c9d9d3",
+          "progress_bar": "#f6dae0",
+          "progress_bar_icon": "#c72457"
+        }
       }
     }
   },

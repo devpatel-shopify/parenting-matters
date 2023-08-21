@@ -41,6 +41,7 @@
     border-radius: 20px;
     margin-bottom: 16px;
     background-color: var(--inner-block-background);
+    color: rgb(var(--color-secondary-button-text));
 }
 .join_benefit_list:last-child {
     margin-bottom: 0;

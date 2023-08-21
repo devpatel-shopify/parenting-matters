@@ -15,16 +15,10 @@
     "ca35a7c8-87f2-405d-ada6-ba383bb2d43c": {
       "type": "join-card-section-meta",
       "settings": {
-        "custom_class": "",
         "full_width": false,
         "join_remove": false,
-        "join_inner_remove": false,
-        "heading_text": "Heading Text",
-        "small_text": "",
-        "button_text": "Button",
-        "button_url": "",
         "top_radius": false,
-        "color_scheme": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
+        "color_scheme": "scheme-5849700f-ff29-41e9-a34f-481e22379e16",
         "padding_top": 80,
         "padding_bottom": 80
       }

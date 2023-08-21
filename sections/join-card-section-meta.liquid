@@ -20,9 +20,9 @@
 {%- endstyle -%}
 
 {% for card in article.metafields.custom.join_card_section.value %}
-  <div class="join_card_section   color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+  <div class="join_card_section    section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
     <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
-      <div class="email_news">
+      <div class="email_news color-{{ section.settings.color_scheme }} gradient">
         <div class="join_card_list">
 
           <div class="joining_heading">
@@ -42,10 +42,10 @@
             {% for row in card.join_card_row.value %}
               <div class="join_benefit_list block-{{ block.id }}" {{ block.shopify_attributes }}>
                 <img
-                  src="{{ block.settings.icon | img_url: 'master' }}"
-                  alt="{{ block.settings.icon.alt }}"
-                  width="{{ block.settings.icon.width }}"
-                  height="{{ block.settings.icon.height }}">
+                  src="{{ join_card_row.image.value | img_url: 'master' }}"
+                  alt="{{ join_card_row.image.value.alt }}"
+                  width="{{ join_card_row.image.value.width }}"
+                  height="{{ join_card_row.image.value.height }}">
                 <p class="p1">
                   {{ row.title.value }}</p>
               </div>
