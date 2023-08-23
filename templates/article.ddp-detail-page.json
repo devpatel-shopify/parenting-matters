@@ -57,10 +57,10 @@
     "f56ca04b-aeee-4361-9840-0994bb30ef76": {
       "type": "featured-blog",
       "settings": {
-        "read_more_remove": false,
+        "read_more_remove": true,
         "heading": "Related articles",
         "heading_size": "h1",
-        "button_text1": "Explore our blog",
+        "button_text1": "",
         "button_url": "",
         "blog": "news",
         "post_limit": 3,

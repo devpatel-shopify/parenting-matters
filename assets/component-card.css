@@ -276,11 +276,22 @@
 .main-template--article .page-width-desktop{
   border-top: 1px solid #9CBFB3;    margin-top: 235px;    padding-top: 196px;
 }
+.template--articleddp-detail-page .page-width-desktop{
+  border-top: 0;
+    margin-top: 0;
+    padding-top: 96px;
+    padding-bottom: 100px;
+}
 @media screen and (max-width: 1099px) {
   .main-template--article .page-width-desktop {
     border-top: 1px solid #9CBFB3;
     margin-top: 135px;
     padding-top: 96px;
+}
+.template--articleddp-detail-page .page-width-desktop {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 96px;
 }
 }
 @media screen and (max-width: 990px){
