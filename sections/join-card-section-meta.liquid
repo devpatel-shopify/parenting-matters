@@ -19,6 +19,7 @@
   }
 {%- endstyle -%}
 
+{% unless customer %}
 {% for card in article.metafields.custom.join_card_section.value %}
   <div class="join_card_section    section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
     <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
@@ -39,15 +40,15 @@
           </div>
 
           <div class="join_benefits">
-            {% for row in card.join_card_row.value %}
+            {%- for cardRow in article.metafields.custom.ddp_detail_page.value offset : 3 -%}
               <div class="join_benefit_list block-{{ block.id }}" {{ block.shopify_attributes }}>
                 <img
-                  src="{{ join_card_row.image.value | img_url: 'master' }}"
+                  src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Icon_15.svg?v=1687841285"
                   alt="{{ join_card_row.image.value.alt }}"
                   width="{{ join_card_row.image.value.width }}"
                   height="{{ join_card_row.image.value.height }}">
                 <p class="p1">
-                  {{ row.title.value }}</p>
+                  {{ cardRow.title.value }}</p>
               </div>
             {% endfor %}
           </div>
@@ -64,6 +65,7 @@
     </div>
   </div>
 {% endfor %}
+{% endunless %}
 {% schema %}
   {
     "name": "Join Card Section meta",
