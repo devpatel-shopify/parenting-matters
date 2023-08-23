@@ -1,6 +1,5 @@
 {{ 'jump-section.css' | asset_url | stylesheet_tag }}
-{% if customer %}
-{% endif %}
+
 <section class="jump-block">
   {% if customer %}
   <div class=" page-width">
@@ -33,7 +32,6 @@
                 {% render 'icon-arrow' %}
               </a>
             </div>  
-         
             <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
               <h6>{{ article.close_button_title }}</h6>
               {% render 'icon-arrow' %}
@@ -41,7 +39,6 @@
           {% endif %} 
         {% endfor %}
         {% endif %} 
-       
         </div>
       {% for objectData in article.benefit_grid.value %}
         {% if objectData.title != blank %}
@@ -75,12 +72,9 @@
                       </svg>
                     </div>
                   </div>
-                  
-                  
                   <div class="inner-boxes">
-                   
                     {% for benefit_metaobject in article.benefit_metaobject.value %}
-                        <div class="inner-card" style=" background: {{ article.secondary_backgroud_color.value }};">
+                        <div class="inner-card {% if forloop.index > 4 %} hidden {% endif %}" style=" background: {{ article.secondary_backgroud_color.value }};">
                           <div class="card-text">
                             {% if benefit_metaobject.benefit_title.value != blank %}
                               <h5 style="color : {{ article.svg_and_benefit_title_color }}">{{ benefit_metaobject.benefit_title.value }}</h5>
@@ -90,12 +84,12 @@
                             {% endif %}  
                           </div>  
                         </div>
-                     
                     {% endfor %}  
                       {% if article.button_title.value != blank %} 
                         <div class="button_space">
-                          <a class="button button--secondary" href="{{- block.settings.button_link -}} ">
-                              {{- article.button_title.value -}}
+                          <a class="button button--secondary js-read-more">
+                              {% comment %} {{- article.button_title.value -}} {% endcomment %}
+                              <span class="btn-text">Read more</span>
                             <svg
                               aria-hidden="true"
                               class="icon icon-arrow"
@@ -119,9 +113,7 @@
                           <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ article.svg_and_benefit_title_color }}" />
                         </svg>
                       </div>
-                      
                   </div>
-                
                 </div>
               </div>
             </div>
@@ -131,7 +123,11 @@
       </div>
     {% endfor %} 
   </div>
+
+
   {% else %}
+
+
     <div class=" page-width">
       {%- for article in article.metafields.custom.ddp_detail_page.value limit:3 -%}
         <div 
@@ -171,7 +167,6 @@
             {% endif %} 
           {% endfor %}
           {% endif %} 
-         
           </div>
         {% for objectData in article.benefit_grid.value %}
           {% if objectData.title != blank %}
@@ -205,12 +200,9 @@
                         </svg>
                       </div>
                     </div>
-                    
-                    
                     <div class="inner-boxes">
-                     
                       {% for benefit_metaobject in article.benefit_metaobject.value %}
-                          <div class="inner-card" style=" background: {{ article.secondary_backgroud_color.value }};">
+                          <div class="inner-card {% if forloop.index > 4 %} hidden {% endif %}" style=" background: {{ article.secondary_backgroud_color.value }};">
                             <div class="card-text">
                               {% if benefit_metaobject.benefit_title.value != blank %}
                                 <h5 style="color : {{ article.svg_and_benefit_title_color }}">{{ benefit_metaobject.benefit_title.value }}</h5>
@@ -220,12 +212,12 @@
                               {% endif %}  
                             </div>  
                           </div>
-                       
                       {% endfor %}  
                         {% if article.button_title.value != blank %} 
                           <div class="button_space">
-                            <a class="button button--secondary" href="{{- block.settings.button_link -}} ">
-                                {{- article.button_title.value -}}
+                            <a class="button button--secondary js-read-more">
+                                {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
+                                <span class="btn-text">Read more</span>
                               <svg
                                 aria-hidden="true"
                                 class="icon icon-arrow"
@@ -249,9 +241,7 @@
                             <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ article.svg_and_benefit_title_color }}" />
                           </svg>
                         </div>
-                        
                     </div>
-                  
                   </div>
                 </div>
               </div>
@@ -327,7 +317,29 @@
         .add("hidden");
     });
   });
+
+
+// script for benefit dropdown
+document.querySelectorAll(".js-read-more").forEach(button => {
+  button.addEventListener("click", () => {
+    button.classList.toggle('open');
+    let innerCard = button.closest('.inner-boxes').querySelectorAll('.inner-card');
+    innerCard.forEach((card,index) => {
+      if(index > 3) (button.classList.contains('open')) ? card.classList.remove("hidden") : card.classList.add("hidden");
+    });
+    button.querySelector('.btn-text').innerText = (button.classList.contains('open')) ? "Read less" : "Read more";
+  });  
+});
+
+
+  
 </script>
+
+<style>
+  a:not([href]) {
+    cursor: pointer;
+}
+</style>
 
 {% schema %}
   {
