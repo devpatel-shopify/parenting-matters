@@ -20,7 +20,7 @@
           {% assign bs = block.settings %}
           {% case block.type %}
             {% when 'range' %}
-              <div class="slide">
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
                 {% endif %}
@@ -37,20 +37,18 @@
 
                 <div class="btn-flex">
                   {% unless forloop.first %}
-                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
-                  {% else %}
-                    <span></span>
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
                   {% endunless %}
                   {% if forloop.last %}
-                    <button type="submit" class="button">Submit</button>
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
                   {% else %}
-                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                    <button type="button" class="button button_next">Next {% render 'icon-arrow' %}</button>
                   {% endif %}
                 </div>
               </div>
 
             {% when 'button' %}
-              <div class="slide">
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
                 {% endif %}
@@ -115,18 +113,18 @@
 
                 <div class="btn-flex">
                   {% unless forloop.first %}
-                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
                   {% endunless %}
                   {% if forloop.last %}
-                    <button type="submit" class="button">Submit</button>
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
                   {% else %}
-                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                    <button type="button" class="button button_next">Next {% render 'icon-arrow' %}</button>
                   {% endif %}
                 </div>
               </div>
 
             {% when 'textfield' %}
-              <div class="slide" data-klaviyoid="{{ bs.klaviyo_id }}">
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
                 {% endif %}
@@ -145,18 +143,18 @@
 
                 <div class="btn-flex">
                   {% unless forloop.first %}
-                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
                   {% endunless %}
                   {% if forloop.last %}
-                    <button type="submit" class="button">Submit </button>
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
                   {% else %}
-                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                    <button type="button" class="button button_next">Next {% render 'icon-arrow' %}</button>
                   {% endif %}
                 </div>
               </div>
 
             {% when 'dropdown' %}
-              <div class="slide" data-klaviyoid="{{ bs.klaviyo_id }}">
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
                 {% endif %}
@@ -171,12 +169,12 @@
 
                 <div class="btn-flex">
                   {% unless forloop.first %}
-                    <a href="#" class="button">{% render 'icon-left-arrow' %} Back</a>
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
                   {% endunless %}
                   {% if forloop.last %}
-                    <button type="submit" class="button">Submit</button>
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
                   {% else %}
-                    <a href="#" class="button">Next {% render 'icon-arrow' %}</a>
+                    <button type="button" class="button button_next">Next {% render 'icon-arrow' %}</button>
                   {% endif %}
                 </div>
               </div>
@@ -184,19 +182,42 @@
         {% endfor %}
       </form>
 
-      <div class="form-success-msg">
+      <div class="form-success-msg hidden">
         {% if ss.success_title != blank %}
-          <h2>{{ ss.success_title }}</h2>
+          <h2 class="title">{{ ss.success_title }}</h2>
         {% endif %}
-        {{ ss.success_overview }}
+        <div class="rte">{{ ss.success_overview }}</div>
       </div>
     </div>
   </section>
 
   <script defer>
-    document.addEventListener(
-      'DOMContentLoaded',
-      function () {
+    document.addEventListener('DOMContentLoaded',function () {
+      const slides = document.querySelectorAll('#parenting-style-quiz .slide');
+      
+      slides.forEach((slide) =>{
+          if(slide.querySelector('.button_next')){
+          slide.querySelector('.button_next').addEventListener('click',function(event){
+            event.preventDefault();
+            event.currentTarget.closest('.slide').nextElementSibling.classList.remove('hidden');
+            event.currentTarget.closest('.slide').classList.add('hidden');
+          })
+        }
+        if(slide.querySelector('.button_back')){
+          slide.querySelector('.button_back').addEventListener('click', function(event){
+            event.preventDefault();
+            event.currentTarget.closest('.slide').previousElementSibling.classList.remove('hidden');
+            event.currentTarget.closest('.slide').classList.add('hidden');
+          })
+        }
+        if(slide.querySelector('.button_submit')){
+          slide.querySelector('.button_submit').addEventListener('click', function(event){
+            event.preventDefault();
+            document.querySelector('.form-success-msg').classList.remove('hidden');
+            event.currentTarget.closest('.slide').classList.add('hidden');
+          })
+        }
+      });            
         $(function () {
           $(document).on('change', '.range_container input', function () {
             var val = $(this).val();
@@ -215,13 +236,11 @@
             console.log(dataVal);
           });
 
-          $(document).on('submit', '.quiz-section', function (e) {
-            e.preventDefault();
-          });
-        });
-      },
-      false
-    );
+          // $(document).on('submit', '.quiz-section', function (e) {
+          //   e.preventDefault();
+          // });
+        });        
+      },false);
   </script>
 {% endif %}
 
