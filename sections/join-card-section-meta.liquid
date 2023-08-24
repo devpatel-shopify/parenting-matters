@@ -19,15 +19,15 @@
   }
 {%- endstyle -%}
 
-{%- if section.settings.onlogin -%}
-  {% unless customer %}
+{% unless customer %}
 {% for card in article.metafields.custom.join_card_section.value %}
-  <div class="join_card_section    section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+  <div class="join_card_section    section-{{ section.id }}-padding ">
     <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
       <div class="email_news color-{{ section.settings.color_scheme }} gradient">
         <div class="join_card_list">
 
           <div class="joining_heading">
+           
             <div class="join_info">
               <h2>{{ card.title.value }}</h2>
               <p>{{ card.description | metafield_tag }}</p>
@@ -38,10 +38,12 @@
                 </a>
               </div>
             </div>
+          
           </div>
-
+         
           <div class="join_benefits">
-            {%- for cardRow in article.metafields.custom.ddp_detail_page.value offset : 3 -%}
+            {%- for cardRow in article.metafields.custom.ddp_detail_page.value -%}
+              {% if cardRow.checkbox  ==  true  %}
               <div class="join_benefit_list block-{{ block.id }}" {{ block.shopify_attributes }}>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Icon_15.svg?v=1687841285"
@@ -51,8 +53,10 @@
                 <p class="p1">
                   {{ cardRow.title.value }}</p>
               </div>
+              {% endif %}
             {% endfor %}
           </div>
+       
         </div>
       </div>
     </div>
@@ -60,7 +64,7 @@
 {% endfor %}
 {% endunless %}
 
-{% endif %}
+
 
 {% schema %}
   {
@@ -72,24 +76,6 @@
         "label": "Show content make a full width",
         "default": false
       },
-      {
-        "type": "checkbox",
-        "id": "join_remove",
-        "label": "join button add",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "top_radius",
-        "default": true,
-        "label": "Section top border radius"
-      },
-        {
-          "type": "checkbox",
-          "id": "onlogin",
-          "label": "Show content until logged-in",
-          "default": false
-        },
       {
         "type": "header",
         "content": "Section Background"

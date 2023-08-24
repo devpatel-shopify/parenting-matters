@@ -4,6 +4,7 @@
   {% if customer %}
   <div class=" page-width">
     {%- for article in article.metafields.custom.ddp_detail_page.value -%}
+      {% unless article.checkbox  ==  true %}
       <div 
         class="jump-redirect-block section--{{ forloop.index }} "
         id="{{- forloop.index -}}"
@@ -121,6 +122,7 @@
         {% endif %}
       {% endfor %} 
       </div>
+      {% endunless %}
     {% endfor %} 
   </div>
 
@@ -129,7 +131,8 @@
 
 
     <div class=" page-width">
-      {%- for article in article.metafields.custom.ddp_detail_page.value limit:3 -%}
+      {%- for article in article.metafields.custom.ddp_detail_page.value  -%}
+        {% unless article.checkbox  ==  true %}
         <div 
           class="jump-redirect-block section--{{ forloop.index }} "
           id="{{- forloop.index -}}"
@@ -247,8 +250,9 @@
               </div>
             </div>
           {% endif %}
-        {% endfor %} 
+        {% endfor %}
         </div>
+      {% endunless %}
       {% endfor %} 
     </div>
   {% endif %}
