@@ -19,7 +19,8 @@
   }
 {%- endstyle -%}
 
-{% unless customer %}
+{%- if section.settings.onlogin -%}
+  {% unless customer %}
 {% for card in article.metafields.custom.join_card_section.value %}
   <div class="join_card_section    section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
     <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
@@ -31,8 +32,8 @@
               <h2>{{ card.title.value }}</h2>
               <p>{{ card.description | metafield_tag }}</p>
               <div class="join_button ">
-                <a class="button" href="{{ section.settings.button_url }}">
-                  {{ card.button_title.value }}
+                <a class="button" href="https://parenting-matters.myshopify.com/account/login">
+                  <span>Join now</span>
                   {% render 'icon-arrow' %}
                 </a>
               </div>
@@ -54,18 +55,13 @@
           </div>
         </div>
       </div>
-      {% if section.settings.button_url != blank %}
-        <div class="join_button {% unless section.settings.join_remove %} join_button-add {% endunless %}">
-          <a class="button" href="{{ section.settings.button_url }}">
-
-            {% render 'icon-arrow' %}
-          </a>
-        </div>
-      {% endif %}
     </div>
   </div>
 {% endfor %}
 {% endunless %}
+
+{% endif %}
+
 {% schema %}
   {
     "name": "Join Card Section meta",
@@ -88,6 +84,12 @@
         "default": true,
         "label": "Section top border radius"
       },
+        {
+          "type": "checkbox",
+          "id": "onlogin",
+          "label": "Show content until logged-in",
+          "default": false
+        },
       {
         "type": "header",
         "content": "Section Background"
@@ -118,6 +120,7 @@
         "label": "Padding bottom",
         "default": 80
       }
+      
     ],
     "presets": [
       {

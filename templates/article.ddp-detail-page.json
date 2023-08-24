@@ -20,7 +20,8 @@
         "top_radius": false,
         "color_scheme": "scheme-5849700f-ff29-41e9-a34f-481e22379e16",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "onlogin": true
       }
     },
     "main": {
