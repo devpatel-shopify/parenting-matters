@@ -8,20 +8,15 @@
     "d502b487-b237-4d62-905a-bb306cabf036": {
       "type": "jump-section-meta",
       "settings": {
-        "custom_class": "",
-        "tab_title": ""
       }
     },
     "ca35a7c8-87f2-405d-ada6-ba383bb2d43c": {
       "type": "join-card-section-meta",
       "settings": {
         "full_width": false,
-        "join_remove": false,
-        "top_radius": false,
         "color_scheme": "scheme-5849700f-ff29-41e9-a34f-481e22379e16",
         "padding_top": 80,
-        "padding_bottom": 80,
-        "onlogin": true
+        "padding_bottom": 80
       }
     },
     "main": {
@@ -68,7 +63,7 @@
         "columns_desktop": 3,
         "color_scheme": "",
         "show_image": true,
-        "show_date": true,
+        "show_date": false,
         "show_author": false,
         "show_view_all": false,
         "padding_top": 160,

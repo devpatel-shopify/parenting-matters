@@ -90,7 +90,32 @@ text-align: left;
     .joining_heading .join_button{
         margin: 48px 0;
     }
+    .template--articleddp-detail-page .join_info h2{
+        font-size: 28px;
+    }
+    .join_info p{
+        font-size: 14px;
+    }
+    .template--articleddp-detail-page .joining_heading{
+        margin-bottom: 48px;
+    }
+    .template--articleddp-detail-page .joining_heading .join_button{
+        position: absolute;
+        bottom: 32px;
+        margin: 0;
+    }
+    .template--articleddp-detail-page .join_benefits{
+        margin-bottom: 82px;
+    }
+    .join_card_section    {
+        position: relative;
+    }
+    .join_benefit_list p{
+        line-height: 16.8px;
+    }
+
 }
+
 @media screen and (max-width: 500px) {
     .join_card_section .email_news {
         border-radius: 40px;

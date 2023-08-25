@@ -240,13 +240,14 @@ slider-component {
   padding-right: 1.6rem;
 }
 .blog__posts.articles-wrapper {
-  row-gap: 18px;
+  row-gap: 35px;
 }
 .blog-main-button {
   margin-top: 18px;
 }
   .article-card__info .tag{
     font-size: 12px;
+    font-weight: 400;
   }
   .article-card__info .circle-divider{
         width: auto;
@@ -254,6 +255,10 @@ slider-component {
   }
   .article-card__excerpt{
     font-size: 12px;
+    line-height: 120%;
+  }
+  .featured-blog-title{
+    margin-bottom: 32px;
   }
  
 }

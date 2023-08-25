@@ -144,9 +144,11 @@
   margin-bottom: 10px;
   font-weight: 500;
   line-height: 120%;
+  max-width: 264px;
 }
 .inner-grid-block .grid-box .inner-title .grid-title h6{
   font-size: 20px;
+  font-weight: 400;
 }
 .inner-grid-block .grid-box .inner-title .grid-title svg {
   position: absolute;
@@ -205,6 +207,41 @@
     left: -150px;
     z-index: -1;
 }
+.template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes .right-svg{
+  top: 22%;
+}
+.template--articleddp-detail-page .round-text-block .button_space{
+  margin: 0;
+}
+.template--articleddp-detail-page .round-text-block .button_space a {
+  display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0;
+    padding: 32px;
+    font-size: 14px;
+    border-radius: 40px;
+}
+.template--articleddp-detail-page .round-text-block .button_space a svg:first-child{
+  display: block;
+}
+.template--articleddp-detail-page .round-text-block .button_space a svg:last-child{
+  display: none;
+}
+.template--articleddp-detail-page .round-text-block .button_space a.open svg:last-child{
+  display: block;
+}
+.template--articleddp-detail-page .round-text-block .button_space .open svg{
+  display: none;
+}
+.template--articleddp-detail-page .round-text-block .button_space a svg{
+  width: 24px;
+  height: 24px;
+}
+
+.template--articleddp-detail-page .jump-open-block {
+  margin-bottom: 49px;
+}
 .round-text-block{
       max-width: 1160px;
     margin: 0 auto;
@@ -248,7 +285,9 @@
 .ddp-org-step .jump-redirect-block:last-child .jump-open-block{
   margin-bottom:45px;
 }
-
+.template--articleddp-detail-page .jump-details{
+  margin-bottom: 64px;
+}
 @media screen and (max-width: 1299px) {
   .inner-grid-block .grid-box .inner-boxes {
     width: 56%;
@@ -501,5 +540,26 @@
    .jump-text p {
     font-size: 14px;
   }
- 
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title{
+    top: -7px;
+  }
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes{
+    margin-top: 0;
+  }
+  .template--articleddp-detail-page .jump-open-block{
+    margin-bottom: 64px;
+  }
+  .template--articleddp-detail-page .round-text-block .button_space a{
+    padding: 24px;
+    border-radius: 21.824px;
+  }
+  .template--articleddp-detail-page .inner-card {
+    padding: 24px;
+  }
+  .card-text .metafield-rich_text_field p{
+    font-size: 14px;
+  }
+  .template--articleddp-detail-page .card-text h5{
+    font-size: 16px;
+  }
 }

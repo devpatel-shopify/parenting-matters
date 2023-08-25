@@ -111,6 +111,10 @@
         font-size: 42px;
         max-width: 483px;
     }
+    .template--articleddp-detail-page .ddp-banner h2{
+            max-width: 723px;
+    margin-bottom: 0;
+    }
     .ddp-banner .ddp-bottom-image img{
         height: 95px;
     }
@@ -135,6 +139,10 @@
     .ddp-banner{
         padding: 80px 0 45px;
     }
+    .template--articleddp-detail-page .ddp-banner{
+         padding: 80px 0 160px;
+         
+    }
     .ddp-post-list .ddp-box .ddp-post-details h3{
         font-size: 25px;
     }
@@ -158,7 +166,7 @@
         width: 100%;
         text-align: center;
         position: absolute;
-        bottom: -50px;
+        bottom: -46px;
         left: -10px;
     }
     .ddp-banner .ddp-inner-content .ddp-right-img img {
@@ -216,4 +224,8 @@
     .ddp-post-list .ddp-box .ddp-post-details{
         padding: 0 13px;
     }
+    .template--articleddp-detail-page .jump-details{
+        border-radius: 21.824px;
+    }
+    
 }
