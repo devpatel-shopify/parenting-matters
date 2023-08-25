@@ -155,6 +155,10 @@
   right: 90px;
   bottom: -150px;
 }
+.template--articleddp-detail-page .inner-grid-block .grid-box .inner-title .grid-title svg{
+  bottom: -110px;
+  opacity: 0.8;
+}
 .inner-card {
   border-radius: 40px;
   background: #e9f0ed;
@@ -209,6 +213,7 @@
 }
 .template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes .right-svg{
   top: 22%;
+  opacity: 0.8;
 }
 .template--articleddp-detail-page .round-text-block .button_space{
   margin: 0;
