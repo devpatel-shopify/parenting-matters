@@ -173,13 +173,20 @@
           "settings": {
             "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
           }
+        },
+        "1ea6f8c5-d57f-44a9-ac40-bb7551bb431e": {
+          "type": "block",
+          "settings": {
+            "community_description": ""
+          }
         }
       },
       "block_order": [
         "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0",
         "37a8384d-1da6-41aa-b62f-508ba445bd10",
         "5c3f1c02-d084-4e17-8e9b-592eece0b834",
-        "517326d9-1383-4fbf-9c39-4a645fd94f56"
+        "517326d9-1383-4fbf-9c39-4a645fd94f56",
+        "1ea6f8c5-d57f-44a9-ac40-bb7551bb431e"
       ],
       "settings": {
         "full_width": false,
@@ -273,6 +280,7 @@
     "f787626a-81b3-4c3a-bca6-f6eac39fa535": {
       "type": "featured-blog",
       "settings": {
+        "read_more_remove": false,
         "heading": "Read the latest from our blog.",
         "heading_size": "h2",
         "button_text1": "Explore our blog",
@@ -334,6 +342,12 @@
         "padding_top": 80,
         "padding_bottom": 64
       }
+    },
+    "16929407158138e6b6": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -346,6 +360,7 @@
     "c7293714-91ae-4e60-ac3c-8b4eca0202e8",
     "ef59aef4-2884-455e-9c1a-337b9f48573e",
     "f787626a-81b3-4c3a-bca6-f6eac39fa535",
-    "44b31fca-2192-4c98-8fe6-4a04af6cb99a"
+    "44b31fca-2192-4c98-8fe6-4a04af6cb99a",
+    "16929407158138e6b6"
   ]
 }
