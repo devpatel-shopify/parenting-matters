@@ -37,7 +37,14 @@
   height: 24px;
   margin-right: 0;
   transform: rotate(90deg);
+  transition: all 0.5s ease;
 }
+.down-arrow a.js-show-block svg{
+  transform: rotate(270deg);
+  transition: all 0.5s ease;
+}
+
+
 .down-arrow a {
   font-size: 14px;
   padding: 8px 8px 8px 16px;
@@ -579,5 +586,9 @@
   }
   .template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes .right-svg{
     top: 9%;
+  }
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title .grid-title{
+    top: 47px;
+    left: 14px;
   }
 }
