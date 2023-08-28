@@ -149,6 +149,7 @@
 .inner-grid-block .grid-box .inner-title .grid-title h6{
   font-size: 20px;
   font-weight: 400;
+  width: calc(100% + 30px);
 }
 .inner-grid-block .grid-box .inner-title .grid-title svg {
   position: absolute;
@@ -157,8 +158,9 @@
 }
 .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title .grid-title svg{
   bottom: -110px;
-  opacity: 0.8;
+  
 }
+
 .inner-card {
   border-radius: 40px;
   background: #e9f0ed;
@@ -213,7 +215,7 @@
 }
 .template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes .right-svg{
   top: 22%;
-  opacity: 0.8;
+  
 }
 .template--articleddp-detail-page .round-text-block .button_space{
   margin: 0;
@@ -555,7 +557,7 @@
     margin-bottom: 64px;
   }
   .template--articleddp-detail-page .round-text-block .button_space a{
-    padding: 24px;
+    padding: 21px 24px;
     border-radius: 21.824px;
   }
   .template--articleddp-detail-page .inner-card {
@@ -566,5 +568,16 @@
   }
   .template--articleddp-detail-page .card-text h5{
     font-size: 16px;
+  }
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title .grid-title h2{
+    max-width: 239px;
+    font-size: 28px;
+  }
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title .grid-title h6{
+    font-size: 14px;
+    max-width: 267px;
+  }
+  .template--articleddp-detail-page .inner-grid-block .grid-box .inner-boxes .right-svg{
+    top: 9%;
   }
 }

@@ -49,6 +49,9 @@
 .join_benefit_list:last-child {
     margin-bottom: 0;
 }
+.join_benefit_list p{
+    line-height: 120%;
+}
 .join_button {
     text-align: center;
     margin-top: 64px;
