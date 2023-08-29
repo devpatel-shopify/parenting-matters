@@ -13,13 +13,13 @@
           <div class="jump-grid">
             <div class="jump-title">
               {% if article.title.value != blank %}
-                <h2 style="font-size:{{ article.title_size.value }}px;"> {{- article.title.value -}}</h2>
+                <h2 style="font-size:{{ article.title_size.value }}px; color:{{ article.font_color.value }}"> {{- article.title.value -}}</h2>
               {% endif %}
               <div class="card_btn_wrapper"></div>
             </div>
             <div class="jump-text">
-              <h4>{{- article.subtitle.value -}}</h4>
-              <p>
+              <h4 style="color:{{ article.font_color.value }}">{{- article.subtitle.value -}}</h4>
+              <p style="color:{{ article.font_color.value }}">
                 {{- article.description | metafield_tag -}}
               </p>
             </div>
@@ -29,14 +29,16 @@
               {% if objectData.title != blank %}
             <div class="down-arrow">
               <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
-                  <h6>Expand</h6>
+                  <h6 style="color:{{ article.font_color.value }}">Expand</h6>
                 {% render 'icon-arrow' %}
               </a>
             </div>  
+            <div class="down-arrow">
             <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
-              <h6>Close</h6>
+              <h6 style="color:{{ article.font_color.value }}">Close</h6>
               {% render 'icon-arrow' %}
             </a>
+          </div> 
           {% endif %} 
         {% endfor %}
       
@@ -88,19 +90,16 @@
                     {% endfor %}  
                       
                         <div class="button_space">
-                          <a class="button button--secondary js-read-more">
+                          <a class="button button--secondary js-read-more" style=" background: {{ article.secondary_backgroud_color.value }};">
                               {% comment %} {{- article.button_title.value -}} {% endcomment %}
                               <span class="btn-text">Read more</span>
-                            <svg
-                              aria-hidden="true"
-                              class="icon icon-arrow"
-                              focusable="false"
-                              viewBox="0 0 21 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-                            </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
                           </a>
                         </div>
                      
@@ -141,13 +140,13 @@
             <div class="jump-grid">
               <div class="jump-title">
                 {% if article.title.value != blank %}
-                  <h2 style="font-size:{{ article.title_size.value }}px;" >{{- article.title.value -}}</h2>
+                  <h2 style="font-size:{{ article.title_size.value }}px; color:{{ article.font_color.value }}" >{{- article.title.value -}}</h2>
                 {% endif %}
                 <div class="card_btn_wrapper"></div>
               </div>
               <div class="jump-text">
-                <h4>{{- article.subtitle.value -}}</h4>
-                <p>
+                <h4 style="color:{{ article.font_color.value }}">{{- article.subtitle.value -}}</h4>
+                <p style="color:{{ article.font_color.value }}">
                   {{- article.description | metafield_tag -}}
                 </p>
               </div>
@@ -157,13 +156,13 @@
                 {% if objectData.title != blank %}
               <div class="down-arrow">
                 <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
-                    <h6>Exapnd</h6>
+                    <h6 style="color:{{ article.font_color.value }}">Exapnd</h6>
                   {% render 'icon-arrow' %}
                 </a>
               </div>  
               <div class="down-arrow">
               <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
-                <h6>Close</h6>
+                <h6 style="color:{{ article.font_color.value }}">Close</h6>
                 {% render 'icon-arrow' %}
               </a>
             </div>

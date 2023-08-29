@@ -19,7 +19,7 @@
 }
 .jump-text h4 {
   letter-spacing: 0.28px;
-  margin-bottom: 32px;
+  
 }
 .jump-text p {
   font-size: 20px;
@@ -251,6 +251,7 @@
 .template--articleddp-detail-page .round-text-block .button_space a svg{
   width: 24px;
   height: 24px;
+  padding: 4px;
 }
 
 .template--articleddp-detail-page .jump-open-block {
@@ -335,10 +336,11 @@
   }
   .jump-text h4 {
     font-size: 23px;
-    margin-bottom: 22px;
+    
   }
   .jump-text p {
     font-size: 18px;
+    margin-bottom: 22px;
   }
   .jump-grid {
     margin-bottom: 38px;
@@ -488,7 +490,7 @@
     width: 52px;
   }
   .card-text {
-    width: 90%;
+    width: 100%;
   }
   .inner-card {
     margin-bottom: 16px;
@@ -545,14 +547,15 @@
     margin-left: 0px;
   }
    .jump-title h2 {
-    font-size: 30px;
+    font-size: 30px !important;
   }
    .jump-text h4 {
     font-size: 18px;
-    margin-bottom: 12px;
+    
   }
    .jump-text p {
     font-size: 14px;
+    margin-bottom: 12px;
   }
   .template--articleddp-detail-page .inner-grid-block .grid-box .inner-title{
     top: -7px;
