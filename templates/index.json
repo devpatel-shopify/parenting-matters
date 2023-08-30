@@ -90,6 +90,21 @@
         "padding_bottom": 160
       }
     },
+    "a8bd52e3-408e-415b-9839-7c17fa79a976": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https:\/\/vimeo.com\/547101847",
+        "cover_image": "shopify:\/\/shop_images\/Screenshot_2023-08-30_at_11.40.56.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "c1c17d80-8753-42b7-b014-333ad8b27e01": {
       "type": "card-information-section",
       "blocks": {
@@ -353,6 +368,7 @@
   "order": [
     "926b0172-6880-4198-b1e3-b19a9ae88af0",
     "765f1e9f-d92c-4a1e-84ab-8b8d84334904",
+    "a8bd52e3-408e-415b-9839-7c17fa79a976",
     "c1c17d80-8753-42b7-b014-333ad8b27e01",
     "fd84d383-a0dc-4cc8-a4d1-11772bc163f5",
     "cc855bf0-99e0-47fd-b8ae-878122144c79",
