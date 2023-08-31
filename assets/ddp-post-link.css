@@ -41,6 +41,7 @@
     border: 1px solid #01333E;
     display: inline-block;
     margin-bottom: 12px;
+    margin-right: 10px;
 }
 .ddp-post-list .ddp-box .ddp-post-details{
     max-width: 550px;
@@ -114,6 +115,7 @@
     .template--articleddp-detail-page .ddp-banner h2{
             max-width: 723px;
     margin-bottom: 0;
+    font-size: 42px;
     }
     .ddp-banner .ddp-bottom-image img{
         height: 95px;
@@ -226,6 +228,9 @@
     }
     .template--articleddp-detail-page .jump-details{
         border-radius: 21.824px;
+    }
+    .template--articleddp-detail-page .ddp-banner h2{
+        font-size: 42px!important;
     }
     
 }

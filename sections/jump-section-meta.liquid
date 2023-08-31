@@ -2,145 +2,36 @@
 
 <section class="jump-block">
   {% if customer %}
-  <div class=" page-width">
-    {%- for article in article.metafields.custom.ddp_detail_page.value -%}
-      
-      <div 
-        class="jump-redirect-block section--{{ forloop.index }} "
-        id="{{- forloop.index -}}"
-        {{ block.shopify_attributes }}>
-        <div class="jump-details section--{{ block.id }}" style=" background: {{ article.primary_backgroud_color.value }};">
-          <div class="jump-grid">
-            <div class="jump-title">
-              {% if article.title.value != blank %}
-                <h2 style="font-size:{{ article.title_size.value }}px; color:{{ article.font_color.value }}"> {{- article.title.value -}}</h2>
-              {% endif %}
-              <div class="card_btn_wrapper"></div>
-            </div>
-            <div class="jump-text">
-              <h4 style="color:{{ article.font_color.value }}">{{- article.subtitle.value -}}</h4>
-              <p style="color:{{ article.font_color.value }}">
-                {{- article.description | metafield_tag -}}
-              </p>
-            </div>
-          </div>
-         
-            {% for objectData in article.benefit_grid.value %}
-              {% if objectData.title != blank %}
-            <div class="down-arrow">
-              <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
-                  <h6 style="color:{{ article.font_color.value }}">Expand</h6>
-                {% render 'icon-arrow' %}
-              </a>
-            </div>  
-            <div class="down-arrow">
-            <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
-              <h6 style="color:{{ article.font_color.value }}">Close</h6>
-              {% render 'icon-arrow' %}
-            </a>
-          </div> 
-          {% endif %} 
-        {% endfor %}
-      
-        </div>
-      {% for objectData in article.benefit_grid.value %}
-        {% if objectData.title != blank %}
-          <div class="jump-open-block js-hide-element" style="display: none;">
-            <div class="round-text-block">
-              <div class="inner-grid-block">
-                <div class="grid-box">
-                  <div class="inner-title">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="330"
-                      height="308"
-                      viewBox="0 0 330 308"
-                      fill="none">
-                      <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="{{ article.secondary_backgroud_color.value }}"  />
-                    </svg>
-                     <div class="grid-title">
-                      {% if objectData.title != blank %}
-                        <h2> {{ objectData.title }} </h2>
-                      {% endif %}
-                      {% if objectData.subtitle != blank %}
-                        <h6> {{ objectData.subtitle }} </h6>
-                      {% endif %} 
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="73"
-                        height="71"
-                        viewBox="0 0 73 71"
-                        fill="none">
-                        <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="{{ article.svg_color }}" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="inner-boxes">
-                    {% for benefit_metaobject in article.benefit_metaobject.value %}
-                        <div class="inner-card {% if forloop.index > 4 %} hidden {% endif %}" style=" background: {{ article.secondary_backgroud_color.value }};">
-                          <div class="card-text">
-                            {% if benefit_metaobject.benefit_title.value != blank %}
-                              <h5 style="color : {{ article.benefit_title_color }}">{{ benefit_metaobject.benefit_title.value }}</h5>
-                            {% endif %}
-                            {% if benefit_metaobject.benefit_description != blank %}
-                              <p>{{ benefit_metaobject.benefit_description | metafield_tag }}</p>
-                            {% endif %}  
-                          </div>  
-                        </div>
-                    {% endfor %}  
-                      
-                        <div class="button_space">
-                          <a class="button button--secondary js-read-more" style=" background: {{ article.secondary_backgroud_color.value }};">
-                              {% comment %} {{- article.button_title.value -}} {% endcomment %}
-                              <span class="btn-text">Read more</span>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                          </a>
-                        </div>
-                     
-                      <div class="right-svg">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="209"
-                          height="195"
-                          viewBox="0 0 209 195"
-                          fill="none">
-                          <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ article.svg_color_2 }}" />
-                        </svg>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %} 
-      </div>
-      
-    {% endfor %} 
-  </div>
-
-
-  {% else %}
-
-
-    <div class=" page-width">
-      {%- for article in article.metafields.custom.ddp_detail_page.value  -%}
-        {% unless article.checkbox  ==  true %}
-        <div 
-          class="jump-redirect-block section--{{ forloop.index }} "
+    <div class=" page-width log_in">
+      {%- for article in article.metafields.custom.ddp_detail_page.value -%}
+        <style>
+          .log_in .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+            font-size:{{article.title_size.value }}px !important;
+          }
+          @media screen and (max-width:1023px) {
+            .log_in .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+              font-size:{{article.title_size_in_tab_view.value }}px !important;
+            }
+          }
+          @media screen and (max-width:740px) {
+            .log_in .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+              font-size:{{ article.title_size_in_mobile_view.value }}px !important;
+            }
+          }
+        </style>
+        <div
+          class="jump-redirect-block section--{{ forloop.index }} {% if customer %} log_in {% else %} log_out {% endif %} "
           id="{{- forloop.index -}}"
-          {{ block.shopify_attributes }}>
-          <div class="jump-details section--{{ block.id }}" style=" background: {{ article.primary_backgroud_color.value }};">
+          {{ block.shopify_attributes }}
+        >
+          <div
+            class="jump-details unlock-block section--{{ block.id }}"
+            style=" background: {{ article.primary_backgroud_color.value }};"
+          >
             <div class="jump-grid">
               <div class="jump-title">
                 {% if article.title.value != blank %}
-                  <h2 style="font-size:{{ article.title_size.value }}px; color:{{ article.font_color.value }}" >{{- article.title.value -}}</h2>
+                  <h2 style=" color:{{ article.font_color.value }}">{{- article.title.value -}}</h2>
                 {% endif %}
                 <div class="card_btn_wrapper"></div>
               </div>
@@ -151,206 +42,357 @@
                 </p>
               </div>
             </div>
-           
-              {% for objectData in article.benefit_grid.value %}
-                {% if objectData.title != blank %}
-              <div class="down-arrow">
-                <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
-                    <h6 style="color:{{ article.font_color.value }}">Exapnd</h6>
-                  {% render 'icon-arrow' %}
-                </a>
-              </div>  
-              <div class="down-arrow">
-              <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
-                <h6 style="color:{{ article.font_color.value }}">Close</h6>
-                {% render 'icon-arrow' %}
-              </a>
-            </div>
-            {% endif %} 
-          {% endfor %}
-        
+
+            {% for objectData in article.benefit_grid.value %}
+              {% if objectData.title != blank %}
+                <div class="down-arrow">
+                  <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
+                    <h6 style="color:{{ article.font_color.value }}">Expand</h6>
+                    {% render 'icon-arrow' %}
+                  </a>
+                </div>
+                <div class="down-arrow">
+                  <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
+                    <h6 style="color:{{ article.font_color.value }}">Close</h6>
+                    {% render 'icon-arrow' %}
+                  </a>
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
-        {% for objectData in article.benefit_grid.value %}
-          {% if objectData.title != blank %}
-            <div class="jump-open-block js-hide-element" style="display: none;">
-              <div class="round-text-block">
-                <div class="inner-grid-block">
-                  <div class="grid-box">
-                    <div class="inner-title">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="330"
-                        height="308"
-                        viewBox="0 0 330 308"
-                        fill="none">
-                        <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="{{ article.secondary_backgroud_color.value }}"  />
-                      </svg>
-                       <div class="grid-title">
-                        {% if objectData.title != blank %}
-                          <h2> {{ objectData.title }} </h2>
-                        {% endif %}
-                        {% if objectData.subtitle != blank %}
-                          <h6> {{ objectData.subtitle }} </h6>
-                        {% endif %} 
+          {% for objectData in article.benefit_grid.value %}
+            {% if objectData.title != blank %}
+              <div class="jump-open-block js-hide-element" style="display: none;">
+                <div class="round-text-block">
+                  <div class="inner-grid-block">
+                    <div class="grid-box">
+                      <div class="inner-title">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="73"
-                          height="71"
-                          viewBox="0 0 73 71"
-                          fill="none">
-                          <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="{{ article.svg_color }}" />
+                          width="330"
+                          height="308"
+                          viewBox="0 0 330 308"
+                          fill="none"
+                        >
+                          <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="{{ article.secondary_backgroud_color.value }}"  />
                         </svg>
+                        <div class="grid-title">
+                          {% if objectData.title != blank %}
+                            <h2>{{ objectData.title }}</h2>
+                          {% endif %}
+                          {% if objectData.subtitle != blank %}
+                            <h6>{{ objectData.subtitle }}</h6>
+                          {% endif %}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="73"
+                            height="71"
+                            viewBox="0 0 73 71"
+                            fill="none"
+                          >
+                            <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="{{ article.svg_color }}" />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                    <div class="inner-boxes">
-                      {% for benefit_metaobject in article.benefit_metaobject.value %}
-                          <div class="inner-card {% if forloop.index > 4 %} hidden {% endif %}" style=" background: {{ article.secondary_backgroud_color.value }};">
+                      <div class="inner-boxes">
+                        {% for benefit_metaobject in article.benefit_metaobject.value %}
+                          <div
+                            class="inner-card {% if forloop.index > 4 %} hidden {% endif %}"
+                            style=" background: {{ article.secondary_backgroud_color.value }};"
+                          >
                             <div class="card-text">
                               {% if benefit_metaobject.benefit_title.value != blank %}
-                                <h5 style="color : {{ article.benefit_title_color }}">{{ benefit_metaobject.benefit_title.value }}</h5>
+                                <h5 style="color : {{ article.benefit_title_color }}">
+                                  {{ benefit_metaobject.benefit_title.value }}
+                                </h5>
                               {% endif %}
                               {% if benefit_metaobject.benefit_description != blank %}
                                 <p>{{ benefit_metaobject.benefit_description | metafield_tag }}</p>
-                              {% endif %}  
-                            </div>  
+                              {% endif %}
+                            </div>
                           </div>
-                      {% endfor %}  
-                       
-                          <div class="button_space">
-                            <a class="button button--secondary js-read-more aa" style=" background: {{ article.secondary_backgroud_color.value }};">
-                                {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
-                                <span class="btn-text" >Read more</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                  <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                  <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                  <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                               
-                            </a>
-                          </div>
-                        
+                        {% endfor %}
+
+                        <div class="button_space">
+                          <a
+                            class="button button--secondary js-read-more"
+                            style=" background: {{ article.secondary_backgroud_color.value }};"
+                          >
+                            {% comment %} {{- article.button_title.value -}} {% endcomment %}
+                            <span class="btn-text">Read more</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </a>
+                        </div>
+
                         <div class="right-svg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="209"
                             height="195"
                             viewBox="0 0 209 195"
-                            fill="none">
+                            fill="none"
+                          >
                             <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ article.svg_color_2 }}" />
                           </svg>
                         </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+            {% endif %}
+          {% endfor %}
         </div>
-      {% endunless %}
-      {% endfor %} 
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <div class=" page-width log_out">
+      {%- for article in article.metafields.custom.ddp_detail_page.value -%}
+        {% unless article.checkbox == true %}
+          {% if customer %}
+            <style>
+              .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+                font-size:{{article.title_size.value }}px !important;
+              }
+              @media screen and (max-width:1023px) {
+                .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+                  font-size:{{article.title_size_in_tab_view.value }}px !important;
+                }
+              }
+              @media screen and (max-width:740px) {
+                .section--{{ forloop.index }} .section--{{ article.id }} h2 {
+                  font-size:{{ article.title_size_in_mobile_view.value }}px !important;
+                }
+              }
+            </style>
+          {% endif %}
+          <div
+            class="jump-redirect-block section--{{ forloop.index }} {% if customer %} log_in {% else %} log_out {% endif %}"
+            id="{{- forloop.index -}}"
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="jump-details section--{{ block.id }} "
+              style=" background: {{ article.primary_backgroud_color.value }};"
+            >
+              <div class="jump-grid">
+                <div class="jump-title">
+                  {% if article.title.value != blank %}
+                    <h2 style="color:{{ article.font_color.value }}">{{- article.title.value -}}</h2>
+                  {% endif %}
+                  <div class="card_btn_wrapper"></div>
+                </div>
+                <div class="jump-text">
+                  <h4 style="color:{{ article.font_color.value }}">{{- article.subtitle.value -}}</h4>
+                  <p style="color:{{ article.font_color.value }}">
+                    {{- article.description | metafield_tag -}}
+                  </p>
+                </div>
+              </div>
+
+              {% for objectData in article.benefit_grid.value %}
+                {% if objectData.title != blank %}
+                  <div class="down-arrow">
+                    <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
+                      <h6 style="color:{{ article.font_color.value }}">Exapnd</h6>
+                      {% render 'icon-arrow' %}
+                    </a>
+                  </div>
+                  <div class="down-arrow">
+                    <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
+                      <h6 style="color:{{ article.font_color.value }}">Close</h6>
+                      {% render 'icon-arrow' %}
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% for objectData in article.benefit_grid.value %}
+              {% if objectData.title != blank %}
+                <div class="jump-open-block js-hide-element" style="display: none;">
+                  <div class="round-text-block">
+                    <div class="inner-grid-block">
+                      <div class="grid-box">
+                        <div class="inner-title">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="330"
+                            height="308"
+                            viewBox="0 0 330 308"
+                            fill="none"
+                          >
+                            <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="{{ article.secondary_backgroud_color.value }}"  />
+                          </svg>
+                          <div class="grid-title">
+                            {% if objectData.title != blank %}
+                              <h2>{{ objectData.title }}</h2>
+                            {% endif %}
+                            {% if objectData.subtitle != blank %}
+                              <h6>{{ objectData.subtitle }}</h6>
+                            {% endif %}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="73"
+                              height="71"
+                              viewBox="0 0 73 71"
+                              fill="none"
+                            >
+                              <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="{{ article.svg_color }}" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="inner-boxes">
+                          {% for benefit_metaobject in article.benefit_metaobject.value %}
+                            <div
+                              class="inner-card {% if forloop.index > 4 %} hidden {% endif %}"
+                              style=" background: {{ article.secondary_backgroud_color.value }};"
+                            >
+                              <div class="card-text">
+                                {% if benefit_metaobject.benefit_title.value != blank %}
+                                  <h5 style="color : {{ article.benefit_title_color }}">
+                                    {{ benefit_metaobject.benefit_title.value }}
+                                  </h5>
+                                {% endif %}
+                                {% if benefit_metaobject.benefit_description != blank %}
+                                  <p>{{ benefit_metaobject.benefit_description | metafield_tag }}</p>
+                                {% endif %}
+                              </div>
+                            </div>
+                          {% endfor %}
+
+                          <div class="button_space">
+                            <a
+                              class="button button--secondary js-read-more aa"
+                              style=" background: {{ article.secondary_backgroud_color.value }};"
+                            >
+                              {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
+                              <span class="btn-text">Read more</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                              >
+                                <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                              >
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </a>
+                          </div>
+
+                          <div class="right-svg">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="209"
+                              height="195"
+                              viewBox="0 0 209 195"
+                              fill="none"
+                            >
+                              <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ article.svg_color_2 }}" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endunless %}
+      {% endfor %}
     </div>
   {% endif %}
 </section>
 <script>
-  let elements = document.querySelectorAll("[data-section-scroll]");
-  elements.forEach(function(element) {
-    element.addEventListener("click", _scrollToDown.bind(this), true);
+  let elements = document.querySelectorAll('[data-section-scroll]');
+  elements.forEach(function (element) {
+    element.addEventListener('click', _scrollToDown.bind(this), true);
   });
   function _scrollToDown(event) {
-    let elementToScrolls = event.currentTarget.closest(".jump-block").querySelectorAll(".jump-redirect-block");
-    elementToScrolls.forEach(function(elementToScroll) {
-      if (elementToScroll.getAttribute("id") == event.target.getAttribute("id")) {
+    let elementToScrolls = event.currentTarget.closest('.jump-block').querySelectorAll('.jump-redirect-block');
+    elementToScrolls.forEach(function (elementToScroll) {
+      if (elementToScroll.getAttribute('id') == event.target.getAttribute('id')) {
         event.preventDefault();
-        let scrollDistance = elementToScroll.offsetTop - document
-          .querySelector(".header")
-          .offsetHeight
-          document
-          .documentElement
-          .scrollTo({top: scrollDistance, behavior: "smooth"})
+        let scrollDistance = elementToScroll.offsetTop - document.querySelector('.header').offsetHeight;
+        document.documentElement.scrollTo({ top: scrollDistance, behavior: 'smooth' });
       }
-    })
+    });
   }
 
-  let hideButtons = document.querySelectorAll(".js-hide-block");
-  let showButtons = document.querySelectorAll(".js-show-block");
-  hideButtons.forEach(function(hideButton) {
-    hideButton.addEventListener("click", function(button) {
-      button
-        .target
-        .closest(".jump-redirect-block")
-        .querySelector(".js-hide-element")
-        .style
-        .display = "block";
-      button
-        .target
-        .closest(".jump-redirect-block")
-        .querySelector(".js-show-block")
-        .classList
-        .remove("hidden");
-      button
-        .target
-        .closest(".js-hide-block")
-        .classList
-        .add("hidden");
+  let hideButtons = document.querySelectorAll('.js-hide-block');
+  let showButtons = document.querySelectorAll('.js-show-block');
+  hideButtons.forEach(function (hideButton) {
+    hideButton.addEventListener('click', function (button) {
+      button.target.closest('.jump-redirect-block').querySelector('.js-hide-element').style.display = 'block';
+      button.target.closest('.jump-redirect-block').querySelector('.js-show-block').classList.remove('hidden');
+      button.target.closest('.js-hide-block').classList.add('hidden');
     });
   });
-  showButtons.forEach(function(showButton) {
-    showButton.addEventListener("click", function(button) {
-      button
-        .target
-        .closest(".jump-redirect-block")
-        .querySelector(".js-hide-element")
-        .style
-        .display = "none";
-      button
-        .target
-        .closest(".jump-redirect-block")
-        .querySelector(".js-hide-block")
-        .classList
-        .remove("hidden");
-      button
-        .target
-        .closest(".js-show-block")
-        .classList
-        .add("hidden");
+  showButtons.forEach(function (showButton) {
+    showButton.addEventListener('click', function (button) {
+      button.target.closest('.jump-redirect-block').querySelector('.js-hide-element').style.display = 'none';
+      button.target.closest('.jump-redirect-block').querySelector('.js-hide-block').classList.remove('hidden');
+      button.target.closest('.js-show-block').classList.add('hidden');
     });
   });
 
-
-// script for benefit dropdown
-document.querySelectorAll(".js-read-more").forEach(button => {
-  button.addEventListener("click", () => {
-    button.classList.toggle('open');
-    let innerCard = button.closest('.inner-boxes').querySelectorAll('.inner-card');
-    innerCard.forEach((card,index) => {
-      if(index > 3) (button.classList.contains('open')) ? card.classList.remove("hidden") : card.classList.add("hidden");
+  // script for benefit dropdown
+  document.querySelectorAll('.js-read-more').forEach((button) => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('open');
+      let innerCard = button.closest('.inner-boxes').querySelectorAll('.inner-card');
+      innerCard.forEach((card, index) => {
+        if (index > 3)
+          button.classList.contains('open') ? card.classList.remove('hidden') : card.classList.add('hidden');
+      });
+      button.querySelector('.btn-text').innerText = button.classList.contains('open') ? 'Read less' : 'Read more';
     });
-    button.querySelector('.btn-text').innerText = (button.classList.contains('open')) ? "Read less" : "Read more";
-  });  
-});
-
-
-  
+  });
 </script>
 
 <style>
   a:not([href]) {
     cursor: pointer;
-}
+  }
 </style>
 
 {% schema %}
-  {
-    "name": "Jump section meta",
-    "settings": [
-    ],
-    "presets": [
-      {
-        "name": "Jump section meta"
-      }
-    ]
-  }
+{
+  "name": "Jump section meta",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Jump section meta"
+    }
+  ]
+}
 {% endschema %}

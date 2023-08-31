@@ -218,7 +218,11 @@
 }
 
 
-
+@media screen and (max-width: 1099px){
+  .featured-blog-title{
+    padding: 0;
+  }
+}
 
 @media screen and (max-width: 749px) {
   .blog-bg-design {
@@ -259,6 +263,8 @@ slider-component {
   }
   .featured-blog-title{
     margin-bottom: 32px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
  
 }
