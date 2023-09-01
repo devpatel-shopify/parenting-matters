@@ -655,4 +655,7 @@
     width: 144px;
     height: 135px;
   }
+  .template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block{
+    margin-bottom: 0;
+  }
 }
