@@ -1,3 +1,4 @@
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
 
 {% assign ss = section.settings %}
@@ -11,13 +12,32 @@
   <section class="ps-quiz color-{{ section.settings.color_scheme }}">
     <div class="page-width">
       {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
-      <form
+      <!-- <form
         class="quiz-section"
         id="{{ formID }}"
         style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
-      >
+      > -->
+        
+<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="SsT6w6">
+    <input type="hidden" name="$list_fields" value="$consent">
+
+{% if customer %}
+  <input class="" type="hidden" value="{{ customer.first_name }}" name="first_name" id="pq_first_name" placeholder="First Name" />
+  <input class="" type="hidden" value="{{ customer.last_name }}" name="last_name" id="pq_last_name" placeholder="Last Name" />
+  <input class="" type="hidden" value="{{ customer.email }}" name="email" id="pq_email" placeholder="Your Email" />
+{% endif %}
+
+        {% assign fields = '' %}
+  
         {% for block in section.blocks %}
           {% assign bs = block.settings %}
+          {% assign field_name = bs.klaviyo_id | handleize %}
+
+          {% if field_name != "" %}
+            {% assign fields = fields | append: field_name | append: "," %}
+          {% endif %}
+  
           {% case block.type %}
             {% when 'range' %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}">
@@ -163,8 +183,14 @@
                   <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
                 {% endif %}
 
+                {% assign options = bs.options | split: ","%}
+
                 <div class="dropdown-container">
-                  <select name="" id=""></select>
+                  <select name="{{ field_name }}" id="{{ field_name }}">
+                    {% for option in options %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                  </select>
                 </div>
 
                 <div class="btn-flex">
@@ -180,6 +206,9 @@
               </div>
           {% endcase %}
         {% endfor %}
+
+      <input type="hidden" name="$fields" value="$consent,{{ fields }}">
+
       </form>
 
       <div class="form-success-msg hidden">
@@ -191,9 +220,48 @@
     </div>
   </section>
 
+
+
+
+
+<!-- <form id="pq_quiz" class="klaviyo_styling klaviyo_gdpr_embed_LIST_ID" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="SsT6w6">
+    <input type="hidden" name="$fields" value="$consent,first_name,last_name,pq_expression,pq_rules,pq_playtime">
+    <input type="hidden" name="$list_fields" value="$consent">
+    <div class="klaviyo_field_group">
+      <input class="" type="text" value="" name="first_name" id="pq_first_name" placeholder="First Name" />
+      <input class="" type="text" value="" name="last_name" id="pq_last_name" placeholder="Last Name" />
+      <input class="" type="email" value="" name="email" id="pq_email" placeholder="Your Email" />
+      <input class="" type="text" value="" name="pq_expression" id="pq_expression" placeholder="Expression" />
+      <input class="" type="text" value="" name="pq_rules" id="pq_rules" placeholder="Rules" />
+      <input type="range" name="pq_playtime" min="1" max="4" value="1" data-val="-2">
+    
+    <div class="klaviyo_form_actions">
+      <button type="submit" class="klaviyo_submit_button">Subscribe</button>
+    </div>
+
+    </div>
+
+</form> -->
+
+
   <script defer>
+
+      KlaviyoSubscribe.attachToForms('#pq_quiz', {
+        hide_form_on_success: false,
+        extra_properties: {
+        $source: 'https://parenting-matters.myshopify.com/pages/parenting-style-quiz-1',
+        $method_type: "Klaviyo Form",
+        $method_id: 'embed',
+        $consent_version: 'Embed default text',
+        },
+        hide_form_on_success: false,
+        custom_success_message: true
+      });
+
+    
     document.addEventListener('DOMContentLoaded',function () {
-      const slides = document.querySelectorAll('#parenting-style-quiz .slide');
+      const slides = document.querySelectorAll('#pq_quiz .slide');
       
       slides.forEach((slide) =>{
           if(slide.querySelector('.button_next')){
@@ -212,7 +280,6 @@
         }
         if(slide.querySelector('.button_submit')){
           slide.querySelector('.button_submit').addEventListener('click', function(event){
-            event.preventDefault();
             document.querySelector('.form-success-msg').classList.remove('hidden');
             event.currentTarget.closest('.slide').classList.add('hidden');
           })
@@ -243,6 +310,10 @@
       },false);
   </script>
 {% endif %}
+
+
+
+
 
 {% schema %}
 {
