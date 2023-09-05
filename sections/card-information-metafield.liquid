@@ -22,12 +22,16 @@
         <div class="card_sticky">
           <div class="child_card">
             {%- for child_card_heading in product.metafields.custom.card_information_heading.value -%}
-              <h2>{{ child_card_heading }}</h2>
+              {% if product.metafields.custom.card_information_heading.value != blank %}
+                <h2>{{ child_card_heading }}</h2>
+              {% endif %}
             {%- endfor -%}
           </div>
+          {% if product.metafields.custom.card_information_heading.value != blank %}
           <svg width="386" height="359" viewBox="0 0 386 359" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M385.236 158.542C390.558 273.37 285.18 359 183.717 359C82.2527 359 0 278.635 0 179.5C0 80.3649 82.2527 0 183.717 0C285.18 0 385.236 59.4067 385.236 158.542Z" fill="#FAD5AC"/>
           </svg>
+          {% endif %}
         </div>
       </div>
       <div class="card_list">
@@ -38,6 +42,7 @@
             }
           {% endstyle %}
           <div class="card_identy block-{{ block.id }}" {{ block.shopify_attributes }}>
+            {% if product.metafields.custom.card_information_image.value != blank %}
               <div class="card_image">
                 <img
                   src="{{ child_card | img_url: 'master' }}"
@@ -46,19 +51,26 @@
                   height="{{ block.settings.card_icon.height }}"
                 >
               </div>
+            {% endif %}  
             <div class="card_learn">
               {%- for child_card_title in product.metafields.custom.card_information_title.value [forloop.index0]-%}
-                <h4>{{ child_card_title }}</h4>
+                {% if product.metafields.custom.card_information_title.value [forloop.index0] %}
+                  <h4>{{ child_card_title }}</h4>
+                {% endif %}
               {%- endfor -%}
               {%- for child_card_content in product.metafields.custom.card_information_content.value [forloop.index0]-%}
-                <p>{{ child_card_content }}</p>
+                {% if product.metafields.custom.card_information_content.value [forloop.index0] %}
+                   <p>{{ child_card_content }}</p>
+                {% endif %} 
               {%- endfor -%}
             </div> 
           </div>
         {% endfor %}
+        
 
         {% if section.settings.button_url != blank or section.settings.button_text != blank %}
           <div class="button_space">
+            {% if product.metafields.custom.card_information_title.value != blank or product.metafields.custom.card_information_content.value != blank %}
             <a
               class="button button--secondary"
               href="{{ section.settings.button_url }}"
@@ -67,6 +79,7 @@
 
               {% render 'icon-arrow' %}
             </a>
+            {% endif %}
           </div>
         {% endif %}
 
