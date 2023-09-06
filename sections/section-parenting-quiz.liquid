@@ -186,11 +186,14 @@
                 {% assign options = bs.options | split: ","%}
 
                 <div class="dropdown-container">
-                  <select name="{{ field_name }}" id="{{ field_name }}">
+                  <div class="select">
+                  <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
                     {% for option in options %}
                         <option value="{{ option }}">{{ option }}</option>
                     {% endfor %}
                   </select>
+                  {% render 'icon-caret' %}
+                </div>
                 </div>
 
                 <div class="btn-flex">

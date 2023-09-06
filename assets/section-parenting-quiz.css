@@ -149,3 +149,14 @@
     text-align: center;
     padding: 40px 0;
 }
+
+.dropdown-container .select{
+    margin: 30px auto;
+}
+.dropdown-container .select__select{
+    font-size: 1.4rem;
+}
+.dropdown-container .select .icon-caret{
+    height: 1.6rem;
+    top: calc(50% - 0.8rem);
+}

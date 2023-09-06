@@ -1328,6 +1328,7 @@ button.shopify-payment-button__button--unbranded {
   margin-left: 16px;
   margin-right: -1.6rem;
 }
+
 .button.button-small {
   font-size: 14px;
   padding: 0.7rem 2.33rem;
@@ -1505,6 +1506,10 @@ button.shopify-payment-button__button--unbranded {
     padding: 0.57rem;
     margin-left: 12px;
     margin-right: -8px;
+  }
+  .button>svg.icon-left-arrow{
+    margin-left: -8px;
+    margin-right: 12px;
   }
 
 }
