@@ -11,19 +11,25 @@
         <div class="announcement-bar-cover">
           {%- if section.blocks.first.settings.text != blank -%}     
                 <p class="announcement-bar__message h5">
-                  <span>{{ section.blocks.first.settings.text | escape }}</span>
-                  {%- if section.blocks.first.settings.link != blank -%}
-                    {% render 'icon-arrow' %}
-                  {%- endif -%}
+                  <span>{{ section.blocks.first.settings.text | escape }}</span>                  
                 </p>
           {%- endif -%}
-          {%- if section.blocks.first.settings.link_text != blank -%}
+          {%- if section.blocks.first.settings.link != blank and section.blocks.first.settings.link_text != blank -%}
+            <a href="{{ section.blocks.first.settings.link }}" class="announcement-bar__link link link--text focus-inset">              
+                {{ section.blocks.first.settings.link_text }}
+            </a>
+          {%- elsif section.blocks.first.settings.link == blank and section.blocks.first.settings.link_text != blank -%}
+            <p class="announcement-bar__link link link--text focus-inset">            
+                {{ section.blocks.first.settings.link_text }}            
+            </p>
+          {%- endif -%}
+          {% comment %} {%- if section.blocks.first.settings.link_text != blank -%}
             <a href="{{ section.blocks.first.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
               {%- if section.blocks.first.settings.link_text != blank -%}
                 {{ section.blocks.first.settings.link_text }}
               {%- endif -%}
             </a>
-          {%- endif -%}
+          {%- endif -%} {% endcomment %}
         </div>
       </div>
     </div>
@@ -67,18 +73,24 @@
                   {%- if block.settings.text != blank -%}
                     <p class="announcement-bar__message h5">
                       <span>{{ block.settings.text | escape }}</span>
-                      {%- if block.settings.link != blank -%}
-                        {% render 'icon-arrow' %}
-                      {%- endif -%}
                     </p>
                   {%- endif -%}
-                  {%- if block.settings.link_text != blank -%}
+                  {%- if block.settings.link != blank and block.settings.link_text != blank -%}
+                    <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset">              
+                        {{ block.settings.link_text }}
+                    </a>
+                  {%- elsif block.settings.link == blank and block.settings.link_text != blank -%}
+                    <p class="announcement-bar__link">            
+                        {{ block.settings.link_text }}            
+                    </p>
+                  {%- endif -%}
+                  {% comment %} {%- if block.settings.link_text != blank -%}
                     <a href="{{ block.settings.link }}" class="announcement-bar__link">
                       {%- if block.settings.link_text != blank -%}
                         {{ block.settings.link_text }}
                       {%- endif -%}
                     </a>
-                  {%- endif -%}
+                  {%- endif -%} {% endcomment %}
                 </div>
               </div>
             </div>
