@@ -29,13 +29,19 @@
           <div class="joining_heading">
            
             <div class="join_info">
-              <h2>{{ card.title.value }}</h2>
-              <p>{{ card.description | metafield_tag }}</p>
+              {% if card.title.value != blank %}
+                <h2>{{ card.title.value }}</h2>
+              {% endif %}   
+              {% if card.description != blank %}
+                <p>{{ card.description | metafield_tag }}</p>
+              {% endif %}   
               <div class="join_button ">
-                <a class="button" href="https://parenting-matters.myshopify.com/account/login">
-                  <span>Join now</span>
+                {% if card.button_link.value != blank or card.button_title.value != blank %}
+                  <a class="button" href="{{ card.button_link.value }}"> 
+                  <span>{{ card.button_title.value }}</span>
                   {% render 'icon-arrow' %}
-                </a>
+                  </a>
+                {% endif %} 
               </div>
             </div>
           
