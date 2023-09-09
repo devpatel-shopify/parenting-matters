@@ -1191,7 +1191,7 @@ function headerHeightup(){
   const bannerElement = document.querySelector('.section-header + main .banner_section:first-child');
   const headerHeight = headerElement.offsetHeight;
   let marginTopValue = -headerHeight; 
-  bannerElement.style.marginTop = marginTopValue + "px";
+  if(bannerElement) bannerElement.style.marginTop = marginTopValue + "px";
 }
 headerHeightup();
 window.addEventListener("resize", (event) => {

@@ -1,7 +1,11 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 {{ 'dashboard-course.css' | asset_url | stylesheet_tag }}
 
-<section class="dashboard_course dashboard dashboard_family">
+<script src="{{ 'dashboard-course.js' | asset_url }}" defer="defer"></script>
+
+{%- assign deshboardContent = shop.metaobjects['admin_deshboard']['admin-deshboard-content']['content'].value -%}
+
+<dashboard-course class="dashboard_course dashboard dashboard_family">
   <div class="page-width">
     <div class="welcome-title">
       <h4>Welcome back <span>{{ customer.first_name }}</span></h4>
@@ -18,110 +22,146 @@
                 <h5 class="title">Course progress</h5>
               </div>
               <div class="course-grid">
-                <div class="white-box">
-                  <div class="icon-text">
-                    {% render 'icon-heart' %}
-                    <span>Love</span>
-                  </div>
-                  <div class="progress-grid">
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Play</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">4/7</div>
-                      </div>
-                      <div class="meter item-2">
-                        <span data-progress="00" style="width: 0"></span>
-                      </div>
-                      <div class="progress_bar_count item-2">
-                        <div class="bar_count">0/8</div>
-                      </div>
+                {% for course in deshboardContent.courses %}
+                  {%- assign courseValue = course | last -%}
+                  
+                  <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
+                    <div class="icon-text">
+                      <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">
+                      <span>{{ courseValue.title }}</span>
                     </div>
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Listen</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">0/8</div>
-                      </div>
-                      <div class="meter item-2">
-                        <span data-progress="00" style="width: 0"></span>
-                      </div>
-                      <div class="progress_bar_count item-2">
-                        <div class="bar_count">0/8</div>
-                      </div>
-                    </div>
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Praise</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">0/8</div>
-                      </div>
-                      <div class="meter item-2">
-                        <span data-progress="00" style="width: 0"></span>
-                      </div>
-                      <div class="progress_bar_count item-2">
-                        <div class="bar_count">0/8</div>
-                      </div>
+                    <div class="progress-grid">
+                      {% for innerCourse in courseValue.courses %}
+                        {% assign innerCourseValue = innerCourse | last %}
+                        <div class="progress_bar_item">
+                          <div class="item_button">
+                            <button type="button" class="button button--secondary">{{ innerCourseValue.title }}</button>
+                          </div>
+                          {% for part in innerCourseValue.parts %}
+                            {%- assign partValue = part | last -%}
+                            <div class="meter item-{{ forloop.index }}">
+                              <span data-progress="00" style="width: 70%"></span>
+                            </div>
+                            <div class="progress_bar_count item-1">
+                              <div class="bar_count">{{ partValue.steps | size }}/{{ partValue.steps | size }}</div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endfor %}
                     </div>
                   </div>
-                </div>
-                <div class="white-box top-border">
-                  <div class="icon-text">
-                    {% render 'icon-hand' %}
-                    <span>Limits</span>
-                  </div>
-                  <div class="progress-grid">
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Rules</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">0/8</div>
-                      </div>
-                      
-                    </div>
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Temper</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">4/7</div>
-                      </div>
-                      
-                    </div>
-                    <div class="progress_bar_item">
-                      <div class="item_button">
-                        <a href="#" class="button button--secondary">Plan</a>
-                      </div>
-                      <div class="meter item-1">
-                        <span data-progress="00" style="width: 70%"></span>
-                      </div>
-                      <div class="progress_bar_count item-1">
-                        <div class="bar_count">0/7</div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
+
+                {% endfor %}
               </div>
+
+              {% comment %} 
+                <div class="course-grid">
+                  <div class="white-box">
+                    <div class="icon-text">
+                      {% render 'icon-heart' %}
+                      <span>Love</span>
+                    </div>
+                    <div class="progress-grid">
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Play</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">4/7</div>
+                        </div>
+                        <div class="meter item-2">
+                          <span data-progress="00" style="width: 0"></span>
+                        </div>
+                        <div class="progress_bar_count item-2">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                      </div>
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Listen</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                        <div class="meter item-2">
+                          <span data-progress="00" style="width: 0"></span>
+                        </div>
+                        <div class="progress_bar_count item-2">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                      </div>
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Praise</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                        <div class="meter item-2">
+                          <span data-progress="00" style="width: 0"></span>
+                        </div>
+                        <div class="progress_bar_count item-2">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-box top-border">
+                    <div class="icon-text">
+                      {% render 'icon-hand' %}
+                      <span>Limits</span>
+                    </div>
+                    <div class="progress-grid">
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Rules</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">0/8</div>
+                        </div>
+                        
+                      </div>
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Temper</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">4/7</div>
+                        </div>
+                        
+                      </div>
+                      <div class="progress_bar_item">
+                        <div class="item_button">
+                          <a href="#" class="button button--secondary">Plan</a>
+                        </div>
+                        <div class="meter item-1">
+                          <span data-progress="00" style="width: 70%"></span>
+                        </div>
+                        <div class="progress_bar_count item-1">
+                          <div class="bar_count">0/7</div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endcomment %}
+
               <div class="course_bottom">
                 <div class="text">
                   <span>2 out of 9</span><br>
@@ -146,48 +186,81 @@
                 </div>
                 <div class="content_bottom">
                   <div class="content_item">
-                    <div class="content_slider">
-                      <div class="carousel carousel-main">
-                        {% for i in (1..10) %}
-                          <div class="carousel-cell">
-                            <div class="internal_box_upper">
-                              <div class="internal_box">
-                                <div class="internal_box_main">
-                                  <div class="icon">
-                                    {% render 'icon-internal-home' %}
+                    <div class="content_slider content_slider--wrapper">
+
+                      <div class="carousel carousel-main js-parts-slider">
+                        {% for course in deshboardContent.courses %}
+                          {%- assign courseValue = course | last -%}
+
+                          {% for innerCourse in courseValue.courses %}
+                            {% assign innerCourseValue = innerCourse | last %}
+
+                            {% for part in innerCourseValue.parts %}
+                              {%- assign parValue = part | last -%} 
+                                <div class="carousel-cell">
+                                  <div class="internal_box_upper">
+                                    <div class="internal_box">
+                                      <div class="internal_box_main">
+                                        <div class="icon">
+                                          <img src="{{ innerCourseValue.icon_url }}" alt="{{ innerCourseValue.title }}">
+                                        </div>
+                                        <div class="internal_button">
+                                          <button class="button button--secondary js-step-btn" data-target="{{ parValue.title | strip_html | handleize }}">{{ parValue.title }}</button>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <div class="internal_button">
-                                    <a href="#" class="button button--secondary">Play Pt. 1 </a>
+                                  <div class="bottom_line">
+                                    {% render 'icon-true-round' %}
+                                    <div class="line"></div>
                                   </div>
                                 </div>
+                            {% endfor %}
+
+                          {% endfor %}
+
+                        {% endfor %}
+
+                      </div>
+
+                      <div class="step-sliders--wrapper js-step-sliders--wrapper">
+                        {% for course in deshboardContent.courses %}
+                          {%- assign courseValue = course | last -%}
+
+                          {% for innerCourse in courseValue.courses %}
+                            {% assign innerCourseValue = innerCourse | last %}
+
+                            {% for part in innerCourseValue.parts %}
+                              {%- assign parValue = part | last -%}
+                              <div id="{{ parValue.title | strip_html | handleize }}" class="carousel carousel-nav js-steps-slider hidden">
+                                {% for step in parValue.steps %}
+                                  {%- assign stepValue = step | last -%}
+                                  <div class="carousel-cell">
+                                    <div class="content_course_main_box">
+                                      <div class="content_text">
+                                        <div class="top_text">
+                                          <div class="text">{{ stepValue.title }}</div>
+                                          <div class="text">{{ stepValue.subtitle }}</div>
+                                        </div>
+                                        <div class="bottom_text-wrapper">
+                                          <div class="bottom_text">{{ stepValue.menute_text }}</div>
+                                          <div class="internal_button">
+                                            <a href="{{ stepValue.quizid }}" class="button button--secondary">{{ stepValue.button_title }}</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
                               </div>
-                            </div>
-                            <div class="bottom_line">
-                              {% render 'icon-true-round' %}
-                              <div class="line"></div>
-                            </div>
-                          </div>
-                        {% endfor%}
+                            {% endfor %}
+
+                          {% endfor %}
+
+                        {% endfor %}
                         </div>
                       </div>
-                      <div class="carousel carousel-nav">
-                        {% for i in (1..10) %}
-                          <div class="carousel-cell">
-                            <div class="content_course_main_box">
-                              <div class="content_text">
-                                <div class="top_text">
-                                  <div class="text"><b>Play</b> Part 2</div>
-                                  <div class="text">Title goes here</div>
-                                </div>
-                                <div class="bottom_text">10-minute read</div>
-                                <div class="internal_button">
-                                  <a href="#" class="button button--secondary">Play Pt. 1 </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        {% endfor %}
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -230,8 +303,8 @@
       </div>
     </div>
   </div>
-</section>
-<script></script>
+</dashboard-course>
+
 {% schema %}
 {
   "name": "Dashboard Course",
@@ -294,25 +367,8 @@
   ]
 }
 {% endschema %}
-{% stylesheet %} {% endstylesheet %}
-{% javascript %}
-  var elemele = document.querySelector('.carousel-main');
-  var flkty = new Flickity(elemele, {
-    // options
-    cellAlign: 'left',
-    contain: true,
-    pageDots: false,
-    prevNextButtons: false,
-  });
 
-  var elem = document.querySelector('.carousel-nav');
-  var flkty = new Flickity(elem, {
-    // options
-    cellAlign: 'left',
-    asNavFor: '.carousel-main',
-    contain: true,
-    pageDots: false,
-    prevNextButtons: true,
-    arrowShape: 'M92.5,42.5H25.6L37.8,30.3A7.5,7.5,0,1,0,27.2,19.7l-25,25a7.5,7.5,0,0,0,0,10.6l25,25a7.5,7.5,0,0,0,10.6,0,7.5,7.5,0,0,0,0-10.6L25.6,57.5H92.5a7.5,7.5,0,0,0,0-15Z',
-  });
+{% stylesheet %} {% endstylesheet %}
+
+{% javascript %}
 {% endjavascript %}
