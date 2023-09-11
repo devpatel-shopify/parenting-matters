@@ -50,8 +50,8 @@
             "sub_title": "Quiz",
             "heading_text": "Track your Family Star",
             "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
-            "button_text": "Take the quiz",
-            "button_url": "shopify:\/\/pages\/parenting-style-quiz",
+            "button_text": "Buy the Course",
+            "button_url": "shopify:\/\/products\/course",
             "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
             "layout": "image_first"
           }
@@ -70,10 +70,10 @@
             "rule_icon_2": "shopify:\/\/shop_images\/Icon_17.svg",
             "update_text": "Rules: Part 2",
             "task_button_name": "Complete",
-            "task_url": "shopify:\/\/pages\/parenting-style-quiz",
+            "task_url": "shopify:\/\/products\/course",
             "update_text_2": "Play: Part 1",
             "task_button_name_2": "Start",
-            "task_url_2": "shopify:\/\/pages\/parenting-style-quiz",
+            "task_url_2": "shopify:\/\/products\/course",
             "background_color": "#fdf8ec",
             "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
             "layout_2": "image_first"
@@ -311,7 +311,7 @@
         "heading_text": "What you’ll get when you join",
         "small_text": "",
         "button_text": "Join today",
-        "button_url": "shopify:\/\/pages\/contact",
+        "button_url": "shopify:\/\/products\/course",
         "top_radius": true,
         "color_scheme": "background-1",
         "padding_top": 160,
