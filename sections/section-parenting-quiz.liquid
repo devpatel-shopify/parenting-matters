@@ -51,7 +51,15 @@
                       <p>{{ bs.a1 }}</p>
                       <p>{{ bs.a2 }}</p>
                     </div>
+                    <div class="range_inner">
                     <input type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                    <div class="range_steps">
+                      <span class="step">&nbsp;</span>
+                      <span class="step">&nbsp;</span>
+                      <span class="step">&nbsp;</span>
+                      <span class="step">&nbsp;</span>
+                    </div>
+                    </div>
                   </div>
                 {% endif %}
 

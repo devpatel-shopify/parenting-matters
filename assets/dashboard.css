@@ -1,3 +1,33 @@
+.meter {
+    background: #f6dae0;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    display: block;
+    height: 11px;
+    margin-bottom: 0px;
+    position: relative;
+}
+.meter > span {
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #c72457;
+    position: relative;
+    overflow: hidden;
+    max-width: var(--progress-width); 
+    animation: 0.9s ease-in-out 0s progress-width;
+}
+
+@keyframes progress-width {
+    0%   {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
 .dashboard {
     padding: 48px 0;
 }

@@ -91,6 +91,8 @@
     transition: opacity .2s;
     border-radius: var(--progress-bar-radius);
     overflow: hidden;
+    border-radius: 20px;
+    cursor:pointer;
 }
 
 /* Mouse-over effects */
@@ -126,7 +128,30 @@
     cursor: pointer;
     /* Cursor on hover */
 }
-
+.ps-quiz .quiz-section .slide .range_inner{
+  position:relative;
+}
+.ps-quiz .quiz-section .slide .range_inner .step{    
+  position: absolute;
+  top: 4px;
+  width: 3px;
+  height: calc(100% - 10px);
+  background: var(--progress-bar-icon);  
+  border-radius: 5px;
+  pointer-events:none;
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(1){    
+  left: calc(0% + 10px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(2){    
+  left: calc(33.33% + 5px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(3){    
+  left: calc(66% + 5px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(4){    
+  left: calc(100% - 9px);
+}
 .ps-quiz .quiz-section .slide .qtype-button {
     width: 100%;
     position: relative;

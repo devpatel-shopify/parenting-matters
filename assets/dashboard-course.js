@@ -15,6 +15,10 @@ class dashboardCourse extends HTMLElement{
       prevNextButtons: false,
       on:{
         ready: function() {
+          let activeSlide = parseInt(this.element.dataset.activeSlide);
+          if(activeSlide != 0){
+            this.selectCell(activeSlide);
+          }
           this.selectedElement.querySelector('.js-step-btn').click();
         }
       }
@@ -44,7 +48,7 @@ class dashboardCourse extends HTMLElement{
     let cellSize = (window.matchMedia('(max-width:1050px)').matches) ? 2 : 4;
 
     new Flickity(targetStepSliderElement, {
-      cellAlign: 'center',
+      cellAlign: 'left',
       contain: true,
       pageDots: false,
       prevNextButtons: (targetStepSliderElement.querySelectorAll('.carousel-cell').length > cellSize),
@@ -52,7 +56,7 @@ class dashboardCourse extends HTMLElement{
       arrowShape: 'M92.5,42.5H25.6L37.8,30.3A7.5,7.5,0,1,0,27.2,19.7l-25,25a7.5,7.5,0,0,0,0,10.6l25,25a7.5,7.5,0,0,0,10.6,0,7.5,7.5,0,0,0,0-10.6L25.6,57.5H92.5a7.5,7.5,0,0,0,0-15Z',
       on:{
         ready:function(){
-          this.element.init();
+          this.selectCell(parseInt(this.element.dataset.activeSlide));
         }
       }
     });

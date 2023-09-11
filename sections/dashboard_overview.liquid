@@ -1,27 +1,5 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
-{% stylesheet %}
-  .meter {
-    background: #f6dae0;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    display: block;
-    height: 11px;
-    margin-bottom: 0px;
-    position: relative;
-  }
-  .meter > span {
-    display: block;
-    height: 100%;
-    border-radius: 20px;
-    background-color: #c72457;
-    position: relative;
-    overflow: hidden;
-    transition: width 2s ease-out;
-  }
-{% endstylesheet %}
-
 <section class="dashboard dashboard_overview">
   <div class="page-width">
     <div class="welcome-title">
@@ -92,27 +70,27 @@
                     </div>
                     <div class="progress-grid">
                       <div class="meter">
-                        <span data-progress="00" style="width: 0"></span>
+                        <span style="--progress-width:0%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="70" style="width: 0"></span>
+                        <span style="--progress-width:70%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="60" style="width: 0"></span>
+                        <span style="--progress-width:60%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="100" style="width: 0"></span>
+                        <span style="--progress-width:100%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="30" style="width: 0"></span>
+                        <span style="--progress-width:30%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="20" style="width: 0"></span>
+                        <span style="--progress-width:20%"></span>
                       </div>
                     </div>
                   </div>
@@ -187,25 +165,25 @@
                     </div>
                     <div class="progress-grid">
                       <div class="meter">
-                        <span data-progress="00" style="width: 0"></span>
+                        <span style="--progress-width:0%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="70" style="width: 0"></span>
+                        <span style="--progress-width:70%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="60" style="width: 0"></span>
+                        <span style="--progress-width:60%"></span>
                       </div>
 
                       <div class="meter">
-                        <span data-progress="60" style="width: 0"></span>
+                        <span style="--progress-width:60%"></span>
                       </div>
                       <div class="meter">
-                        <span data-progress="60" style="width: 0"></span>
+                        <span style="--progress-width:60%"></span>
                       </div>
                       <div class="meter">
-                        <span data-progress="60" style="width: 0"></span>
+                        <span style="--progress-width:60%"></span>
                       </div>
                     </div>
                   </div>
@@ -377,15 +355,3 @@
   ]
 }
 {% endschema %}
-{% javascript %}
-  var bars = document.querySelectorAll('.meter > span');
-  console.clear();
-  setInterval(function () {
-    bars.forEach(function (bar) {
-      var getWidth = parseFloat(bar.dataset.progress);
-      for (var i = 0; i < getWidth; i++) {
-        bar.style.width = i + '%';
-      }
-    });
-  }, 500);
-{% endjavascript %}

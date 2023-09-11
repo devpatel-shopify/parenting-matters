@@ -447,6 +447,14 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {%- if customer -%}
+      <script>
+        window.prq_vars = {};
+        window.prq_vars.name = "{{ customer.name }}";
+        window.prq_vars.email = "{{ customer.email }}";
+        window.prq_vars.phone = "{{ customer.phone }}";
+      </script>
+    {%- endif -%}
   </head>
 
   <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} template--{{ template | handlize | remove:'.' }}  {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}" id="{{ template | handlize }}">
