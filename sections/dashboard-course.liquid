@@ -5,6 +5,9 @@
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
+{%- assign nextStepContent = false -%}
+{%- assign previoustStepContent = false -%}
+
 <dashboard-course>
   <section class="dashboard_course dashboard dashboard_family">
     <div class="page-width">
@@ -196,7 +199,9 @@
                         </div>
   
                         <div class="step-sliders--wrapper js-step-sliders--wrapper">
+                          {%- assign activeStep = value -%}
                           {%- assign activeStepDetected = false -%}
+                          {%- assign addNextCourseStep = false -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
   
@@ -205,6 +210,11 @@
   
                               {% for part in innerCourseValue.parts %}
                                 {%- assign parValue = part | last -%}
+
+                                {%- if addNextCourseStep == true -%}
+                                  {%- assign nextStepContent = parValue.steps['step_1'] -%}
+                                  {%- assign addNextCourseStep = false -%}
+                                {%- endif -%}
   
                                 {%- assign activeStep = false -%}
                                 {%- assign totalSteps = parValue.steps | size -%}
@@ -219,6 +229,15 @@
                                       {%- unless customer.tags contains stepValue.tag -%}
                                         {%- assign activeStep = forloop.index -%}
                                         {%- assign activeStepDetected = true -%}
+                                        {%- assign prevCount = activeStep | minus: 1 -%}
+                                        {%- assign nextCount = activeStep | plus: 1 -%}
+                                        {%- assign prevStepText = "step_" | append: prevCount -%}
+                                        {%- assign nextStepText = "step_" | append: nextCount -%}
+                                        {%- assign nextStepContent = parValue.steps[nextStepText] -%}
+                                        {%- assign previoustStepContent = parValue.steps[prevStepText] -%}
+                                        {%- if nextCount >= totalSteps -%}
+                                          {%- assign addNextCourseStep = true -%}
+                                        {%- endif -%}
                                       {%- endunless -%}
                                     {%- endif -%}
                                   {%- endif -%}
@@ -312,34 +331,72 @@
                   </div>
                   <div class="content_footer">
                     <div class="content_footer_main">
-                      <div class="content_footer_box item-1">
-                        <div class="content_box-1">
-                          <div class="icon">
-                            {% render 'icon-true-bg-round'%}
+                      {% if previoustStepContent %}
+                        {%- assign progress_summary = previoustStepContent.progress_summary -%}
+                        <div class="content_footer_box item-1">
+                          <div class="content_box-1">
+                            <div class="icon">
+                              {% render 'icon-true-bg-round'%}
+                            </div>
+                            <div class="text">{{ progress_summary.last_time_learn_text }}</div>
                           </div>
-                          <div class="text">Last time you learnt</div>
-                        </div>
-                        <div class="content_box-2">
-                          <div class="text_content">
-                            <div class="title"> <span>Praise </span><b>Part 2 </b>- Introduction</div>
-                            <div class="text">How to give praise for the right things</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="content_footer_box item-2">
-                        <div class="content_box-1">
-                          <div class="icon">
-                            {% render 'icon-red-forword'%}
-                          </div>
-                          <div class="text">Next time you’ll learn</div>
-                        </div>
-                        <div class="content_box-2">
-                          <div class="text_content">
-                            <div class="title"> <span>Praise </span><b>Part 3</b> - Introduction</div>
-                            <div class="text">How to praise good actions, over bad actions</div>
+                          <div class="content_box-2">
+                            <div class="text_content">
+                              <div class="title">{{ progress_summary.title }}</div>
+                              <div class="text">{{ progress_summary.description }}</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      {% endif %}
+                      {% if nextStepContent %}
+                        {%- assign progress_summary = nextStepContent.progress_summary -%}
+                        <div class="content_footer_box item-2">
+                          <div class="content_box-1">
+                            <div class="icon">
+                              {% render 'icon-red-forword'%}
+                            </div>
+                            <div class="text">{{ progress_summary.last_time_learn_text }}</div>
+                          </div>
+                          <div class="content_box-2">
+                            <div class="text_content">
+                              <div class="title">{{ progress_summary.title }}</div>
+                              <div class="text">{{ progress_summary.description }}</div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+
+                      {%- comment -%}
+                        <div class="content_footer_box item-1">
+                          <div class="content_box-1">
+                            <div class="icon">
+                              {% render 'icon-true-bg-round'%}
+                            </div>
+                            <div class="text">Last time you learnt</div>
+                          </div>
+                          <div class="content_box-2">
+                            <div class="text_content">
+                              <div class="title"> <span>Praise </span><b>Part 2 </b>- Introduction</div>
+                              <div class="text">How to give praise for the right things</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="content_footer_box item-2">
+                          <div class="content_box-1">
+                            <div class="icon">
+                              {% render 'icon-red-forword'%}
+                            </div>
+                            <div class="text">Next time you’ll learn</div>
+                          </div>
+                          <div class="content_box-2">
+                            <div class="text_content">
+                              <div class="title"> <span>Praise </span><b>Part 3</b> - Introduction</div>
+                              <div class="text">How to praise good actions, over bad actions</div>
+                            </div>
+                          </div>
+                        </div>
+                      {%- endcomment -%}
+
                     </div>
                   </div>
                 </div>
