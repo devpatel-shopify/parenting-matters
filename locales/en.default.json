@@ -330,7 +330,8 @@
       "slide": "Slide"
     },
     "page": {
-      "title": "Page title"
+      "title": "Page title",
+      "button_title": "Load more"
     }
   },
   "localization": {
