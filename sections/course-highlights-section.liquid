@@ -52,13 +52,21 @@
                       <p class="p1">{{ block.settings.paragraph }}</p>
                     {% endif %}
                   </div>
-                  {% if block.settings.button_url != blank or block.settings.button_text != blank %}
+
+                  {%- assign buttonText = block.settings.np_button_text -%}
+                  {%- assign buttonUrl = settings.course_product.url -%}
+                  {% if customer and customer.tags contains "Purchased Course" %}
+                    {%- assign buttonText = block.settings.button_text -%}
+                    {%- assign buttonUrl = block.settings.button_url -%}
+                  {% endif %}
+
+                  {% if buttonUrl != blank and buttonText != blank %}
                     <div class="quiz_button">
                       <a
                         class="button button--secondary"
-                        href="{{ block.settings.button_url }}"
+                        href="{{ buttonUrl }}"
                       >
-                        {{- block.settings.button_text -}}
+                        {{- buttonText -}}
 
                         {% render 'icon-arrow' %}
                       </a>
@@ -89,13 +97,20 @@
                       <p class="p1">{{ block.settings.about_quiz }}</p>
                     {% endif %}
                   </div>
-                  {% if block.settings.button_link != blank or block.settings.button_name != blank %}
+                  {%- assign buttonText = block.settings.np_button_text -%}
+                  {%- assign buttonUrl = settings.course_product.url -%}
+                  {% if customer and customer.tags contains "Purchased Course" %}
+                    {%- assign buttonText = block.settings.button_name -%}
+                    {%- assign buttonUrl = block.settings.button_link -%}
+                  {% endif %}
+
+                  {% if buttonUrl != blank or buttonText != blank %}
                     <div class="quiz_button">
                       <a
                         class="button button--secondary"
-                        href="{{ block.settings.button_link }}"
+                        href="{{ buttonUrl }}"
                       >
-                        {{- block.settings.button_name -}}
+                        {{- buttonText -}}
 
                         {% render 'icon-arrow' %}
                       </a>
@@ -274,7 +289,7 @@
   "blocks": [
     {
       "type": "track_quiz",
-      "name": "track_quiz",
+      "name": "Track Quiz",
       "limit": 2,
       "settings": [
         {
@@ -304,12 +319,21 @@
           "type": "text",
           "id": "button_text",
           "label": "Button text",
-          "default": "Button Name"
+          "default": "Button Name",
+          "info": "If Course has been Purchased."
+        },
+        {
+          "type": "text",
+          "id": "np_button_text",
+          "label": "Button text",
+          "default": "Buy the Course",
+          "info": "if Course hasn't been Purchased."
         },
         {
           "type": "url",
           "id": "button_url",
-          "label": "Button link"
+          "label": "Button link",
+          "info":"This Link will add when user will Purchase course."
         },
         {
           "type": "header",
@@ -341,7 +365,7 @@
     },
     {
       "type": "exercise_quiz",
-      "name": "exercise quiz",
+      "name": "Exercise Quiz",
       "limit": 2,
       "settings": [
         {
@@ -366,12 +390,21 @@
           "type": "text",
           "id": "button_name",
           "label": "Button text",
-          "default": "Button Name"
+          "default": "Button Name",
+          "info": "If Course has been Purchased."
+        },
+        {
+          "type": "text",
+          "id": "np_button_text",
+          "label": "Button text",
+          "default": "Buy the Course",
+          "info": "if Course hasn't been Purchased."
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button link"
+          "label": "Button link",
+          "info":"This Link will add when user will Purchase course."
         },
         {
           "type": "image_picker",
@@ -393,7 +426,6 @@
           "id": "rule_icon_2",
           "label": "Second part icon"
         },
-
         {
           "type": "text",
           "id": "update_text",

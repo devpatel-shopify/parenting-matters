@@ -299,7 +299,7 @@
         "heading": "Read the latest from our blog.",
         "heading_size": "h2",
         "button_text1": "Explore our blog",
-        "button_url": "shopify:\/\/blogs\/news",
+        "button_url": "shopify:\/\/blogs\/ddp-page",
         "blog": "news",
         "post_limit": 3,
         "columns_desktop": 3,

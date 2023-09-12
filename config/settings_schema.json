@@ -1606,5 +1606,15 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+    "name":"Course Product",
+    "settings":[
+      {
+        "type":"product",
+        "id":"course_product",
+        "label":"Product"
+      }
+    ]
   }
 ]

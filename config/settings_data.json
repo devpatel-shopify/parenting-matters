@@ -119,6 +119,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "course_product": "course",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
