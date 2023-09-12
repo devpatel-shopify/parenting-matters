@@ -1,12 +1,18 @@
 {{ 'contact-banner.css' | asset_url | stylesheet_tag }}
 
 <section class="contact-banner">
-  <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/contact-banner.png?v=1689248245" alt="" srcset="">
+  <img src="{{ section.settings.contact_img | img_url:'master' }}" alt="" srcset="">
 </section>
 {% schema %}
 {
   "name": "Contact Banner",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "contact_img",
+      "label": "Contact banner"
+    }
+  ],
 "presets": [
   {
     "name": "Contact Banner"

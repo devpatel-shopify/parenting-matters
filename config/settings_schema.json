@@ -4,8 +4,8 @@
     "theme_name": "Dawn",
     "theme_version": "10.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -97,13 +97,13 @@
             "type": "color",
             "id": "progress_bar",
             "label": "Progress Bar",
-            "default":"#d3d3d3"
+            "default": "#d3d3d3"
           },
           {
             "type": "color",
             "id": "progress_bar_icon",
             "label": "Progress Bar Icon",
-            "default":"#000"
+            "default": "#000"
           }
         ],
         "role": {
@@ -1608,12 +1608,12 @@
     ]
   },
   {
-    "name":"Course Product",
-    "settings":[
+    "name": "Course Product",
+    "settings": [
       {
-        "type":"product",
-        "id":"course_product",
-        "label":"Product"
+        "type": "product",
+        "id": "course_product",
+        "label": "Product"
       }
     ]
   }
