@@ -1,4 +1,7 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
+{%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
+{%- assign ParentingStyleHandleize = ParentingStyle | handleize -%}
+{%- assign ParentingStyleMetaobject = shop.metaobjects['parenting_style'][ParentingStyleHandleize] -%}
 
 <section class="dashboard parenting_style">
   <div class="page-width">
@@ -12,28 +15,64 @@
         </div>
         <div class="dashbord_box dash_over_info">
           <div class="family-graph-block">
-            <div class="family-block">
+            <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: 1;">
               <div class="family-title">
-                <h5>Your parenting style</h5>
-                <p>
-                  Test taken on <b> [26 Jun 2023]</b>
-                  <br>
-                  <br>
-                  Your parenting style is balanced between Permissive-indulgent which means that you rate highly on warmth and engagement  with your children but lower on level of control and setting clear limits for them and ‘Hands-off’ which means that you tent to have more laissez-faire of less involved approach to your children.
-                </p>
-                <div class="click-info">
+                <h5>
+                  {%- if ParentingStyle == blank -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.nq_title }}</label>
+                  {%- else -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.title | replace: '[parenting_style]', ParentingStyle }}</label>
+                  {%- endif -%}
+                </h5>
+                {%- if ParentingStyle == blank and section.settings.description != blank -%}
+                  <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
+                    {{ section.settings.description }}
+                  </div>
+                {%- else -%}  
+                  {%- if ParentingStyleMetaobject.description != blank -%}
+                    <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
+                      {{ ParentingStyleMetaobject.description | metafield_tag }}
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+                <div class="click-info scroll-trigger animate--slide-in" style="--animation-order: 3;">
                   {% render 'dash-info-icon' %}
                   <p>To see the full assessment if your parenting click here, or click the download button below.</p>
                 </div>
               </div>
-              <div class="course-btn">
-                <a class="button button--secondary" href="/pages/organisations"
-                  >Download PDF
-                  {% render 'download-icon' %}
-                </a>
-              </div>
+              {%- if ParentingStyle == blank and section.settings.btn_link != blank and section.settings.nq_btn_text != blank -%}
+                <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                  <a class="button button--secondary" href="{{ section.settings.btn_link }}">
+                    {{ section.settings.nq_btn_text }}
+                    <svg
+                      aria-hidden="true"
+                      class="icon icon-arrow"
+                      focusable="false"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              {%- else -%}
+                {%- if ParentingStyleMetaobject.pdf != blank -%}
+                  <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                    <a class="button button--secondary" target="_parent" href="{{ ParentingStyleMetaobject.pdf.value.url }}">
+                      Download PDF
+                      {% render 'download-icon' %}
+                    </a>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
             </div>
-            <div class="graph-block">
+            <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
               <div class="wrapper graph--tab">
                 <div class="buttonWrapper">
                   <button class="tab-button active" data-id="result">Overall result</button>
@@ -65,54 +104,51 @@
   "name": "Dashboard Parenting style",
   "settings": [
     {
-      "type": "text",
-      "id": "title_1",
-      "label": "Title 1"
-    },
-    {
-      "type": "url",
-      "id": "link_1",
-      "label": "Link 1"
+      "type": "header",
+      "content": "Title"
     },
     {
       "type": "text",
-      "id": "title_2",
-      "label": "Title 2"
-    },
-    {
-      "type": "url",
-      "id": "link_2",
-      "label": "Link 2"
+      "id": "nq_title",
+      "label": "Title",
+      "default": "Take a quiz and get your Parenting style.",
+      "info":"If User hasn't complated Quiz."
     },
     {
       "type": "text",
-      "id": "title_3",
-      "label": "Title 3"
+      "id": "title",
+      "label": "Title",
+      "default": "Your parenting style [parenting_style]",
+      "info":"If User has complated Quiz. [parenting_style] will automatically replace with current Parenting style."
     },
     {
-      "type": "url",
-      "id": "link_3",
-      "label": "Link 3"
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "info":"Description will show when user hasn't complated Quiz."
     },
     {
-      "type": "text",
-      "id": "title_4",
-      "label": "Title 4"
-    },
-    {
-      "type": "url",
-      "id": "link_4",
-      "label": "Link 4"
+      "type": "header",
+      "content": "Button"
     },
     {
       "type": "text",
-      "id": "title_5",
-      "label": "Title 5"
+      "id": "btn_text",
+      "label": "Text",
+      "default": "Download PDF",
+      "info":"If User has complated Quiz."
+    },
+    {
+      "type": "text",
+      "id": "nq_btn_text",
+      "label": "Text",
+      "default": "Take a Quizz",
+      "info":"If User hasn't complated Quiz."
     },
     {
       "type": "url",
-      "id": "link_5",
-      "label": "Link 5"
+      "id": "btn_link",
+      "label": "Button Link"
     }
   ],
   "presets": [

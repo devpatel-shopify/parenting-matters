@@ -1,12 +1,37 @@
+{%- assign isCoursePurchased = false -%}
+{% if customer and customer.tags contains 'Purchased Course' %}
+  {%- assign isCoursePurchased = true -%}
+{% endif %}
+
 <ul>
-    <li><a href="{{- routes.account_url -}}" class="js-dashbord-link {% if template == "customers/account" %}active{% endif %}">{{- section.settings.overview_text | default:'Overview' -}}</a></li>
+    <li class="scroll-trigger animate--slide-in" style="--animation-order: 1;">
+        <a href="{{- routes.account_url -}}" class="js-dashbord-link {% if template == "customers/account" %}active{% endif %}">
+            {{- settings.overview_text | default:'Overview' -}}
+        </a>
+    </li>
     {%- for i in (1..5) -%}
-    {%- capture text -%}title_{{- i -}}{%- endcapture -%}
-    {%- capture link -%}link_{{- i -}}{%- endcapture -%}
-    {%- assign textValue = section.settings[text] -%}
-    {%- assign linkValue = section.settings[link] -%}
-        {%- if textValue != blank and linkValue != blank -%}
-        <li><a href="{{- linkValue -}}" class="js-dashbord-link {% if linkValue == page.url %}active{% endif %}">{{- textValue -}}</a></li>
+        {%- assign text = "title_" | append: i -%}
+        {%- assign link = "link_" | append: i -%}
+        {%- assign newTab = "new_tab_" | append: i -%}
+        {%- assign show_course_only = "show_course_only_" | append: i -%}
+
+        {%- assign textValue = settings[text] -%}
+        {%- assign linkValue = settings[link] -%}
+        {%- assign newTabValue = settings[newTab] -%}
+        {%- assign show_course_onlyValue = settings[show_course_only] -%}
+
+        {%- assign showLink = true -%}
+
+        {%- if show_course_onlyValue == true and isCoursePurchased == false -%}
+            {%- assign showLink = false -%}
+        {%- endif -%}
+
+        {%- if textValue != blank and linkValue != blank and showLink == true -%}
+            <li class="scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index | plus: 1 }};">
+                <a href="{{- linkValue -}}" class="js-dashbord-link {% if linkValue == page.url %}active{% endif %}" {% if newTabValue %}target="_blank"{% endif %}>
+                    {{- textValue -}}
+                </a>
+            </li>
         {%- endif -%}
     {%- endfor -%}
 </ul>

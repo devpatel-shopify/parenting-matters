@@ -18,7 +18,7 @@
     <div class="dash_tab_block">
       <div class="tab_dash">
         <div class="left_sidebar scroll-trigger animate--slide-in" style="--animation-order: 2;" >{% render 'left-sidebar' section:section %}</div>
-        <div class="dashbord_box dash_over_info scroll-trigger animate--slide-in" style="--animation-order: 3;">
+        <div class="dashbord_box dash_over_info">
           <div class="icon-with-text-block">
             {%- assign left_icon = section.settings.left_icon -%}
             {%- assign left_icon_back_color = section.settings.left_icon_back_color -%}
@@ -29,7 +29,7 @@
               {%- assign leftDescription = left_description -%}
             {%- endif -%}
             {%- if left_icon != blank or leftDescription != blank -%}
-              <div class="icon-box">
+              <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 3;">
                 <div class="icon" style="background:{{ left_icon_back_color }};">
                   <img src="{{ left_icon | image_url }}" alt="{{ left_icon.alt | default:'icon' }}">
                 </div>
@@ -49,7 +49,7 @@
             {%- endif -%}
 
             {%- if left_icon != blank or leftDescription != blank -%}
-              <div class="icon-box">
+              <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 4;">
                 <div class="icon" style="background:{{ right_icon_back_color }};">
                   <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}" />
                 </div>
@@ -62,10 +62,12 @@
           </div>
 
           <div class="progress-start-block">
+            {%- assign animationCount = 4 -%}
             {% for block in section.blocks %}
               {%- case block.type -%}
                 {%- when "course_progress" -%}
-                  <div class="course-progress" {{ block.shopify_attributes }}>
+                  {%- assign animationCount = animationCount | plus: 1 -%}
+                  <div class="course-progress scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -392,7 +394,8 @@
                     {%- endif -%}
                   </div>
                 {%- when "family_star_result" -%}
-                  <div class="family-block" {{ block.shopify_attributes }}>
+                  {%- assign animationCount = animationCount | plus: 1 -%}
+                  <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -457,87 +460,6 @@
 {
   "name": "Dashboard Overview",
   "settings": [
-    {
-      "type": "header",
-      "content": "Tab Overview"
-    },
-    {
-      "type": "text",
-      "id": "overview_text",
-      "label": "Title",
-      "default": "Overview",
-      "info":"This tab will always redirect user to Account page."
-    },
-    {
-      "type": "header",
-      "content": "Tab 1"
-    },
-    {
-      "type": "text",
-      "id": "title_1",
-      "label": "Title"
-    },
-    {
-      "type": "url",
-      "id": "link_1",
-      "label": "Link"
-    },
-    {
-      "type": "header",
-      "content": "Tab 2"
-    },
-    {
-      "type": "text",
-      "id": "title_2",
-      "label": "Title"
-    },
-    {
-      "type": "url",
-      "id": "link_2",
-      "label": "Link"
-    },
-    {
-      "type": "header",
-      "content": "Tab 3"
-    },
-    {
-      "type": "text",
-      "id": "title_3",
-      "label": "Title"
-    },
-    {
-      "type": "url",
-      "id": "link_3",
-      "label": "Link"
-    },
-    {
-      "type": "header",
-      "content": "Tab 4"
-    },
-    {
-      "type": "text",
-      "id": "title_4",
-      "label": "Title"
-    },
-    {
-      "type": "url",
-      "id": "link_4",
-      "label": "Link"
-    },
-    {
-      "type": "header",
-      "content": "Tab 5"
-    },
-    {
-      "type": "text",
-      "id": "title_5",
-      "label": "Title"
-    },
-    {
-      "type": "url",
-      "id": "link_5",
-      "label": "Link"
-    },
     {
       "type": "header",
       "content": "My goal Content"

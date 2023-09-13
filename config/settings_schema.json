@@ -1616,5 +1616,141 @@
         "label": "Product"
       }
     ]
+  },
+  {
+    "name":"Admin Dashboard",
+    "settings":[
+      {
+        "type": "header",
+        "content": "Tab Overview"
+      },
+      {
+        "type": "text",
+        "id": "overview_text",
+        "label": "Title",
+        "default": "Overview",
+        "info":"This tab will always redirect user to Account page."
+      },
+      {
+        "type": "header",
+        "content": "Tab 1"
+      },
+      {
+        "type": "text",
+        "id": "title_1",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link_1",
+        "label": "Link"
+      },
+      {
+        "type":"checkbox",
+        "id":"new_tab_1",
+        "label":"Open in new tab?"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_course_only_1",
+        "label":"Show, when user will purchase course?"
+      },
+      {
+        "type": "header",
+        "content": "Tab 2"
+      },
+      {
+        "type": "text",
+        "id": "title_2",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link_2",
+        "label": "Link"
+      },
+      {
+        "type":"checkbox",
+        "id":"new_tab_2",
+        "label":"Open in new tab?"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_course_only_2",
+        "label":"Show, when user will purchase course?"
+      },
+      {
+        "type": "header",
+        "content": "Tab 3"
+      },
+      {
+        "type": "text",
+        "id": "title_3",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link_3",
+        "label": "Link"
+      },
+      {
+        "type":"checkbox",
+        "id":"new_tab_3",
+        "label":"Open in new tab?"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_course_only_3",
+        "label":"Show, when user will purchase course?"
+      },
+      {
+        "type": "header",
+        "content": "Tab 4"
+      },
+      {
+        "type": "text",
+        "id": "title_4",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link_4",
+        "label": "Link"
+      },
+      {
+        "type":"checkbox",
+        "id":"new_tab_4",
+        "label":"Open in new tab?"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_course_only_4",
+        "label":"Show, when user will purchase course?"
+      },
+      {
+        "type": "header",
+        "content": "Tab 5"
+      },
+      {
+        "type": "text",
+        "id": "title_5",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "link_5",
+        "label": "Link"
+      },
+      {
+        "type":"checkbox",
+        "id":"new_tab_5",
+        "label":"Open in new tab?"
+      },
+      {
+        "type":"checkbox",
+        "id":"show_course_only_5",
+        "label":"Show, when user will purchase course?"
+      }
+    ]
   }
 ]

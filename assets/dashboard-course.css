@@ -187,6 +187,7 @@
 .content_box {
     display: flex;
     gap: 24px;
+    height: 100%;
 }
 
 .internal_button .button {

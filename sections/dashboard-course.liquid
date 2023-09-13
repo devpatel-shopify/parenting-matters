@@ -8,6 +8,17 @@
 {%- assign nextStepContent = false -%}
 {%- assign previoustStepContent = false -%}
 
+{%- assign isCoursePurchased = false -%}
+{% if customer and customer.tags contains 'Purchased Course' %}
+  {%- assign isCoursePurchased = true -%}
+{% endif %}
+
+{% if isCoursePurchased == false %}
+  <script>
+    window.location.href = "/account";
+  </script>
+{% endif %}
+
 <dashboard-course>
   <section class="dashboard_course dashboard dashboard_family">
     <div class="page-width">
@@ -26,20 +37,23 @@
                   <h5 class="title">Course progress</h5>
                 </div>
                 <div class="course-grid">
+                  {%- assign animationCount = 0 -%}
                   {%- assign totalCourses = 0 -%}
                   {%- assign totalCompletedCourses = 0 -%}
                   {% for course in deshboardContent.courses %}
                     {%- assign courseValue = course | last -%}
+                    {%- assign animationCount = animationCount | plus: 1 -%}
                     
-                    <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
+                    <div class="white-box {% unless forloop.first %}top-border{% endunless %} scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};">
                       <div class="icon-text">
                         <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">
                         <span>{{ courseValue.title }}</span>
                       </div>
                       <div class="progress-grid">
                         {% for innerCourse in courseValue.courses %}
+                          {%- assign animationCount = animationCount | plus: 1 -%}
                           {% assign innerCourseValue = innerCourse | last %}
-                          <div class="progress_bar_item">
+                          <div class="progress_bar_item scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};">
                             <div class="item_button">
                               <button type="button" class="button button--secondary">{{ innerCourseValue.title }}</button>
                             </div>
@@ -77,20 +91,20 @@
                   {% endfor %}
                 </div>
   
-                <div class="course_bottom">
+                <div class="course_bottom scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount | plus: 1 }};">
                   <div class="text">
                     <span>{{ totalCompletedCourses }} out of {{ totalCourses }}</span><br>
                     sessions completed
                   </div>
                 </div>
               </div>
-              <div class="course_content scroll-trigger animate--slide-in" style="--animation-order: 4;">
+              <div class="course_content">
                 <div class="content_main">
                   <div class="content_top">
-                    <div class="content_item box-1">
-                      <div class="title">Your parenting style is <span>name</span></div>
+                    <div class="content_item box-1 scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                      <div class="title">Your parenting style is <span>{{ customer.metafields.klaviyo.ParentingStyle }}</span></div>
                     </div>
-                    <div class="content_item box-2">
+                    <div class="content_item box-2 scroll-trigger animate--slide-in" style="--animation-order: 5;">
                       <div class="content_box">
                         <div class="icon">
                           {% render 'icon-marker' %}
@@ -99,7 +113,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="content_bottom">
+                  <div class="content_bottom scroll-trigger animate--slide-in" style="--animation-order: 6;">
                     <div class="content_item">
                       <div class="content_slider content_slider--wrapper">
   
@@ -146,7 +160,7 @@
   
                         {%- endfor -%}
   
-                        <div class="carousel carousel-main js-parts-slider" data-active-slide="{{ activeCourse | minus: 1 }}">
+                        <div class="carousel carousel-main js-parts-slider scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};" data-active-slide="{{ activeCourse | minus: 1 }}">
                           {%- assign tmpIndexCount1 = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
@@ -252,7 +266,7 @@
                                   {% for step in parValue.steps %}
                                     {%- assign stepValue = step | last -%}
                                     <div class="carousel-cell {% if forloop.index == activeStep %}active{% endif %} {% if forloop.index > activeStep or activeStep == false %}disabled{% endif %}">
-                                      <div class="content_course_main_box">
+                                      <div class="content_course_main_box scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};">
                                         <div class="content_text">
                                           <div class="top_text">
                                             <div class="text">{{ stepValue.title }}</div>
@@ -333,7 +347,7 @@
                     <div class="content_footer_main">
                       {% if previoustStepContent %}
                         {%- assign progress_summary = previoustStepContent.progress_summary -%}
-                        <div class="content_footer_box item-1">
+                        <div class="content_footer_box item-1 scroll-trigger animate--slide-in" style="--animation-order: 7;">
                           <div class="content_box-1">
                             <div class="icon">
                               {% render 'icon-true-bg-round'%}
@@ -350,7 +364,7 @@
                       {% endif %}
                       {% if nextStepContent %}
                         {%- assign progress_summary = nextStepContent.progress_summary -%}
-                        <div class="content_footer_box item-2">
+                        <div class="content_footer_box item-2 scroll-trigger animate--slide-in" style="--animation-order: 8;">
                           <div class="content_box-1">
                             <div class="icon">
                               {% render 'icon-red-forword'%}
@@ -413,56 +427,6 @@
 {
   "name": "Dashboard Course",
   "settings": [
-    {
-      "type": "text",
-      "id": "title_1",
-      "label": "Title 1"
-    },
-    {
-      "type": "url",
-      "id": "link_1",
-      "label": "Link 1"
-    },
-    {
-      "type": "text",
-      "id": "title_2",
-      "label": "Title 2"
-    },
-    {
-      "type": "url",
-      "id": "link_2",
-      "label": "Link 2"
-    },
-    {
-      "type": "text",
-      "id": "title_3",
-      "label": "Title 3"
-    },
-    {
-      "type": "url",
-      "id": "link_3",
-      "label": "Link 3"
-    },
-    {
-      "type": "text",
-      "id": "title_4",
-      "label": "Title 4"
-    },
-    {
-      "type": "url",
-      "id": "link_4",
-      "label": "Link 4"
-    },
-    {
-      "type": "text",
-      "id": "title_5",
-      "label": "Title 5"
-    },
-    {
-      "type": "url",
-      "id": "link_5",
-      "label": "Link 5"
-    }
   ],
   "presets": [
     {
