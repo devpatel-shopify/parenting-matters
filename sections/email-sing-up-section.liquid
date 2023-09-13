@@ -82,7 +82,7 @@
                   aria-label="{{ 'newsletter.button_label' | t }}"
                 >
                   {{ section.settings.button_text }}
-                  <div class="icon-cover">{% render 'icon-arrow' %}</div>
+                  {% comment %}<div class="icon-cover">{% render 'icon-arrow' %}</div>{% endcomment %}
                 </button>
 
                 {%- if form.errors -%}
