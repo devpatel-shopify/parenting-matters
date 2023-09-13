@@ -43,7 +43,7 @@
                         assign dateTime = page.date_and_time
                     %}
                     {% if briefQuestionOne != blank or briefAnswerOne != blank or briefQuestionTwo != blank or briefAnswerTwo != blank or briefQuestionTwo != blank %}
-                        <div class="answer-box {% if forloop.index > 2 %} hidden {% endif %}">
+                        <div class="answer-box {% if forloop.index > 10 %} hidden {% endif %}">
                             {% if briefQuestionOne != blank or briefAnswerOne != blank %}
                                 <div class="que_ans">
                                     {% if briefQuestionOne != blank %}
@@ -74,33 +74,12 @@
                 {% endfor %}
             </div>
            
-                <div class="load-more-btn">
-                   
-                        <a class="button button--secondary js-read-more" >
-                            <span class="btn-text">{{ 'sections.page.button_title' | t }}</span>
-                            {% render 'icon-arrow' %}
-                        </a>
-                       
-                </div>
+                
                
         </div>
     </div>
 </section>
-
-<script>
-    document.querySelectorAll('.js-read-more').forEach((button) => {
-    button.addEventListener('click', () => {
-        button.classList.toggle('open');
-        let innerCard = button.closest('.answer-grid').querySelectorAll('.answer-box');
-        console.log("innerCard", innerCard)
-        innerCard.forEach((card, index) => {
-        if (index > 3 )
-            button.classList.contains('open') ? card.classList.remove('hidden') : card.classList.add('hidden');
-        });
-        button.querySelector('.btn-text').innerText = button.classList.contains('open') ? 'Read less' : 'Read more';
-    });
-    });
-</script>
+  
 
 {% schema %}
 {
