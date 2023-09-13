@@ -11,16 +11,12 @@
     "d3896c67-79a8-4d64-954d-f8519b2ccc71": {
       "type": "dashboard-parenting-style",
       "settings": {
-        "title_1": "Overview",
-        "link_1": "shopify:\/\/pages\/custom-dashboard-overview",
-        "title_2": "Course",
-        "link_2": "shopify:\/\/pages\/custom-course",
-        "title_3": "Family star",
-        "link_3": "shopify:\/\/pages\/custom-family-star-result",
-        "title_4": "Parenting style",
-        "link_4": "shopify:\/\/pages\/custom-parenting-style",
-        "title_5": "",
-        "link_5": ""
+        "nq_title": "Take a quiz and get your Parenting style.",
+        "title": "Your parenting style [parenting_style]",
+        "description": "<p>Your parenting style is balanced between Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them and ‘Hands-off’ which means that you tent to have more laissez-faire of less involved approach to your children.<\/p>",
+        "btn_text": "Download PDF",
+        "nq_btn_text": "Take a Quizz",
+        "btn_link": "shopify:\/\/pages\/parenting-style-quiz-1"
       }
     }
   },

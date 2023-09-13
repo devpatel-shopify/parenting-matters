@@ -120,6 +120,16 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "course_product": "course",
+    "title_1": "Course",
+    "link_1": "shopify:\/\/pages\/custom-course",
+    "show_course_only_1": true,
+    "title_2": "Community",
+    "link_2": "https:\/\/community.parentingmattersonline.com\/",
+    "new_tab_2": true,
+    "title_3": "Family star",
+    "link_3": "shopify:\/\/pages\/custom-family-star-result",
+    "title_4": "Parenting style",
+    "link_4": "shopify:\/\/pages\/custom-parenting-style",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
