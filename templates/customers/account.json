@@ -19,7 +19,7 @@
             "ltl_heading": "Last time you learn",
             "ltl_title": "Praise <strong>Part 2<\/strong> - Introduction",
             "ltl_description": "<p>How to give praise for the right things<\/p>",
-            "ntl_heading": "Last time you learn",
+            "ntl_heading": "Next time you'll learn",
             "ntl_title": "Praise <strong>Part 3<\/strong> - Introduction",
             "ntl_description": "<p>How to give praise for the right things<\/p>",
             "btn_title": "Go to course",
@@ -45,11 +45,11 @@
       ],
       "settings": {
         "left_icon": "shopify:\/\/shop_images\/dash1.png",
-        "left_icon_back_color": "#F7C083",
+        "left_icon_back_color": "#f7c083",
         "left_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
         "left_np_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
         "right_icon": "shopify:\/\/shop_images\/dash2.png",
-        "right_icon_back_color": "#1C8DA6",
+        "right_icon_back_color": "#1c8da6",
         "right_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
         "right_np_description": "<p>Start the course to set your goal<\/p>"
       }
@@ -64,12 +64,24 @@
       "type": "dashboard-family-star",
       "disabled": true,
       "settings": {
+        "nq_title": "My Family Star",
+        "title": "My Family Star",
+        "description": "",
+        "btn_text": "Go to Family Star",
+        "nq_btn_text": "Take a Quizz",
+        "btn_link": ""
       }
     },
     "43603a6d-1538-4c19-b581-c8f57f84d816": {
       "type": "dashboard-parenting-style",
       "disabled": true,
       "settings": {
+        "nq_title": "Take a quiz and get your Parenting style.",
+        "title": "Your parenting style [parenting_style]",
+        "description": "",
+        "btn_text": "Download PDF",
+        "nq_btn_text": "Take a Quizz",
+        "btn_link": ""
       }
     },
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
