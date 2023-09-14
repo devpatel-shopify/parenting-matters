@@ -79,10 +79,18 @@
                   <button class="tab-button" data-id="score">Peak score</button>
                 </div>
                 <div class="contentWrapper tab-content">
-                  <div class="content active" id="result">
-                    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" />
+                  <div class="content parenting_result active" id="result">
+                    <canvas id="parenting_chat"></canvas>
+                    <div class="canvas_desc">
+                      <span>Permissive/<br>Indulgent</span>
+                      <span>Balanced &<br>Authoritative</span>
+                      <span>Hand-off/<br>Uninvolved</span>
+                      <span>Authoritarian/<br>Strict</span>
+                    </div>                    
+                    {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" /> {% endcomment %}
                   </div>
-                  <div class="content" id="score">
+                  <div class="content family_result" id="score">
+                    <canvas id="family_chat"></canvas>
                     <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/graph.png?v=1691754879" />
                   </div>
                 </div>
@@ -99,6 +107,140 @@
   </div>
 </section>
 
+<script>
+  const parenting_chat = document.getElementById('parenting_chat');    
+  const parenting_data = {
+    datasets: [{
+      label: 'All',
+      data: [
+      { x: 50, y: 20}, 
+      { x: 10, y: 10}, 
+      { x: 40, y: 30}, 
+      { x: 50, y: -20}, 
+      { x: 80, y: -40}, 
+      { x: 25, y: 60}, 
+      ],
+      backgroundColor: 'rgb(3,52,63,0.4)',
+      radius: 3,
+      hoverRadius: 4
+    },{
+      label: 'Current Client',
+      data: [{
+        x: -10,
+        y: 0  
+      }],
+      backgroundColor: 'rgb(3,52,63,1)',        
+      radius: 8,
+      hoverRadius: 10
+      //borderWidth: 3                
+    }]
+  };
+
+  new Chart(parenting_chat, {
+    type: 'scatter',
+    data: parenting_data,
+    options: {
+      aspectRatio: 1,
+      responsive: true,
+      maintainAspectRatio: true,
+      //tooltip:
+      layout: {
+        padding: 40
+      },        
+      plugins: {
+        legend: false,
+        //tooltip: false,          
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'center',            
+          min: -100,
+          max: 100,                        
+          grid: {              
+            display: false,                      
+            drawOnChartArea: false // only want the grid lines for one axis to show up
+          },
+          border:{
+            color: '#03343f',
+            width: 2              
+          },
+          ticks:{
+            display: false
+          }
+        },
+        y: {
+          type: 'linear',
+          position: 'center',          
+          min: -100,
+          max: 100,  
+          grid: {    
+            display: false,                 
+            drawOnChartArea: false // only want the grid lines for one axis to show up
+          },
+          border:{
+            color: '#03343f',
+            width: 2              
+          },
+          ticks:{
+            display: false
+          }
+        }
+      },        
+    }      
+  });
+</script>
+
+<script>
+  const family_chat = document.getElementById('family_chat');    
+  const family_data = {
+    labels: ['My child', 'Child Temper', 'My confidence', 'My parenting', 'My wellbeing', 'Child hassle'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 90, 81, 56, 55],
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }, {
+      label: 'My Second Dataset',
+      data: [28, 48, 40, 19, 96, 27],
+      fill: true,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgb(54, 162, 235)',
+      pointBackgroundColor: 'rgb(54, 162, 235)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    }]
+  };  
+
+  new Chart(family_chat, {
+    type: 'radar',
+    data: family_data,
+    options: {
+      aspectRatio: 1,
+      responsive: true,
+      maintainAspectRatio: true,
+      elements: {
+        line: {
+          borderWidth: 3
+        }
+      },
+      //tooltip:
+      layout: {
+        padding: 40
+      },
+      plugins: {
+        legend: false,
+        //tooltip: false,          
+      }
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "Dashboard Parenting style",
