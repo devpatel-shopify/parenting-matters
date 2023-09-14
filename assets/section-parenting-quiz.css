@@ -27,7 +27,18 @@
     display: flex;
     flex-direction: column;
 }
-
+.sub-title {
+  padding-bottom: 20px;
+}
+.customer.contact-form.register.quiz-signup {
+  text-align: left;
+  margin-top: 0;
+}
+.customer.contact-form.register.quiz-signup p {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  max-width: 420px;
+}
 .ps-quiz .quiz-section .slide {
     width: 100%;
     padding: 20px;
@@ -91,8 +102,6 @@
     transition: opacity .2s;
     border-radius: var(--progress-bar-radius);
     overflow: hidden;
-    border-radius: 20px;
-    cursor:pointer;
 }
 
 /* Mouse-over effects */
@@ -128,34 +137,33 @@
     cursor: pointer;
     /* Cursor on hover */
 }
-.ps-quiz .quiz-section .slide .range_inner{
-  position:relative;
-}
-.ps-quiz .quiz-section .slide .range_inner .step{    
-  position: absolute;
-  top: 4px;
-  width: 3px;
-  height: calc(100% - 10px);
-  background: var(--progress-bar-icon);  
-  border-radius: 5px;
-  pointer-events:none;
-}
-.ps-quiz .quiz-section .slide .range_inner .step:nth-child(1){    
-  left: calc(0% + 10px);
-}
-.ps-quiz .quiz-section .slide .range_inner .step:nth-child(2){    
-  left: calc(33.33% + 5px);
-}
-.ps-quiz .quiz-section .slide .range_inner .step:nth-child(3){    
-  left: calc(66% + 5px);
-}
-.ps-quiz .quiz-section .slide .range_inner .step:nth-child(4){    
-  left: calc(100% - 9px);
-}
+
 .ps-quiz .quiz-section .slide .qtype-button {
     width: 100%;
     position: relative;
-    padding: 40px 0;
+    padding: 20px 10px;
+    margin: 20px 0;
+}
+
+.qtype-button.radio-container.error {
+  
+  /* background-color: rgb(255, 236, 236); */
+  animation:blink linear 1s 2 forwards;
+}
+
+@keyframes blink {
+  0% {
+    border: 1px solid red;
+    background-color: rgb(255, 236, 236);
+  }
+  50% {
+    border: 1px solid red;
+    background-color: none;
+  }
+  100% {
+    border: 1px solid red;
+    background-color: rgb(255, 236, 236);
+  }
 }
 
 .ps-quiz .quiz-section .slide .textfield-container {
@@ -175,13 +183,9 @@
     padding: 40px 0;
 }
 
-.dropdown-container .select{
-    margin: 30px auto;
-}
-.dropdown-container .select__select{
-    font-size: 1.4rem;
-}
-.dropdown-container .select .icon-caret{
-    height: 1.6rem;
-    top: calc(50% - 0.8rem);
+
+.contact-section .contact{
+  padding: 25px;
+  text-align: left;
+  margin: 20px auto;
 }
