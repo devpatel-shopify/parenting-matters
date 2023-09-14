@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Get started",
-            "button_link_1": "shopify:\/\/pages\/parenting-style-quiz",
+            "button_link_1": "shopify:\/\/pages\/quiz-hub",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -226,7 +226,7 @@
             "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
             "card_btn": "Discover your parenting style",
             "card_btn_mobile": "Learn more",
-            "card_btn_link": "shopify:\/\/pages\/parenting-style-quiz",
+            "card_btn_link": "shopify:\/\/pages\/quiz-hub",
             "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
             "margin_top": 0,
             "margin_top_mobile": 0
