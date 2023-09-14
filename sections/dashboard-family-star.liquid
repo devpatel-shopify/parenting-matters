@@ -1,5 +1,7 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
+{%- assign isQuizCompleted = true -%}
+
 <section class="dashboard dashboard_family">
   <div class="page-width">
     <div class="welcome-title">
@@ -17,17 +19,17 @@
             <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: 1;">
               <div class="family-title">
                 <h5>
-                  <label class="scroll-trigger animate--slide-in">My family star</label>
+                  {%- if isQuizCompleted == blank -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.nq_title }}</label>
+                  {%- else -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.title }}</label>
+                  {%- endif -%}
                 </h5>
-                <div class="family-star-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
-                  <p>
-                    The Course Introduction section is where you entered the initial questionnaires to define your initial
-                    Family Star.
-                    <br>
-                    <br>
-                    The chart here shows your results from the initial questionnaires.
-                  </p>
-                </div>
+                {%- if section.settings.description != blank -%}
+                  <div class="family-star-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
+                    {{ section.settings.description }}
+                  </div>
+                {%- endif -%}
                 <div class="click-info scroll-trigger animate--slide-in" style="--animation-order: 3;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
                     <path d="M4 9.5C4 10.6162 4.21986 11.7215 4.64702 12.7528C5.07419 13.7841 5.70029 14.7211 6.48959 15.5104C7.27889 16.2997 8.21592 16.9258 9.24719 17.353C10.2785 17.7801 11.3838 18 12.5 18C13.6162 18 14.7215 17.7801 15.7528 17.353C16.7841 16.9258 17.7211 16.2997 18.5104 15.5104C19.2997 14.7211 19.9258 13.7841 20.353 12.7528C20.7801 11.7215 21 10.6162 21 9.5C21 8.38376 20.7801 7.27846 20.353 6.24719C19.9258 5.21592 19.2997 4.27889 18.5104 3.48959C17.7211 2.70029 16.7841 2.07419 15.7528 1.64702C14.7215 1.21986 13.6162 1 12.5 1C11.3838 1 10.2785 1.21986 9.24719 1.64702C8.21592 2.07419 7.27889 2.70029 6.48959 3.48959C5.70029 4.27889 5.07419 5.21592 4.64702 6.24719C4.21986 7.27846 4 8.38376 4 9.5Z" fill="#C9D9D3"/>
@@ -39,26 +41,33 @@
                   <p>Click on the circles for further information.</p>
                 </div>
               </div>
-              <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
-                <a class="button button--secondary" href="/pages/organisations"
-                  >Go to family star
-                  <svg
-                    aria-hidden="true"
-                    class="icon icon-arrow"
-                    focusable="false"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
+              {%- assign buttonTitle = section.settings.nq_btn_text -%}
+              {%- assign btnUrl = section.settings.btn_link -%}
+              {%- if isQuizCompleted == true -%}
+                {%- assign buttonTitle = section.settings.btn_text -%}
+              {%- endif -%}
+              {%- if buttonTitle != blank and btnUrl != blank -%}
+                <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                  <a class="button button--secondary" href="{{ btnUrl }}">
+                    {{ buttonTitle }}
+                    <svg
+                      aria-hidden="true"
+                      class="icon icon-arrow"
+                      focusable="false"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              {%- endif -%}
             </div>
             <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
               <div class="graph--img">
@@ -105,6 +114,52 @@
 {
   "name": "Dashboard Family star",
   "settings": [
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "nq_title",
+      "label": "Title",
+      "default": "My Family Star",
+      "info":"If User hasn't complated Quiz."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "My Family Star",
+      "info":"If User has complated Quiz."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Text",
+      "default": "Go to Family Star",
+      "info":"If User has complated Quiz."
+    },
+    {
+      "type": "text",
+      "id": "nq_btn_text",
+      "label": "Text",
+      "default": "Take a Quizz",
+      "info":"If User hasn't complated Quiz."
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
   ],
   "presets": [
     {

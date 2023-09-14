@@ -185,6 +185,12 @@ background: #FFF0C9;
     gap: 10px;
     margin-bottom: 26px;
 }
+
+.course-grid .white-box .icon-text img {
+    width: 22px;
+    height: 22px;
+}
+
 .course-grid .white-box .icon-text span{
     font-size: 20px;
     font-weight: 400;

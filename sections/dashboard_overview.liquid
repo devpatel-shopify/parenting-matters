@@ -10,6 +10,106 @@
 {%- assign nextStepContent = false -%}
 {%- assign previoustStepContent = false -%}
 
+
+{% # Get Active Step %}
+{%- assign lastCompletedStepIndex = 0 -%}
+{%- assign lastCompletedStepDetected = false -%}
+{%- assign tmpCount = 0 -%}
+{%- assign tmpPartCount = 0 -%}
+{%- assign currentPartIndex = 0 -%}
+{%- for course in deshboardContent.courses -%}
+  {%- assign courseValue = course | last -%}
+
+  {%- for innerCourse in courseValue.courses -%}
+    {%- assign innerCourseValue = innerCourse | last -%}
+
+    {%- for part in innerCourseValue.parts -%}
+      {%- assign partValue = part | last -%}
+      {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
+      {%- assign totalSteps = partValue.steps | size -%}
+
+      {%- for step in partValue.steps -%}
+        {%- assign tmpCount = tmpCount | plus: 1 -%}
+        {%- assign stepValue = step | last -%}
+        {%- assign isActiveStep = false -%}
+
+        {%- if lastCompletedStepDetected == false -%}
+          {%- for tag in customer.tags -%}
+            {%- if tag == stepValue.tag -%}
+              {%- assign isActiveStep = true -%}
+              {%- assign lastCompletedStepDetected = true -%}
+              {%- assign lastCompletedStepIndex = tmpCount -%}
+              {%- assign previoustStepContent = stepValue -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- if lastCompletedStepDetected == true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if lastCompletedStepDetected == true -%}
+        {%- if lastCompletedStepIndex > totalSteps -%}
+          {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
+        {%- endif -%}
+        {%- assign currentPartIndex = tmpPartCount -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if lastCompletedStepDetected == true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if lastCompletedStepDetected == true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign currentStepIndex = lastCompletedStepIndex | plus: 1 -%}
+{%- assign nextStepIndex = currentStepIndex | plus: 1 -%}
+
+{%- assign tmpCount = 0 -%}
+{%- for course in deshboardContent.courses -%}
+  {%- assign courseValue = course | last -%}
+
+  {%- for innerCourse in courseValue.courses -%}
+    {%- assign innerCourseValue = innerCourse | last -%}
+
+    {%- for part in innerCourseValue.parts -%}
+      {%- assign partValue = part | last -%}
+
+      {%- for step in partValue.steps -%}
+        {%- assign tmpCount = tmpCount | plus: 1 -%}
+        {%- assign stepValue = step | last -%}
+
+        {%- if tmpCount == nextStepIndex -%}
+          {%- assign nextStepContent = stepValue -%}
+          {%- break -%}
+        {%- endif -%}
+        
+      {%- endfor -%}
+
+      {%- if nextStepContent != false -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if nextStepContent != false -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if nextStepContent != false -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+
+
 <section class="dashboard dashboard_overview">
   <div class="page-width">
     <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;" >
@@ -25,16 +125,17 @@
             {%- assign left_description = section.settings.left_description -%}
             {%- assign left_np_description = section.settings.left_np_description -%}
             {%- assign leftDescription = left_np_description -%}
+            {%- assign ParentGole = customer.metafields.klaviyo['Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
             {%- if isCoursePurchased -%}
               {%- assign leftDescription = left_description -%}
             {%- endif -%}
-            {%- if left_icon != blank or leftDescription != blank -%}
+            {%- if left_icon != blank and leftDescription != blank and ParentGole != blank -%}
               <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 3;">
                 <div class="icon" style="background:{{ left_icon_back_color }};">
                   <img src="{{ left_icon | image_url }}" alt="{{ left_icon.alt | default:'icon' }}">
                 </div>
                 <div class="icon-text">
-                  {{ leftDescription }}
+                  {{ leftDescription | replace: '[dynamic_text]', ParentGole }}
                 </div>
               </div>
             {%- endif -%}
@@ -44,17 +145,18 @@
             {%- assign right_description = section.settings.right_description -%}
             {%- assign right_np_description = section.settings.right_np_description -%}
             {%- assign rightDescription = right_np_description -%}
+            {%- assign ChildGole = customer.metafields.klaviyo['.Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
             {%- if isCoursePurchased -%}
               {%- assign rightDescription = right_description -%}
             {%- endif -%}
 
-            {%- if left_icon != blank or leftDescription != blank -%}
+            {%- if left_icon != blank and leftDescription != blank and ChildGole != blank -%}
               <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 4;">
                 <div class="icon" style="background:{{ right_icon_back_color }};">
                   <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}" />
                 </div>
                 <div class="icon-text">
-                  {{ rightDescription }}
+                  {{ rightDescription | replace: '[dynamic_text]', ChildGole }}
                 </div>
               </div>
             {%- endif -%}
@@ -80,8 +182,7 @@
                     <div class="course-grid">
                       {%- if isCoursePurchased == true -%}
                         <div class="course-progress--wrapper">
-                          {%- assign activeStep = false -%}
-                          {%- assign addNextCourseStep = false -%}
+                          {%- assign tmpCount = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
                             <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
@@ -95,35 +196,16 @@
                                   {% for part in innerCourseValue.parts %}
                                     {%- assign partValue = part | last -%}
 
-                                    {%- if addNextCourseStep == true -%}
-                                      {%- assign nextStepContent = partValue.steps['step_1'] -%}
-                                      {%- assign addNextCourseStep = false -%}
-                                    {%- endif -%}
-
                                     {%- assign totalCourses = totalCourses | plus: 1 -%}
                                     {%- assign totalSteps = partValue.steps | size | times: 1.0 -%}
                                     {%- assign completedStepCount = 0 -%}
 
                                     {%- for step in partValue.steps -%}
                                       {%- assign stepValue = step | last -%}
-                                      {%- if customer.tags contains stepValue.tag -%}
+                                      {%- assign tmpCount = tmpCount | plus: 1 -%}
+
+                                      {%- if tmpCount <= lastCompletedStepIndex -%}
                                         {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                      {%- else -%}
-                                        {%- if activeStep == false -%}
-                                          {%- unless customer.tags contains stepValue.tag -%}
-                                            {%- assign activeStep = forloop.index -%}
-                                            {%- assign activeStepDetected = true -%}
-                                            {%- assign prevCount = activeStep | minus: 1 -%}
-                                            {%- assign nextCount = activeStep | plus: 1 -%}
-                                            {%- assign prevStepText = "step_" | append: prevCount -%}
-                                            {%- assign nextStepText = "step_" | append: nextCount -%}
-                                            {%- assign nextStepContent = partValue.steps[nextStepText] -%}
-                                            {%- assign previoustStepContent = partValue.steps[prevStepText] -%}
-                                            {%- if nextCount >= totalSteps -%}
-                                              {%- assign addNextCourseStep = true -%}
-                                            {%- endif -%}
-                                          {%- endunless -%}
-                                        {%- endif -%}
                                       {%- endif -%}
                                     {%- endfor -%}
 
@@ -483,7 +565,7 @@
       "type": "richtext",
       "id": "left_description",
       "label": "Description",
-      "info": "If Course has been Purchased."
+      "info": "If Course has been Purchased. And [dynamic_text] will automatically replace with user content."
     },
     {
       "type": "richtext",
@@ -510,7 +592,7 @@
       "type": "richtext",
       "id": "right_description",
       "label": "Description",
-      "info": "If Course has been Purchased."
+      "info": "If Course has been Purchased. And [dynamic_text] will automatically replace with user content."
     },
     {
       "type": "richtext",

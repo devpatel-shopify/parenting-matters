@@ -35,10 +35,10 @@
                     </div>
                   {%- endif -%}
                 {%- endif -%}
-                <div class="click-info scroll-trigger animate--slide-in" style="--animation-order: 3;">
+                {% comment %} <div class="click-info scroll-trigger animate--slide-in" style="--animation-order: 3;">
                   {% render 'dash-info-icon' %}
                   <p>To see the full assessment if your parenting click here, or click the download button below.</p>
-                </div>
+                </div> {% endcomment %}
               </div>
               {%- if ParentingStyle == blank and section.settings.btn_link != blank and section.settings.nq_btn_text != blank -%}
                 <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
