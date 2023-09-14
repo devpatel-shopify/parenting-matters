@@ -11,16 +11,6 @@
     "6e4d551e-c162-4e5b-ba08-4b17d6922a6b": {
       "type": "dashboard-family-star",
       "settings": {
-        "title_1": "Overview",
-        "link_1": "shopify:\/\/pages\/custom-dashboard-overview",
-        "title_2": "Course",
-        "link_2": "shopify:\/\/pages\/custom-course",
-        "title_3": "Community",
-        "link_3": "",
-        "title_4": "Family star",
-        "link_4": "shopify:\/\/pages\/custom-family-star-result",
-        "title_5": "Parenting style",
-        "link_5": "shopify:\/\/pages\/custom-parenting-style"
       }
     }
   },

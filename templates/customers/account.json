@@ -44,17 +44,6 @@
         "3fbd1212-6d2a-47cf-bff7-8452d81f7a60"
       ],
       "settings": {
-        "overview_text": "Overview",
-        "title_1": "Course",
-        "link_1": "shopify:\/\/pages\/custom-course",
-        "title_2": "Community",
-        "link_2": "https:\/\/community.parentingmattersonline.com\/",
-        "title_3": "Family star",
-        "link_3": "shopify:\/\/pages\/custom-family-star-result",
-        "title_4": "Parenting style",
-        "link_4": "shopify:\/\/pages\/custom-parenting-style",
-        "title_5": "",
-        "link_5": "",
         "left_icon": "shopify:\/\/shop_images\/dash1.png",
         "left_icon_back_color": "#F7C083",
         "left_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
@@ -69,48 +58,18 @@
       "type": "dashboard-course",
       "disabled": true,
       "settings": {
-        "title_1": "",
-        "link_1": "",
-        "title_2": "",
-        "link_2": "",
-        "title_3": "",
-        "link_3": "",
-        "title_4": "",
-        "link_4": "",
-        "title_5": "",
-        "link_5": ""
       }
     },
     "785bac68-0bc1-40f7-9ba9-3d916c18595d": {
       "type": "dashboard-family-star",
       "disabled": true,
       "settings": {
-        "title_1": "",
-        "link_1": "",
-        "title_2": "",
-        "link_2": "",
-        "title_3": "",
-        "link_3": "",
-        "title_4": "",
-        "link_4": "",
-        "title_5": "",
-        "link_5": ""
       }
     },
     "43603a6d-1538-4c19-b581-c8f57f84d816": {
       "type": "dashboard-parenting-style",
       "disabled": true,
       "settings": {
-        "title_1": "",
-        "link_1": "",
-        "title_2": "",
-        "link_2": "",
-        "title_3": "",
-        "link_3": "",
-        "title_4": "",
-        "link_4": "",
-        "title_5": "",
-        "link_5": ""
       }
     },
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
