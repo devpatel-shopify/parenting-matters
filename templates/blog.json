@@ -3,7 +3,7 @@
     "2778df54-ebf9-426b-9e19-3050cdd9f343": {
       "type": "blog-bannner",
       "settings": {
-        "blog_name": "The Parenting matters blog",
+        "blog_name": "Raising happy children with love and limits",
         "desktop_img": "shopify:\/\/shop_images\/Hero_1.png",
         "mobile_img": "shopify:\/\/shop_images\/Hero_2.png"
       }
@@ -34,7 +34,7 @@
             "card_description": "<p>Is it well-balanced, strict, permissive or hands-off? The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz will help you identify your personal style!<\/p>",
             "card_btn": "Discover your parenting style",
             "card_btn_mobile": "Discover your parenting style",
-            "card_btn_link": "shopify:\/\/pages\/quiz-hub",
+            "card_btn_link": "shopify:\/\/pages\/parenting-style-quiz",
             "color_scheme": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
             "margin_top": 0,
             "margin_top_mobile": 0
@@ -49,7 +49,7 @@
             "card_description": "<p>Whether it's understanding your child better or dealing with specific worries and challenging behaviours, we offer guidance on a wide range of parenting matters.<\/p>",
             "card_btn": "Find out more",
             "card_btn_mobile": "Find out more",
-            "card_btn_link": "shopify:\/\/blogs\/news",
+            "card_btn_link": "shopify:\/\/blogs\/ddp-page",
             "color_scheme": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
             "margin_top": 70,
             "margin_top_mobile": 0
