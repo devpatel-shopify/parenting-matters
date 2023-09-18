@@ -11,6 +11,12 @@
     "16741c50-c2c2-484b-989d-48b7770b5027": {
       "type": "dashboard-course",
       "settings": {
+        "nq_parenting_style_text": "Complete Parenting Style Quiz",
+        "parenting_style_text": "Your parenting style is [parenting_style]",
+        "goal_icon": "shopify:\/\/shop_images\/dash1.png",
+        "goal_icon_back_color": "#F7C083",
+        "goal_description": "<p>My goal is to better understand my child and their feelings<\/p>",
+        "goal_np_description": "<p>Start course to set your goal<\/p>"
       }
     }
   },

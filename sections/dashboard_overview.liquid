@@ -185,6 +185,7 @@
                           {%- assign tmpCount = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
+                            {% if courseValue.disable_course_progress == "true" %}{%- continue -%}{% endif %}
                             <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
                               <div class="icon-text">
                                 <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">

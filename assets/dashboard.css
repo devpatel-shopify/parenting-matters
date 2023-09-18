@@ -311,13 +311,14 @@ background: #FFF0C9;
     background: #FDF8EC;
     border-radius: 82px;
     border: 1px solid var(--brand-primary-pink, #C72457);
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     padding: 9px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FDF8EC !important;
+    top: -7px;
 }
 .dashboard_course .family-graph-block .flickity-button svg{
     left: unset;

@@ -7,6 +7,7 @@
 
 {%- assign nextStepContent = false -%}
 {%- assign previoustStepContent = false -%}
+{%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
 
 {%- assign isCoursePurchased = false -%}
 {% if customer and customer.tags contains 'Purchased Course' %}
@@ -24,7 +25,7 @@
 {%- assign lastCompletedStepDetected = false -%}
 {%- assign tmpCount = 0 -%}
 {%- assign tmpPartCount = 0 -%}
-{%- assign currentPartIndex = 0 -%}
+{%- assign currentPartIndex = 1 -%}
 {%- for course in deshboardContent.courses -%}
   {%- assign courseValue = course | last -%}
 
@@ -145,8 +146,8 @@
                   {% for course in deshboardContent.courses %}
                     {%- assign courseValue = course | last -%}
                     {%- assign animationCount = animationCount | plus: 1 -%}
-                    
-                    <div class="white-box {% unless forloop.first %}top-border{% endunless %} scroll-trigger animate--slide-in {% if courseValue.disable_course_progress == "true" %}hidden{% endif %}" style="--animation-order: {{ animationCount }};">
+                    {% if courseValue.disable_course_progress == "true" %}{%- continue -%}{% endif %}
+                    <div class="white-box {% unless forloop.first %}top-border{% endunless %} scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};">
                       <div class="icon-text">
                         <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">
                         <span>{{ courseValue.title }}</span>
@@ -160,12 +161,12 @@
                               <button type="button" class="button button--secondary">{{ innerCourseValue.title }}</button>
                             </div>
                             {% for part in innerCourseValue.parts %}
-                              {%- assign totalCourses = totalCourses | plus: 1 -%}
                               {%- assign partValue = part | last -%}
                               
                               {% if partValue.disabled == "true" %}
                                 {%- continue -%}
                               {% endif %}
+                              {%- assign totalCourses = totalCourses | plus: 1 -%}
   
                               {%- assign totalSteps = partValue.steps | size | times: 1.0 -%}
                               {%- assign completedStepCount = 0 -%}
@@ -211,14 +212,24 @@
                 <div class="content_main">
                   <div class="content_top">
                     <div class="content_item box-1 scroll-trigger animate--slide-in" style="--animation-order: 4;">
-                      <div class="title">Your parenting style is <span>{{ customer.metafields.klaviyo.ParentingStyle }}</span></div>
+                      {%- if ParentingStyle != blank -%}
+                        {%- capture ParentingStyletext -%}<span>{{ ParentingStyle }}</span>{%- endcapture -%}
+                        <div class="title">{{ section.settings.parenting_style_text | replace: '[parenting_style]', ParentingStyletext }}</div>
+                      {%- else -%}
+                        <div class="title">{{ section.setitngs.nq_parenting_style_text }}</div>
+                      {%- endif -%}
                     </div>
                     <div class="content_item box-2 scroll-trigger animate--slide-in" style="--animation-order: 5;">
                       <div class="content_box">
-                        <div class="icon">
-                          {% render 'icon-marker' %}
+                        <div class="icon" style="background:{{ section.settings.goal_icon_back_color }}">
+                          {% # render 'icon-marker' %}
+                          <img src="{{ section.settings.goal_icon | image_url }}" alt="{{ section.settings.goal_icon.alt | default:'Goal Icon' }}">
                         </div>
-                        <div class="text">My goal is to better understand my child and their feelings</div>
+                        {%- if isCoursePurchased == true -%}
+                          <div class="text">{{ section.settings.goal_description }}</div>
+                        {%- else -%}
+                          <div class="text">{{ section.settings.goal_np_description }}</div>
+                        {%- endif -%}
                       </div>
                     </div>
                   </div>
@@ -448,6 +459,51 @@
 {
   "name": "Dashboard Course",
   "settings": [
+    {
+      "type": "header",
+      "content": "Parenting Style Text"
+    },
+    {
+      "type": "text",
+      "id": "parenting_style_text",
+      "label": "Title",
+      "default": "Your parenting style is [parenting_style]",
+      "info":"If User has complated Quiz. [parenting_style] will automatically replace with current Parenting style."
+    },
+    {
+      "type": "text",
+      "id": "nq_parenting_style_text",
+      "label": "Text",
+      "default":"Complete Parenting Style Quiz",
+      "info":"If User hasn't complated Quiz."
+    },
+    {
+      "type": "header",
+      "content": "Goal Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "goal_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "color",
+      "id": "goal_icon_back_color",
+      "label": "Icon Background Color",
+      "default": "#F7C083"
+    },
+    {
+      "type": "richtext",
+      "id": "goal_description",
+      "label": "Description",
+      "info": "If Course has been Purchased. And [dynamic_text] will automatically replace with user content."
+    },
+    {
+      "type": "richtext",
+      "id": "goal_np_description",
+      "label": "Description",
+      "info": "if Course hasn't been Purchased."
+    }
   ],
   "presets": [
     {

@@ -54,36 +54,6 @@
         "right_np_description": "<p>Start the course to set your goal<\/p>"
       }
     },
-    "43b41532-24a2-4aaf-a4ed-2974b7d19eee": {
-      "type": "dashboard-course",
-      "disabled": true,
-      "settings": {
-      }
-    },
-    "785bac68-0bc1-40f7-9ba9-3d916c18595d": {
-      "type": "dashboard-family-star",
-      "disabled": true,
-      "settings": {
-        "nq_title": "My Family Star",
-        "title": "My Family Star",
-        "description": "",
-        "btn_text": "Go to Family Star",
-        "nq_btn_text": "Take a Quizz",
-        "btn_link": ""
-      }
-    },
-    "43603a6d-1538-4c19-b581-c8f57f84d816": {
-      "type": "dashboard-parenting-style",
-      "disabled": true,
-      "settings": {
-        "nq_title": "Take a quiz and get your Parenting style.",
-        "title": "Your parenting style [parenting_style]",
-        "description": "",
-        "btn_text": "Download PDF",
-        "nq_btn_text": "Take a Quizz",
-        "btn_link": ""
-      }
-    },
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
       "type": "featured-blog",
       "settings": {
@@ -108,9 +78,6 @@
   "order": [
     "main",
     "dashboard_overview",
-    "43b41532-24a2-4aaf-a4ed-2974b7d19eee",
-    "785bac68-0bc1-40f7-9ba9-3d916c18595d",
-    "43603a6d-1538-4c19-b581-c8f57f84d816",
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409"
   ]
 }
