@@ -47,8 +47,16 @@
                       <p>{{ bs.a1 }}</p>
                       <p>{{ bs.a2 }}</p>
                     </div>
-                    <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                    <div class="range_inner">
+                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
                       <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
+                      <div class="range_steps">
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                      </div>
+                    </div>
                   </div>
                 {% endif %}
 
@@ -192,11 +200,14 @@
                 {% assign options = bs.options | split: ","%}
 
                 <div class="dropdown-container">
-                  <select name="{{ field_name }}" id="{{ field_name }}">
-                    {% for option in options %}
-                        <option value="{{ option }}">{{ option }}</option>
-                    {% endfor %}
-                  </select>
+                  <div class="select">
+                    <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
+                      {% for option in options %}
+                          <option value="{{ option }}">{{ option }}</option>
+                      {% endfor %}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
                 </div>
 
                 <div class="btn-flex">
@@ -238,7 +249,7 @@
 <div class="customer contact-form register quiz-signup">
 
         {% if ss.success_overview != blank %}
-          <h5 class="">{{ ss.success_overview }}</h5>
+          <h5 class="rte">{{ ss.success_overview }}</h5>
         {% endif %}
         <p>Enter your details below to create your account.</p>
   

@@ -90,6 +90,10 @@
     {%- for part in innerCourseValue.parts -%}
       {%- assign partValue = part | last -%}
 
+      {% if partValue.disabled == "true" %}
+        {%- continue -%}
+      {% endif %}
+
       {%- for step in partValue.steps -%}
         {%- assign tmpCount = tmpCount | plus: 1 -%}
         {%- assign stepValue = step | last -%}
@@ -158,6 +162,10 @@
                             {% for part in innerCourseValue.parts %}
                               {%- assign totalCourses = totalCourses | plus: 1 -%}
                               {%- assign partValue = part | last -%}
+                              
+                              {% if partValue.disabled == "true" %}
+                                {%- continue -%}
+                              {% endif %}
   
                               {%- assign totalSteps = partValue.steps | size | times: 1.0 -%}
                               {%- assign completedStepCount = 0 -%}
@@ -229,6 +237,11 @@
                               {% for part in innerCourseValue.parts %}
                                 {%- assign tmpIndexCount1 = tmpIndexCount1 | plus: 1 -%}
                                 {%- assign parValue = part | last -%} 
+                                
+                                {% if parValue.disabled == "true" %}
+                                  {%- continue -%}
+                                {% endif %}
+
                                   <div class="carousel-cell">
                                     <div class="internal_box_upper">
                                       <div class="internal_box js-step-btn" data-target="{{ parValue.title | strip_html | handleize }}">
@@ -283,6 +296,10 @@
   
                               {% for part in innerCourseValue.parts %}
                                 {%- assign parValue = part | last -%}
+
+                                {% if parValue.disabled == "true" %}
+                                  {%- continue -%}
+                                {% endif %}
 
                                 {%- assign activeStep = false -%}
                                 {%- for step in parValue.steps -%}
