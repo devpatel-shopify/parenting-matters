@@ -13,9 +13,9 @@
       "settings": {
         "nq_title": "Take a quiz and get your Parenting style.",
         "title": "Your parenting style [parenting_style]",
-        "description": "<p>Your parenting style is balanced between Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them and ‘Hands-off’ which means that you tent to have more laissez-faire of less involved approach to your children.<\/p>",
+        "description": "<p>You'll see the full description of your parenting style once you've taken the quiz.<\/p>",
         "btn_text": "Download PDF",
-        "nq_btn_text": "Take a Quizz",
+        "nq_btn_text": "Take the quiz",
         "btn_link": "shopify:\/\/pages\/parenting-style-quiz"
       }
     }
