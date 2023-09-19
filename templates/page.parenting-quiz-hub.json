@@ -115,10 +115,10 @@
           "settings": {
             "quiz_image": "shopify:\/\/shop_images\/Frame.png",
             "sub_title": "Quiz",
-            "heading_text": "What's your  parenting style?",
+            "heading_text": "What's your parenting style?",
             "paragraph": "Be it warm and authoritative or hands-off and permissive, there's no right or wrong. The key lies in gaining a deeper understanding of yourself as a parent. Our free quiz can swiftly identify your parenting style!",
             "button_text": "Take the quiz",
-            "np_button_text": "Buy the Course",
+            "np_button_text": "Take the quiz",
             "button_url": "shopify:\/\/pages\/parenting-style-quiz",
             "background_schema": "scheme-8d7a7635-20a3-48fc-bb14-79f39f2c9698",
             "layout": "image_first"
