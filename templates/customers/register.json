@@ -1,14 +1,30 @@
 {
   "sections": {
+    "d992847c-81bd-406b-ae46-ec7291241118": {
+      "type": "contact-banner",
+      "settings": {
+        "contact_img": "shopify:\/\/shop_images\/contact-banner_131aa90b-3b2c-45b6-abc8-3aba7fd6c577.png"
+      }
+    },
     "main": {
       "type": "main-register",
       "settings": {
+        "heading_size": "h1",
+        "small_text": "Enter your details below to create your account.",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "57111383-ced7-40b6-80be-84f2998a6c83": {
+      "type": "dashboard-course",
+      "disabled": true,
+      "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "d992847c-81bd-406b-ae46-ec7291241118",
+    "main",
+    "57111383-ced7-40b6-80be-84f2998a6c83"
   ]
 }

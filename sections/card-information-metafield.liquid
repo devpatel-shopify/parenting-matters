@@ -1,0 +1,168 @@
+{{ 'card-information-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+
+    }
+   @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+
+      }
+     }
+{%- endstyle -%}
+
+<div class="card_information_metafild card_information_section  color-{{ section.settings.background_schema }} gradient section-{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+  <div class="{% unless section.settings.full_width %} page-width {% endunless %} ">
+    <div class="card_detail">
+      <div class="card_benefits_info">
+        <div class="card_sticky">
+          <div class="child_card">
+            {%- for child_card_heading in product.metafields.custom.card_information_heading.value -%}
+              {% if product.metafields.custom.card_information_heading.value != blank %}
+                <h2>{{ child_card_heading }}</h2>
+              {% endif %}
+            {%- endfor -%}
+          </div>
+          {% if product.metafields.custom.card_information_heading.value != blank %}
+          <svg width="386" height="359" viewBox="0 0 386 359" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M385.236 158.542C390.558 273.37 285.18 359 183.717 359C82.2527 359 0 278.635 0 179.5C0 80.3649 82.2527 0 183.717 0C285.18 0 385.236 59.4067 385.236 158.542Z" fill="#FAD5AC"/>
+          </svg>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card_list">
+        {%- for child_card in product.metafields.custom.card_information_image.value -%}
+          {% style %}
+            .block-{{ block.id }}.card_identy{
+              background:{{ section.settings.background_color }};
+            }
+          {% endstyle %}
+          <div class="card_identy block-{{ block.id }}" {{ block.shopify_attributes }}>
+            {% if product.metafields.custom.card_information_image.value != blank %}
+              <div class="card_image">
+                <img
+                  src="{{ child_card | img_url: 'master' }}"
+                  alt="{{ block.settings.card_icon.alt }}"
+                  width="{{ block.settings.card_icon.width }}"
+                  height="{{ block.settings.card_icon.height }}"
+                >
+              </div>
+            {% endif %}  
+            <div class="card_learn">
+              {%- for child_card_title in product.metafields.custom.card_information_title.value [forloop.index0]-%}
+                {% if product.metafields.custom.card_information_title.value [forloop.index0] %}
+                  <h4>{{ child_card_title }}</h4>
+                {% endif %}
+              {%- endfor -%}
+              {%- for child_card_content in product.metafields.custom.card_information_content.value [forloop.index0]-%}
+                {% if product.metafields.custom.card_information_content.value [forloop.index0] %}
+                   <p>{{ child_card_content }}</p>
+                {% endif %} 
+              {%- endfor -%}
+            </div> 
+          </div>
+        {% endfor %}
+        
+
+        {% if section.settings.button_url != blank or section.settings.button_text != blank %}
+          <div class="button_space">
+            {% if product.metafields.custom.card_information_title.value != blank or product.metafields.custom.card_information_content.value != blank %}
+            <a
+              class="button button--secondary"
+              href="{{ section.settings.button_url }}"
+            >
+              {{- section.settings.button_text -}}
+
+              {% render 'icon-arrow' %}
+            </a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CardInformation Metafield",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Show content make a full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "checkbox",
+      "id": "top_radius",
+      "default": true,
+      "label": "Section top border radius"
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "color_scheme",
+      "id": "background_schema",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Card Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#E9F0ED",
+      "label": "Style 2 background"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "CardInformation Metafield"
+      
+    }
+  ]
+}
+{% endschema %}

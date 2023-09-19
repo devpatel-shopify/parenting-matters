@@ -1,0 +1,61 @@
+{{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
+{{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+
+
+<section class="ddp-banner {{ section.settings.custom_class }}">
+  <div class="page-width">
+    <div class="ddp-inner-content">
+      <div class="ddp-left-text">
+        <h2>{{section.settings.ddp_heading}}</h2>
+        <p>
+            {{section.settings.ddp_text}}
+        </p>
+      </div>
+      <div class="ddp-right-img">
+        <img src="{{ section.settings.image_add | img_url:'master' }}" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+  <div class="ddp-bottom-image">
+    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-bottom.png?v=1690952576" alt="" srcset="">
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DDP banner",
+  "settings": [
+    {
+      "type" : "text",
+      "id" : "custom_class",
+      "label" : "Custom class add"
+    },
+    {
+      "type": "text",
+      "id": "ddp_heading",
+      "label": "Heading Text"
+    },
+    {
+        "type": "richtext",
+        "id": "ddp_text",
+        "label": "Small Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_add",
+        "label": "DDP banner image"
+      }
+  ],
+  "presets": [
+    {
+      "name": "DDP banner"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

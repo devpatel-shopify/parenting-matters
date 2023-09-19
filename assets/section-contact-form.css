@@ -1,9 +1,178 @@
+.contact-form{
+  max-width: 615px;
+    padding: 64px !important;
+    margin: 128px auto 26px;
+    background: #C9D9D3;
+    border-radius: 40px;
+}
+.contact-form-block{
+      position: relative;
+}
+.contact-form h2{
+  font-size: 54px;
+  margin-bottom:12px;
+}
+.contact-form p{
+  margin-bottom: 48px;
+  margin-top: 12px;
+  max-width: 420px;
+}
+.contact-form form label{
+  font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+}
+.contact-form form input,.contact-form form textarea{
+  padding: 16px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #CCD6D8;
+  margin-bottom:12px;
+  color: #999;
+  font-family: var(--font-body-family);
+      background: #FDF8EC;
+  line-height: 110%;
+}
+.contact-form form textarea{
+  height: 160px;
+}
+.button-block{
+  margin-top: 36px;
+  display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.button-block p{
+  margin:0 !important;
+}
+.forgot-link{
+  margin-top:48px;
+}
+.forgot-link a{
+      text-decoration: none;
+    font-size: 16px;
+    color: #01333E;
+}
+.contact__fields label{
+  font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.contact {
+  max-width: 615px;
+    /* padding: 64px !important; */
+    margin: 208px auto 26px;
+    background: #C9D9D3;
+    border-radius: 40px;
+    position: relative;
+}
+.field-box input,.field-box textarea{
+  padding: 16px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #CCD6D8;
+    margin-bottom: 12px;
+    color: #999;
+    font-family: var(--font-body-family);
+    background: #FDF8EC;
+  font-size: 16px;
+  line-height: 110%;
+}
+.field-box input::placeholder,.field-box textarea::placeholder{
+   color: #999;
+}
+.contact h2{
+ 
+    margin-bottom: 12px;
+}
+.contact p{
+  margin-bottom: 48px;
+  max-width: 420px;
+}
+.login-button p{
+  font-weight: 500;
+}
+.contact-section{
+  padding:0 10px;
+}
+.field-box textarea{
+  margin-bottom:0;height: 160px;
+}
+.form__message{
+  font-size: 20px;
+    margin-bottom: 20px;
+}
+.contact .form-status{
+  font-size: 20px;
+  margin:0;
+}
+
+@media screen and (max-width: 750px) {
+  .contact-form{
+    padding: 32px 24px !important;
+        margin: 80px 20px 26px;
+  }
+  .customer form{
+    margin-top: 24px;
+  }
+  .login-button{
+    margin: 12px 0 24px;
+        gap: 24px;
+  }
+  .contact-form h2{
+    font-size: 30px;
+  }
+  .contact-form p{
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .button-block{
+    gap: 9px;
+  }
+  .forgot-link {
+    margin-top: 24px;
+}
+  .contact{
+        /* padding: 32px 24px !important; */
+    margin: 80px auto 26px;
+    border-radius: 21.824px;
+  }
+  .contact h2{
+
+    margin-bottom: 6px;
+  }
+  .contact p{
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .footer-main-cover {
+    margin-top: 14px !important;
+}
+  .contact__button {
+    margin-top: 24px !important;
+}
+  .contact-form{
+    border-radius: 21.824px;
+  }
+  .contact-section {
+    padding: 0 20px;
+}
+  .contact .form__message{
+        font-size: 20px;
+  }
+  .login-button p{
+    display: none;
+  }
+}
+
 .contact img {
   max-width: 100%;
 }
 
 .contact .form__message {
-  align-items: flex-start;
+  align-items: flex-start;    font-size: 18px;
+  margin-bottom: 23px;
 }
 
 .contact .icon-success {
@@ -31,9 +200,9 @@
 }
 
 @media screen and (min-width: 750px) {
-  .contact__fields {
+/*   .contact__fields {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
-  }
+  } */
 }

@@ -1,0 +1,37 @@
+{{ 'faq-banner.css' | asset_url | stylesheet_tag }}
+<section class="faq-banner">
+  <div class="svg-banner">
+    <svg xmlns="http://www.w3.org/2000/svg" width="802" height="594" viewBox="0 0 802 594" fill="none">
+      <path d="M801.489 63.4239C815.547 366.842 537.221 593.106 269.234 593.106C1.24669 593.106 -216 380.753 -216 118.803C-216 -143.147 1.24669 -355.5 269.234 -355.5C537.221 -355.5 801.489 -198.526 801.489 63.4239Z" fill="#C9D9D3"/>
+    </svg>
+  </div>
+  <div class="page-width">
+    <div class="faq-banner-text">
+      <h2>{{section.settings.heading_text}}</h2>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Faq Banner",
+  "settings": [
+    {
+      "type" : "text",
+      "id" : "heading_text",
+      "label" : "Banner text"
+    }
+  ],
+  "presets":[
+  {
+    "name": "Faq Banner"
+  }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

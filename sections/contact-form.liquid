@@ -2,26 +2,32 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | divided_by: 2 | round: 0 }}px;
+    padding-right: {{ section.settings.padding_right | divided_by: 2 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 | round: 0 }}px;
+    padding-left: {{ section.settings.padding_left | divided_by: 2 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
+      padding-right: {{ section.settings.padding_right }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_left }}px;
     }
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="contact-section color-{{ section.settings.color_scheme }} gradient">
   <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
       </h2>
+      <p>{{ section.settings.small_text }}</p>
     {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      <h2 class="">{{ 'templates.contact.form.title' | t }}</h2>
+      <p>{{ section.settings.small_text }}</p>
     {%- endif -%}
     {%- liquid
       assign contact_form_class = 'isolate'
@@ -52,24 +58,27 @@
         </ul>
       {%- endif -%}
       <div class="contact__fields">
-        <div class="field">
+        <div class="field-box">
+          <label class="" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
           <input
-            class="field__input"
+            class=""
             autocomplete="name"
             type="text"
             id="ContactForm-name"
             name="contact[{{ 'templates.contact.form.name' | t }}]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
+            placeholder="Enter your name"
           >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
-        <div class="field field--with-error">
+        <div class=" field-box field--with-error">
+          <label class="" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+          </label>
           <input
             autocomplete="email"
             type="email"
             id="ContactForm-email"
-            class="field__input"
+            class=""
             name="contact[email]"
             spellcheck="false"
             autocapitalize="off"
@@ -79,12 +88,9 @@
               aria-invalid="true"
               aria-describedby="ContactForm-email-error"
             {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
+            placeholder="Enter your email"
           >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
+
           {%- if form.errors contains 'email' -%}
             <small class="contact__field-error" id="ContactForm-email-error">
               <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
@@ -96,37 +102,48 @@
             </small>
           {%- endif -%}
         </div>
-      </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
+
+        <div class="field-box">
+          <label class="" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class=""
+            autocomplete="tel"
+            name="contact[{{ 'templates.contact.form.phone' | t }}]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="Enter your number"
+          >
+        </div>
+        <div class="field-box">
+          <label class="" for="ContactForm-body">
+            {{- 'templates.contact.form.comment' | t -}}
+          </label>
+          <textarea
+            rows="10"
+            id="ContactForm-body"
+            class=""
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            placeholder="Enter your message"
+          >
+            {{- form.body -}}
+          </textarea>
+        </div>
       </div>
       <div class="contact__button">
-        <button type="submit" class="button">
+        <button type="submit" class="button button--primary">
           {{ 'templates.contact.form.send' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
         </button>
       </div>
     {%- endform -%}
@@ -142,6 +159,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "small_text",
+      "default": "Contact form",
+      "label": "Small Tax"
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -196,6 +219,26 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right",
       "default": 36
     }
   ],

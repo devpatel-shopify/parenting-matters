@@ -2,13 +2,82 @@
   "sections": {
     "main": {
       "type": "main-account",
+      "disabled": true,
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "dashboard_overview": {
+      "type": "dashboard_overview",
+      "blocks": {
+        "21408e29-3ab5-4718-b52b-053f04294563": {
+          "type": "course_progress",
+          "settings": {
+            "title": "Course progress",
+            "np_title": "Course progress",
+            "ltl_heading": "Last time you learn",
+            "ltl_title": "Praise <strong>Part 2<\/strong> - Introduction",
+            "ltl_description": "<p>How to give praise for the right things<\/p>",
+            "ntl_heading": "Next time you'll learn",
+            "ntl_title": "Praise <strong>Part 3<\/strong> - Introduction",
+            "ntl_description": "<p>How to give praise for the right things<\/p>",
+            "btn_title": "Go to course",
+            "np_btn_title": "Buy the Course",
+            "button_url": "shopify:\/\/pages\/custom-course"
+          }
+        },
+        "3fbd1212-6d2a-47cf-bff7-8452d81f7a60": {
+          "type": "family_star_result",
+          "settings": {
+            "title": "Family star results",
+            "np_title": "Join our Community",
+            "description": "<p>Our safe and secure community connects you with likeminded parents looking to achieve similar goals.<\/p>",
+            "btn_title": "Read more",
+            "np_btn_title": "Read more",
+            "button_url": "https:\/\/community.parentingmattersonline.com\/"
+          }
+        }
+      },
+      "block_order": [
+        "21408e29-3ab5-4718-b52b-053f04294563",
+        "3fbd1212-6d2a-47cf-bff7-8452d81f7a60"
+      ],
+      "settings": {
+        "left_icon": "shopify:\/\/shop_images\/dash1.png",
+        "left_icon_back_color": "#f7c083",
+        "left_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
+        "left_np_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
+        "right_icon": "shopify:\/\/shop_images\/dash2.png",
+        "right_icon_back_color": "#1c8da6",
+        "right_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
+        "right_np_description": "<p>Start the course to set your goal<\/p>"
+      }
+    },
+    "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {
+      "type": "featured-blog",
+      "settings": {
+        "read_more_remove": true,
+        "heading": "More resources",
+        "heading_size": "h2",
+        "button_text1": "",
+        "button_url": "",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "dashboard_overview",
+    "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409"
   ]
 }

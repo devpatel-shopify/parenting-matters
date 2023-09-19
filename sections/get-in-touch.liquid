@@ -1,0 +1,79 @@
+{{ 'get-in-touch.css' | asset_url | stylesheet_tag }}
+
+<section class="get-in-touch">
+  <div class=" page-width">
+    <div class="get-info">
+      <div class="get-icon">
+        <img src="{{ section.settings.image | img_url:'master' }}" alt="" srcset="">
+      </div>
+      <div class="get-details">
+        <h2>{{ section.settings.heading_text }}</h2>
+        <p>{{ section.settings.small_text }}</p>
+        <div class="get-btn">
+          <a
+            {% if section.settings.button_link_2 == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link_2 }}"
+            {% endif %}
+            class="button{% if section.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+          >
+            {{- section.settings.button_label_2 | escape -}}
+            {% render 'icon-arrow' %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Get In Touch",
+  "settings": [
+    {
+      "type":"image_picker",
+      "id":"image",
+      "label":"Add icon"
+    },
+    {
+      "type":"text",
+      "id":"heading_text",
+      "label":"Heading"
+    },
+    {
+      "type":"text",
+      "id":"small_text",
+      "label":"Small text"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "default": "Button label",
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_label_2.label",
+      "info": "t:sections.image-banner.blocks.buttons.settings.button_label_2.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_link_2.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_2",
+      "default": false,
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+    }
+  ],
+  "presets": [
+  {
+    "name": "Get In Touch"
+  }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

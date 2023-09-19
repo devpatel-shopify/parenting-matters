@@ -1167,3 +1167,87 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+
+
+
+// close announcement
+var close_announcement = document.querySelector(".close-announcement");
+var announcement_bar = document.querySelector(".announcement-bar");
+close_announcement.addEventListener("click", (e) => {
+  announcement_bar.parentElement.remove();
+});
+
+var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
+
+
+// section sticky on banner
+function headerHeightup(){  
+  const headerElement = document.querySelector('.section-header');
+  const bannerElement = document.querySelector('.section-header + main .banner_section:first-child');
+  const headerHeight = headerElement.offsetHeight;
+  let marginTopValue = -headerHeight; 
+  if(bannerElement) bannerElement.style.marginTop = marginTopValue + "px";
+}
+headerHeightup();
+window.addEventListener("resize", (event) => {
+  headerHeightup();
+});
+
+// Footer menu accordion
+function footerAccordion(){  
+  var accordion = new Accordion('.footer__blocks-wrapper', {
+    duration: 600, 
+    elementClass: 'footer-block--menu', 
+    triggerClass: 'footer_links_title', 
+    panelClass: 'footer_links', 
+    activeClass: 'is-active'
+  });
+}
+
+if (window.screen.width <= 767) {
+  const footerBlockswrapper = document.querySelector('.footer__blocks-wrapper');
+  if(footerBlockswrapper){
+    footerAccordion();
+  }
+  window.addEventListener("resize", (event) => {
+    if(footerBlockswrapper){
+      footerAccordion();
+    }
+  });
+}
+
+
+
+// Popup
+
+const modals = document.querySelectorAll('[data-modal]');
+
+modals.forEach(function (trigger) {
+  trigger.addEventListener('click', function (event) {
+    event.preventDefault();
+    const modal = document.getElementById(trigger.dataset.modal);
+    modal.classList.add('open');
+    document.body.classList.add("popup-open");
+    const exits = modal.querySelectorAll('.modal-exit');
+    exits.forEach(function (exit) {
+      exit.addEventListener('click', function (event) {
+        event.preventDefault();
+        modal.classList.remove('open');
+        document.body.classList.remove("popup-open");
+      });
+    });
+  });
+});
+
+
+// $('.down-arrow a').on('click', function(){
+//       $('.jump-open-block').toggleClass('current');
+//   });
+
+
+

@@ -1,0 +1,26 @@
+.contact-banner img{
+  width:100%;
+}
+.contact-banner{
+      position: absolute;
+    width: 100%;
+  top:0;
+}
+.template--contact .contact-banner{
+  top:unset;
+}
+.template--contact sticky-header[data-sticky-type=always]{
+  background: #ffd979;
+}
+
+@media screen and (max-width: 1099px) {
+  .contact-banner{
+  top:unset;
+}
+  .main-template--register .section-header.shopify-section-group-header-group{
+    background: #ffd979;
+  }
+  .main-template--login .section-header.shopify-section-group-header-group{
+  background:#ffd979;
+}
+}

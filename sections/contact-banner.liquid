@@ -1,0 +1,28 @@
+{{ 'contact-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="contact-banner">
+  <img src="{{ section.settings.contact_img | img_url:'master' }}">
+</section>
+{% schema %}
+{
+  "name": "Contact Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "contact_img",
+      "label": "Contact banner"
+    }
+  ],
+"presets": [
+  {
+    "name": "Contact Banner"
+  }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

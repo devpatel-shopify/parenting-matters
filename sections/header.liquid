@@ -29,11 +29,11 @@
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: -1.2rem;
+    {% comment %} margin-left: -1.2rem; {% endcomment %}
   }
 
 
@@ -44,7 +44,7 @@
   {%- endif -%}
 
   {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (min-width: 1200px) {
       header-drawer {
         display: none;
       }
@@ -73,14 +73,14 @@
   .list-menu__item {
     display: flex;
     align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    line-height: 120%;
   }
 
   .list-menu__item--link {
     text-decoration: none;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
+    line-height: 120%;
   }
 
   @media screen and (min-width: 750px) {
@@ -93,20 +93,14 @@
 
 {%- style -%}
   .header {
-    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.7 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.7 | round: 0 }}px;
   }
 
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
-    }
-  }
 
   @media screen and (min-width: 990px) {
     .header {
@@ -128,9 +122,12 @@
 {%- endif -%}
 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-  <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
+  
+  <symbol id="icon-search" viewBox="0 0 24 25" fill="none">
+    <path d="M2 11.413C2 13.7769 2.93905 16.044 4.61057 17.7155C6.28209 19.387 8.54916 20.3261 10.913 20.3261C13.2769 20.3261 15.544 19.387 17.2155 17.7155C18.887 16.044 19.8261 13.7769 19.8261 11.413C19.8261 9.04916 18.887 6.78209 17.2155 5.11057C15.544 3.43905 13.2769 2.5 10.913 2.5C8.54916 2.5 6.28209 3.43905 4.61057 5.11057C2.93905 6.78209 2 9.04916 2 11.413Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.5004 23.0004L17.2158 17.7158" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+
 
   <symbol id="icon-reset" class="icon icon-close"  fill="none" viewBox="0 0 18 18" stroke="currentColor">
     <circle r="8.5" cy="9" cx="9" stroke-opacity="0.2"/>
@@ -305,21 +302,6 @@
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
-      {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
-          {% render 'icon-account' %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
@@ -330,7 +312,7 @@
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
           if cart == empty
-            render 'icon-cart-empty'
+            render 'icon-cart'
           else
             render 'icon-cart'
           endif
@@ -345,6 +327,31 @@
           </div>
         {%- endif -%}
       </a>
+      {%- if shop.customer_accounts_enabled -%}
+        <div class="customer_accounts_buttons">
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button">
+            {%- if customer -%}
+              My account
+              {%- else -%}
+            Join now
+          {%- endif -%}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+          </a>
+          {%- if customer -%}
+            <a href="{{ routes.account_logout_url }}" class="header__icon header__icon--account button button--secondary">Log out</a>  
+          {%- else -%}
+          <a href="{{ routes.account_login_url }}" class="header__icon header__icon--account button button--secondary">Login</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
@@ -505,6 +512,12 @@
   </script>
 {%- endif -%}
 
+<script>
+  $('.down-arrow').on('click', function(){
+      $('.jump-open-block').toggleClass('current');
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.header.name",
@@ -646,16 +659,6 @@
       "content": "t:sections.all.spacing"
     },
     {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
     },
@@ -664,7 +667,7 @@
       "id": "padding_top",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 20
@@ -674,7 +677,7 @@
       "id": "padding_bottom",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20

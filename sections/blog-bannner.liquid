@@ -1,0 +1,46 @@
+{{ 'blog-banner.css' | asset_url | stylesheet_tag }}
+<section
+  class="blog-banner"
+  
+>
+  <div class="page-width">
+    <h2>{{ section.settings.blog_name }}</h2>
+  </div>
+  <div class="blog-img">
+    <img src="{{ section.settings.desktop_img | img_url:'master' }}" class="blog-display-img">
+    <img src="{{ section.settings.mobile_img | img_url:'master' }}" class="blog-mobile-img">
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "BLog Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "blog_name",
+        "label": "Blog name"
+      },
+      {
+        "type": "image_picker",
+        "id":"desktop_img",
+        "label": "Desktop image"
+      },
+      {
+        "type": "image_picker",
+        "id":"mobile_img",
+        "label": "Mobile image"
+      }
+    ],
+"presets":[
+{
+  "name": "BLog Banner"
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

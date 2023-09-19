@@ -1,15 +1,17 @@
 .customer:not(.account):not(.order) {
-  margin: 0 auto;
+/*   margin: 0 auto;
   max-width: 33.4rem;
   padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  text-align: center;
+  padding-right: 1.5rem; 
+  text-align: center;*/
 }
-
+.customer {
+  position:relative;
+}
 @media screen and (min-width: 750px) {
-  .customer:not(.account):not(.order) {
+/*   .customer:not(.account):not(.order) {
     max-width: 47.8rem;
-  }
+  } */
 }
 
 .customer > h1,
@@ -22,7 +24,7 @@
 }
 
 .customer button {
-  margin: 4rem 0 1.5rem;
+  margin:0;
 }
 
 .customer ul {
@@ -44,6 +46,18 @@
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
+
+.login-button{
+  display: flex;
+    align-items: center;
+      gap: 32px;
+      margin: 36px 0 48px;
+}
+.login-button p{
+  margin:0 !important;
+}
+
+
 
 @media only screen and (min-width: 750px) {
   .customer h2.form__message {
@@ -260,6 +274,16 @@
     justify-content: flex-start;
     width: 100%;
   }
+  .customer button{
+    padding: 7px 15px;
+    font-size: 14px;
+  }
+  .login-button a.button {
+      padding: 7px 16px;
+  }
+  .login a[href="#recover"]{
+    font-size: 14px !important;
+  }
 }
 
 /* Pagination */
@@ -329,15 +353,18 @@
 }
 
 /* Login */
-.login a {
+/* .login a {
   display: block;
   margin: 0 auto;
   width: fit-content;
-}
+} */
 
 .login a[href='#recover'] {
   margin-left: 0;
   margin-right: 0;
+      text-decoration: none;
+    font-size: 16px;
+    color: #01333E;font-weight: 500;
 }
 
 .login .field + a {

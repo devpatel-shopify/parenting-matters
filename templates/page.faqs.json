@@ -1,0 +1,342 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b4e584d7-92b3-425f-9c7a-ec0b7d687f55": {
+      "type": "faq-banner",
+      "settings": {
+        "heading_text": "Frequently asked questions"
+      }
+    },
+    "9d621353-e509-441d-951a-c68648920678": {
+      "type": "faq-block",
+      "blocks": {
+        "78e23a45-3f43-4ed4-8831-010f62928521": {
+          "type": "heading",
+          "settings": {
+            "content_title": "Course",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "13992476-e767-47b5-9706-4a0839ff7803": {
+          "type": "course",
+          "settings": {
+            "heading_title": "What if I don’t have particular concerns about my child, but would like to be a better parent?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "b2f8be5d-8795-4040-ad43-281f7e6f769c": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will the course help my child do better at school?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "6ec34533-b5fd-433a-a568-805d38a172c8": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will the course help my child who is often difficult?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "0398fe6f-e3a6-4ab4-9e26-2e0ceb949e51": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will the course help my child who is a worrier and lacking self-confidence?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "2874bb71-80b3-4d06-bfc9-36cd0bf70e58": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will the course help my child who can’t concentrate, is overactive and is impulsive?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "34e2baef-5e1d-403f-a7fd-d9f1fe9ff8ed": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will the course help my child who is on the autistic spectrum?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "9d7d420c-c28d-4427-9211-1aef530bcb08": {
+          "type": "course",
+          "settings": {
+            "heading_title": "What age child is this course suitable for?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "f0aa7513-edb5-4454-8cea-81a4a282dcbb": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Will it work with my teenager?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "1b356ba4-72ab-4370-a00a-0677a0963a8c": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Would it be a good idea for my partner to do it as well?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "96742bb3-9659-46b2-a6c0-f63e293af7a4": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Could it improve my relationship with my partner?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "b686e915-ca34-4904-b976-9a1946a0854d": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How do I know this will work?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "cb7c9bf5-a1f4-4694-a64d-8c7983fb3512": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How is it different from other online parenting courses?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "cc87db82-68e5-490a-af9f-12977eb17e85": {
+          "type": "course",
+          "settings": {
+            "heading_title": "What are the principles this course is based on?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "dc254e5a-fa4c-4939-b6ed-81285187d596": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Is there an introduction to the course?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "a209f6d1-eba0-4092-b858-e33b67ce0ae8": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How long does the course take?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "b728e4f2-e253-406c-b0da-889c3e91bdcb": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How long does each session or part of the course take?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "5522719c-3097-42f7-b528-e3c6825f6233": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Can I stop before the session is completed?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "8d694ff0-1a50-4078-9a3f-802a3c6308aa": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Does it involve practising things at home?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "589226e9-b22f-41e3-b6d6-3eb54cfe8db7": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Are there printable materials I can download?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "f95b4a3c-f0c8-442e-8676-7fdb637e149d": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Do I get a summary of important advice or strategies?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "74cf5b8f-a35f-4d78-9867-c9f650adfbe3": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Can I track our progress?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "8eb12df2-38ce-4c06-a0c0-35c87be4ba4f": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Can my partner\/carer do it too?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "23a59366-7acd-410c-8409-987ad2651eac": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How long will I have access to the site after registering?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "95f4d23d-a682-47d8-ad1a-2df373271f55": {
+          "type": "heading",
+          "settings": {
+            "content_title": "Safety and confidentiality",
+            "padding_top": 128,
+            "padding_bottom": 0
+          }
+        },
+        "57a69ff2-04ca-47fe-9444-9d4ee24f3597": {
+          "type": "course",
+          "settings": {
+            "heading_title": "How safe and confidential is my information?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "45e332f8-5507-43b4-9578-60118258641c": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Is the site checked for inappropriate or worrying content posted by users?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "8b646599-3845-4979-8d7c-cc05cbe122f0": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Do I have to do the course in a fixed order?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "f2049a91-d372-44bf-89f3-c6ee78ca9b54": {
+          "type": "course",
+          "settings": {
+            "heading_title": "I am struggling with my child – who can I contact?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "db705577-c4ab-47e9-a3fb-77fd72012c42": {
+          "type": "course",
+          "settings": {
+            "heading_title": "I am struggling and not in a good place – who can I contact?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "5b8c8c57-059a-4f2f-ba30-d7bbfad2c0ff": {
+          "type": "heading",
+          "settings": {
+            "content_title": "Technical",
+            "padding_top": 128,
+            "padding_bottom": 0
+          }
+        },
+        "5dde480d-87e7-42af-a49d-beb875c76d83": {
+          "type": "course",
+          "settings": {
+            "heading_title": "I'm having difficulties registering or at log in. Who should I contact?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "e0165522-4034-4d94-9d76-baf9e3307338": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Can I do the course on a mobile or tablet or PC?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "8bb6a6a8-6b18-48c1-a703-528145084063": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Can I get a record of my home practice?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "70f76d8c-9940-4845-8b1c-e2bd32d3e05c": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Is it available in languages other than English?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        },
+        "47dd448f-92bf-42da-b8c5-aca0545183d1": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Do I have to be a good reader to take course?",
+            "heading_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "78e23a45-3f43-4ed4-8831-010f62928521",
+        "13992476-e767-47b5-9706-4a0839ff7803",
+        "b2f8be5d-8795-4040-ad43-281f7e6f769c",
+        "6ec34533-b5fd-433a-a568-805d38a172c8",
+        "0398fe6f-e3a6-4ab4-9e26-2e0ceb949e51",
+        "2874bb71-80b3-4d06-bfc9-36cd0bf70e58",
+        "34e2baef-5e1d-403f-a7fd-d9f1fe9ff8ed",
+        "9d7d420c-c28d-4427-9211-1aef530bcb08",
+        "f0aa7513-edb5-4454-8cea-81a4a282dcbb",
+        "1b356ba4-72ab-4370-a00a-0677a0963a8c",
+        "96742bb3-9659-46b2-a6c0-f63e293af7a4",
+        "b686e915-ca34-4904-b976-9a1946a0854d",
+        "cb7c9bf5-a1f4-4694-a64d-8c7983fb3512",
+        "cc87db82-68e5-490a-af9f-12977eb17e85",
+        "dc254e5a-fa4c-4939-b6ed-81285187d596",
+        "a209f6d1-eba0-4092-b858-e33b67ce0ae8",
+        "b728e4f2-e253-406c-b0da-889c3e91bdcb",
+        "5522719c-3097-42f7-b528-e3c6825f6233",
+        "8d694ff0-1a50-4078-9a3f-802a3c6308aa",
+        "589226e9-b22f-41e3-b6d6-3eb54cfe8db7",
+        "f95b4a3c-f0c8-442e-8676-7fdb637e149d",
+        "74cf5b8f-a35f-4d78-9867-c9f650adfbe3",
+        "8eb12df2-38ce-4c06-a0c0-35c87be4ba4f",
+        "23a59366-7acd-410c-8409-987ad2651eac",
+        "95f4d23d-a682-47d8-ad1a-2df373271f55",
+        "57a69ff2-04ca-47fe-9444-9d4ee24f3597",
+        "45e332f8-5507-43b4-9578-60118258641c",
+        "8b646599-3845-4979-8d7c-cc05cbe122f0",
+        "f2049a91-d372-44bf-89f3-c6ee78ca9b54",
+        "db705577-c4ab-47e9-a3fb-77fd72012c42",
+        "5b8c8c57-059a-4f2f-ba30-d7bbfad2c0ff",
+        "5dde480d-87e7-42af-a49d-beb875c76d83",
+        "e0165522-4034-4d94-9d76-baf9e3307338",
+        "8bb6a6a8-6b18-48c1-a703-528145084063",
+        "70f76d8c-9940-4845-8b1c-e2bd32d3e05c",
+        "47dd448f-92bf-42da-b8c5-aca0545183d1"
+      ],
+      "settings": {
+        "full_width": false,
+        "margin_top": 0,
+        "margin_bottom": 20
+      }
+    },
+    "0418ea40-c8db-4fee-b9ed-8a74eab9c2ae": {
+      "type": "email-sing-up-section",
+      "settings": {
+        "full_width": false,
+        "email_image": "shopify:\/\/shop_images\/get-icon.png",
+        "heading_text": "Can’t find what your looking for?",
+        "heading_small": "Send us your question and we can get back to you.",
+        "button_text": "Submit question",
+        "button_url": "",
+        "color_scheme": "",
+        "border_color": "#c72457",
+        "padding_top": 160,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b4e584d7-92b3-425f-9c7a-ec0b7d687f55",
+    "9d621353-e509-441d-951a-c68648920678",
+    "0418ea40-c8db-4fee-b9ed-8a74eab9c2ae"
+  ]
+}

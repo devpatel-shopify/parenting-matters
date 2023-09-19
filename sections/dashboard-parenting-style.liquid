@@ -1,0 +1,335 @@
+{{ 'dashboard.css' | asset_url | stylesheet_tag }}
+{%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
+{%- assign ParentingStyleHandleize = ParentingStyle | handleize -%}
+{%- assign ParentingStyleMetaobject = shop.metaobjects['parenting_style'][ParentingStyleHandleize] -%}
+
+<section class="dashboard parenting_style">
+  <div class="page-width">
+    <div class="welcome-title">
+      <h4>Welcome back <span>{{ customer.first_name }}</span></h4>
+    </div>
+    <div class="dash_tab_block">
+      <div class="tab_dash">
+        <div class="left_sidebar tab-transparent">
+          {% render 'left-sidebar' section:section %}
+        </div>
+        <div class="dashbord_box dash_over_info">
+          <div class="family-graph-block">
+            <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: 1;">
+              <div class="family-title">
+                <h5>
+                  {%- if ParentingStyle == blank -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.nq_title }}</label>
+                  {%- else -%}
+                    <label class="scroll-trigger animate--slide-in">{{ section.settings.title | replace: '[parenting_style]', ParentingStyle }}</label>
+                  {%- endif -%}
+                </h5>
+                {%- if ParentingStyle == blank and section.settings.description != blank -%}
+                  <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
+                    {{ section.settings.description }}
+                  </div>
+                {%- else -%}  
+                  {%- if ParentingStyleMetaobject.description != blank -%}
+                    <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
+                      {{ ParentingStyleMetaobject.description | metafield_tag }}
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+                {% comment %} <div class="click-info scroll-trigger animate--slide-in" style="--animation-order: 3;">
+                  {% render 'dash-info-icon' %}
+                  <p>To see the full assessment if your parenting click here, or click the download button below.</p>
+                </div> {% endcomment %}
+              </div>
+              {%- if ParentingStyle == blank and section.settings.btn_link != blank and section.settings.nq_btn_text != blank -%}
+                <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                  <a class="button button--secondary" href="{{ section.settings.btn_link }}">
+                    {{ section.settings.nq_btn_text }}
+                    <svg
+                      aria-hidden="true"
+                      class="icon icon-arrow"
+                      focusable="false"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              {%- else -%}
+                {%- if ParentingStyleMetaobject.pdf != blank -%}
+                  <div class="course-btn scroll-trigger animate--slide-in" style="--animation-order: 4;">
+                    <a class="button button--secondary" target="_parent" href="{{ ParentingStyleMetaobject.pdf.value.url }}">
+                      Download PDF
+                      {% render 'download-icon' %}
+                    </a>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+            <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
+              <div class="wrapper graph--tab">
+                <div class="buttonWrapper">
+                  <button class="tab-button active" data-id="result">Overall result</button>
+                  <button class="tab-button hidden" data-id="score">Peak score</button>
+                </div>
+                <div class="contentWrapper tab-content">
+                  <div class="content parenting_result active" id="result">
+                    <canvas id="parenting_chat"></canvas>
+                    <div class="canvas_desc">
+                      <span>Permissive/<br>Indulgent</span>
+                      <span>Balanced &<br>Authoritative</span>
+                      <span>Hand-off/<br>Uninvolved</span>
+                      <span>Authoritarian/<br>Strict</span>
+                    </div>                    
+                    {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" /> {% endcomment %}
+                  </div>
+                  <div class="content family_result" id="score">
+                    <canvas id="family_chat"></canvas>
+                    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/graph.png?v=1691754879" />
+                  </div>
+                </div>
+              </div>
+              <div class="click-info">
+                {% render 'dash-info-icon' %}
+                <p>The small dots on the chart above are examples of scores from other test results received - your result us shown by the larger dot.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const parenting_chat = document.getElementById('parenting_chat');    
+  const parenting_data = {
+    datasets: [{
+      label: 'All',
+      data: [
+      { x: 50, y: 20}, 
+      { x: 10, y: 10}, 
+      { x: 40, y: 30}, 
+      { x: 50, y: -20}, 
+      { x: 80, y: -40}, 
+      { x: 25, y: 60}, 
+      ],
+      backgroundColor: 'rgb(3,52,63,0.4)',
+      radius: 3,
+      hoverRadius: 4
+    },{
+      label: 'Current Client',
+      data: [{
+        x: -10,
+        y: 0  
+      }],
+      backgroundColor: 'rgb(3,52,63,1)',        
+      radius: 8,
+      hoverRadius: 10
+      //borderWidth: 3                
+    }]
+  };
+
+  new Chart(parenting_chat, {
+    type: 'scatter',
+    data: parenting_data,
+    options: {
+      aspectRatio: 1,
+      responsive: true,
+      maintainAspectRatio: true,
+      //tooltip:
+      layout: {
+        padding: 40
+      },        
+      plugins: {
+        legend: false,
+        //tooltip: false,          
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'center',            
+          min: -100,
+          max: 100,                        
+          grid: {              
+            display: false,                      
+            drawOnChartArea: false // only want the grid lines for one axis to show up
+          },
+          border:{
+            color: '#03343f',
+            width: 2              
+          },
+          ticks:{
+            display: false
+          }
+        },
+        y: {
+          type: 'linear',
+          position: 'center',          
+          min: -100,
+          max: 100,  
+          grid: {    
+            display: false,                 
+            drawOnChartArea: false // only want the grid lines for one axis to show up
+          },
+          border:{
+            color: '#03343f',
+            width: 2              
+          },
+          ticks:{
+            display: false
+          }
+        }
+      },        
+    }      
+  });
+</script>
+
+<script>
+  const family_chat = document.getElementById('family_chat');    
+  const family_data = {
+    labels: ['My child', 'Child Temper', 'My confidence', 'My parenting', 'My wellbeing', 'Child hassle'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 90, 81, 56, 55],
+      fill: true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
+    }, {
+      label: 'My Second Dataset',
+      data: [28, 48, 40, 19, 96, 27],
+      fill: true,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgb(54, 162, 235)',
+      pointBackgroundColor: 'rgb(54, 162, 235)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    }]
+  };  
+
+  new Chart(family_chat, {
+    type: 'radar',
+    data: family_data,
+    options: {
+      aspectRatio: 1,
+      responsive: true,
+      maintainAspectRatio: true,
+      elements: {
+        line: {
+          borderWidth: 3
+        }
+      },
+      //tooltip:
+      layout: {
+        padding: 40
+      },
+      plugins: {
+        legend: false,
+        //tooltip: false,          
+      }
+    }
+  });
+</script>
+{% schema %}
+{
+  "name": "Dashboard Parenting style",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "nq_title",
+      "label": "Title",
+      "default": "Take a quiz and get your Parenting style.",
+      "info":"If User hasn't complated Quiz."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your parenting style [parenting_style]",
+      "info":"If User has complated Quiz. [parenting_style] will automatically replace with current Parenting style."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "info":"Description will show when user hasn't complated Quiz."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Text",
+      "default": "Download PDF",
+      "info":"If User has complated Quiz."
+    },
+    {
+      "type": "text",
+      "id": "nq_btn_text",
+      "label": "Text",
+      "default": "Take a Quizz",
+      "info":"If User hasn't complated Quiz."
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dashboard Parenting style"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %} 
+
+.content {
+  display: none;
+}
+.content.active {
+  display: block;
+}
+
+{% endstylesheet %}
+{% javascript %} 
+
+const tabs = document.querySelector(".wrapper");
+const tabButton = document.querySelectorAll(".tab-button");
+const contents = document.querySelectorAll(".content");
+
+tabs.onclick = e => {
+  const id = e.target.dataset.id;
+  if (id) {
+    tabButton.forEach(btn => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+
+    contents.forEach(content => {
+      content.classList.remove("active");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("active");
+  }
+}
+
+{% endjavascript %}

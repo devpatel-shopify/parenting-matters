@@ -1,10 +1,14 @@
 .pagination-wrapper {
-  margin-top: 4rem;
+  margin-top: 9px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid #9CBFB3;
 }
 
 @media screen and (min-width: 990px) {
   .pagination-wrapper {
-    margin-top: 5rem;
+    margin-top: 0rem;
+    padding-bottom: 64px;
+    border-bottom: 1px solid #9CBFB3;
   }
 }
 
@@ -12,18 +16,56 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 24px;
+  align-items: center;
+}
+.pagination__list li span{
+  width: 15px;
+  height: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1C8DA6;
+  border-radius: 4px;
+}
+.pagination__list li.total-page{
+  font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; 
+letter-spacing: 0.14px;
 }
 
-.pagination__list > li {
+/* .pagination__list > li {
   flex: 1 0 4.4rem;
   max-width: 4.4rem;
-}
+} */
 
+.pagination__list a.prev svg{
+  margin-left: 0;
+    margin-right: 16px;
+    transform: rotate(180deg);
+}
 .pagination__list > li:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: 0rem;
+}
+.pagination__list a.prev {
+  padding: 11px 31px 11px 16px;
+}
+.pagination__list a.next svg{
+  margin-right: 0;
+    margin-left: 16px;
+}
+.pagination__list a.next {
+  padding: 11px 16px  11px  31px;
+}
+.page-disable a{
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.2;
 }
 
-.pagination__item {
+/* .pagination__item {
   color: rgb(var(--color-foreground));
   display: inline-flex;
   justify-content: center;
@@ -33,7 +75,7 @@
   width: 100%;
   padding: 0;
   text-decoration: none;
-}
+} */
 
 a.pagination__item:hover::after {
   height: 0.1rem;
@@ -46,7 +88,7 @@ a.pagination__item:hover::after {
 .pagination__item--current::after {
   height: 0.1rem;
 }
-
+/* 
 .pagination__item--current::after,
 .pagination__item:hover::after {
   content: '';
@@ -57,7 +99,7 @@ a.pagination__item:hover::after {
   left: 50%;
   transform: translateX(-50%);
   background-color: currentColor;
-}
+} */
 
 .pagination__item--next .icon {
   margin-left: -0.2rem;
@@ -79,4 +121,22 @@ a.pagination__item:hover::after {
 
 .pagination__item-arrow:hover::after {
   display: none;
+}
+
+@media only screen and (max-width: 750px) {
+  .pagination__list a.prev svg{
+    margin-right: 12px;
+  }
+  .pagination__list a.prev {
+    padding: 7px 17px 7px 8px;
+}
+.pagination__list{
+  gap: 16px;
+}
+.pagination__list a.next{
+  padding: 7px 8px 7px 15px;
+}
+.pagination__list a.next svg{
+  margin-left: 12px;
+}
 }

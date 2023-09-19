@@ -4,19 +4,61 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "6884e927-d606-42e5-8d71-19bf199e55d6": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About",
+            "menu": "about"
+          }
+        },
+        "9a7114df-f008-45cf-bf0e-6740dabcf38b": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "support"
+          }
+        },
+        "d807ca4b-5b24-4dec-9ef8-0d2de4b62340": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legal",
+            "menu": "legal"
+          }
+        },
+        "0599de27-8fb2-4dae-a835-59c7c4db63eb": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Social",
+            "menu": "social"
+          }
+        },
+        "065482f7-4be6-4f6b-a84e-4ec04b67b1da": {
+          "type": "newslatter",
+          "settings": {
+            "newsletter_heading": "Join our mailing list"
+          }
+        }
+      },
+      "block_order": [
+        "6884e927-d606-42e5-8d71-19bf199e55d6",
+        "9a7114df-f008-45cf-bf0e-6740dabcf38b",
+        "d807ca4b-5b24-4dec-9ef8-0d2de4b62340",
+        "0599de27-8fb2-4dae-a835-59c7c4db63eb",
+        "065482f7-4be6-4f6b-a84e-4ec04b67b1da"
+      ],
       "settings": {
-        "color_scheme": "background-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "color_scheme": "inverse",
         "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "payment_enable": true,
         "show_policy": false,
-        "margin_top": 36,
+        "footer_logo": "shopify:\/\/shop_images\/PM_logo_cropped_1.png",
+        "margin_top1": 64,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 52
       }
     }
   },

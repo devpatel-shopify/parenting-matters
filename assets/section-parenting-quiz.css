@@ -1,0 +1,229 @@
+.btn-flex {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-flex .button_next:only-child{
+    margin-left: auto;
+}
+
+.btn-flex .button_back:only-child{
+    margin-right: auto;
+}
+
+.btn-flex .button:nth-child(2) {
+    margin-left: 10px;
+}
+
+.ps-quiz {
+    margin-top: 30px;
+}
+
+.ps-quiz .page-title {
+    margin: 32px 0;
+    text-align: center;
+}
+
+.ps-quiz .quiz-section {
+    display: flex;
+    flex-direction: column;
+}
+.sub-title {
+  padding-bottom: 20px;
+}
+.customer.contact-form.register.quiz-signup {
+  text-align: left;
+  margin-top: 0;
+}
+.customer.contact-form.register.quiz-signup p {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  max-width: 420px;
+}
+.ps-quiz .quiz-section .slide {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    margin-bottom: 30px;
+    background-color: var(--inner-block-background);
+}
+
+.ps-quiz .quiz-section .slide .range_container {
+    width: 100%;
+    position: relative;
+    padding: 40px 0;
+}
+
+.ps-quiz .quiz-section .slide .range_container .labels {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+    column-gap: 10px;
+}
+
+.ps-quiz .quiz-section .slide .range_container .labels p {
+    max-width: 200px;
+    margin: 0;
+    line-height: 18px;
+}
+
+.ps-quiz .quiz-section .slide .range_container .labels .val {
+    font-weight: 600;
+}
+
+.ps-quiz .quiz-section .slide .range_container .labels p:last-child {
+    text-align: right;
+}
+
+.ps-quiz .quiz-section .slide .range_container .note {
+    text-align: center;
+    font-size: 12px;
+    margin: 0 0 0 0;
+    font-style: italic;
+}
+
+/* The slider itself */
+.ps-quiz .quiz-section .slide .range_container input {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 20px;
+    /* Specified height */
+    background: var(--progress-bar);
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 1;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: var(--progress-bar-radius);
+    overflow: hidden;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+/* Mouse-over effects */
+.ps-quiz .quiz-section .slide .range_container input:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.ps-quiz .quiz-section .slide .range_container input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 20px;
+    /* Set a specific slider handle width */
+    height: 20px;
+    /* Slider handle height */
+    background: var(--progress-bar-icon);
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+    position: relative;
+    border-radius: 100%;
+}
+
+.ps-quiz .quiz-section .slide .range_container input::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: var(--progress-bar-icon);
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.ps-quiz .quiz-section .slide .range_inner{
+  position:relative;
+}
+.ps-quiz .quiz-section .slide .range_inner .step{    
+  position: absolute;
+  top: 4px;
+  width: 3px;
+  height: calc(100% - 10px);
+  background: var(--progress-bar-icon);  
+  border-radius: 5px;
+  pointer-events:none;
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(1){    
+  left: calc(0% + 10px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(2){    
+  left: calc(33.33% + 5px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(3){    
+  left: calc(66% + 5px);
+}
+.ps-quiz .quiz-section .slide .range_inner .step:nth-child(4){    
+  left: calc(100% - 9px);
+}
+
+.ps-quiz .quiz-section .slide .qtype-button {
+    width: 100%;
+    position: relative;
+    padding: 40px 0;
+    margin: 20px 0;
+}
+
+.qtype-button.radio-container.error {
+  
+  /* background-color: rgb(255, 236, 236); */
+  animation:blink linear 1s 2 forwards;
+}
+
+@keyframes blink {
+  0% {
+    border: 1px solid red;
+    background-color: rgb(255, 236, 236);
+  }
+  50% {
+    border: 1px solid red;
+    background-color: none;
+  }
+  100% {
+    border: 1px solid red;
+    background-color: rgb(255, 236, 236);
+  }
+}
+
+.ps-quiz .quiz-section .slide .textfield-container {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.ps-quiz .quiz-section .slide .textfield-container textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 30px;
+    font-size: var(--font-body-family);
+}
+
+.ps-quiz .form-success-msg {
+    text-align: center;
+    padding: 40px 0;
+}
+
+
+.contact-section .contact{
+  padding: 25px;
+  text-align: left;
+  margin: 20px auto;
+}
+
+.dropdown-container .select{
+    margin: 30px auto;
+}
+.dropdown-container .select__select{
+    font-size: 1.4rem;
+}
+.dropdown-container .select .icon-caret{
+    height: 1.6rem;
+    top: calc(50% - 0.8rem);
+}

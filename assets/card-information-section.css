@@ -1,0 +1,207 @@
+.page-width .card_detail {
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+.card_detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+.card_benefits_info {
+    width: 400px;
+}
+.card_benefits_info svg {
+    /* top: 83px; */
+    /* left: 0; */
+    /* position: sticky; */
+    position: absolute;
+    top: -44px;
+    z-index: -1;
+    left: 15px;
+    width: 100%;
+    max-width: 385px;
+}
+.card_sticky {
+    position: sticky;
+    top: 125px;
+    left: 0;
+    padding-bottom: 30%;
+}
+.child_card {
+    margin-top: 44px;
+}
+.card_learn {
+    margin: 16px 0 0 16px;
+}
+.card_learn p{
+    margin: 0;
+}
+.card_learn h4{
+    margin: 0 0 6px;
+    letter-spacing: 0.28px;
+      
+}
+.card_list {
+    width: calc(100% - 400px);
+    padding: 0 0 0 30px;
+    margin-top: 108px;
+}
+.card_identy {
+    display: flex;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 40px;
+}
+.card_identy:last-child {
+    margin-bottom: 0;
+   
+}
+.card_information_section .button_space{
+    margin-top: 60px;
+}
+.card_list .card_image {
+    width: 78px;
+    min-width: 78px;
+}
+.card_list .card_learn {
+    width: calc(100% - 78px);
+}
+.card_list .card_image img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+@media screen and (max-width: 1099px) {
+  .child_card h2{
+    font-size:40px;
+  }
+  .card_information_section{
+    padding-top:110px !important;
+        padding-bottom: 110px !important;
+  }
+  
+}
+
+
+@media screen and (min-width: 750px) and (max-width: 999px) {
+    .card_benefits_info svg {
+        width: 230px;
+        height: auto;
+    }
+    .card_sticky {
+        padding-bottom: 0;
+    }
+    .card_benefits_info {
+        width: 100%;
+    }
+    .card_list {
+        width: 100%;
+        padding: 0;
+    }
+    slider-component {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .title-wrapper--self-padded-tablet-down {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    
+}
+@media screen and (max-width: 1099px) {
+  .card_learn p{
+    font-size:14px;
+  }
+  .card_learn h4{
+    font-size: 26px;
+  }
+  .child_card h2{
+    font-size:40px;
+            max-width: 380px;
+  }
+  .card_benefits_info svg{
+        top: -50px;
+  }
+  
+  
+}
+@media screen and (max-width: 749px) {
+    .card_benefits_info {
+        width: 100%;
+        margin-bottom: 100px;
+        height: 100%;
+    }
+    .card_list {
+        width: 100%;
+        padding: 0;
+    }
+    .card_benefits_info svg {
+        width: 197px;
+        height: auto;
+        left: 0;
+        top: -25px;
+    }
+    .card_list .card_image {
+        width: 40px;
+        min-width: 40px;
+    }
+    .card_detail {
+        margin-bottom: 40px;
+    }
+
+    .card_sticky {
+        padding-bottom: 0;
+    }
+    .title-wrapper--self-padded-tablet-down {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .card_benefits_info {
+        margin-bottom: 60px;
+    }
+    
+}
+
+
+@media screen and (max-width: 500px) {
+  
+    .card_list {
+        padding: 0;
+        margin-top: 50px;
+    }
+    .card_identy {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    .card_learn {
+        margin: 8px 0 0 9px;
+    }
+    .card_learn h4 {
+        margin: 0 0 3px;
+      font-size: 18px;
+    }
+    .card_information_section .button_space{
+        margin-top: 32px;
+        
+    }
+    .child_card {
+        padding-right: 0;
+        margin-top: 32px;
+    }
+    .card_benefits_info .child_card {
+        max-width: 306px;
+    }
+   .child_card h2{
+    font-size:28px;
+  }
+  .card_learn p{
+        line-height: 120%;
+  }
+    
+}
+ 

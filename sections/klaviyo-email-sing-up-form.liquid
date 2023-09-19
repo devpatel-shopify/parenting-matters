@@ -1,0 +1,140 @@
+{{ 'email-sign-up-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+   }
+
+   @media screen and (min-width: 750px) {
+     .section-{{ section.id }}-padding {
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+     }
+   }
+{%- endstyle -%}
+
+<div class="email_sign-up_section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="{% unless section.settings.full_width %} page-width {% endunless %}">
+    <div class="email_news" style="border: 1px solid var(--border-color);">
+      <div class="sign-up_email">
+        <div class="email_info">
+          <div class="email_tips">
+            {% if section.settings.email_image != blank %}
+              <img
+                src="{{ section.settings.email_image | img_url: 'master' }}"
+                alt="{{ section.settings.email_image.alt }}"
+                width="{{ section.settings.email_image.width }}"
+                height="{{ section.settings.email_image.height }}"
+              >
+            {% endif %}
+            {% if section.settings.heading_text != blank %}
+              <h2>{{ section.settings.heading_text }}</h2>
+            {% endif %}
+            <p class="email-text">{{ section.settings.heading_small }}</p>
+          </div>
+        </div>
+        <div class="email_form">
+          <div class="email_detail_fill">
+
+            {% if section.settings.klaviyo_form != blank %}
+              {{ section.settings.klaviyo_form }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Klaviyo Sign-up Section",
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "klaviyo_form",
+      "label": "Klaviyo form"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Show content make a full width",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "email_image",
+      "label": "Email image"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_text",
+      "label": "Heading text",
+      "default": "Heading Text"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_small",
+      "label": "Heading small"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#C72457"
+    },
+
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klaviyo Sign-up Section",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

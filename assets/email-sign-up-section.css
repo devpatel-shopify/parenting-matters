@@ -1,0 +1,173 @@
+
+.email_sign-up_section .email_detail_fill .field__input:focus-visible{
+    box-shadow: none;
+}
+.email_sign-up_section .sign-up_email .newsletter-form {
+    max-width: 100%;
+    margin: 0;
+}
+.email_news {
+    border-radius: 40px;
+    padding: 64px;
+   
+}
+.sign-up_email {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.email_info {
+    width: 60%;
+}
+.email_form {
+    width: 40%;
+}
+.email_tips h2{
+    margin-top: 29px;
+    max-width: 500px;
+}
+.email_tips h2:first-child{
+    margin-top: 0;
+    
+}
+.email_sign-up_section .email_detail_fill .field {
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+/* .email_sign-up_section .email_detail_fill .field:last-child{
+    margin-bottom: 0;
+} */
+.email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+.template--faqs .email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper{
+  padding-left: 10px;
+}
+.email_sign-up_section .newsletter-form__field-wrapper .button--icon {
+    margin-top: 36px;
+}
+.email_tips {
+    padding-right: 30px;
+}
+.email_sign-up_section .newsletter-form__field-wrapper .field__label {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-bottom: 6px;
+    letter-spacing: 0.14px;
+    font-size: 14px;
+}
+.email_sign-up_section .sign-up_email .email_tips img{
+max-width: 184px;
+max-height: 151px;
+}
+.email-text{
+      margin-top: 32px !important; font-size: 20px;letter-spacing: 0.2px;
+}
+
+.newsletter-form__button .icon {
+    color: rgba(var(--color-secondary-button));
+}
+
+.email_sign-up_section .email_detail_fill .field__input {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 15px 16px;
+    height: auto;
+    min-height: auto;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0.16px;
+    margin: 0;
+}
+.email_sign-up_section .email_detail_fill textarea.field__input{
+        height: 160px;
+        font-family: var(--font-body-family);
+}
+.email_sign-up_section .email_detail_fill .field__input::placeholder { display: block !important; opacity: 1; visibility: visible; color: #999; }
+.email_form .email_detail_fill form input{
+    height: 51px !important;
+    border: 1px solid #CCD6D8 !important;
+    background: transparent !important;
+    font-family: var(--font-body-family) !important;
+}
+.email_form .email_detail_fill form label{
+    font-weight: 400 !important;
+    font-family: var(--font-body-family) !important;
+}
+.email_form .email_detail_fill button{
+    width: auto !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    color: #01333E !important;
+    padding: 12px 62px 12px 32px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Active.svg?v=1692013947') !important;
+    background-repeat: no-repeat !important;
+    background-position: 90% 50% !important;
+}
+.go3176171171 {
+    color: green !important;
+    line-height: normal !important;
+}
+
+
+@media screen and (max-width: 1099px) {
+  .email_tips h2{
+        font-size: 40px;
+  }
+  
+  .email_sign-up_section{
+      padding-top: 30px !important;
+  }
+  .template--faqs .email_sign-up_section{
+    padding-top: 172px !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .email_info {
+    width: 100%;
+    margin-bottom: 24px;
+}
+  .email_tips {
+    padding-right: 0;
+}
+  .email_form {
+    width: 100%;
+}
+}
+@media screen and (max-width: 750px) {
+    .email_form,
+    .email_info {
+        width: 100%;
+    }
+    .email_tips h2 {
+        margin-top: 24px;
+        margin-bottom: 0px; 
+    }
+    .email_sign-up_section .newsletter-form__field-wrapper .button--icon {
+        margin-top: 12px;
+    }
+    .email_tips {
+        padding-right: 0;
+    }
+  .email_tips h2{
+        font-size: 28px;
+  }
+  .email-text {
+    margin-top: 12px!important;
+}
+  .template--faqs .email_sign-up_section .email_detail_fill .newsletter-form__field-wrapper{
+    padding:0;
+  }
+}
+@media screen and (max-width: 500px) {
+    .email_news {  
+        padding: 32px 24px;
+        border-radius: 21.824px;
+    }
+}
+ 

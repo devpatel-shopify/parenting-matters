@@ -1,0 +1,148 @@
+.join_card_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.joining_heading {
+    width: 40%;
+}
+.join_benefits {
+    width: 60%;
+    padding-left: 20px;
+}
+.join_button-add{
+    display: none;
+}
+.join_benefit_list img {
+    max-width: 32px;
+    max-height: 32px;
+    margin-right: 32px;
+}
+.ddp-join-card .join_info h2{
+    margin-bottom: 12px;
+}
+.join_info h2 {
+    max-width: 400px;
+}
+.template--articleddp-detail-page .join_info h2{
+    margin-bottom: 12px;
+}
+.join_info p{
+    font-size: 20px;
+    max-width: 432px;
+    line-height: 120%;
+}
+.ddp-join-card .join_button{
+    margin-top: 45px;
+    text-align:left;
+}
+.join_benefit_list {
+    display: flex;
+    padding: 16px;
+    align-items: flex-start;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background-color: var(--inner-block-background);
+    color: rgb(var(--color-secondary-button-text));
+}
+.join_benefit_list:last-child {
+    margin-bottom: 0;
+}
+.join_benefit_list p{
+    line-height: 120%;
+}
+.join_button {
+    text-align: center;
+    margin-top: 64px;
+}
+.ddp-join-card .email_news{
+    background: #C9D9D3;
+}
+.joining_heading .join_button {
+    margin: 48px 0 0;
+text-align: left;
+}
+
+@media screen and (max-width: 1099px){
+  .join_info h2{
+    font-size:40px;
+  }
+
+}
+@media screen and (max-width: 990px){
+    .join_card_section .email_news {
+        padding: 40px;
+    }
+  .join_benefit_list p{
+        font-size: 18px;
+  }
+
+}
+@media screen and (max-width: 750px) {
+    .joining_heading {
+        width: 100%;
+    }
+    .join_info h2{
+        margin-bottom: 32px;
+    }
+    .join_benefits {
+        width: 100%;
+        padding-left: 0px;
+    }
+    .joining_heading .join_button{
+        margin: 48px 0;
+    }
+    .template--articleddp-detail-page .join_info h2{
+        font-size: 28px;
+    }
+    .join_info p{
+        font-size: 14px;
+    }
+    .template--articleddp-detail-page .joining_heading{
+        margin-bottom: 48px;
+    }
+    .template--articleddp-detail-page .joining_heading .join_button{
+        position: absolute;
+        bottom: 32px;
+        margin: 0;
+    }
+    .template--articleddp-detail-page .join_benefits{
+        margin-bottom: 82px;
+    }
+    .join_card_section    {
+        position: relative;
+    }
+    .join_benefit_list p{
+        line-height: 16.8px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .join_card_section .email_news {
+        border-radius: 40px;
+    }
+    .join_card_section .email_news {
+        padding: 32px 24px;
+    }
+    .join_benefit_list img {
+        max-width: 24px;
+        max-height: 24px;
+        margin-right: 12px;
+    }
+    .join_benefit_list {
+        align-items: flex-start;
+        margin-bottom: 12px;
+    }
+    .join_button {
+        margin-top: 32px;
+    }
+
+  .join_benefit_list p {
+    font-size: 14px;
+}
+  .join_info h2{
+    font-size:30px;
+  }
+}

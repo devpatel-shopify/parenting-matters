@@ -1,0 +1,267 @@
+{{ 'our-team-section.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+    .ourteam--{{ section.id }}--padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    
+    @media screen and (max-width: 749px) {
+        .ourteam--{{ section.id }}--padding {
+            padding-top: calc({{ section.settings.padding_top }}px - 80px);
+            padding-bottom: calc({{ section.settings.padding_bottom }}px - 80px);
+        }
+    }
+
+    {%- for block in section.blocks -%}
+        .our_team_block_wrapper {
+            Background: {{ section.settings.bg_card_color }};
+        }
+        .our_team_section section{
+            background: {{ section.settings.section_bg_color }}
+        }
+    {%- endfor -%}
+</style>
+
+<section class="ourteam--{{ section.id }}--padding ourteam--{{ section.id }} color-{{ section.settings.color_scheme }} {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+    <div class="our_team_main_wrapper{% unless section.settings.full_width %} page-width{% endunless %}">
+       <div class="our-team-wrapper">
+            <div class="our_team_main">
+                {%- if section.settings.our_team_section_title != blank -%}
+                    <div class="our_team_title_section">
+                        <h2 class="our_section_title">{{ section.settings.our_team_section_title }}</h2>
+                    </div>
+                {%- endif -%}
+                <div class="our_team_block">
+                    {%- for block in section.blocks -%}
+                        <div class="our_team_wrapper-main {{ block.id }}" {{ block.shopify_attributes }}>
+                            <div class="our_team_block_wrapper">
+                                <div class="our_team_wrapper">
+                                    {%- if block.settings.blog_card_image != blank -%}
+                                        <div class="our_team_image">
+                                            {{ block.settings.blog_card_image | image_url: width: 500 | image_tag }} 
+                                        </div>
+                                    {%- endif -%}
+                                    {%- if block.settings.card_bour_team_titletn != blank or block.settings.our_team_sub_title -%}
+                                        <div class="our_team_content">
+                                            {%- if block.settings.our_team_title != blank -%}
+                                                <h4 class="our_team_title">{{ block.settings.our_team_title }}</h4>
+                                            {%- endif -%}
+                                            {%- if block.settings.our_team_sub_title != blank -%}
+                                                <div class="our_team_sub_title">{{ block.settings.our_team_sub_title }}</div>
+                                            {%- endif -%}
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                                {%- if block.settings.card_btn != blank -%}
+                                    <div class="card_btn">
+                                        {%- if block.settings.card_btn != blank -%}
+                                            <a href="javascript:void(0);" data-modal="{{ block.id }}" class="button button--secondary">
+                                                {{- block.settings.card_btn | escape -}}
+                                                {%- render 'icon-arrow' -%}
+                                            </a>
+                                        {%- endif -%}
+                                    </div>
+                                {%- endif -%}
+                            </div>
+                        </div>
+
+                        <div class="modal" id="{{ block.id }}">
+                            <div class="modal-bg modal-exit"></div>
+                            <div class="modal-container-cover">
+                                <div class="modal-container color-{{ section.settings.color_scheme2 }}">
+                                    <button class="modal-close modal-exit">{% render 'close-popup' %}</button>
+                                    <div class="popup-inr">
+                                        <div class="our_team_wrapper">
+                                            {%- if block.settings.blog_card_image != blank -%}
+                                                <div class="our_team_image">
+                                                    {{ block.settings.blog_card_image | image_url: width: 500 | image_tag }} 
+                                                </div>
+                                            {%- endif -%}
+                                            <div class="our_team_content">
+                                                {%- if block.settings.our_team_title != blank -%}
+                                                    <h3 class="our_team_title">{{ block.settings.our_team_title }}</h3>
+                                                {%- endif -%}
+                                                {%- if block.settings.our_team_sub_title != blank -%}
+                                                    <div class="our_team_sub_title h5">{{ block.settings.our_team_sub_title }}</div>
+                                                {%- endif -%}
+                                                <div class="only-desktop">
+                                                    {%- if block.settings.our_team_description != blank -%}
+                                                        <div class="our_team_description">{{ block.settings.our_team_description }}</div>
+                                                    {%- endif -%}
+                                                    {%- if block.settings.our_team_description2 != blank -%}
+                                                        <hr />
+                                                        <div class="our_team_description">{{ block.settings.our_team_description2 }}</div>
+                                                    {%- endif -%}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="only-mobile">
+                                            {%- if block.settings.our_team_description != blank -%}
+                                                <div class="our_team_description">{{ block.settings.our_team_description }}</div>
+                                            {%- endif -%}
+                                            {%- if block.settings.our_team_description2 != blank -%}
+                                                <hr />
+                                                <div class="our_team_description">{{ block.settings.our_team_description2 }}</div>
+                                            {%- endif -%}
+                                        </div>
+                                    </div>
+                                    <div class="popup-icon">
+                                        {{ 'popup-icon.svg' | asset_url | img_tag }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="bg_animation_wrapper small-hide">
+                <svg width="1035" height="619" viewBox="0 0 1035 619" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M597.135 171.835C607.678 21.9509 736.044 105.256 749.561 115.962C830.708 180.235 805.072 228.684 781.038 248.267C746.748 276.206 586.593 321.718 597.135 171.835Z" fill="#FFE8AE"/>
+                    <path d="M967.323 505.073C920.374 481.681 964.371 451.378 969.628 448.445C1001.19 430.838 1013.4 445.571 1016.51 455.936C1020.95 470.726 1014.27 528.465 967.323 505.073Z" fill="#FFE8AE"/>
+                    <path d="M18.0653 521.414C21.7457 469.089 66.559 498.171 71.2778 501.909C99.6069 524.346 90.6571 541.26 82.2668 548.097C70.2959 557.851 14.385 573.739 18.0653 521.414Z" fill="#FFE8AE"/>
+                    <path d="M235.059 107.499C359.169 40.1583 510.241 110.839 564.544 223.02C618.847 335.202 574.015 469.154 464.408 522.211C354.801 575.267 221.926 527.337 167.623 415.156C113.32 302.974 125.452 160.556 235.059 107.499Z" fill="#FFE8AE"/>
+                </svg>
+            </div>
+            <div class="bg_animation_mobile medium-hide large-up-hide">
+                <svg width="449" height="557" viewBox="0 0 449 557" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.3749 458.125C26.9332 393.318 82.4372 429.338 88.2817 433.967C123.369 461.757 112.284 482.706 101.892 491.174C87.0656 503.254 17.8165 522.933 22.3749 458.125Z" fill="#FFE8AE"/>
+                    <path d="M188.123 65.5195C263.767 24.4762 355.844 67.5551 388.941 135.929C422.038 204.302 394.713 285.944 327.909 318.282C261.105 350.619 180.119 321.406 147.022 253.033C113.924 184.66 121.319 97.857 188.123 65.5195Z" fill="#FFE8AE"/>
+                    <path d="M342.003 542.401C309.232 526.073 339.942 504.922 343.612 502.875C365.64 490.585 374.163 500.868 376.336 508.103C379.435 518.426 374.774 558.729 342.003 542.401Z" fill="#FFE8AE"/>
+                </svg>                                  
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% schema %}
+{
+    "name":"our team section",
+    "class": "our_team_section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Make Section Full Width",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "top_radius",
+            "default": true,
+            "label": "Section top border radius"
+        },
+        {
+            "type":"text",
+            "id": "our_team_section_title",
+            "label": "Our Team Section Title",
+            "default":"Meet the team behind Parenting Matters Online"
+        },
+        {
+            "type": "color",
+            "id": "section_bg_color",
+            "label": "Section Background Color",
+            "default": "#FDF8EC"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "default": "scheme_1",
+            "label": "Color scheme"
+        },
+        {
+            "type": "color",
+            "id": "bg_card_color",
+            "label": "Bg Card Color",
+            "default": "#FDF8EC"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme2",
+            "default": "scheme_1",
+            "label": "Color scheme for popup"
+        },
+        {
+            "type": "header",
+            "content": "section padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "name": "ourteam",
+            "type": "ourteam",
+            "settings": [
+                {
+                    "type":"image_picker",
+                    "id": "blog_card_image",
+                    "label": "Our Team Member Image"
+                },
+                {
+                    "type":"text",
+                    "id": "our_team_title",
+                    "label": "Our Team Title",
+                    "default":"Professor Stephen Scott"
+                },
+                {
+                    "type":"text",
+                    "id": "our_team_sub_title",
+                    "label": "Our Team Sub Title",
+                    "default": "Professor of Child Health and Behaviour"
+                },
+                {
+                    "type":"richtext",
+                    "id": "our_team_description",
+                    "label": "Our team sort Description"
+                },
+                {
+                    "type":"richtext",
+                    "id": "our_team_description2",
+                    "label": "Our team main Description"
+                },
+                {
+                    "type": "text",
+                    "id": "card_btn",
+                    "label": "Card button" ,
+                    "default": "Read more"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "our team section",
+            "blocks": [
+                {
+                    "type": "ourteam"
+                }
+            ] 
+        }
+    ]
+}
+{% endschema %}

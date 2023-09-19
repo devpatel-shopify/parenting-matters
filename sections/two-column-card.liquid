@@ -1,0 +1,524 @@
+{{ 'two-column-card.css' | asset_url | stylesheet_tag }}
+
+<style>
+      .two-column-card--{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;
+      }
+
+      @media screen and (min-width: 750px) {
+          .two-column-card--{{ section.id }}-padding {
+              padding-top: {{ section.settings.padding_top }}px;
+              padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+      }
+
+  {%- for block in section.blocks -%}
+      .two-column-card_inner#section--{{ section.id }} {
+          background: {{ block.settings.bg_color }};
+      }
+
+      .block-{{ block.id }} {
+          background: {{ block.settings.bg_color }};
+          margin-top: {{ block.settings.margin_top }}px;
+      }
+
+      @media screen and (max-width: 980px) {
+          .block-{{ block.id }} {
+              margin-top: calc({{ block.settings.margin_top_mobile }}px);
+          }
+      }
+      .breakdown_card_content-info.block--{{ block.id }} {
+          background: {{ block.settings.cart_content_bg_color }};
+      }
+  {%- endfor -%}
+  .section--{{ section.id}}.breakdown_card{
+    margin-top: {{ block.settings.margin_top }}px;
+  }
+</style>
+
+<section class="two-column-card--{{ section.id }}-padding {% if section.settings.top_radius == true%} top_border_radius{% endif %} color-{{ section.settings.color_scheme }}">
+  <div class="two-column-card_section">
+    <div class="two-column-card_wrapper {% unless section.settings.full_width %} page-width {% endunless %}">
+      <div class="two-column-card_wrapper_inner">
+        {%- if section.settings.section_title != blank -%}
+          <div class="two-column-card-title">
+            <h2 class="title h1">{{ section.settings.section_title }}</h2>
+          </div>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {%- when 'cardimage' -%}
+              <div class="two-column-card_inner" {{ block.shopify_attributes }}>
+                <div class="column-card_item block-{{ block.id }} color-{{ block.settings.color_scheme }}">
+                  {%- if block.settings.card_image != blank -%}
+                    <div class="two-column-card-image">
+                      {{ block.settings.card_image | image_url: width: 2000 | image_tag }}
+                    </div>
+                  {%- endif -%}
+                  <div class="card_content_wrapper">
+                    {%- if block.settings.card_label != blank -%}
+                      <span class="card_label">{{ block.settings.card_label }}</span>
+                    {%- endif -%}
+
+                    {%- if block.settings.card_title != blank -%}
+                      <h2 class="card_title">{{ block.settings.card_title }}</h2>
+                    {%- endif -%}
+
+                    {%- if block.settings.card_description != blank -%}
+                      <div class="p2 card_description">
+                        {{ block.settings.card_description }}
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.card_btn != blank -%}
+                      <div class="card_btn_wrapper">
+                        {%- if block.settings.card_btn != blank -%}
+                          <a
+                            {% if block.settings.card_btn_link == blank %}
+                              role="link" aria-disabled="true"
+                            {% else %}
+                              href="{{ block.settings.card_btn_link }}"
+                            {% endif %}
+                            class="button button--secondary"
+                          >
+                            <div class="only-desktop {% if block.settings.card_btn_mobile == blank %} desktop-with-mobile{% endif %}">
+                              {{- block.settings.card_btn | escape -}}
+                            </div>
+                            {% if block.settings.card_btn_mobile != blank %}
+                              <div class="only-mobile">{{- block.settings.card_btn_mobile | escape -}}</div>
+                            {% endif %}
+                            {%- render 'icon-arrow' -%}
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+
+            {%- when 'breakdownlove' -%}
+              <div class="two-column-card_inner section--{{ section.id}} breakdown_card " {{ block.shopify_attributes }}>
+                <div class="column-card_item block-{{ block.id }} color-{{ block.settings.color_scheme }}">
+                  {% comment %} breakdown Love block start {% endcomment %}
+                  <div class="breakdown_card-main">
+                    <div class="breakdown_card_inner">
+                      {%- if block.settings.love_label != blank -%}
+                        <span class="card_label">{{ block.settings.love_label }}</span>
+                      {%- endif -%}
+
+                      {%- if block.settings.card_heading != blank -%}
+                        <h2 class="card_title">{{ block.settings.card_heading }}</h2>
+                      {%- endif -%}
+                    </div>
+                  </div>
+
+                  {%- if block.settings.breakdown_card_image != blank
+                    or block.settings.breakdown_card_title != blank
+                    or block.settings.title_description != blank
+                  -%}
+                    <div class="breakdown_card_content-info block--{{ block.id }}">
+                      <div class="breakdown_card_inner_main">
+                        {%- if block.settings.breakdown_card_image != blank -%}
+                          <div class="breakdown_card_image">
+                            {{ block.settings.breakdown_card_image | image_url: width: 2000 | image_tag }}
+                          </div>
+                        {%- endif -%}
+                        <div class="breakdown_card_content">
+                          {%- if block.settings.breakdown_card_title != blank -%}
+                            <h5 class="breakdown_card_title">{{ block.settings.breakdown_card_title }}</h5>
+                          {%- endif -%}
+                          {%- if block.settings.title_description != blank -%}
+                            <div class="breakdown_card_content">
+                              {{ block.settings.title_description }}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.breakdown_card_image2 != blank
+                    or block.settings.breakdown_card_title2 != blank
+                    or block.settings.title_description2 != blank
+                  -%}
+                    <div class="breakdown_card_content-info  block--{{ block.id }}">
+                      <div class="breakdown_card_inner_main">
+                        {%- if block.settings.breakdown_card_image2 != blank -%}
+                          <div class="breakdown_card_image">
+                            {{ block.settings.breakdown_card_image2 | image_url: width: 2000 | image_tag }}
+                          </div>
+                        {%- endif -%}
+                        <div class="breakdown_card_content">
+                          {%- if block.settings.breakdown_card_title2 != blank -%}
+                            <h5 class="breakdown_card_title">{{ block.settings.breakdown_card_title2 }}</h5>
+                          {%- endif -%}
+                          {%- if block.settings.title_description2 != blank -%}
+                            <div class="breakdown_card_content">
+                              {{ block.settings.title_description2 }}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.breakdown_card_image3 != blank
+                    or block.settings.breakdown_card_title3 != blank
+                    or block.settings.title_description3 != blank
+                  -%}
+                    <div class="breakdown_card_content-info block--{{ block.id }}">
+                      <div class="breakdown_card_inner_main">
+                        {%- if block.settings.breakdown_card_image3 != blank -%}
+                          <div class="breakdown_card_image">
+                            {{ block.settings.breakdown_card_image3 | image_url: width: 2000 | image_tag }}
+                          </div>
+                        {%- endif -%}
+                        <div class="breakdown_card_content">
+                          {%- if block.settings.breakdown_card_title3 != blank -%}
+                            <h5 class="breakdown_card_title">{{ block.settings.breakdown_card_title3 }}</h5>
+                          {%- endif -%}
+                          {%- if block.settings.title_description3 != blank -%}
+                            <div class="breakdown_card_content">
+                              {{ block.settings.title_description3 }}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+
+
+                  {%- if block.settings.breakdown_card_image4 != blank
+                    or block.settings.breakdown_card_title4 != blank
+                    or block.settings.title_description4 != blank
+                  -%}
+                    <div class="breakdown_card_content-info block--{{ block.id }}">
+                      <div class="breakdown_card_inner_main">
+                        {%- if block.settings.breakdown_card_image4 != blank -%}
+                          <div class="breakdown_card_image">
+                            {{ block.settings.breakdown_card_image4 | image_url: width: 2000 | image_tag }}
+                          </div>
+                        {%- endif -%}
+                        <div class="breakdown_card_content">
+                          {%- if block.settings.breakdown_card_title4 != blank -%}
+                            <h5 class="breakdown_card_title">{{ block.settings.breakdown_card_title4 }}</h5>
+                          {%- endif -%}
+                          {%- if block.settings.title_description4 != blank -%}
+                            <div class="breakdown_card_content">
+                              {{ block.settings.title_description4 }}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                
+                  {%- if block.settings.button_label_2 != blank -%}
+                  <div class="breakdown-btn">
+                    <a
+                      {% if block.settings.button_link_2 == blank %}
+                        role="link" aria-disabled="false"
+                      {% else %}
+                        href="{{ block.settings.button_link_2 }}"
+                      {% endif %}
+                      class="button {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                    >
+                      {{- block.settings.button_label_2 | escape -}} {% render 'icon-arrow' %}
+                    </a>
+                  </div>
+                {%- endif -%}
+
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "two column card",
+    "class": "two-column-card",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title"
+        },
+        {
+            "type": "checkbox",
+            "id": "top_radius",
+            "default": false,
+            "label": "Section top border radius"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "t:sections.all.colors.label",
+            "default": "background-1"
+        },
+        {
+            "type": "header",
+            "content": "section padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 220,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 36
+        }
+    ],
+    "blocks": [
+        {
+            "type": "cardimage",
+            "name": "Card Image",
+            "limit": 3,
+            "settings": [
+                {
+                    "type":"image_picker",
+                    "id": "card_image",
+                    "label": "card image"
+                },
+                {
+                    "type": "text",
+                    "id": "card_label",
+                    "label": "Label" ,
+                    "default": "Quiz"
+                },
+                {
+                    "type": "text",
+                    "id": "card_title",
+                    "label": "Card Heading" ,
+                    "default": "What's your parenting style?"
+                },
+                {
+                    "type": "richtext",
+                    "id": "card_description",
+                    "label": "Card Description"
+                },
+                {
+                    "type": "text",
+                    "id": "card_btn",
+                    "label": "Button text",
+                    "default": "Discover your parenting style"
+                },
+                {
+                    "type": "text",
+                    "id": "card_btn_mobile",
+                    "label": "Button text mobile",
+                    "default": "Learn more"
+                },
+                {
+                    "type": "url",
+                    "id": "card_btn_link",
+                    "label": "Button link"
+                },
+                {
+                    "type": "color_scheme",
+                    "id": "color_scheme",
+                    "label": "t:sections.all.colors.label",
+                    "default": "background-1"
+                },
+                {
+                    "type": "range",
+                    "id": "margin_top",
+                    "min": 0,
+                    "max": 200,
+                    "step": 2,
+                    "default": 0,
+                    "unit": "px",
+                    "label": "Margin top desktop"
+                },
+                {
+                    "type": "range",
+                    "id": "margin_top_mobile",
+                    "min": 0,
+                    "max": 200,
+                    "step": 2,
+                    "default": 0,
+                    "unit": "px",
+                    "label": "Margin top mobile"
+                }
+            ]
+        },
+        {
+            "type": "breakdownlove",
+            "name": "Breakdown Love",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "love_label",
+                    "label": "Label" ,
+                    "default": "Course"
+                },
+                {
+                    "type": "text",
+                    "id": "card_heading",
+                    "label": "Card Heading" ,
+                    "default": "Love"
+                },
+                {
+                    "type": "color",
+                    "id": "cart_content_bg_color",
+                    "label": "Cart Content Background",
+                    "default": "#FFE8AE"
+                },
+                {
+                    "type": "header",
+                    "content": "Card first Content settings"
+                },
+                {
+                    "type":"image_picker",
+                    "id": "breakdown_card_image",
+                    "label": "Icon Image"
+                },
+                {
+                    "type": "text",
+                    "id": "breakdown_card_title",
+                    "label": "Content Title" ,
+                    "default": "Play"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title_description",
+                    "label": "Title Description"
+                },
+                {
+                    "type": "header",
+                    "content": "Card second Content settings"
+                },
+                {
+                    "type":"image_picker",
+                    "id": "breakdown_card_image2",
+                    "label": "Icon Image"
+                },
+                {
+                    "type": "text",
+                    "id": "breakdown_card_title2",
+                    "label": "Content Title" ,
+                    "default": "Praise"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title_description2",
+                    "label": "Title Description"
+                },
+                {
+                    "type": "header",
+                    "content": "Card third Content settings"
+                },
+                {
+                    "type":"image_picker",
+                    "id": "breakdown_card_image3",
+                    "label": "Icon Image"
+                },
+                {
+                    "type": "text",
+                    "id": "breakdown_card_title3",
+                    "label": "Content Title" ,
+                    "default": "Listen"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title_description3",
+                    "label": "Title Description"
+                },
+                {
+                    "type": "header",
+                    "content": "Card fourth Content settings"
+                },
+                {
+                    "type":"image_picker",
+                    "id": "breakdown_card_image4",
+                    "label": "Icon Image"
+                },
+                {
+                    "type": "text",
+                    "id": "breakdown_card_title4",
+                    "label": "Content Title" ,
+                    "default": "Listen"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title_description4",
+                    "label": "Title Description"
+                },
+                {
+                  "type" : "text",
+                  "id": "button_label_2",
+                  "label" : "Breakdown_card_btn",
+                  "default" : "Take the quiz"
+                },
+                {
+                  "type": "checkbox",
+                  "id": "button_style_secondary_2",
+                  "default": false,
+                  "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+                },
+                {
+                  "type": "url",
+                  "id": "button_link_2",
+                  "label": "Button URL"
+                },
+                {
+                    "type": "color_scheme",
+                    "id": "color_scheme",
+                    "label": "t:sections.all.colors.label",
+                    "default": "background-1"
+                },
+                {
+                    "type": "range",
+                    "id": "margin_top",
+                    "min": 0,
+                    "max": 200,
+                    "step": 2,
+                    "default": 0,
+                    "unit": "px",
+                    "label": "Margin top desktop"
+                },
+                {
+                    "type": "range",
+                    "id": "margin_top_mobile",
+                    "min": 0,
+                    "max": 200,
+                    "step": 2,
+                    "default": 0,
+                    "unit": "px",
+                    "label": "Margin top mobile"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "two column card",
+            "blocks": [
+                {
+                    "type": "cardimage"
+                },
+                {
+                    "type": "cardimage"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

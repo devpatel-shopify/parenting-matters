@@ -8,8 +8,9 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "Discover your parenting persona",
+            "link_text": "Take the quiz",
+            "link": "shopify:\/\/pages\/quiz-hub"
           }
         }
       },
@@ -17,7 +18,7 @@
         "announcement-bar-0"
       ],
       "settings": {
-        "color_scheme": "background-1",
+        "color_scheme": "accent-2",
         "show_line_separator": true,
         "auto_rotate": false,
         "change_slides_speed": 5
@@ -29,13 +30,12 @@
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "show_line_separator": true,
         "color_scheme": "background-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "mobile_logo_position": "center",
-        "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
       }

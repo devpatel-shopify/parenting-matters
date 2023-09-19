@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "d3896c67-79a8-4d64-954d-f8519b2ccc71": {
+      "type": "dashboard-parenting-style",
+      "settings": {
+        "nq_title": "Take a quiz and get your Parenting style.",
+        "title": "Your parenting style [parenting_style]",
+        "description": "<p>You'll see the full description of your parenting style once you've taken the quiz.<\/p>",
+        "btn_text": "Download PDF",
+        "nq_btn_text": "Take the quiz",
+        "btn_link": "shopify:\/\/pages\/parenting-style-quiz"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d3896c67-79a8-4d64-954d-f8519b2ccc71"
+  ]
+}

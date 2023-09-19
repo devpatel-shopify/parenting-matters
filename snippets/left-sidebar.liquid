@@ -1,0 +1,44 @@
+{%- assign isCoursePurchased = false -%}
+{% if customer and customer.tags contains 'Purchased Course' %}
+  {%- assign isCoursePurchased = true -%}
+{% endif %}
+
+<ul>
+    <li class="scroll-trigger animate--slide-in" style="--animation-order: 1;">
+        <a href="{{- routes.account_url -}}" class="js-dashbord-link {% if template == "customers/account" %}active{% endif %}">
+            {{- settings.overview_text | default:'Overview' -}}
+        </a>
+    </li>
+    {%- for i in (1..5) -%}
+        {%- assign text = "title_" | append: i -%}
+        {%- assign link = "link_" | append: i -%}
+        {%- assign newTab = "new_tab_" | append: i -%}
+        {%- assign show_course_only = "show_course_only_" | append: i -%}
+
+        {%- assign textValue = settings[text] -%}
+        {%- assign linkValue = settings[link] -%}
+        {%- assign newTabValue = settings[newTab] -%}
+        {%- assign show_course_onlyValue = settings[show_course_only] -%}
+
+        {%- assign showLink = true -%}
+
+        {%- if show_course_onlyValue == true and isCoursePurchased == false -%}
+            {%- assign showLink = false -%}
+        {%- endif -%}
+
+        {%- if textValue != blank and linkValue != blank and showLink == true -%}
+            <li class="scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index | plus: 1 }};">
+                <a href="{{- linkValue -}}" class="js-dashbord-link {% if linkValue == page.url %}active{% endif %}" {% if newTabValue %}target="_blank"{% endif %}>
+                    {{- textValue -}}
+                </a>
+            </li>
+        {%- endif -%}
+    {%- endfor -%}
+</ul>
+<div class="tab_back_img">
+    <svg xmlns="http://www.w3.org/2000/svg" width="58" height="73" viewBox="0 0 58 73" fill="none">
+        <path d="M46.186 39.4176C47.0728 58.5514 29.5153 72.8197 12.6099 72.8197C-4.29548 72.8197 -18 59.4286 -18 42.9099C-18 26.3911 -4.29548 13 12.6099 13C29.5153 13 46.186 22.8989 46.186 39.4176Z" fill="#FFD978"/>
+        <path d="M14.1528 48.2998C-16.0537 33.2498 12.2532 13.7536 15.6353 11.8666C35.9397 0.538222 43.7963 10.017 45.7987 16.6861C48.6557 26.2013 44.3592 63.3499 14.1528 48.2998Z" fill="#FFE8AE"/>
+      </svg> 
+</div>
+

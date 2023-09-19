@@ -1,0 +1,193 @@
+.parent_card_wrapper {
+    display: flex;
+    gap: 30px;
+    height: 100%;
+    margin-top: 81px;
+}
+.love_limit_section section{
+  margin-top:0;
+      
+      background: #C9D9D3;
+}
+.parent_card {
+    width: calc(50% - 15px);
+    padding: 32px;
+    border-radius: 40px;
+}
+
+.parent_main_wrapper .description_title {
+    text-align: center;
+}
+
+
+
+.parent_main {
+    max-width: 1046px;
+    margin: 0 auto;
+}
+
+.section_content_wrapper {
+    max-width: 757px;
+    margin:0 auto; 
+    margin-top: 160px;
+}
+
+.school_content_wrapper {
+    margin-top: 117px;
+}
+
+.school_main_content {
+    position: relative;
+}
+
+.bg_svg_image {
+    text-align: center;
+}
+
+.school_content-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card_description_wrapper {
+    font-weight: var(--font-heading-weight);
+    text-align: center;
+}
+
+.card_image_cover img {
+    max-height: 258px;
+    max-width: 246px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.card_image_cover {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.section_title {
+    text-align: center;
+}
+
+.section_title_contrent {
+    font-weight: var(--font-heading-weight);  
+}
+
+.school_content_percent {
+    margin-top: 12px;
+    font-weight: var(--font-heading-weight);
+    display: block;
+}
+
+.bg_svg_image img {
+    max-width: 338px;
+    max-height: 314px;
+    object-fit: cover;
+}
+
+.parent_title {
+    max-width: 614px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card_description_wrapper span {
+    color: #C72457;
+}
+
+@media screen and (max-width: 1099px) {
+  .section_title{
+    font-size: 40px;
+  }
+  .love_limit_section section{
+        padding-bottom: 181px;
+    padding-top: 110px;
+  }
+  .two-column-card--template--19831425040682__91165899-7dc1-43fc-b674-0b386b4d68b0-padding{
+    padding-top: 110px !important;
+    padding-bottom: 180px !important; 
+  }
+  .two-column-card .breakdown_card_inner_main .breakdown_card_content p{
+    min-height:57px;
+  }
+}
+@media screen and (max-width: 768px) {
+  
+  .card_description_wrapper{
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 749px) {
+    .section_title {
+        font-size: 30px;
+        line-height: 38.4px;
+    }
+    .parent_card_wrapper {
+        margin: 32px 0 100px;
+    }
+    .parent_card_wrapper {
+        flex-wrap: wrap;
+    }
+    .parent_card {
+        width: 100%;
+    }
+    .parent_card_wrapper {
+        gap: 32px;
+    }
+    .card_description_wrapper {
+        font-size: 18px;
+        line-height: 21.6px;
+    }
+    .school_content_wrapper {
+        margin-top: 80px;
+    }
+    .section_title_contrent {
+        font-size: 18px;
+        line-height: 21.6px;
+    }
+    .bg_svg_image img {
+        max-width: 202px;
+        max-height: 189px;
+    }
+    .parent_main_wrapper .school_content {
+        max-width: 335px;
+    }
+    .parent_title {
+        max-width: 370px;
+    }
+    .love_limit_section .bg_svg_image svg {
+        width: 202px;
+        height: auto;
+    }
+    .school_content-main {
+        width: 100%;
+    }
+    .card_image_cover img {
+        max-height: 150px;
+        max-width: 150px;
+    }
+  .love_limit_section section {
+    margin-top: 0;
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+  .parent_card_wrapper {
+      margin: 32px 0 100px;
+}
+  .section_content_wrapper{
+    margin: 60px auto 0;
+  }
+  .card_image_cover{
+        margin-bottom: 15px;
+  }
+  .parent_card{
+    padding: 24px;
+  }
+  .two-column-card--template--19831425040682__91165899-7dc1-43fc-b674-0b386b4d68b0-padding{
+      padding-bottom: 104px!important;
+  }
+}

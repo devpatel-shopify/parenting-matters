@@ -17,19 +17,24 @@
   <div class="pagination-wrapper">
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
-        {%- if paginate.previous -%}
-          <li>
+     
+          <li class="{%- unless paginate.previous.is_link == true -%} page-disable {%- endunless -%}" >
             <a
               href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
+              class=" button button--secondary prev"
               aria-label="{{ 'general.pagination.previous' | t }}"
             >
-              {% render 'icon-caret' %}
+              {% comment %} {% render 'icon-caret' %} {% endcomment %}
+              {% render 'icon-arrow' %}
+              Prev
             </a>
           </li>
-        {%- endif -%}
-
-        {%- for part in paginate.parts -%}
+       
+          <li class="total-page">
+            Page <span> {{ paginate.current_page }} </span> of {{ paginate.pages }}
+          </li>
+        
+          {% comment %} {%- for part in paginate.parts -%}
           <li>
             {%- if part.is_link -%}
               <a
@@ -55,19 +60,20 @@
               {%- endif -%}
             {%- endif -%}
           </li>
-        {%- endfor -%}
+          {%- endfor -%} {% endcomment %}
 
-        {%- if paginate.next -%}
-          <li>
+        
+          <li class="{%- unless paginate.next.is_link == true -%} page-disable {%- endunless -%}" >
             <a
               href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
+              class=" button button--secondary next"
               aria-label="{{ 'general.pagination.next' | t }}"
-            >
-              {%- render 'icon-caret' -%}
+            >Next
+            {% render 'icon-arrow' %}
+              {% comment %} {%- render 'icon-caret' -%} {% endcomment %}
             </a>
           </li>
-        {%- endif -%}
+        
       </ul>
     </nav>
   </div>

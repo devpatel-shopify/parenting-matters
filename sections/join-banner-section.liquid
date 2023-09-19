@@ -1,0 +1,114 @@
+{{ 'section-join-banner.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+    .section--{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+        .section--{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+    }
+{% endstyle %}
+
+<section class="section--{{ section.id }}-padding color-{{ section.settings.background_schema }} {% if section.settings.top_radius == true%} top_border_radius{% endif %}">
+    <div class="page-width">
+        <div class="jb-text">
+            {%- if section.settings.section_title != blank -%}
+                <div class="section-title">
+                    <h2>{{ section.settings.section_title }}</h2>
+                </div>
+            {%- endif -%}
+            {% if section.settings.button_text != blank %}
+                <a class="button" href="{{ section.settings.button_url }}" >
+                    {{- section.settings.button_text -}}
+                    {% render 'icon-arrow' %}
+                </a>
+            {%- endif -%}
+        </div>
+    </div>
+    <div class="jb-design">
+        <div class="jb-bg">
+            {% render 'big-circle' %}
+        </div>
+        <div class="jb-design-image-cover">
+            <div class="page-width">
+                <div class="jb-design-image">
+                    {{ 'join-banner-image.svg' | asset_url | img_tag }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Join banner section",
+    "class": "join-banner-section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title"
+        },
+        {
+            "type": "color_scheme",
+            "id": "background_schema",
+            "default": "scheme_1",
+            "label": "Color scheme"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text",
+            "default": "Button"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button url"
+        },
+        {
+            "type": "checkbox",
+            "id": "top_radius",
+            "default": true,
+            "label": "Section top border radius"
+        },
+        {
+            "type": "header",
+            "content": "section padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 160,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 160,
+            "step": 2,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 36
+        }
+    ],
+    "presets": [
+        {
+            "name": "Join banner section",
+            "blocks": [
+                
+            ]
+        }
+    ]
+}
+{% endschema %}
