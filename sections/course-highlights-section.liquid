@@ -54,11 +54,17 @@
                   </div>
 
                   {%- assign buttonText = block.settings.np_button_text -%}
+                  {%- assign disable_course_not_purchase_button = block.settings.disable_course_not_purchase_button -%}
                   {%- assign buttonUrl = settings.course_product.url -%}
-                  {% if customer and customer.tags contains "Purchased Course" %}
+                  {%- if disable_course_not_purchase_button == true -%}
                     {%- assign buttonText = block.settings.button_text -%}
                     {%- assign buttonUrl = block.settings.button_url -%}
-                  {% endif %}
+                  {%- else -%}
+                    {% if customer and customer.tags contains "Purchased Course" %}
+                      {%- assign buttonText = block.settings.button_text -%}
+                      {%- assign buttonUrl = block.settings.button_url -%}
+                    {% endif %}
+                  {%- endif -%}
 
                   {% if buttonUrl != blank and buttonText != blank %}
                     <div class="quiz_button">
@@ -99,10 +105,16 @@
                   </div>
                   {%- assign buttonText = block.settings.np_button_text -%}
                   {%- assign buttonUrl = settings.course_product.url -%}
-                  {% if customer and customer.tags contains "Purchased Course" %}
+                  {%- assign disable_course_not_purchase_button = block.settings.disable_course_not_purchase_button -%}
+                  {%- if disable_course_not_purchase_button == true -%}
                     {%- assign buttonText = block.settings.button_name -%}
                     {%- assign buttonUrl = block.settings.button_link -%}
-                  {% endif %}
+                  {%- else -%}
+                    {% if customer and customer.tags contains "Purchased Course" %}
+                      {%- assign buttonText = block.settings.button_name -%}
+                      {%- assign buttonUrl = block.settings.button_link -%}
+                    {% endif %}
+                  {%- endif -%}
 
                   {% if buttonUrl != blank or buttonText != blank %}
                     <div class="quiz_button">
@@ -323,6 +335,12 @@
           "info": "If Course has been Purchased."
         },
         {
+          "type": "checkbox",
+          "label": "Disable course not Purchase button",
+          "id": "disable_course_not_purchase_button",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "np_button_text",
           "label": "Button text",
@@ -385,6 +403,12 @@
           "id": "about_quiz",
           "label": "Paragraph",
           "default": "Paragraph"
+        },
+        {
+          "type": "checkbox",
+          "label": "Disable course not Purchase button",
+          "id": "disable_course_not_purchase_button",
+          "default": false
         },
         {
           "type": "text",
