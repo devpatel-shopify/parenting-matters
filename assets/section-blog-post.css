@@ -199,9 +199,12 @@
 }
 .article-template__content span{
   margin-bottom: 60px;
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 16px;
 
+}
+.article-template__content figure{
+  margin: 0;
 }
 .article-template__content iframe{
   margin-top:80px ;
