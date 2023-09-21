@@ -95,6 +95,14 @@
             "heading_content": "<p>Yes, learning how to speak up for yourself and express your needs in a constructive way is part of the course, as is how to listen to them and show them that you understand what they are feeling<\/p>"
           }
         },
+        "52651694-4446-44b7-94b3-3715b2bef9f6": {
+          "type": "heading",
+          "settings": {
+            "content_title": "How do I know if this is going to work?",
+            "padding_top": 128,
+            "padding_bottom": 0
+          }
+        },
         "b686e915-ca34-4904-b976-9a1946a0854d": {
           "type": "course",
           "settings": {
@@ -114,6 +122,14 @@
           "settings": {
             "heading_title": "What are the principles this course is based on?",
             "heading_content": "<p>There are 4 underpinning theories that we draw on: (i) attachment theory, which is about how to make your child feel safe and loved and strong inside, so then they are more willing to fit in with the family; (ii) social learning theory, which shows how to help children learn better habits, change their behaviour and gives you the tools to do this; (iii) educational language and reading learning theory, so that you use the best methods proven to help your child learn better; and finally (iv) neuroscience, choosing the approaches that have been shown to lead to better brain growth.<\/p>"
+          }
+        },
+        "f54e5d4d-b8ab-4ce5-b371-cfc076fa0632": {
+          "type": "heading",
+          "settings": {
+            "content_title": "Doing the course",
+            "padding_top": 128,
+            "padding_bottom": 0
           }
         },
         "dc254e5a-fa4c-4939-b6ed-81285187d596": {
@@ -285,9 +301,11 @@
         "f0aa7513-edb5-4454-8cea-81a4a282dcbb",
         "1b356ba4-72ab-4370-a00a-0677a0963a8c",
         "96742bb3-9659-46b2-a6c0-f63e293af7a4",
+        "52651694-4446-44b7-94b3-3715b2bef9f6",
         "b686e915-ca34-4904-b976-9a1946a0854d",
         "cb7c9bf5-a1f4-4694-a64d-8c7983fb3512",
         "cc87db82-68e5-490a-af9f-12977eb17e85",
+        "f54e5d4d-b8ab-4ce5-b371-cfc076fa0632",
         "dc254e5a-fa4c-4939-b6ed-81285187d596",
         "a209f6d1-eba0-4092-b858-e33b67ce0ae8",
         "b728e4f2-e253-406c-b0da-889c3e91bdcb",
