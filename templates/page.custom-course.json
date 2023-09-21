@@ -15,8 +15,8 @@
         "nq_parenting_style_text": "Complete Parenting Style Quiz",
         "goal_icon": "shopify:\/\/shop_images\/dash1.png",
         "goal_icon_back_color": "#f7c083",
-        "goal_description": "<p>My goal is to better understand my child and their feelings<\/p>",
-        "goal_np_description": "<p>Start course to set your goal<\/p>"
+        "goal_description": "<p>My goal is to [dynamic_text]<\/p>",
+        "goal_np_description": "<p><strong>Start the course to set up your goals!<\/strong><\/p>"
       }
     }
   },
