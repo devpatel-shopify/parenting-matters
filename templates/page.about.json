@@ -47,6 +47,7 @@
         "heading_size": "h1",
         "enable_video_looping": false,
         "video_url": "https:\/\/vimeo.com\/786248207",
+        "cover_image": "shopify:\/\/shop_images\/Screenshot_2023-09-21_at_15.34.41.png",
         "description": "",
         "full_width": false,
         "color_scheme": "",
@@ -54,24 +55,31 @@
         "padding_bottom": 36
       }
     },
+    "e31753ed-f7aa-4281-ab93-ab017c8d7859": {
+      "type": "rich-text",
+      "blocks": {
+        "template--19760290693418__e31753ed-f7aa-4281-ab93-ab017c8d7859-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We have created a fun online course, Parenting Matters. Through entertaining videos, cartoons and exercises where you try out new ways of communicating, you will get closer to your child and understand what makes them tick. They will become calmer, more helpful and learn better.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19760290693418__e31753ed-f7aa-4281-ab93-ab017c8d7859-text-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa": {
       "type": "course-highlights-section",
       "blocks": {
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0": {
-          "type": "track_quiz",
-          "settings": {
-            "quiz_image": "shopify:\/\/shop_images\/Family_star.svg",
-            "sub_title": "Quiz",
-            "heading_text": "Track your Family Star",
-            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
-            "button_text": "Take the Quiz",
-            "disable_course_not_purchase_button": false,
-            "np_button_text": "Buy the Course",
-            "button_url": "shopify:\/\/pages\/quiz-hub",
-            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
-            "layout": "image_first"
-          }
-        },
         "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1": {
           "type": "exercise_quiz",
           "settings": {
@@ -96,11 +104,26 @@
             "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
             "layout_2": "image_first"
           }
+        },
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0": {
+          "type": "track_quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Family_star.svg",
+            "sub_title": "Quiz",
+            "heading_text": "Track your Family Star",
+            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
+            "button_text": "Take the Quiz",
+            "disable_course_not_purchase_button": false,
+            "np_button_text": "Buy the Course",
+            "button_url": "shopify:\/\/pages\/quiz-hub",
+            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "layout": "image_first"
+          }
         }
       },
       "block_order": [
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0",
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1"
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1",
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0"
       ],
       "settings": {
         "full_width": false,
@@ -386,6 +409,7 @@
     "main",
     "ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a",
     "56d16038-8cd8-4e8c-8abe-6012349b4e9a",
+    "e31753ed-f7aa-4281-ab93-ab017c8d7859",
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa",
     "31fc5afb-d0b6-41a8-824d-2153581bde4e",
     "91165899-7dc1-43fc-b674-0b386b4d68b0",
