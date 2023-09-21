@@ -322,8 +322,8 @@
       "settings": {
         "full_width": false,
         "email_image": "shopify:\/\/shop_images\/get-icon.png",
-        "heading_text": "Can’t find what your looking for?",
-        "heading_small": "Send us your question and we can get back to you.",
+        "heading_text": "Can’t find what you're looking for?",
+        "heading_small": "Send us your question and we’ll get back to you.",
         "button_text": "Submit question",
         "button_url": "",
         "color_scheme": "",
