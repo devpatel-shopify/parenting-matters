@@ -70,6 +70,7 @@
     },
     "6cadaf58-4375-4b65-8b3c-0208e42a2fa1": {
       "type": "ddp-post-list",
+      "disabled": true,
       "settings": {
       }
     }
