@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Get started",
-            "button_link_1": "shopify:\/\/pages\/quiz-hub",
+            "button_link_1": "shopify:\/\/pages\/about",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
