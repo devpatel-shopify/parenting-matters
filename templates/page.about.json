@@ -61,7 +61,7 @@
         "template--19760290693418__e31753ed-f7aa-4281-ab93-ab017c8d7859-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>We have created a fun online course, Parenting Matters. Through entertaining videos, cartoons and exercises where you try out new ways of communicating, you will get closer to your child and understand what makes them tick. They will become calmer, more helpful and learn better.<\/p>"
+            "text": "<h5>We have created a fun online course, Parenting Matters. Through entertaining videos, cartoons and exercises where you try out new ways of communicating, you will get closer to your child and understand what makes them tick. They will become calmer, more helpful and learn better.<\/h5>"
           }
         }
       },
@@ -73,8 +73,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa": {
