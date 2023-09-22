@@ -10,6 +10,18 @@
     "5ae4306a-a7d7-4bcd-8123-4040bc27547f": {
       "type": "section-family-star",
       "blocks": {
+        "b4bea16f-e53f-4072-a32a-b907de633708": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "Parenting Daily Hassle",
+            "q": "You are continually clearing up messes of toys or food",
+            "a1": "Constantly",
+            "a2": "A lot",
+            "a3": "Rarely",
+            "a4": "Never"
+          }
+        },
         "93cc4f68-506d-44b2-8ba1-bc642f6ede29": {
           "type": "range",
           "settings": {
@@ -17,18 +29,6 @@
             "q": "",
             "a1": "",
             "a2": ""
-          }
-        },
-        "b4bea16f-e53f-4072-a32a-b907de633708": {
-          "type": "button",
-          "settings": {
-            "klaviyo_id": "",
-            "q_group_title": "",
-            "q": "",
-            "a1": "",
-            "a2": "",
-            "a3": "",
-            "a4": ""
           }
         },
         "d3a1ee65-ea38-473a-b835-b1266162323d": {
@@ -50,8 +50,8 @@
         }
       },
       "block_order": [
-        "93cc4f68-506d-44b2-8ba1-bc642f6ede29",
         "b4bea16f-e53f-4072-a32a-b907de633708",
+        "93cc4f68-506d-44b2-8ba1-bc642f6ede29",
         "d3a1ee65-ea38-473a-b835-b1266162323d",
         "3aba4565-1d31-4a93-b089-04cdf4d981d9"
       ],
