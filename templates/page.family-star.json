@@ -6,9 +6,67 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "5ae4306a-a7d7-4bcd-8123-4040bc27547f": {
+      "type": "section-family-star",
+      "blocks": {
+        "93cc4f68-506d-44b2-8ba1-bc642f6ede29": {
+          "type": "range",
+          "settings": {
+            "klaviyo_id": "",
+            "q": "",
+            "a1": "",
+            "a2": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de633708": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "",
+            "q": "",
+            "a1": "",
+            "a2": "",
+            "a3": "",
+            "a4": ""
+          }
+        },
+        "d3a1ee65-ea38-473a-b835-b1266162323d": {
+          "type": "dropdown",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "",
+            "q": "",
+            "options": "Option 1, Option 2, Option 3, Option 4"
+          }
+        },
+        "3aba4565-1d31-4a93-b089-04cdf4d981d9": {
+          "type": "textfield",
+          "settings": {
+            "klaviyo_id": "",
+            "q_group_title": "",
+            "q": ""
+          }
+        }
+      },
+      "block_order": [
+        "93cc4f68-506d-44b2-8ba1-bc642f6ede29",
+        "b4bea16f-e53f-4072-a32a-b907de633708",
+        "d3a1ee65-ea38-473a-b835-b1266162323d",
+        "3aba4565-1d31-4a93-b089-04cdf4d981d9"
+      ],
+      "settings": {
+        "form_id": "",
+        "success_title": "",
+        "success_overview": "",
+        "color_scheme": "",
+        "heading_font": "h2",
+        "progress_bar_radius": 44
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "5ae4306a-a7d7-4bcd-8123-4040bc27547f"
   ]
 }
