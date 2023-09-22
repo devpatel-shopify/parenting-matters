@@ -6,14 +6,14 @@
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "Family Star Quiz",
+            "heading": "Starting the quiz",
             "heading_size": "h1"
           }
         },
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1": {
           "type": "text",
           "settings": {
-            "text": "We’ve got a bunch of fun and informative quizzes which will help you identify different parenting features about yourself.",
+            "text": "Answer the questions below as accurately as you can!",
             "text_style": "body"
           }
         },
