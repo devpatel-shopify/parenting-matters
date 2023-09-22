@@ -1,12 +1,1039 @@
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
+
+{% assign ss = section.settings %}
+{%- liquid
+  assign heading_font = section.settings.heading_font
+-%}
+
+{% if ss.form_id != blank %}
+  {% assign formID = ss.form_id | handleize %}
+
+  <section class="ps-quiz color-{{ section.settings.color_scheme }}">
+    <div class="page-width">
+      {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
+      <!-- <form
+        class="quiz-section"
+        id="{{ formID }}"
+        style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
+      > -->
+        
+<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <!-- <input type="hidden" name="g" value="SsT6w6">
+    <input type="hidden" name="$list_fields" value="$consent"> -->
+        
+
+        {% assign fields = '' %}
+  
+        {% for block in section.blocks %}
+          {% assign bs = block.settings %}
+          {% assign field_name = bs.klaviyo_id | handleize %}
+
+          {% if field_name != "" %}
+            {% assign fields = fields | append: field_name | append: "," %}
+          {% endif %}
+  
+          {% case block.type %}
+            {% when 'range' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
+                {% if bs.q != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.a1 != blank and bs.a2 != blank %}
+                  <div class="range_container">
+                    <div class="labels">
+                      <p>{{ bs.a1 }}</p>
+                      <p>{{ bs.a2 }}</p>
+                    </div>
+                    <div class="range_inner">
+                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                      <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
+                      <div class="range_steps">
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="range">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'button' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="qtype-button radio-container">
+                  {% if bs.a1 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a1 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a1 | handleize }}"
+                        data-val="-2"
+                        required
+                      >
+                      <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a2 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a2 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a2 | handleize }}"
+                        data-val="-1"
+                        required
+                      >
+                      <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a3 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a3 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a3 | handleize }}"
+                        data-val="1"
+                        required
+                      >
+                      <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a4 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a4 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a4 | handleize }}"
+                        data-val="2"
+                        required
+                      >
+                      <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
+                    </div>
+                  {% endif %}
+                  <input type="hidden" id="slidervalue{{ forloop.index }}" value >
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="radio">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'textfield' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="textfield-container">
+                  <textarea
+                    name="{{ bs.klaviyo_id }}"
+                    id="{{ bs.klaviyo_id }}"
+                    placeholder="Enter your answer here..."
+                  ></textarea>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next"  data-type="text">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'dropdown' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                {% assign options = bs.options | split: ","%}
+
+                <div class="dropdown-container">
+                  <div class="select">
+                    <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
+                      {% for option in options %}
+                          <option value="{{ option }}">{{ option }}</option>
+                      {% endfor %}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="button" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="dropdown">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+
+      {% assign fields = fields | append: "ParentingStyle" | append: "," %}
+      {% assign fields = fields | append: "Xaxis" | append: "," %}
+      {% assign fields = fields | append: "Yaxis" | append: "," %}
+      {% assign fields = fields | append: "ParentingType" | append: "," %}
+      <input type="hidden" id="ParentingStyle" name="ParentingStyle" value="">
+      <input type="hidden" id="ParentingType" name="ParentingType" value="">
+      <input type="hidden" id="Xaxis" name="Xaxis" value="">
+      <input type="hidden" id="Yaxis" name="Yaxis" value="">
+      <input type="hidden" id="pq_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
+      <input type="hidden" id="pq_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
+      <input type="hidden" type="email" id="pq_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
+      <input type="hidden" name="$fields" value="$consent,{{ fields }}">
+
+
+    
+
+<div class="form-success-msg hidden">
+        {% if ss.success_title != blank %}
+          <h2 class="title">{{ ss.success_title }}</h2>
+          <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
+        {% endif %}
+
+<div class="customer contact-form register quiz-signup">
+
+        {% if ss.success_overview != blank %}
+          <h5 class="rte">{{ ss.success_overview }}</h5>
+        {% endif %}
+        <p>Enter your details below to create your account.</p>
+  
+
+   
+    <div class="field-box">
+      <label for="RegisterForm-FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="Enter your First name"
+      >
+    </div>
+
+    <div class="field-box">
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="Enter your Last name"
+      >
+    </div>      
+  
+    <div class="field-box">
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="Enter your email"
+      >
+    </div>
+
+    
+    <div class="field-box">
+      <label for="RegisterForm-password"> Password* </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="Enter your password"
+      >
+    </div>
+    <div class="field-box">
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="Enter your password"
+      >
+    </div>
+    
+    <div class="button-block">
+      <button id="RegistrationSubmit" class="button button--primary">
+        {{ 'customer.register.submit' | t }}
+        <svg
+          aria-hidden="true"
+          class="icon icon-arrow"
+          focusable="false"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+   
+</div>
+
+
+
+
+        {% comment %}
+        <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
+          <div class="contact">
+            <div class="contact__fields">
+              <div class="grid grid--1-col grid--2-col-tablet">
+              <div class="field-box grid__item">
+                <label class="" for="pq_first_name">First name</label>
+                <input
+                  class=""
+                  autocomplete="first_name"
+                  type="text"
+                  id="pq_first_name"
+                  name="first_name"
+                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
+                  placeholder="First name"
+                >
+              </div>
+                <div class="field-box grid__item">
+                <label class="" for="pq_last_name">Last name</label>
+                <input
+                  class=""
+                  autocomplete="last_name"
+                  type="text"
+                  id="pq_last_name"
+                  name="last_name"
+                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
+                  placeholder="Last name"
+                >
+              </div>
+              </div>
+              <div class=" field-box field--with-error">
+                <label class="" for="ContactForm-email">
+                  {{- 'templates.contact.form.email' | t }}
+                </label>
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="pq_email"
+                  class=""
+                  name="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  required
+                  placeholder="Enter your email"
+                >
+              </div>
+            </div>
+            <div class="contact__button">
+              <button type="submit" class="button button--primary">
+                {{ 'templates.contact.form.send' | t }}
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-arrow"
+                  focusable="false"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>          
+          </div>
+        </div>
+        {% endcomment %}
+            
+      </div>
+   </form>
+    </div>
+  </section>
+
+
+
+  <script defer>
+
+      KlaviyoSubscribe.attachToForms('#pq_quiz', {
+        hide_form_on_success: false,
+        extra_properties: {
+        $source: 'https://parenting-matters.myshopify.com/pages/parenting-style-quiz-1',
+        $method_type: "Klaviyo Form",
+        $method_id: 'embed',
+        $consent_version: 'Embed default text',
+        },
+        hide_form_on_success: false,
+        custom_success_message: true
+      });
+
+    
+    document.addEventListener('DOMContentLoaded',function () {
+      const slides = document.querySelectorAll('#pq_quiz .slide');
+      
+      slides.forEach((slide) =>{
+          if(slide.querySelector('.button_next')){
+          slide.querySelector('.button_next').addEventListener('click',function(event){
+            event.preventDefault();
+            var btn = $(event.currentTarget);
+            var isValid = true;
+            if(btn.data("type") == "radio"){
+              isValid = false;
+              //console.log(btn.parents(".slide").find("input[type='radio']:checked").length);
+              if(btn.parents(".slide").find("input[type='radio']:checked").length){
+                btn.parents(".slide").find(".radio-container").removeClass("error");
+                isValid = true;
+              }else{
+                btn.parents(".slide").find(".radio-container").addClass("error");
+              }
+            }
+
+  
+            if(isValid){
+              event.currentTarget.closest('.slide').nextElementSibling.classList.remove('hidden');
+              event.currentTarget.closest('.slide').classList.add('hidden');
+            }
+          })
+        }
+        if(slide.querySelector('.button_back')){
+          slide.querySelector('.button_back').addEventListener('click', function(event){
+            event.preventDefault();
+            event.currentTarget.closest('.slide').previousElementSibling.classList.remove('hidden');
+            event.currentTarget.closest('.slide').classList.add('hidden');
+          })
+        }
+
+        
+        if(slide.querySelector('.button_submit')){
+
+          slide.querySelector('.button_submit').addEventListener('click', function(event){
+            event.preventDefault();
+
+            var sbtn = $(event.currentTarget);
+
+            const relationship = document.getElementById('pq_childrelation').value;
+            const comment = document.getElementById('pq_comment').value;
+
+
+            const larray = [1, 12];
+            const darray = [6, 7, 9, 15, 17, 23, 24, 25, 11, 5, 19, 26];
+            const uarray = [3, 4, 13, 21, 16];
+            const rarray = [2, 8, 14, 20, 22, 10, 18];
+            let l = 0;
+            let d = 0;
+            let u = 0;
+            let r = 0;
+            const score = {};
+
+            for (let i = 1; i < 27; i++) {
+              score[i] = parseFloat(document.getElementById('slidervalue' + i).value);
+              console.log(score[i]);
+              val = parseFloat(document.getElementById('slidervalue' + i).value);
+
+      
+              if (larray.includes(i)) {
+                  if (val > 0) {
+                      d += val;
+                  } else {
+                      l += val;
+                  }
+              }
+              if (darray.includes(i)) {
+                  if (val < 0) {
+                      d -= val;
+                  } else {
+                      l -= val;
+                  }
+              }
+              if (uarray.includes(i)) {
+                  if (val > 0) {
+                      r += val;
+                  } else {
+                      u += val;
+                  }
+              }
+              if (rarray.includes(i)) {
+                  if (val < 0) {
+                      r -= val;
+                  } else {
+                      u -= val;
+                  }
+              }
+          }
+
+            const text_score = JSON.stringify(score);
+
+
+            console.log(text_score);
+            console.log(relationship);
+            console.log(comment);
+
+            // Factor for 12 and 14 questions of each type
+            // and a maximum scale value for each of 20
+            l = (l * 20) / 28;
+            d = (d * 20) / 28;
+            u = (u * 20) / 24;
+            r = (r * 20) / 24;
+            const x = d + l;
+            const y = r + u;
+
+            console.log("l",l);
+            console.log("d",d);
+            console.log("u",u);
+            console.log("r",r);
+            console.log("x",x);
+            console.log("y",y);
+
+
+            var xaxis=parseFloat(x);
+            var yaxis=parseFloat(y);
+
+            var slope=yaxis/xaxis;
+
+            var description = '';
+            var pstyle = '';
+
+            // var r=parseFloat(r);
+            // var u=parseFloat(u);
+            // var l=parseFloat(l);
+            // var d=parseFloat(d);
+
+
+            /**Top right quadrant*/
+            if (xaxis > 0 && yaxis > 0){
+                description = 'primarily Balanced-authoritative which is a good combination of  warmth and involvement backed up by appropriate expectations and clear limits. ';
+                pStyle='Well Balanced';
+                pstylePDF='ba.pdf';
+                pType='authoritarian';
+              if (slope > 1.51){
+                description=description + 'You are also inclined towards being Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them.';
+                pStyle="‘Well-balanced’, with a tendency to being ‘Permissive’";
+                pstylePDF='bapi.pdf';
+                pType='authoritarian';
+              }if (slope < 0.66){
+                description=description + 'You are also inclined towards being Authoritarian-strict which means that you rate more highly on levels of control and discipline.';
+                pStyle="‘Well-balanced’ with a tendency to being ‘Strict’";
+                pstylePDF='baas.pdf';
+                pType='authoritarian';
+              }
+            } 
+            
+            /**Bottom right quadrant*/	
+            if (xaxis>0 && yaxis<0){
+                description = 'primarily Authoritarian-strict which means that you rate more highly on levels of control and discipline. ';
+                pStyle='Strict';
+                pstylePDF='as.pdf';
+                pType='authoritarian';
+              if (slope > -0.66){
+                description=description + 'You are also inclined towards being Balanced-authoritative which is a good combination of  warmth and involvement backed up by appropriate expectations and clear limits.';
+                pStyle="‘Strict’, with a tendency to ‘Well-balanced’";
+                pstylePDF='asba.pdf';
+                pType='authoritarian';
+              }if (slope < -1.51){
+                description=description + 'You are also inclined towards being \'Hands-off\' which means that you tend to have a more laissez-faire or less involved approach to your children.';
+                pStyle="‘Strict’ with a tendency to ‘Hands-off’";
+                pstylePDF='asho.pdf';
+                pType='authoritarian';}}
+
+
+            /**Bottom left quadrant*/
+            if (xaxis<0 && yaxis<0){
+                description = ' primarily \'Hands-off\' which means that you tend to have a more laissez-faire or less involved approach to your children. ';
+                pStyle='Hands-off';
+                pstylePDF='ho.pdf';
+                pType='authoritarian';
+              if (slope > 1.51){
+                description=description + 'You are also inclined towards being Authoritarian-strict which means that you rate more highly on levels of control and discipline.';
+                pStyle="‘Hands-off’ with a tendency towards being ‘Strict’";
+                pstylePDF='hoas.pdf';
+                pType='authoritarian';}
+              if (slope < 0.66){
+                description=description + 'You are also inclined towards being Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them.';
+                pStyle="‘Hands-off’ with a tendency to being ‘Permissive’";
+                pstylePDF='hopi.pdf';
+                pType='authoritarian';}}	
+
+
+
+            /**Top left quadrant*/
+            if (xaxis<0 && yaxis>0){
+                description = ' primarily Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them. ';
+                pStyle="Permissive";
+                pstylePDF='pi.pdf';
+                pType='permissive';
+              if (slope > -0.66){
+                description=description + 'You are also inclined towards being \'Hands-off\' which means that you tend to have a more laissez-faire or less involved approach to your children.';
+                pStyle="‘Permissive’ with a tendency to being ‘Hands-off’";
+                pstylePDF='piho.pdf';
+                pType='permissive';}
+              if (slope < -1.51){
+                description=description + 'You are also inclined towards being Balanced-authoritative which is a good combination of  warmth and involvement backed up by appropriate expectations and clear limits.';
+                pStyle="‘Permissive’, with a tendency towards ‘Well-balanced’";
+                pstylePDF='piba.pdf';
+                pType='permissive';}}	
+            
+
+
+            /**Now the special cases
+            1st - at the origin*/
+            if (xaxis == 0 && yaxis == 0){
+              description = 'Balanced between all styles';
+              pStyle="Middle-of-the-Field";
+              pstylePDF='styles.pdf';
+              pType='authoritarian';
+            }	
+            
+            /**2nd - on x axis to the right*/
+            if (xaxis >0 && yaxis ==0){
+              description = 'balanced between Balanced-authoritative which is a good combination of  warmth and involvement backed up by appropriate expectations and clear limits and Authoritarian-strict which means that you rate more highly on levels of control and discipline.';
+              pStyle="‘Well-balanced’ with a tendency to being ‘Strict’";
+              pstylePDF='baas.pdf';
+              pType='authoritarian';
+            }
+
+            /**3rd on x axis to the left*/
+            if (xaxis < 0 && yaxis == 0){
+              description = 'balanced between Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them and \'Hands-off\' which means that you tend to have a more laissez-faire or less involved approach to your children.';
+              pStyle="‘Permissive’ with a tendency to being ‘Hands-off’";
+              pstylePDF='piho.pdf';
+              pType='permissive';
+            }
+
+            /**4th on yaxis at the top*/
+            if (xaxis == 0 && yaxis > 0){
+              description = 'balanced between Balanced-authoritative which is a good combination of  warmth and involvement backed up by appropriate expectations and clear limits\; and Permissive-indulgent which means that you rate highly on warmth and engagement with your children but lower on level of control and setting clear limits for them.';
+              pStyle="‘Well-balanced’, with a tendency to being ‘Permissive’";
+              pstylePDF='bapi.pdf';
+              pType='authoritarian';
+            }	
+
+            /**5th on y axis at the bottom*/
+            if (xaxis == 0 && yaxis < 0){
+              description = 'balanced between \'Hands-off\' which means that you tend to have a more laissez-faire or less involved approach to your children and Authoritarian-strict which means that you rate more highly on levels of control and discipline.';
+              pStyle="‘Hands-off’ with a tendency towards being ‘Strict’";
+              pstylePDF='hoas.pdf';
+              pType='authoritarian';
+            }
+
+            $("#pstyle").text(pStyle);
+            $("#ParentingStyle").val(pStyle);
+            $("#ParentingType").val(pType);
+            
+            $("#Xaxis").val(xaxis);
+            $("#Yaxis").val(yaxis);
+            
+            
+            /**Now adjust axes for the plot*/
+            xaxis = xaxis + 20;
+            yaxis = yaxis + 20;
+            
+            document.querySelector('.form-success-msg').classList.remove('hidden');
+            event.currentTarget.closest('.slide').classList.add('hidden');
+          })
+        }
+
+        
+      });            
+
+        // Script for setting a value based on change in range/radio input type.
+        $(function () {
+          // On change of Range Slider
+          $(document).on('change', '.range_container input', function () {
+            var val = $(this).val();
+
+            if (val == 1) {
+              $(this).data('val', -2);
+            } else if (val == 2) {
+              $(this).data('val', -1);
+            } else if (val == 3) {
+              $(this).data('val', 1);
+            } else if (val == 4) {
+              $(this).data('val', 2);
+            }
+
+            var dataVal = $(this).data('val');
+            var index = $(this).data('input-index');
+            $("#slidervalue"+index).val(dataVal);
+            console.log(dataVal);
+            console.log($("#slidervalue"+index).val());
+          });
+
+          // On change of Radio Button
+          $(document).on('change', '.radio-container input', function () {
+            $(".qtype-button.radio-container.error").removeClass("error");
+            var val = $(this).data('val');
+            var index = $(this).data('input-index');
+            $("#slidervalue"+index).val(val);
+            console.log(val);
+            console.log($("#slidervalue"+index).val());
+
+            
+          })
+
+         //On change of create account fields.
+          $(document).on('change', '#RegisterForm-FirstName', function () {
+            var fname = $(this).val();
+            $("#pq_first_name").val(fname)
+          });
+          
+          $(document).on('change', '#RegisterForm-LastName', function () {
+            var fname = $(this).val();
+            $("#pq_last_name").val(fname)
+          });
+          
+          $(document).on('change', '#RegisterForm-email', function () {
+            var fname = $(this).val();
+            $("#pq_email").val(fname)
+          });
+
+
+          $("#RegistrationSubmit").on("click",function(){
+              $("#pq_quiz").submit();
+
+                var escapedData = {
+                    firstName: escape($("#pq_first_name").val()),
+                    lastName: escape($("#pq_last_name").val()),
+                    email: escape($("#pq_email").val()),
+                    password: escape($("#RegisterForm-password").val()).replace(/\+/g, '%2B')
+                }
+                  var data = 'form_type=create_customer&utf8=%E2%9C%93&customer%5Bfirst_name%5D=';
+                  data += escapedData.firstName;
+                  data += '&customer%5Blast_name%5D=';
+                  data += escapedData.lastName;
+                  data += '&customer%5Bemail%5D=';
+                  data += escapedData.email;
+                  data += '&customer%5Bpassword%5D=';
+                  data += escapedData.password;
+                  $.post('/account', data)
+                  .done(function(response){
+                    var logErrors = $(response).find('.errors').text();
+                    if (logErrors != '' && logErrors != 'undefined'){
+                      alert(logErrors);
+                    }
+                    else{
+                      //alert('success!');
+                      //window.location.href = "{{ shop.url }}/account/login";
+                    }
+                  }).fail(function(){alert('error could not submit');});
+                  return false;
+          })
+
+            // $('#create_customer').unbind('submit', function(){
+            //   event.preventDefault();
+            //   var data = $(this).serialize();
+          
+            //   console.log(data);
+            // });
+
+            // Attach an event listener to the form submission
+          // const rForm = document.getElementById('create_customer');
+          // rForm.addEventListener('submit', function (e) {
+          //     e.preventDefault(); // Prevent the default form submission
+          //     $("#pq_quiz").submit();
+          //     setTimeout(function () {
+          //       //rForm.submit();
+          //       // You can also perform additional actions after the submission is completed
+          //       console.log('Form submitted');
+          //     }, 4000);
+            
+          // });
+
+          
+          // $(document).on('submit', '.quiz-section', function (e) {
+          //   e.preventDefault();
+          // });
+        });        
+      },false);
+  </script>
+{% endif %}
+
+
+
+
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Parenting quiz",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "Form ID",
+      "info": "This name is used to feed the data into Klaviyo. This form ID will be handleized."
+    },
+    {
+      "type": "textarea",
+      "id": "success_title",
+      "label": "Success title"
+    },
+    {
+      "type": "textarea",
+      "id": "success_overview",
+      "label": "Success overview"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading Font Size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "progress_bar_radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "default": 44,
+      "label": "Progress Bar Radius"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "range",
+      "name": "Question type: Range",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1",
+          "info": "Enter the first answer value"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2",
+          "info": "Enter the last answer value"
+        }
+      ]
+    },
+
+    {
+      "type": "button",
+      "name": "Question type: Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "a3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "text",
+          "id": "a4",
+          "label": "Answer 4"
+        }
+      ]
+    },
+
+    {
+      "type": "dropdown",
+      "name": "Question type: Dropdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options",
+          "info": "Add a comma between each option",
+          "default": "Option 1, Option 2, Option 3, Option 4"
+        }
+      ]
+    },
+
+    {
+      "type": "textfield",
+      "name": "Question type: Textfield",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Parenting quiz"
+    }
+  ]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
