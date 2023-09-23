@@ -91,7 +91,7 @@
                         data-input-index="{{ forloop.index }}"
                         name="{{ bs.klaviyo_id | handleize }}"
                         value="{{ bs.a1 | handleize }}"
-                        data-val="-2"
+                        data-val="0"
                         required
                       >
                       <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
@@ -106,7 +106,7 @@
                         data-input-index="{{ forloop.index }}"
                         name="{{ bs.klaviyo_id | handleize }}"
                         value="{{ bs.a2 | handleize }}"
-                        data-val="-1"
+                        data-val="1"
                         required
                       >
                       <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
@@ -121,7 +121,7 @@
                         data-input-index="{{ forloop.index }}"
                         name="{{ bs.klaviyo_id | handleize }}"
                         value="{{ bs.a3 | handleize }}"
-                        data-val="1"
+                        data-val="2"
                         required
                       >
                       <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
@@ -136,12 +136,28 @@
                         data-input-index="{{ forloop.index }}"
                         name="{{ bs.klaviyo_id | handleize }}"
                         value="{{ bs.a4 | handleize }}"
-                        data-val="2"
+                        data-val="3"
                         required
                       >
                       <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
                     </div>
                   {% endif %}
+
+                  {% if bs.a5 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a5 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a5 | handleize }}"
+                        data-val="4"
+                        required
+                      >
+                      <label for="{{ bs.a5 | handleize }}-{{forloop.index}}">{{ bs.a5 }}</label>
+                    </div>
+                  {% endif %}
+
                   <input type="hidden" id="slidervalue{{ forloop.index }}" value >
                 </div>
 
@@ -187,10 +203,60 @@
                 </div>
               </div>
 
+            {% when 'checkbox' %}
+              {%- assign maxSelect = 1 -%}
+              {%- assign blockIndex = forloop.index -%}
+              {%- if block.settings.max_answer > 0 -%}
+                {%- assign maxSelect = block.settings.max_answer -%}
+              {%- endif -%}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
+                {% if bs.title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                {% assign options = bs.options | newline_to_br | split: "<br />"%}
+
+                <div class="qtype-button checkbox-container">
+                  {%- for option in options -%}
+                    <div class="item">
+                      <input
+                        type="checkbox"
+                        id="{{ option | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ option | strip_newlines | escape }}"
+                        data-val="{{ option | strip_newlines | escape }}"
+                        required
+                      >
+                      <label for="{{ option | handleize }}-{{forloop.index}}">{{ option }}</label>
+                    </div>
+                  {%- endfor -%}
+                </div>
+
+                {%- for i in (1..maxSelect) -%}
+                  <input type="hidden" id="{{ bs.title | handleize }}_{{ blockIndex }}" value >
+                {%- endfor -%}
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="button" class="button button_submit js-next-btn">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next js-next-btn" data-type="checkbox">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
             {% when 'dropdown' %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
-                {% if bs.q_group_title != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% if bs.title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
                 {% endif %}
 
                 {% if bs.q != blank %}
@@ -473,6 +539,16 @@
               }
             }
 
+            if(btn.data('type') == "checkbox"){
+              isValid = false;
+              let wrapper = btn.closest('.slide');
+              let checkboxWrapper = wrapper.find('.checkbox-container');
+              let max_answer = parseInt(wrapper.data('max'));
+              let validate = (wrapper.find("input[type='checkbox']:checked").length == max_answer)
+              checkboxWrapper[0].classList.toggle('error',(!validate))
+              isValid = validate;
+            }
+
   
             if(isValid){
               event.currentTarget.closest('.slide').nextElementSibling.classList.remove('hidden');
@@ -488,8 +564,25 @@
           })
         }
 
-        
         if(slide.querySelector('.button_submit')){
+          slide.querySelector('.button_submit').addEventListener('click', function(event){
+            event.preventDefault();
+            var sbtn = $(event.currentTarget);
+
+            const larray = [1, 12];
+            const darray = [6, 7, 9, 15, 17, 23, 24, 25, 11, 5, 19, 26];
+            const uarray = [3, 4, 13, 21, 16];
+            const rarray = [2, 8, 14, 20, 22, 10, 18];
+            let l = 0;
+            let d = 0;
+            let u = 0;
+            let r = 0;
+            const score = {};
+
+          });
+        }
+        
+        {% comment %} if(slide.querySelector('.button_submit')){
 
           slide.querySelector('.button_submit').addEventListener('click', function(event){
             event.preventDefault();
@@ -715,7 +808,7 @@
             document.querySelector('.form-success-msg').classList.remove('hidden');
             event.currentTarget.closest('.slide').classList.add('hidden');
           })
-        }
+        } {% endcomment %}
 
         
       });            
@@ -751,9 +844,26 @@
             $("#slidervalue"+index).val(val);
             console.log(val);
             console.log($("#slidervalue"+index).val());
+          });
 
-            
-          })
+          // On change of checkbox Button
+          $(document).on('change', '.checkbox-container input', function () {
+            $(".qtype-button.checkbox-container.error").removeClass("error");
+            let wrapper = $(this).closest('.slide');
+            let maxSelect = parseInt(wrapper.data('max'));
+            var val = $(this).data('val');
+            var index = $(this).data('input-index');
+            let checkedElements = wrapper.find('input[type=checkbox]:checked');
+
+            wrapper.find('input[type=checkbox]:not(:checked)').each((index,checkbox) => {
+              $(checkbox).get(0).disabled = (checkedElements.length == maxSelect);
+            });
+
+            wrapper.find('[type=hidden]').each((index,element) => {
+              let checkboxElement = checkedElements[index];
+              element.value = checkboxElement ? checkboxElement.value : '';
+            });
+          });
 
          //On change of create account fields.
           $(document).on('change', '#RegisterForm-FirstName', function () {
@@ -945,7 +1055,7 @@
         },
         {
           "type": "textarea",
-          "id": "q_group_title",
+          "id": "title",
           "label": "Question group title"
         },
         {
@@ -972,6 +1082,11 @@
           "type": "text",
           "id": "a4",
           "label": "Answer 4"
+        },
+        {
+          "type": "text",
+          "id": "a5",
+          "label": "Answer 5"
         }
       ]
     },
@@ -1002,6 +1117,42 @@
           "label": "Options",
           "info": "Add a comma between each option",
           "default": "Option 1, Option 2, Option 3, Option 4"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "name": "Question type: Checkbox",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options",
+          "info": "Add every Options in new line.",
+          "default": "Option 1\nOption 2\nOption 3\nOption 4"
+        },
+        {
+          "type": "number",
+          "id": "max_answer",
+          "label": "Maximum Select",
+          "default":1,
+          "info":"Default will 1"
         }
       ]
     },

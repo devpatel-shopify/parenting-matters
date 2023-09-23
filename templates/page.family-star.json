@@ -1,7 +1,53 @@
 {
   "sections": {
+    "a6d13e36-2adb-43d2-8dce-cdd7dc09045a": {
+      "type": "hero-section-about",
+      "blocks": {
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Starting the quiz",
+            "heading_size": "h1"
+          }
+        },
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "Answer the questions below as accurately as you can!",
+            "text_style": "body"
+          }
+        },
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-buttons-1": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-heading-1",
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-text-1",
+        "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-buttons-1"
+      ],
+      "settings": {
+        "desktop_content_position": "middle-left",
+        "banner_img": "shopify:\/\/shop_images\/Group_1.png",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left"
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -14,49 +60,603 @@
           "type": "button",
           "settings": {
             "klaviyo_id": "",
-            "q_group_title": "Parenting Daily Hassle",
+            "title": "Child Hassle",
             "q": "You are continually clearing up messes of toys or food",
-            "a1": "Constantly",
-            "a2": "A lot",
-            "a3": "Rarely",
-            "a4": "Never"
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
           }
         },
-        "93cc4f68-506d-44b2-8ba1-bc642f6ede29": {
-          "type": "range",
+        "b4bea16f-e53f-4072-a32a-b907de6337081": {
+          "type": "button",
           "settings": {
             "klaviyo_id": "",
-            "q": "",
-            "a1": "",
-            "a2": ""
+            "title": "Child Hassle",
+            "q": "You are being nagged, whined at, complained to.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
           }
         },
-        "d3a1ee65-ea38-473a-b835-b1266162323d": {
-          "type": "dropdown",
+        "b4bea16f-e53f-4072-a32a-b907de6337082": {
+          "type": "button",
           "settings": {
             "klaviyo_id": "",
-            "q_group_title": "",
-            "q": "",
-            "options": "Option 1, Option 2, Option 3, Option 4"
+            "title": "Child Hassle",
+            "q": "There are mealtime difficulties (picky eaters, complaining etc.).",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
           }
         },
-        "3aba4565-1d31-4a93-b089-04cdf4d981d9": {
-          "type": "textfield",
+        "b4bea16f-e53f-4072-a32a-b907de6337083": {
+          "type": "button",
           "settings": {
             "klaviyo_id": "",
-            "q_group_title": "",
-            "q": ""
+            "title": "Child Hassle",
+            "q": "The kids don't listen - won't do what they are asked without being nagged.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337084": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "Babysitters are difficult to find.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337085": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids schedules (like preschool or other activities) interfere with meeting your own household needs.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337086": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "Sibling arguments or fights require a \"referee\".",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337087": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids demand that you entertain or play with them.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337088": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids resist or struggle with you over bedtime.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de6337089": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids are constantly under foot, interfering with other chores.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370810": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "You need to keep a constant eye on where the kids are and what they are doing.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370811": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids interrupt adult conversations or interactions.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370812": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "You have to change your plans because of an unpredicted child need.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370813": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids get dirty several times a day requiring a change of clothes.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370814": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "You have difficulties getting privacy (e.g. in the bathroom).",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370815": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids are hard to manage in public (e.g. supermarket shopping centre, restaurant).",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370816": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "Difficulties in getting kids ready for outings and leaving on time.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370817": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "Difficulties in leaving kids for a night out or at school or childcare.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370818": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "The kids have difficulties with friends (e.g. fighting, trouble getting along or no friends).",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Hassle",
+            "q": "You have to run errands to meet kids' needs.",
+            "a1": "Never",
+            "a2": "Rarely",
+            "a3": "Sometimes",
+            "a4": "A lot",
+            "a5": "Constantly"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_1": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child is angry and resentful",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_2": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child loses their temper.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_3": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child blames others for his or her mistakes or misbehaviour.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_4": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child argues with adults.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_5": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child actively defies or refuses to do what they are asked or stick to rules.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_6": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child deliberately annoys people.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_7": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child is spiteful or unkind.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_8": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Child Temper",
+            "q": "My child is touchy or easily annoyed by others.",
+            "a1": "Not true",
+            "a2": "somewhat",
+            "a3": "true",
+            "a4": "certainly true",
+            "a5": ""
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_1": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Confidence as a parent",
+            "q": "Even though I may not always manage it, I know what I need to do with my child",
+            "a1": "Strongly disagree",
+            "a2": "Disagree",
+            "a3": "Neutral",
+            "a4": "Agree",
+            "a5": "Strongly agree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_2": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Confidence as a parent",
+            "q": "I am able to do the things that will improve my child's behaviour",
+            "a1": "Strongly disagree",
+            "a2": "Disagree",
+            "a3": "Neutral",
+            "a4": "Agree",
+            "a5": "Strongly agree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_3": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Confidence as a parent",
+            "q": "I can make an important difference to my child",
+            "a1": "Strongly disagree",
+            "a2": "Disagree",
+            "a3": "Neutral",
+            "a4": "Agree",
+            "a5": "Strongly agree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_4": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Confidence as a parent",
+            "q": "In most situations I know what I should do to ensure my child behaves",
+            "a1": "Strongly disagree",
+            "a2": "Disagree",
+            "a3": "Neutral",
+            "a4": "Agree",
+            "a5": "Strongly agree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_5": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Confidence as a parent",
+            "q": "The things I do make a difference to my child's behaviour",
+            "a1": "Strongly disagree",
+            "a2": "Disagree",
+            "a3": "Neutral",
+            "a4": "Agree",
+            "a5": "Strongly agree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_1": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "Please select the answer that best describes your experience of each over the last 2 weeks:",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_2": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been feeling optimistic about the future",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_3": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been feeling useful",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_4": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been feeling relaxed",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_5": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been dealing with problems well",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_6": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been thinking clearly",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_7": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been feeling close to other people",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_8": {
+          "type": "button",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My Wellbeing",
+            "q": "I've been able to make up my own mind about things",
+            "a1": "None of the time",
+            "a2": "Rarely",
+            "a3": "Some of the time",
+            "a4": "Often",
+            "a5": "All of the timeagree"
+          }
+        },
+        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175": {
+          "type": "checkbox",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "Concerns about my child",
+            "q": "Please select any two Concerns about your child",
+            "options": "Disobedience and aggression\nWorries, lacking confidence\nIrritable, highly sensitive\nImpulsive, distractible (or lacking focus instead of distractable?)\nRelationships (including being bullied)\nLearning and homework\nEating, sleeping, bedwetting\nOther",
+            "max_answer": 2
+          }
+        },
+        "0d7104a5-be95-4b17-a56c-457e7d6616ec": {
+          "type": "checkbox",
+          "settings": {
+            "klaviyo_id": "",
+            "title": "My parenting",
+            "q": "Chose two areas where you would like to improve your parenting",
+            "options": "Staying calm\nBeing positive\/involved\nConsistent boundaries\nfeeling overwhelmed\nUnderstanding my child\nLooking after myself\nConfidence as a parent\nOther",
+            "max_answer": 1
           }
         }
       },
       "block_order": [
         "b4bea16f-e53f-4072-a32a-b907de633708",
-        "93cc4f68-506d-44b2-8ba1-bc642f6ede29",
-        "d3a1ee65-ea38-473a-b835-b1266162323d",
-        "3aba4565-1d31-4a93-b089-04cdf4d981d9"
+        "b4bea16f-e53f-4072-a32a-b907de6337081",
+        "b4bea16f-e53f-4072-a32a-b907de6337082",
+        "b4bea16f-e53f-4072-a32a-b907de6337083",
+        "b4bea16f-e53f-4072-a32a-b907de6337084",
+        "b4bea16f-e53f-4072-a32a-b907de6337085",
+        "b4bea16f-e53f-4072-a32a-b907de6337086",
+        "b4bea16f-e53f-4072-a32a-b907de6337087",
+        "b4bea16f-e53f-4072-a32a-b907de6337088",
+        "b4bea16f-e53f-4072-a32a-b907de6337089",
+        "b4bea16f-e53f-4072-a32a-b907de63370810",
+        "b4bea16f-e53f-4072-a32a-b907de63370811",
+        "b4bea16f-e53f-4072-a32a-b907de63370812",
+        "b4bea16f-e53f-4072-a32a-b907de63370813",
+        "b4bea16f-e53f-4072-a32a-b907de63370814",
+        "b4bea16f-e53f-4072-a32a-b907de63370815",
+        "b4bea16f-e53f-4072-a32a-b907de63370816",
+        "b4bea16f-e53f-4072-a32a-b907de63370817",
+        "b4bea16f-e53f-4072-a32a-b907de63370818",
+        "b4bea16f-e53f-4072-a32a-b907de63370819",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_1",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_2",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_3",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_4",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_5",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_6",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_7",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_2_8",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_1",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_2",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_3",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_4",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_3_5",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_1",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_2",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_3",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_4",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_5",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_6",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_7",
+        "b4bea16f-e53f-4072-a32a-b907de63370819_4_8",
+        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175",
+        "0d7104a5-be95-4b17-a56c-457e7d6616ec"
       ],
       "settings": {
-        "form_id": "",
+        "form_id": "family_star",
         "success_title": "",
         "success_overview": "",
         "color_scheme": "",
@@ -66,6 +666,7 @@
     }
   },
   "order": [
+    "a6d13e36-2adb-43d2-8dce-cdd7dc09045a",
     "main",
     "5ae4306a-a7d7-4bcd-8123-4040bc27547f"
   ]
