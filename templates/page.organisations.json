@@ -217,25 +217,25 @@
         "template--19831425138986__b8d1ba22-13a5-4b7a-b9bf-a40e16ab857f-168922744199f58f8a-0": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“I have run a Parenting Matters group online in our school. There were many moving movements where the course would create opportunities for parents to hear and support each other with kindness and compassion, feel normal and less ‘rubbish parent’ While at the same time supporting each other to put into practice the strategies from the programme. “<\/p>"
+            "community_description": "<p>“I have run a Parenting Matters group online in our school. There were many moving moments where the course would create opportunities for parents to hear and support each other with kindness and compassion, feel normal and less ‘rubbish parent’. While at the same time supporting each other to put into practice the strategies from the programme.”<\/p>"
           }
         },
         "0a83bcae-e00c-4440-aad3-21abac2fa991": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“The Parenting Matters programme has made life and home so much easier and has enabled me to find a much better work\/life balance. Before I took the programme I was distracted at work and wondering about giving it up. Now I can really concentrate on work when I'm there and feel much more enthusiastic about my job while at the same time enjoying my children.”<\/p>"
+            "community_description": "<p>“The Parenting Matters programme has made life and home so much easier and has enabled me to find a much better work \/ life balance. Before I took the programme I was distracted at work and wondering about giving it up. Now I can really concentrate on work when I’m there and feel much more enthusiastic about my job while at the same time enjoying my children”<\/p>"
           }
         },
         "cef454b3-1ff9-4160-8b37-d96485b52946": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“I just wanted to say how helpful and great this course is. I wish I had had it earlier. Every parent should have this information. It's like a lightbulb has gone off in my head.”<\/p>"
+            "community_description": "<p>“It enabled me to reflect on what I do as a parent and feel more in control at home”<\/p>"
           }
         },
         "246507b6-6e4b-4c71-9d51-91ba36d2cb25": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>“I just wanted to say how helpful and great this course is. I wish I had had it earlier. Every parent should have this information. It's like a lightbulb has gone off in my head.”<\/p>"
           }
         }
       },
@@ -247,7 +247,7 @@
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from <br> our Community.",
+        "section_title": "Some words from  our Community.",
         "top_border": true,
         "bottom_border": false,
         "padding_top": 36,
