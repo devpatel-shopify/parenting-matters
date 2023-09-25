@@ -196,6 +196,9 @@
                                   {% assign innerCourseValue = innerCourse | last %}
                                   {% for part in innerCourseValue.parts %}
                                     {%- assign partValue = part | last -%}
+                                    {% if partValue.disabled == "true" %}
+                                      {%- continue -%}
+                                    {% endif %}
 
                                     {%- assign totalCourses = totalCourses | plus: 1 -%}
                                     {%- assign totalSteps = partValue.steps | size | times: 1.0 -%}
