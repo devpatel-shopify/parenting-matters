@@ -56,17 +56,6 @@
     "5ae4306a-a7d7-4bcd-8123-4040bc27547f": {
       "type": "section-family-star",
       "blocks": {
-        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175": {
-          "type": "checkbox",
-          "settings": {
-            "klaviyo_id": "tmp-klaviyo-id-42",
-            "title": "Concerns about my child",
-            "q": "Please select any two Concerns about your child",
-            "options": "Disobedience and aggression\nWorries, lacking confidence\nIrritable, highly sensitive\nImpulsive, distractible (or lacking focus instead of distractable?)\nRelationships (including being bullied)\nLearning and homework\nEating, sleeping, bedwetting\nOther",
-            "max_answer": 2,
-            "metaobject_steps": "Disobedience and aggression\nWorries, lacking confidence\nIrritable, highly sensitive\nImpulsive, distractible (or lacking focus instead of distractable?)\nRelationships (including being bullied)\nLearning and homework\nEating, sleeping, bedwetting\nOther"
-          }
-        },
         "b4bea16f-e53f-4072-a32a-b907de633708": {
           "type": "button",
           "settings": {
@@ -600,6 +589,16 @@
             "a5": "All of the timeagree"
           }
         },
+        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175": {
+          "type": "checkbox",
+          "settings": {
+            "klaviyo_id": "tmp-klaviyo-id-42",
+            "title": "Concerns about my child",
+            "q": "Please select any two Concerns about your child",
+            "options": "Disobedience and aggression\nWorries, lacking confidence\nIrritable, highly sensitive\nImpulsive, distractible (or lacking focus instead of distractable?)\nRelationships (including being bullied)\nLearning and homework\nEating, sleeping, bedwetting\nOther",
+            "max_answer": 2
+          }
+        },
         "0d7104a5-be95-4b17-a56c-457e7d6616ec": {
           "type": "checkbox",
           "settings": {
@@ -607,13 +606,11 @@
             "title": "My parenting",
             "q": "Chose two areas where you would like to improve your parenting",
             "options": "Staying calm\nBeing positive\/involved\nConsistent boundaries\nfeeling overwhelmed\nUnderstanding my child\nLooking after myself\nConfidence as a parent\nOther",
-            "max_answer": 1,
-            "metaobject_steps": ""
+            "max_answer": 1
           }
         }
       },
       "block_order": [
-        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175",
         "b4bea16f-e53f-4072-a32a-b907de633708",
         "b4bea16f-e53f-4072-a32a-b907de6337081",
         "b4bea16f-e53f-4072-a32a-b907de6337082",
@@ -655,6 +652,7 @@
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_6",
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_7",
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_8",
+        "ddfc5b8e-afe3-456f-9e69-750a0dcc0175",
         "0d7104a5-be95-4b17-a56c-457e7d6616ec"
       ],
       "settings": {

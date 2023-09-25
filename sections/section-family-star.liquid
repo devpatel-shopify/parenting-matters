@@ -365,127 +365,126 @@
                 </div>
 
                 {%- capture metaCotent -%}
-                  {%- assign metaobject_steps = block.settings.metaobject_steps | newline_to_br | split: '<br />' -%}
-                  {%- if block.settings.metaobject_steps != blank -%}
-                    {%- assign totalData = 0 -%}
-                    {%- assign tmp = 0 -%}
+                  {%- assign totalData = 0 -%}
+                  {%- assign tmp = 0 -%}
 
-                    {%- for objectStep in metaobject_steps -%}
-                      {%- assign metaobjectHandle = objectStep | handleize -%}
-                      {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                      {%- if metaobject -%}
-                        {%- assign totalData = totalData | plus: 1 -%}
-                      {%- endif -%}
-                    {%- endfor -%}
+                  {%- for objectStep in options -%}
+                    {%- assign metaobjectHandle = objectStep | handleize -%}
+                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
+                    {%- if metaobject -%}
+                      {%- assign totalData = totalData | plus: 1 -%}
+                    {%- endif -%}
+                  {%- endfor -%}
 
-                    {%- for objectStep in metaobject_steps -%}
-                      {%- assign metaobjectHandle = objectStep | handleize -%}
-                      {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                      {%- if metaobject -%}
-                        {%- assign tmp = tmp | plus: 1 -%}
-                        {%- assign question = metaobject.question -%}
-                        {%- assign title = metaobject.title -%}
-                        {%- assign left_description = metaobject.left_description -%}
-                        {%- assign right_description = metaobject.right_description -%}
-                        {%- assign add_describe_this_section = metaobject.add_describe_this_section -%}
-                        {%- assign description_describe_this_step = metaobject.description_describe_this_step -%}
-                        {%- assign field_title_describe_this_step = metaobject.field_title_describe_this_step -%}
-                        {%- assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step -%}
-                        {%- assign add_range_section = metaobject.add_range_section -%}
-                        {%- assign description_range_section = metaobject.description_range_section -%}
-                        {%- assign title_range_section = metaobject.title_range_section -%}
-                        
-                        {%- capture metaobjectContent -%}
-                          {%- if title != blank or left_description != blank or right_description != blank -%}
-                            <div class="slide inner-slide-content hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="meta-description--wrapper">
-                                {%- if left_description != blank -%}
-                                  <div class="left-description--wrapper">
-                                    {{ left_description | metafield_tag }}
-                                  </div>
-                                {%- endif -%}
-                                {%- if right_description != blank -%}
-                                  <div class="right-description--wrapper">
-                                    {{ right_description | metafield_tag }}
-                                  </div>
-                                {%- endif -%}
-                              </div>
-      
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-description">Next {% render 'icon-arrow' %}</button>
-                              </div>
-                            </div>
-                          {%- endif -%}
-      
-                          {%- if add_describe_this_section == true -%}
-                            <div class="slide inner-slide-content js-step-describe-this hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="description--wrapper">
-                                {{ description_describe_this_step | metafield_tag }}
-                              </div>
-      
-                              <div class="text-field--wrapper">
-                                <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
-                                <textarea name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
-                              </div>
-      
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-textarea">Next {% render 'icon-arrow' %}</button>
-                              </div>
-                            </div>
-                          {%- endif -%}
-      
-                          {%- if add_range_section == true -%}
-                            <div class="slide inner-slide-content js-range-step hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="description--wrapper">
-                                {{ description_range_section | metafield_tag }}
-                              </div>
-                              <div class="range_container">
-                                <label for="slider{{ question | handleize }}">
-                                  {{ title_range_section }}
-                                </label>
-
-                                <div class="range-slider range-slider--dual">
-                                  <div class="range-slider__indicators">
-                                    <div class="range-slider__value range-slider__value--min"></div>
-                                    <div class="range-slider__value range-slider__value--max"></div>
-                                  </div>
-                                  {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
-                                  <input class="range-slider__slider range-slider__slider--to" type="range" value="1" min="1" max="10" />
-                                  <div class="range-slider__scale">
-                                    {%- for i in (1..10) -%}
-                                      <i>{{ i }}</i>
-                                    {%- endfor -%}
-                                  </div>
+                  {%- for objectStep in options -%}
+                    {%- assign metaobjectHandle = objectStep | handleize -%}
+                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
+                    {%- if metaobject -%}
+                      {%- assign tmp = tmp | plus: 1 -%}
+                      {%- assign question = metaobject.question -%}
+                      {%- assign title = metaobject.title -%}
+                      {%- assign left_description = metaobject.left_description -%}
+                      {%- assign right_description = metaobject.right_description -%}
+                      {%- assign add_describe_this_section = metaobject.add_describe_this_section -%}
+                      {%- assign description_describe_this_step = metaobject.description_describe_this_step -%}
+                      {%- assign field_title_describe_this_step = metaobject.field_title_describe_this_step -%}
+                      {%- assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step -%}
+                      {%- assign add_range_section = metaobject.add_range_section -%}
+                      {%- assign description_range_section = metaobject.description_range_section -%}
+                      {%- assign title_range_section = metaobject.title_range_section -%}
+                      
+                      {%- capture metaobjectContent -%}
+                        {%- if title != blank or left_description != blank or right_description != blank -%}
+                          <div class="slide inner-slide-content hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="meta-description--wrapper">
+                              {%- if left_description != blank -%}
+                                <div class="left-description--wrapper">
+                                  {{ left_description | metafield_tag }}
                                 </div>
-
-                                {% comment %} <div class="range_inner">
-                                  <input class="sliderinput" id="slider{{ question | handleize }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="10" value="1" data-val="1">
-                                  <input type="hidden" id="slidervalue{{ question | handleize }}" value="1" >
-                                  <div class="range_steps">
-                                    {%- for i in (1..10) -%}
-                                      <span class="step">&nbsp;</span>
-                                    {%- endfor -%}
-                                  </div>
-                                </div> {% endcomment %}
-
-                              </div>
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next {% render 'icon-arrow' %}</button>
-                              </div>
+                              {%- endif -%}
+                              {%- if right_description != blank -%}
+                                <div class="right-description--wrapper">
+                                  {{ right_description | metafield_tag }}
+                                </div>
+                              {%- endif -%}
                             </div>
-                          {%- endif -%}
-                        {%- endcapture -%}
-                        
-                        {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
-  
-                      {%- endif -%}
-                    {%- endfor -%}
+    
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-description">Next {% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+    
+                        {%- if add_describe_this_section == true -%}
+                          <div class="slide inner-slide-content js-step-describe-this hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="description--wrapper">
+                              {{ description_describe_this_step | metafield_tag }}
+                            </div>
+    
+                            <div class="text-field--wrapper">
+                              <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
+                              <textarea name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
+                            </div>
+    
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-textarea">Next {% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+    
+                        {%- if add_range_section == true -%}
+                          <div class="slide inner-slide-content js-range-step hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="description--wrapper">
+                              {{ description_range_section | metafield_tag }}
+                            </div>
+                            <div class="range_container">
+                              <label for="slider{{ question | handleize }}">
+                                {{ title_range_section }}
+                              </label>
+
+                              <div class="range-slider range-slider--dual">
+                                <div class="range-slider__indicators">
+                                  <div class="range-slider__value range-slider__value--min"></div>
+                                  <div class="range-slider__value range-slider__value--max"></div>
+                                </div>
+                                {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
+                                <input class="range-slider__slider range-slider__slider--to" type="range" value="1" min="1" max="10" />
+                                <div class="range-slider__scale">
+                                  {%- for i in (1..10) -%}
+                                    <i>{{ i }}</i>
+                                  {%- endfor -%}
+                                </div>
+                              </div>
+
+                              {% comment %} <div class="range_inner">
+                                <input class="sliderinput" id="slider{{ question | handleize }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="10" value="1" data-val="1">
+                                <input type="hidden" id="slidervalue{{ question | handleize }}" value="1" >
+                                <div class="range_steps">
+                                  {%- for i in (1..10) -%}
+                                    <span class="step">&nbsp;</span>
+                                  {%- endfor -%}
+                                </div>
+                              </div> {% endcomment %}
+
+                            </div>
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next {% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      {%- endcapture -%}
+                      
+                      {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
+
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if block.settings.metaobject_steps != blank -%}
                   {%- endif -%}
                 {%- endcapture -%}
 
@@ -955,12 +954,6 @@
           "label": "Maximum Select",
           "default":1,
           "info":"Default will 1"
-        },
-        {
-          "type": "textarea",
-          "id": "metaobject_steps",
-          "label": "Metaobject Steps",
-          "info": "Add (Question Answer Description and Range Step) metaobject Title in every new Line"
         }
       ]
     },
