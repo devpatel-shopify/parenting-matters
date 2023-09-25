@@ -99,7 +99,7 @@
         "d33351df-137b-40e7-a7ac-98fba6b2424e": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_childneed",
             "q_group_title": "How much do you agree with...",
             "q": "Children need to learn to fit in and not to make a fuss",
             "a1": "Agree",
@@ -111,7 +111,7 @@
         "792d64c3-4c3b-40ce-846b-ab0ea77d383f": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_boundaries",
             "q_group_title": "How much do you agree with...",
             "q": "Clear boundaries (limits) are important",
             "a1": "Agree",
@@ -123,7 +123,7 @@
         "4b9fe844-a508-4ed5-a5a2-8f8c90d893c3": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_spendtime",
             "q_group_title": "How much do you agree with...",
             "q": "I often spend time having fun with my child",
             "a1": "Agree",
@@ -135,7 +135,7 @@
         "7597dc50-57c1-411f-857f-ccab97643401": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_time_consequances",
             "q_group_title": "How much do you agree with...",
             "q": "At times consequences are needed to help children learn how to behave",
             "a1": "Agree",
@@ -147,7 +147,7 @@
         "f6a2412d-92e8-4a7e-b761-41dadb414c2e": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_different_need",
             "q_group_title": "How much do you agree with...",
             "q": "Each child has different needs and so needs to be accommodated to",
             "a1": "Agree",
@@ -159,7 +159,7 @@
         "9f96bdf9-451a-467d-90c6-6a7ce3ff661c": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_tell_behave",
             "q_group_title": "How much do you agree with...",
             "q": "I often tell\/show my child how to behave",
             "a1": "Agree",
