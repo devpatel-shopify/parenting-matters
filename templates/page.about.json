@@ -371,19 +371,19 @@
         "66207b46-1efe-484b-84f9-7dc195f5aa33": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+            "community_description": "<p>“My only disappointment was that I didn't do it earlier”<\/p>"
           }
         },
         "14c728da-a8c2-4ed5-a273-f289c8a229b6": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
           }
         },
-        "2d4819d2-0add-4a8f-9844-5e877672daca": {
+        "c3e83ad2-58d9-49d1-a4bb-19240a89ff02": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>\"It was amazing and positively transformed how I parent my kids, my relationship with them and the atmosphere at home\" <\/p>"
           }
         }
       },
@@ -391,11 +391,11 @@
         "template--19754753196330__4345c6d8-b16b-4b79-aaf6-8d815b85b129-1687929040a764d34f-0",
         "66207b46-1efe-484b-84f9-7dc195f5aa33",
         "14c728da-a8c2-4ed5-a273-f289c8a229b6",
-        "2d4819d2-0add-4a8f-9844-5e877672daca"
+        "c3e83ad2-58d9-49d1-a4bb-19240a89ff02"
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from <br> our Community.",
+        "section_title": "Some words from  our Community.",
         "top_border": true,
         "bottom_border": true,
         "padding_top": 64,
