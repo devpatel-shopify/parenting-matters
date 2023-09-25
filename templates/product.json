@@ -81,7 +81,7 @@
       "settings": {
         "full_width": false,
         "button_text": "Learn more",
-        "button_url": "shopify:\/\/collections\/all",
+        "button_url": "shopify:\/\/pages\/about",
         "top_radius": true,
         "background_schema": "",
         "background_color": "#e9f0ed",
