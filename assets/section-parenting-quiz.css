@@ -228,3 +228,9 @@
     height: 1.6rem;
     top: calc(50% - 0.8rem);
 }
+
+.meta-description--wrapper {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
