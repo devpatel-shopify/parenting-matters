@@ -524,5 +524,12 @@
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "thank_you": {
+        "return_to_store_link_label": "Go to Course!"
+      }
+    }
   }
 }
