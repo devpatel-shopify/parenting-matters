@@ -2,6 +2,8 @@
 {%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
 {%- assign ParentingStyleHandleize = ParentingStyle | handleize -%}
 {%- assign ParentingStyleMetaobject = shop.metaobjects['parenting_style'][ParentingStyleHandleize] -%}
+{%- assign x = customer.metafields.klaviyo.Xaxis -%}
+{%- assign y = customer.metafields.klaviyo.Yaxis -%}
 
 <section class="dashboard parenting_style">
   <div class="page-width">
@@ -126,8 +128,8 @@
     },{
       label: 'Current Client',
       data: [{
-        x: -10,
-        y: 0  
+        x: {{x}},
+        y: {{y}}  
       }],
       backgroundColor: 'rgb(3,52,63,1)',        
       radius: 8,
