@@ -1,3 +1,11 @@
+{% if customer and customer.metafields.klaviyo.ParentingStyle != "" %}
+<script type="text/javascript">
+window.location.replace("{{shop.url}}/pages/custom-parenting-style");
+</script>
+{% else  %}
+
+
+
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 {{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
@@ -36,6 +44,10 @@
   
           {% case block.type %}
             {% when 'range' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+              {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
@@ -48,7 +60,7 @@
                       <p>{{ bs.a2 }}</p>
                     </div>
                     <div class="range_inner">
-                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ name }}" min="1" max="4" value="1" data-val="-2">
                       <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
                       <div class="range_steps">
                         <span class="step">&nbsp;</span>
@@ -73,6 +85,10 @@
               </div>
 
             {% when 'button' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -89,7 +105,7 @@
                         type="radio"
                         id="{{ bs.a1 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a1 | handleize }}"
                         data-val="-2"
                         required
@@ -104,7 +120,7 @@
                         type="radio"
                         id="{{ bs.a2 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a2 | handleize }}"
                         data-val="-1"
                         required
@@ -119,7 +135,7 @@
                         type="radio"
                         id="{{ bs.a3 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a3 | handleize }}"
                         data-val="1"
                         required
@@ -134,7 +150,7 @@
                         type="radio"
                         id="{{ bs.a4 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a4 | handleize }}"
                         data-val="2"
                         required
@@ -158,6 +174,10 @@
               </div>
 
             {% when 'textfield' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -169,7 +189,7 @@
 
                 <div class="textfield-container">
                   <textarea
-                    name="{{ bs.klaviyo_id }}"
+                    name="{{ name }}"
                     id="{{ bs.klaviyo_id }}"
                     placeholder="Enter your answer here..."
                   ></textarea>
@@ -188,6 +208,10 @@
               </div>
 
             {% when 'dropdown' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -246,6 +270,7 @@
           <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
         {% endif %}
 
+              {% comment %}
 <div class="customer contact-form register quiz-signup">
 
         {% if ss.success_overview != blank %}
@@ -359,11 +384,11 @@
     </div>
    
 </div>
+{% endcomment %}
 
 
 
-
-        {% comment %}
+  
         <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
           <div class="contact">
             <div class="contact__fields">
@@ -375,7 +400,7 @@
                   autocomplete="first_name"
                   type="text"
                   id="pq_first_name"
-                  name="first_name"
+                  name="pq_first_name"
                   value="{% if customer %}{{ customer.first_name }}{% endif %}"
                   placeholder="First name"
                 >
@@ -387,7 +412,7 @@
                   autocomplete="last_name"
                   type="text"
                   id="pq_last_name"
-                  name="last_name"
+                  name="pq_last_name"
                   value="{% if customer %}{{ customer.last_name }}{% endif %}"
                   placeholder="Last name"
                 >
@@ -402,7 +427,7 @@
                   type="email"
                   id="pq_email"
                   class=""
-                  name="email"
+                  name="pq_email"
                   spellcheck="false"
                   autocapitalize="off"
                   value="{% if customer %}{{ customer.email }}{% endif %}"
@@ -429,7 +454,7 @@
             </div>          
           </div>
         </div>
-        {% endcomment %}
+        
             
       </div>
    </form>
@@ -448,7 +473,7 @@
         $method_id: 'embed',
         $consent_version: 'Embed default text',
         },
-        hide_form_on_success: false,
+        success_url: "/account/register",
         custom_success_message: true
       });
 
@@ -756,17 +781,17 @@
           })
 
          //On change of create account fields.
-          $(document).on('change', '#RegisterForm-FirstName', function () {
+          $(document).on('change', '#pq_first_name', function () {
             var fname = $(this).val();
             $("#pq_first_name").val(fname)
           });
           
-          $(document).on('change', '#RegisterForm-LastName', function () {
+          $(document).on('change', '#pq_last_name', function () {
             var fname = $(this).val();
             $("#pq_last_name").val(fname)
           });
           
-          $(document).on('change', '#RegisterForm-email', function () {
+          $(document).on('change', '#pq_email', function () {
             var fname = $(this).val();
             $("#pq_email").val(fname)
           });
@@ -833,6 +858,7 @@
 {% endif %}
 
 
+{% endif %}
 
 
 
