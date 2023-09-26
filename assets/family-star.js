@@ -190,7 +190,7 @@ $(function () {
     
     var sBtn = $(".slide").last().find(".button_next");
     var sBtnHtml = sBtn.html()
-    sBtn.addClass("button_submit").html().replace("Next","Submit");;
+    //sBtn.addClass("button_submit").html().replace("Next","Submit");;
 
     if(this.checked && jsonContent[handleizeValue]){
       wrapper.get(0).insertAdjacentHTML("afterend", jsonContent[handleizeValue]);
