@@ -11,6 +11,8 @@
   {% assign formID = ss.form_id | handleize %}
   
   <style>
+
+  .ps-quiz .quiz-section .slide .range_container input{ height: 20px;}
     .text-field--wrapper textarea{
       width:100%;
     }
@@ -21,8 +23,8 @@
       margin-bottom: 10px;
     }
     .range-slider {
-      background-color: #2c2641;
-      box-shadow: inset 0 0 8px #19182b;
+      /*background-color: #2c2641;
+      box-shadow: inset 0 0 8px #19182b;*/
       border-radius: 8px;
       height: 16px;
       position: relative;
@@ -47,8 +49,8 @@
       appearance: none;
       border-radius: 8px;
       height: 12px;
-      left: -12px;
-      pointer-events: none;
+      /*left: -12px;
+      pointer-events: none;*/
       position: absolute;
       width: calc(100% + 24px);
    }
@@ -102,7 +104,8 @@
       background-color: #2c2641;
       display: block;
       height: 0;
-      width: 0;
+      /*width: 0;*/
+      margin-top: -15px;
    }
     .range-slider__label {
       color: #19182b;
@@ -319,7 +322,7 @@
               {%- if block.settings.max_answer > 0 -%}
                 {%- assign maxSelect = block.settings.max_answer -%}
               {%- endif -%}
-              <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox1" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
+              <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox" data-title="{{ bs.title | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
                 <div class="inner-slide-content">
                 </div>
                 {% if bs.title != blank %}
@@ -343,6 +346,7 @@
                         value="{{ option | strip_newlines | escape }}"
                         data-val="{{ option | strip_newlines | escape }}"
                         data-text-handleize = "{{ option | handleize }}"
+                        data-que="{{ bs.title | handleize }}"
                         required
                       >
                       <label for="{{ option | handleize }}-{{forloop.index}}">{{ option }}</label>
@@ -438,7 +442,7 @@
     
                             <div class="text-field--wrapper">
                               <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
-                              <textarea name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
+                              <textarea class="textarea_{{ title | handleize }}" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
                             </div>
     
                             <div class="btn-flex">
@@ -465,7 +469,7 @@
                                   <div class="range-slider__value range-slider__value--max"></div>
                                 </div>
                                 {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
-                                <input class="range-slider__slider range-slider__slider--to" type="range" value="1" min="1" max="10" />
+                                <input  data-que="{{ title | handleize }}" class="range-slider__slider range-slider__slider--to range_{{ title | handleize }}" type="range" value="1" min="1" max="10" />
                                 <div class="range-slider__scale">
                                   {%- for i in (1..10) -%}
                                     <i>{{ i }}</i>
@@ -485,8 +489,8 @@
 
                             </div>
                             <div class="btn-flex">
-                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next {% render 'icon-arrow' %}</button>
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %}Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next{% render 'icon-arrow' %}</button>
                             </div>
                           </div>
                         {%- endif -%}
@@ -548,14 +552,14 @@
       {% assign fields = fields | append: "FS_ChildTemper" | append: "," %}
       {% assign fields = fields | append: "FS_MyConfidence" | append: "," %}
       {% assign fields = fields | append: "FS_MyWellbeing" | append: "," %}
-      {% assign fields = fields | append: "FS_Concent" | append: "," %}
-      {% assign fields = fields | append: "FS_Parenting" | append: "," %}
+      {% assign fields = fields | append: "FS_MyChild" | append: "," %}
+      {% assign fields = fields | append: "FS_MyParenting" | append: "," %}
       <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
       <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
       <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
       <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
-      <input type="hidden" id="FS_Concent" name="FS_Concent" value="">
-      <input type="hidden" id="FS_Parenting" name="FS_Parenting" value="">
+      <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
+      <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
       <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
       <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
       <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
@@ -563,7 +567,7 @@
 
 
     
-
+        {% comment %}
 <div class="form-success-msg hidden">
         {% if ss.success_title != blank %}
           <h2 class="title">{{ ss.success_title }}</h2>
@@ -687,7 +691,7 @@
 
 
 
-        {% comment %}
+
         <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
           <div class="contact">
             <div class="contact__fields">
