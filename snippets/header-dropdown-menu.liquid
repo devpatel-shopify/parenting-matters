@@ -41,6 +41,9 @@
                         {% if childlink.current %}
                           aria-current="page"
                         {% endif %}
+                        {%- if childlink.url contains 'https://' -%}
+                          target="_blank"
+                        {%- endif -%}
                       >
                         {{ childlink.title | escape }}
                       </a>
@@ -87,6 +90,9 @@
             {% if link.current %}
               aria-current="page"
             {% endif %}
+            {%- if link.url contains 'https://' -%}
+              target="_blank"
+            {%- endif -%}
           >
             <span
               {%- if link.current %}
