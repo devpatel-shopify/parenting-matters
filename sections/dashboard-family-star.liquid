@@ -1,4 +1,10 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
+{%- assign ChildHassel = customer.metafields.klaviyo.FS_ChildHassel -%}
+{%- assign ChildTemper = customer.metafields.klaviyo.FS_ChildTemper -%}
+{%- assign MyConfidence = customer.metafields.klaviyo.FS_MyConfidence -%}
+{%- assign MyWellbeing = customer.metafields.klaviyo.FS_MyWellbeing -%}
+{%- assign MyChild = customer.metafields.klaviyo.FS_MyChild -%}
+{%- assign MyParenting = customer.metafields.klaviyo.FS_MyParenting -%}
 
 {%- assign isQuizCompleted = true -%}
 
@@ -71,6 +77,7 @@
             </div>
             <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
               <div class="graph--img">
+                <canvas id="family_chat"></canvas>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Right_Content_2.png?v=1691820437"
                   alt=""
@@ -109,6 +116,48 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+
+const family_chat = document.getElementById('family_chat');    
+const family_data = {
+  labels: ['My child', 'Child Temper', 'My confidence', 'My parenting', 'My wellbeing', 'Child hassle'],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [{{ChildHassel}}, {{ChildTemper}}, {{MyConfidence}}, {{MyWellbeing}}, {{MyChild}}, {{MyParenting}}],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }]
+};  
+
+new Chart(family_chat, {
+  type: 'radar',
+  data: family_data,
+  options: {
+    aspectRatio: 1,
+    responsive: true,
+    maintainAspectRatio: true,
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    },
+    //tooltip:
+    layout: {
+      padding: 10
+    },
+    plugins: {
+      legend: false,
+      //tooltip: false,          
+    }
+  }
+});
+</script>
 
 {% schema %}
 {
