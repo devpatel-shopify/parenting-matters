@@ -41,10 +41,11 @@
         {%- assign tmpCount = tmpCount | plus: 1 -%}
         {%- assign stepValue = step | last -%}
         {%- assign isActiveStep = false -%}
+        {%- assign jsoTag = stepValue.tag | prepend: 'prq_' -%}
 
         {%- if lastCompletedStepDetected == false -%}
           {%- for tag in customer.tags -%}
-            {%- if tag == stepValue.tag -%}
+            {%- if tag == jsoTag -%}
               {%- assign isActiveStep = true -%}
               {%- assign lastCompletedStepDetected = true -%}
               {%- assign lastCompletedStepIndex = tmpCount -%}
@@ -219,14 +220,15 @@
                         <div class="title">{{ section.setitngs.nq_parenting_style_text }}</div>
                       {%- endif -%}
                     </div>
+                    {%- assign ParentGole = customer.metafields.klaviyo['Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
                     <div class="content_item box-2 scroll-trigger animate--slide-in" style="--animation-order: 5;">
                       <div class="content_box">
                         <div class="icon" style="background:{{ section.settings.goal_icon_back_color }}">
                           {% # render 'icon-marker' %}
                           <img src="{{ section.settings.goal_icon | image_url }}" alt="{{ section.settings.goal_icon.alt | default:'Goal Icon' }}">
                         </div>
-                        {%- if isCoursePurchased == true -%}
-                          <div class="text">{{ section.settings.goal_description }}</div>
+                        {%- if isCoursePurchased == true and ParentGole != blank -%}
+                          <div class="text">{{ section.settings.goal_description | replace: '[dynamic_text]', ParentGole }}</div>
                         {%- else -%}
                           <div class="text">{{ section.settings.goal_np_description }}</div>
                         {%- endif -%}
