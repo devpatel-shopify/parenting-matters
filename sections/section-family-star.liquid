@@ -554,12 +554,14 @@
       {% assign fields = fields | append: "FS_MyWellbeing" | append: "," %}
       {% assign fields = fields | append: "FS_MyChild" | append: "," %}
       {% assign fields = fields | append: "FS_MyParenting" | append: "," %}
+      {% assign fields = fields | append: "FamilyStarCompleted" | append: "," %}
       <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
       <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
       <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
       <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
       <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
       <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
+      <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
       <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
       <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
       <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">

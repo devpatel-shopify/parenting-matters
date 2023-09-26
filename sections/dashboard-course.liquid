@@ -412,37 +412,43 @@
                     <div class="content_footer_main">
                       {% if previoustStepContent %}
                         {%- assign prev_progress_summary = previoustStepContent.progress_summary -%}
-                        <div class="content_footer_box item-1 scroll-trigger animate--slide-in" style="--animation-order: 7;">
-                          <div class="content_box-1">
-                            <div class="icon">
-                              {% render 'icon-true-bg-round'%}
+                        {% assign title = prev_progress_summary.title | strip %}
+                        {% if title != "" %}
+                          <div class="content_footer_box item-1 scroll-trigger animate--slide-in" style="--animation-order: 7;">
+                            <div class="content_box-1">
+                              <div class="icon">
+                                {% render 'icon-true-bg-round'%}
+                              </div>
+                              <div class="text">{{ prev_progress_summary.last_time_learn_text }}</div>
                             </div>
-                            <div class="text">{{ prev_progress_summary.last_time_learn_text }}</div>
-                          </div>
-                          <div class="content_box-2">
-                            <div class="text_content">
-                              <div class="title">{{ prev_progress_summary.title }}</div>
-                              <div class="text">{{ prev_progress_summary.description }}</div>
+                            <div class="content_box-2">
+                              <div class="text_content">
+                                <div class="title">{{ prev_progress_summary.title }}</div>
+                                <div class="text">{{ prev_progress_summary.description }}</div>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        {% endif %}
                       {% endif %}
                       {% if nextStepContent %}
                         {%- assign next_progress_summary = nextStepContent.progress_summary -%}
-                        <div class="content_footer_box item-2 scroll-trigger animate--slide-in" style="--animation-order: 8;">
-                          <div class="content_box-1">
-                            <div class="icon">
-                              {% render 'icon-red-forword'%}
+                        {% assign title = next_progress_summary.title | strip %}
+                        {% if title != "" %}
+                          <div class="content_footer_box item-2 scroll-trigger animate--slide-in" style="--animation-order: 8;">
+                            <div class="content_box-1">
+                              <div class="icon">
+                                {% render 'icon-red-forword'%}
+                              </div>
+                              <div class="text">{{ next_progress_summary.next_time_learn_text }}</div>
                             </div>
-                            <div class="text">{{ next_progress_summary.next_time_learn_text }}</div>
-                          </div>
-                          <div class="content_box-2">
-                            <div class="text_content">
-                              <div class="title">{{ next_progress_summary.title }}</div>
-                              <div class="text">{{ next_progress_summary.description }}</div>
+                            <div class="content_box-2">
+                              <div class="text_content">
+                                <div class="title">{{ next_progress_summary.title }}</div>
+                                <div class="text">{{ next_progress_summary.description }}</div>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        {% endif %}
                       {% endif %}
 
                     </div>
