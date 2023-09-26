@@ -156,7 +156,7 @@
         "section_title": "Parenting Matters is here to help you bring out the best in your child.",
         "background_schema": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
         "button_text": "Join today",
-        "button_url": "https:\/\/parenting-matters.myshopify.com\/account\/register",
+        "button_url": "shopify:\/\/pages\/about",
         "top_radius": true,
         "padding_top": 160,
         "padding_bottom": 80

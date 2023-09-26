@@ -29,6 +29,7 @@
   </h1>
   <p>{{ section.settings.small_text }}</p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
+    <input type="hidden" name="return_to" value="{{ routes.account_url }}" />
     {%- if form.errors -%}
       <h2 class="form__message" tabindex="-1" autofocus>
         <svg aria-hidden="true" focusable="false">
