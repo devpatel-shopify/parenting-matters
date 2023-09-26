@@ -1,7 +1,7 @@
-KlaviyoSubscribe.attachToForms('#pq_quiz', {
+KlaviyoSubscribe.attachToForms('#fs_quiz', {
   hide_form_on_success: false,
   extra_properties: {
-  $source: 'https://parenting-matters.myshopify.com/pages/parenting-style-quiz-1',
+  $source: 'https://parenting-matters.myshopify.com/pages/family-star',
   $method_type: "Klaviyo Form",
   $method_id: 'embed',
   $consent_version: 'Embed default text',
@@ -11,7 +11,7 @@ KlaviyoSubscribe.attachToForms('#pq_quiz', {
 });
 
 function nextPrevEvent(){
-  const slides = document.querySelectorAll('#pq_quiz .slide');
+  const slides = document.querySelectorAll('#fs_quiz .slide');
   slides.forEach((slide) =>{
     let nextBtn = slide.querySelector('.button_next');
     let prevBtn = slide.querySelector('.button_back');
@@ -65,15 +65,72 @@ function nextPrevEvent(){
         event.preventDefault();
         var sbtn = $(event.currentTarget);
 
-        const larray = [1, 12];
-        const darray = [6, 7, 9, 15, 17, 23, 24, 25, 11, 5, 19, 26];
-        const uarray = [3, 4, 13, 21, 16];
-        const rarray = [2, 8, 14, 20, 22, 10, 18];
-        let l = 0;
-        let d = 0;
-        let u = 0;
-        let r = 0;
-        const score = {};
+        // const larray = [1, 12];
+        // const darray = [6, 7, 9, 15, 17, 23, 24, 25, 11, 5, 19, 26];
+        // const uarray = [3, 4, 13, 21, 16];
+        // const rarray = [2, 8, 14, 20, 22, 10, 18];
+        // let l = 0;
+        // let d = 0;
+        // let u = 0;
+        // let r = 0;
+        // const score = {};
+
+
+        // Result for Child Hassle
+        var no_que = 20
+        var max_score = no_que * 4;
+        var d = max_score / 10;
+        var sum = 0;
+        for (let i = 1; i <= no_que; i++) {
+            var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+            sum = sum + val;
+        }
+        var ch = sum/d
+        console.log("Child Hassel",ch);
+        $("#FS_ChildHassel").val(ch);
+
+
+        // Result for Child Temper
+        var no_que = 8
+        var max_score = no_que * 3;
+        var d = max_score / 10;
+        var sum = 0;
+        for (let i = 21; i <= 28; i++) {
+            var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+            sum = sum + val;
+        }
+        var ct = sum/d
+        console.log("Child Temper",ct);
+        $("#FS_ChildTemper").val(ct);
+
+
+        // Result for My Confidence
+        var no_que = 5
+        var max_score = no_que * 4;
+        var d = max_score / 10;
+        var sum = 0;
+        for (let i = 29; i <= 33; i++) {
+            var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+            sum = sum + val;
+        }
+        var mc = sum/d
+        console.log("My Confidence",mc);
+        $("#FS_MyConfidence").val(mc);
+
+
+
+        // Result for My Wellbeing
+        var no_que = 7
+        var max_score = no_que * 4;
+        var d = max_score / 10;
+        var sum = 0;
+        for (let i = 34; i <= 40; i++) {
+            var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+            sum = sum + val;
+        }
+        var mc = sum/d
+        console.log("My Wellbeing",mc);
+        $("#FS_MyWellbeing").val(mc);
 
       });
     }
@@ -126,6 +183,15 @@ $(function () {
     let jsonContent = JSON.parse(wrapper.find('[data-metaobjects]').text());
     let handleizeValue = $(this).data('text-handleize');
 
+    if(wrapper.find(".button_submit").length){
+      var btnHtml = wrapper.find(".button_submit").html().replace("Submit","Next");
+      wrapper.find(".button_submit").removeClass("button_submit").addClass("button_next").html(btnHtml);
+    }
+    
+    var sBtn = $(".slide").last().find(".button_next");
+    var sBtnHtml = sBtn.html()
+    sBtn.addClass("button_submit").html().replace("Next","Submit");;
+
     if(this.checked && jsonContent[handleizeValue]){
       wrapper.get(0).insertAdjacentHTML("afterend", jsonContent[handleizeValue]);
       nextPrevEvent();
@@ -134,7 +200,6 @@ $(function () {
         element.remove();
       });
     }
-
     wrapper.find('input[type=checkbox]:not(:checked)').each((index,checkbox) => {
       $(checkbox).get(0).disabled = (checkedElements.length == maxSelect);
     });
@@ -145,30 +210,32 @@ $(function () {
     });
   });
 
+
+
  //On change of create account fields.
   $(document).on('change', '#RegisterForm-FirstName', function () {
     var fname = $(this).val();
-    $("#pq_first_name").val(fname)
+    $("#fs_first_name").val(fname)
   });
   
   $(document).on('change', '#RegisterForm-LastName', function () {
     var fname = $(this).val();
-    $("#pq_last_name").val(fname)
+  $("#fs_last_name").val(fname)
   });
   
   $(document).on('change', '#RegisterForm-email', function () {
     var fname = $(this).val();
-    $("#pq_email").val(fname)
+    $("#fs_email").val(fname)
   });
 
 
   $("#RegistrationSubmit").on("click",function(){
-      $("#pq_quiz").submit();
+      $("#fs_quiz").submit();
 
         var escapedData = {
-            firstName: escape($("#pq_first_name").val()),
-            lastName: escape($("#pq_last_name").val()),
-            email: escape($("#pq_email").val()),
+            firstName: escape($("#fs_first_name").val()),
+            lastName: escape($("#fs_last_name").val()),
+            email: escape($("#fs_email").val()),
             password: escape($("#RegisterForm-password").val()).replace(/\+/g, '%2B')
         }
           var data = 'form_type=create_customer&utf8=%E2%9C%93&customer%5Bfirst_name%5D=';
@@ -204,7 +271,7 @@ $(function () {
   const rForm = document.getElementById('create_customer');
   rForm.addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
-      $("#pq_quiz").submit();
+      $("#fs_quiz").submit();
       setTimeout(function () {
         //rForm.submit();
         // You can also perform additional actions after the submission is completed

@@ -129,9 +129,9 @@
         style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
       > -->
         
-<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
-    <!-- <input type="hidden" name="g" value="SsT6w6">
-    <input type="hidden" name="$list_fields" value="$consent"> -->
+<form id="fs_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="QXvndD">
+    <input type="hidden" name="$list_fields" value="$consent">
         
 
         {% assign fields = '' %}
@@ -350,7 +350,19 @@
                   {%- endfor -%}
                 </div>
                 {%- for i in (1..maxSelect) -%}
-                  <input type="hidden" id="{{ bs.title | handleize }}_{{ blockIndex }}" value >
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}" id="{{ bs.title | handleize }}_{{ i }}" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i   %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
+
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_values" id="{{ bs.title | handleize }}_{{ i }}_values" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values'    %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_score" id="{{ bs.title | handleize }}_{{ i }}_score" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score'   %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
                 {%- endfor -%}
 
                 <div class="btn-flex">
@@ -532,17 +544,21 @@
           {% endcase %}
         {% endfor %}
 
-      {% assign fields = fields | append: "ParentingStyle" | append: "," %}
-      {% assign fields = fields | append: "Xaxis" | append: "," %}
-      {% assign fields = fields | append: "Yaxis" | append: "," %}
-      {% assign fields = fields | append: "ParentingType" | append: "," %}
-      <input type="hidden" id="ParentingStyle" name="ParentingStyle" value="">
-      <input type="hidden" id="ParentingType" name="ParentingType" value="">
-      <input type="hidden" id="Xaxis" name="Xaxis" value="">
-      <input type="hidden" id="Yaxis" name="Yaxis" value="">
-      <input type="hidden" id="pq_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
-      <input type="hidden" id="pq_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
-      <input type="hidden" type="email" id="pq_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
+      {% assign fields = fields | append: "FS_ChildHassel" | append: "," %}
+      {% assign fields = fields | append: "FS_ChildTemper" | append: "," %}
+      {% assign fields = fields | append: "FS_MyConfidence" | append: "," %}
+      {% assign fields = fields | append: "FS_MyWellbeing" | append: "," %}
+      {% assign fields = fields | append: "FS_Concent" | append: "," %}
+      {% assign fields = fields | append: "FS_Parenting" | append: "," %}
+      <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
+      <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
+      <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
+      <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
+      <input type="hidden" id="FS_Concent" name="FS_Concent" value="">
+      <input type="hidden" id="FS_Parenting" name="FS_Parenting" value="">
+      <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
+      <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
+      <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
       <input type="hidden" name="$fields" value="$consent,{{ fields }}">
 
 
