@@ -1,9 +1,11 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
 {%- assign isCoursePurchased = false -%}
+{%  comment  %}  
 {% if customer and customer.tags contains 'Purchased Course' %}
   {%- assign isCoursePurchased = true -%}
 {% endif %}
+{% endcomment %}
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
@@ -114,7 +116,7 @@
 <section class="dashboard dashboard_overview">
   <div class="page-width">
     <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;" >
-      {% if customer %}<h4>Welcome back <span>{{ customer.first_name }}</span></h4>{% else %}<h4>Welcome, guest!</h4>{% endif %}
+      {% if customer %}<h4>Welcome <span>{{ customer.first_name }}</span></h4>{% else %}<h4>Welcome, guest!</h4>{% endif %}
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
