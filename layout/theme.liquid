@@ -27,6 +27,13 @@
     {% endif %}
 
     {% render 'meta-tags' %}
+    {% if template contains "product" and product.tags contains "course" %}
+      {% if customer and customer.tags contains "Purchased Course" %}
+        <script type="text/javascript">
+          window.location.replace("{{shop.url}}/account");
+        </script>
+      {% endif %}
+    {% endif %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
