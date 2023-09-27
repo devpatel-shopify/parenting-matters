@@ -126,12 +126,14 @@
     "title_2": "Community",
     "link_2": "https:\/\/community.parentingmattersonline.com\/",
     "new_tab_2": true,
+    "show_course_only_2": true,
     "title_3": "Family star",
     "link_3": "shopify:\/\/pages\/custom-family-star-result",
     "title_4": "Parenting style",
     "link_4": "shopify:\/\/pages\/custom-parenting-style",
     "title_5": "Help!",
     "link_5": "shopify:\/\/pages\/help",
+    "show_course_only_5": true,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

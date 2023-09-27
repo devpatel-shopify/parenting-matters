@@ -1,3 +1,7 @@
+{%- assign isCoursePurchased = false -%}
+{% if customer and customer.tags contains 'Purchased Course' %}
+  {%- assign isCoursePurchased = true -%}
+{% endif %}
 {% comment %}
   Renders a standard dropdown style menu for the header.
 
@@ -8,8 +12,14 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
+      {%- if link.title contains 'Community' and isCoursePurchased == false -%}
+        {%- continue -%}
+      {%- endif -%}
       <li>
         {%- if link.links != blank -%}
+          {%- if link.title contains 'Community' and isCoursePurchased == false -%}
+            {%- continue -%}
+          {%- endif -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}">
               <summary

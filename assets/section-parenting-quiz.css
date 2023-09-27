@@ -234,3 +234,15 @@
   margin-top: 20px;
   gap: 20px;
 }
+
+.klaviyo-form__buttons {
+  max-width: unset;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-section .contact p{
+  max-width: 100%;
+}
