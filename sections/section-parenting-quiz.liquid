@@ -1,6 +1,7 @@
-{% if customer and customer.metafields.klaviyo.ParentingStyle != "" %}
+
+{% if customer and customer.metafields.klaviyo.ParentingStyle %}
 <script type="text/javascript">
-window.location.replace("{{shop.url}}/pages/custom-parenting-style");
+//window.location.replace("{{shop.url}}/pages/custom-parenting-style");
 </script>
 {% else  %}
 
@@ -268,6 +269,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
         {% if ss.success_title != blank %}
           <h2 class="title">{{ ss.success_title }}</h2>
           <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
+          <div id="description" class="ps_desc"></div>
         {% endif %}
 
               {% comment %}
@@ -726,8 +728,10 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
             }
 
             $("#pstyle").text(pStyle);
+            $("#description").text(description);
             $("#ParentingStyle").val(pStyle);
             $("#ParentingType").val(pType);
+
             
             $("#Xaxis").val(xaxis);
             $("#Yaxis").val(yaxis);

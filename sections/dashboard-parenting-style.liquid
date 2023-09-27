@@ -115,24 +115,24 @@
     datasets: [{
       label: 'All',
       data: [
-        { x: 28, y: -20}, 
-        { x: -10, y: 10}, 
-        { x: 35, y: -30}, 
-        { x: 38, y: -20}, 
-        { x: 20, y: -40}, 
-        { x: -25, y: 30}, 
-        { x: -10, y: 20}, 
-        { x: -10, y: -10}, 
-        { x: 32, y: 32}, 
-        { x: -35, y: -20}, 
-        { x: 22, y: -24}, 
-        { x: -20, y: 32}, 
-        { x: 15, y: -8}, 
-        { x: -10, y: 24}, 
-        { x: 17, y: 30}, 
-        { x: 10, y: -20}, 
-        { x: -27, y: -40}, 
-        { x: 5, y: -21}, 
+        { x: 2, y: -2}, 
+        { x: -1, y: 1}, 
+        { x: 5, y: -3}, 
+        { x: 8, y: -2}, 
+        { x: 2, y: -4}, 
+        { x: -2, y: 3}, 
+        { x: -1, y: 2}, 
+        { x: -1, y: -1}, 
+        { x: 3, y: 3}, 
+        { x: -3, y: -2}, 
+        { x: 2, y: -2}, 
+        { x: -2, y: 3}, 
+        { x: 5, y: -8}, 
+        { x: -1, y: 2}, 
+        { x: 7, y: 3}, 
+        { x: 0, y: -2}, 
+        { x: -2, y: -4}, 
+        { x: 5, y: -2}, 
   ],
       backgroundColor: 'rgb(3,52,63,0.4)',
       radius: 3,
@@ -140,8 +140,8 @@
     },{
       label: 'Current Client',
       data: [{
-        x: {{x}}*20,
-        y: {{y}}*20  
+        x: {{x}},
+        y: {{y}}  
       }],
       backgroundColor: 'rgb(3,52,63,1)',        
       radius: 8,
@@ -168,8 +168,8 @@
         x: {
           type: 'linear',
           position: 'center',            
-          min: -100,
-          max: 100,                        
+          min: -10,
+          max: 10,                        
           grid: {              
             display: false,                      
             drawOnChartArea: false // only want the grid lines for one axis to show up
@@ -185,8 +185,8 @@
         y: {
           type: 'linear',
           position: 'center',          
-          min: -100,
-          max: 100,  
+          min: -10,
+          max: 10,  
           grid: {    
             display: false,                 
             drawOnChartArea: false // only want the grid lines for one axis to show up
