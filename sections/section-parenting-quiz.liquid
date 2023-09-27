@@ -461,6 +461,16 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
     </div>
   </section>
 
+  {%- assign ParentingStyleArray = "Well Balanced|‘Well-balanced’, with a tendency to being ‘Permissive’|‘Well-balanced’ with a tendency to being ‘Strict’|Strict|‘Strict’, with a tendency to ‘Well-balanced’|‘Strict’ with a tendency to ‘Hands-off’|Hands-off|‘Hands-off’ with a tendency towards being ‘Strict’|‘Hands-off’ with a tendency to being ‘Permissive’|Permissive|‘Permissive’ with a tendency to being ‘Hands-off’|‘Permissive’, with a tendency towards ‘Well-balanced’|Middle-of-the-Field" | split: '|' -%}
+
+  <script type="application/json" id="parentingStyleDescriptionJson">
+    {
+      {%- for ParentingStyle in ParentingStyleArray -%}
+        {%- assign styleHandleize = ParentingStyle | handleize -%}
+        {{ ParentingStyle | json }}:{{ shop.metaobjects['parenting_style'][styleHandleize].description | metafield_tag | strip_newlines | json }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    }
+  </script>
 
 
   <script defer>
@@ -477,7 +487,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
         custom_success_message: true
       });
 
-    
+    const parentingStyleDescriptions = JSON.parse(document.getElementById('parentingStyleDescriptionJson').innerText);
     document.addEventListener('DOMContentLoaded',function () {
       const slides = document.querySelectorAll('#pq_quiz .slide');
       
@@ -725,8 +735,11 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
               pType='authoritarian';
             }
 
+            let MetaDescriptions = parentingStyleDescriptions[pStyle] || '';
+
             $("#pstyle").text(pStyle);
-            $("#description").text(description);
+            {% comment %} $("#description").text(description); {% endcomment %}
+            $("#description").html(MetaDescriptions);
             $("#ParentingStyle").val(pStyle);
             $("#ParentingType").val(pType);
 
