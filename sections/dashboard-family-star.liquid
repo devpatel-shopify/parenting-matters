@@ -78,11 +78,13 @@
             <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
               <div class="graph--img">
                 <canvas id="family_chat"></canvas>
+                {% comment %}
                 <img
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Right_Content_2.png?v=1691820437"
                   alt=""
                   srcset=""
                 >
+                {% endcomment %}
               </div>
               <div class="family-key">
                 <h6>Key</h6>
@@ -144,12 +146,32 @@ new Chart(family_chat, {
     maintainAspectRatio: true,
     elements: {
       line: {
-        borderWidth: 3
+        borderWidth: 1
       }
+
+    },
+    scales: {
+      r: {
+        grid: {
+          display: false,
+          color: 'none'
+        },
+        ticks: {
+          display:false,
+        },
+        angleLines: {
+            display: true,
+        },
+        pointLabels: {
+          color: '#01333E',
+        },
+          suggestedMin: 0,
+          suggestedMax: 10
+        }
     },
     //tooltip:
     layout: {
-      padding: 10
+      padding: 1
     },
     plugins: {
       legend: false,

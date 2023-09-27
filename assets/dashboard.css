@@ -656,3 +656,9 @@ background: #FFF0C9;
 .family_result{
     position: relative;
 }
+canvas#family_chat {
+    max-width: 50%;
+    height: auto !important;
+    margin: 0 auto;
+    border: none;
+}
