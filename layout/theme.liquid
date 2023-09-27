@@ -27,12 +27,23 @@
     {% endif %}
 
     {% render 'meta-tags' %}
+
+    {% comment  %} To redirect customer who already purchased course  {% endcomment %}
     {% if template contains "product" and product.tags contains "course" %}
       {% if customer and customer.tags contains "Purchased Course" %}
         <script type="text/javascript">
           window.location.replace("{{shop.url}}/account");
         </script>
       {% endif %}
+    {% endif %}
+
+    {% comment  %} To redirect customer who haven't purchased course  {% endcomment %}
+    {% if template contains "family-star"  %}
+    {% unless customer and customer.tags contains "Purchased Course" %}
+      <script type="text/javascript">
+      window.location.replace("{{shop.url}}/products/course");
+      </script>
+    {% endunless %}
     {% endif %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
