@@ -1,3 +1,12 @@
+{% assign tarray = "[" %}
+{% for tag in customer.tags %}
+  {% assign tarray = tarray | append: tag | append: ','   %}
+{% endfor %}
+{% assign tarray = tarray | append: 'prq_FamilyStarQuiz_true'| append: ']'   %}
+
+
+
+
 {% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
 <script type="text/javascript">
 window.location.replace("{{shop.url}}/pages/custom-family-star-result");
@@ -554,6 +563,9 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           {% endcase %}
         {% endfor %}
 
+        
+      {% assign ctags = customer.tags | push: "prq_FamilyStarQuiz_true" %}  
+      {% assign fields = fields | append: "Shopify Tags" | append: "," %}
       {% assign fields = fields | append: "FS_ChildHassel" | append: "," %}
       {% assign fields = fields | append: "FS_ChildTemper" | append: "," %}
       {% assign fields = fields | append: "FS_MyConfidence" | append: "," %}
@@ -568,6 +580,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
       <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
       <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
+      <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{tarray}}">
       <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
       <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
       <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">

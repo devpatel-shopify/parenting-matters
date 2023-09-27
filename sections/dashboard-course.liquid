@@ -5,6 +5,11 @@
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
+{% assign ctags = customer.tags | join: ',' %}
+{% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
+  {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
+{% endif %}
+{% assign ctagsArray = ctags | split: ',' %}
 {%- assign nextStepContent = false -%}
 {%- assign previoustStepContent = false -%}
 {%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
@@ -44,7 +49,7 @@
         {%- assign jsoTag = stepValue.tag | prepend: 'prq_' -%}
 
         {%- if lastCompletedStepDetected == false -%}
-          {%- for tag in customer.tags -%}
+          {%- for tag in ctagsArray -%}
             {%- if tag == jsoTag -%}
               {%- assign isActiveStep = true -%}
               {%- assign lastCompletedStepDetected = true -%}
