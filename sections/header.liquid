@@ -329,8 +329,11 @@
       </a>
       {%- if shop.customer_accounts_enabled -%}
         <div class="customer_accounts_buttons">
-          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button">
-            {%- if customer -%}
+        {% comment %}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button"></a>          
+        {% endcomment %}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}/pages/about{%- endif -%}" class="header__icon header__icon--account button">
+          {%- if customer -%}
               My account
               {%- else -%}
             Join now

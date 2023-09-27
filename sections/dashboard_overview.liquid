@@ -1,11 +1,8 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
-{%- assign isCoursePurchased = false -%}
-{%  comment  %}  
 {% if customer and customer.tags contains 'Purchased Course' %}
   {%- assign isCoursePurchased = true -%}
 {% endif %}
-{% endcomment %}
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
@@ -483,6 +480,7 @@
                     {%- endif -%}
                   </div>
                 {%- when "family_star_result" -%}
+                  {% assign isCoursePurchased = false %}
                   {%- assign animationCount = animationCount | plus: 1 -%}
                   <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
                     {%- assign title = block.settings.np_title -%}
