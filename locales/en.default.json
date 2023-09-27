@@ -529,6 +529,9 @@
     "checkout": {
       "thank_you": {
         "return_to_store_link_label": "Go to Course!"
+      },
+      "general": {
+        "back_to_cart": " "
       }
     }
   }

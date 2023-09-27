@@ -506,11 +506,12 @@
                       </div>
                     {%- endif -%}
                     {%- assign buttonTitle = block.settings.np_btn_title -%}
-                    {%- assign buttonUrl = settings.course_product.url -%}
+                    {% comment %} {%- assign buttonUrl = settings.course_product.url -%}
                     {%- if isCoursePurchased == true -%}
                       {%- assign buttonTitle = block.settings.btn_title -%}
                       {%- assign buttonUrl = block.settings.button_url -%}
-                    {%- endif -%}
+                    {%- endif -%} {% endcomment %}
+                    {%- assign buttonUrl = block.settings.button_url -%}
                     {%- if buttonTitle != blank and buttonUrl != blank -%}
                       <div class="course-btn">
                         <a class="button button--secondary" href="{{ buttonUrl }}">
