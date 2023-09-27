@@ -6,7 +6,7 @@ KlaviyoSubscribe.attachToForms('#fs_quiz', {
   $method_id: 'embed',
   $consent_version: 'Embed default text',
   },
- // success_url: "/pages/custom-family-star-result",
+  success_url: "/pages/custom-family-star-result",
   custom_success_message: true
 });
 
