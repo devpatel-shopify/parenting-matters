@@ -9,10 +9,22 @@
       padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
     }
+
+    .section-{{ section.id }} .flickity-section__carousel{
+      display:flex;
+      opacity:0;
+    }
+
+    .section-{{ section.id }} .flickity-section__carousel.flickity-enabled{
+      display:block;
+      opacity:1;
+    }
+
     .section-{{ section.id }} .carousel__cell {
       width:100%;
       margin-right: 12px;
       max-width: 277px;
+      min-height: 300px;
     }
 
     .flickity-section-{{ section.id }} .banner__heading {
