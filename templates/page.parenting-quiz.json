@@ -375,9 +375,9 @@
         "success_overview": "<p>Lorem ipsum domest ipsular est. <a href=\"\/pages\/contact\" title=\"Contact\">Click here to go somewhere<\/a>.<\/p>",
         "form_success_description": "<p>Thank you, your results will be emailed to you - in the meantime why don’t you sign up for an account with us to access your results in your own custom dashboard! Or learn more about the full Parenting Matters experience with our Course! <\/p>",
         "btn_title_1": "Join Now",
-        "btn_url_1": "/account/register",
+        "btn_url_1": "\/account\/register",
         "btn_title_2": "About",
-        "btn_url_2": "/pages/about",
+        "btn_url_2": "shopify:\/\/pages\/about",
         "color_scheme": "background-1",
         "heading_font": "h3",
         "progress_bar_radius": 44
