@@ -526,7 +526,7 @@
                     {%- endif -%}
                     {%- assign buttonTitle = block.settings.np_btn_title -%}
                     {%- assign buttonUrl = settings.course_product.url -%}
-                    {%- if isCoursePurchased == true -%}
+                    {%- if customer and customer.tags contains 'Purchased Course' -%}
                       {%- assign buttonTitle = block.settings.btn_title -%}
                       {%- assign buttonUrl = block.settings.button_url -%}
                     {%- endif -%}
