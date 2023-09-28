@@ -112,12 +112,20 @@
 
 <section class="dashboard dashboard_overview">
   <div class="page-width">
-    <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;" >
-      {% if customer %}<h4>Welcome <span>{{ customer.first_name }}</span></h4>{% else %}<h4>Welcome, guest!</h4>{% endif %}
+    <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;">
+      {% if customer %}
+        <h4>
+          Welcome <span>{{ customer.first_name }}</span>
+        </h4>
+      {% else %}
+        <h4>Welcome, guest!</h4>
+      {% endif %}
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
-        <div class="left_sidebar scroll-trigger animate--slide-in" style="--animation-order: 2;" >{% render 'left-sidebar' section:section %}</div>
+        <div class="left_sidebar scroll-trigger animate--slide-in" style="--animation-order: 2;">
+          {% render 'left-sidebar', section: section %}
+        </div>
         <div class="dashbord_box dash_over_info">
           <div class="icon-with-text-block">
             {%- assign left_icon = section.settings.left_icon -%}
@@ -153,7 +161,7 @@
             {%- if left_icon != blank and leftDescription != blank -%}
               <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 4;">
                 <div class="icon" style="background:{{ right_icon_back_color }};">
-                  <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}" />
+                  <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}">
                 </div>
                 <div class="icon-text">
                   {{ rightDescription | replace: '[dynamic_text]', ChildGole }}
@@ -167,9 +175,13 @@
             {%- assign animationCount = 4 -%}
             {% for block in section.blocks %}
               {%- case block.type -%}
-                {%- when "course_progress" -%}
+                {%- when 'course_progress' -%}
                   {%- assign animationCount = animationCount | plus: 1 -%}
-                  <div class="course-progress scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
+                  <div
+                    class="course-progress scroll-trigger animate--slide-in"
+                    style="--animation-order: {{ animationCount }};"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -185,7 +197,7 @@
                           {%- assign tmpCount = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
-                            {% if courseValue.disable_course_progress == "true" %}{%- continue -%}{% endif %}
+                            {% if courseValue.disable_course_progress == 'true' %}{%- continue -%}{% endif %}
                             <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
                               <div class="icon-text">
                                 <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">
@@ -196,7 +208,7 @@
                                   {% assign innerCourseValue = innerCourse | last %}
                                   {% for part in innerCourseValue.parts %}
                                     {%- assign partValue = part | last -%}
-                                    {% if partValue.disabled == "true" %}
+                                    {% if partValue.disabled == 'true' %}
                                       {%- continue -%}
                                     {% endif %}
 
@@ -213,8 +225,11 @@
                                       {%- endif -%}
                                     {%- endfor -%}
 
-                                    {%- assign totalProgress = completedStepCount | divided_by: totalSteps | times: 100 -%}
-        
+                                    {%- assign totalProgress = completedStepCount
+                                      | divided_by: totalSteps
+                                      | times: 100
+                                    -%}
+
                                     <div class="meter item-{{ forloop.index }}">
                                       <span style="--progress-width: {{ totalProgress }}%"></span>
                                     </div>
@@ -479,10 +494,14 @@
                       </div>
                     {%- endif -%}
                   </div>
-                {%- when "family_star_result" -%}
+                {%- when 'family_star_result' -%}
                   {% assign isCoursePurchased = false %}
                   {%- assign animationCount = animationCount | plus: 1 -%}
-                  <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
+                  <div
+                    class="family-block scroll-trigger animate--slide-in"
+                    style="--animation-order: {{ animationCount }};"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -501,7 +520,7 @@
                         >
                       </div>
                     {%- else -%}
-                      <div class="family-graph course-not-purchased-description">
+                      <div class="family-graph course-not-purchased-description" style="--background-img:url({{ block.settings.background_image | image_url }});">
                         {{ block.settings.description }}
                       </div>
                     {%- endif -%}
@@ -700,7 +719,7 @@
           "type": "url",
           "id": "button_url",
           "label": "Button link",
-          "info":"This Link will add when user will Purchase course."
+          "info": "This Link will add when user will Purchase course."
         }
       ]
     },
@@ -733,6 +752,11 @@
           "label": "Description"
         },
         {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Custom Background Image"
+        },
+        {
           "type": "paragraph",
           "content": "NOTE: Description will show when user has been purchased course."
         },
@@ -758,7 +782,7 @@
           "type": "url",
           "id": "button_url",
           "label": "Button link",
-          "info":"This Link will add when user will Purchase course."
+          "info": "This Link will add when user will Purchase course."
         }
       ]
     }
