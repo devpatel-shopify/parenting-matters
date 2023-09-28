@@ -253,7 +253,7 @@ $(function () {
       if(bTitle == "concerns-about-my-child"){
         $("#FS_MyChild").val(res);
       }
-      if(bTitle == "concerns-about-my-parenting"){
+      if(bTitle == "my-parenting"){
         $("#FS_MyParenting").val(res);
       }
 
