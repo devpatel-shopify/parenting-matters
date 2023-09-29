@@ -26,7 +26,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
         style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
       > -->
         
-<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank">
     <input type="hidden" name="g" value="SsT6w6">
     <input type="hidden" name="$list_fields" value="$consent">
         
@@ -381,7 +381,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
         </div>
         {% endcomment %}
 
-        <div class="form-wrapper js-klaviyo-form--wrapper">
+        <div class="form-wrapper js-klaviyo-form--wrapper klaviyo-form--wrapper">
           {% if ss.success_title != blank %}
             <h2 class="title">{{ ss.success_title }}</h2>
             <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
@@ -421,7 +421,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
                   >
                 </div>
                 </div>
-                <div class=" field-box field--with-error">
+                <div class="field-box--wrapper field-box field--with-error">
                   <label class="" for="ContactForm-email">
                     {{- 'templates.contact.form.email' | t }}
                   </label>
@@ -438,6 +438,18 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
                     required
                     placeholder="Enter your email"
                   >
+                </div>
+                
+                <div class="checkbox-field-box">
+                  <input
+                    id="confirmation_checkbox"
+                    type="checkbox"
+                    aria-required="true"
+                    required
+                  >
+                  <label class="" for="confirmation_checkbox">
+                    {{- 'quiz.parenting_quiz.form_checkbox_label' | t }}
+                  </label>
                 </div>
               </div>
               <div class="contact__button">
@@ -466,7 +478,7 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
                   </div>
                 </button>
                 <input type="submit" class="hidden js-klaviyo-form-submit">
-              </div>          
+              </div>
             </div>
           </div>  
         </div>
@@ -541,11 +553,12 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
 
     const parentingStyleDescriptions = JSON.parse(document.getElementById('parentingStyleDescriptionJson').innerText);
     document.querySelector('.js-klaviyo-form-submit-btn').addEventListener('click',function(){
-      console.log('click');
+      document.querySelector('.js-klaviyo-form-submit').click();
+      let confirmation_checkbox = document.getElementById('confirmation_checkbox');
+      if(confirmation_checkbox.checked == false) return;
       this.disabled = true;
       this.classList.add('loading');
       this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
-      document.querySelector('.js-klaviyo-form-submit').click();
     });
 
     document.addEventListener('DOMContentLoaded',function () {

@@ -143,7 +143,7 @@
         "heading_text": "If you have children aged 2-10, this is the place for you!",
         "button_text": "Learn more",
         "button_url": "shopify:\/\/pages\/about",
-        "top_radius": true,
+        "top_radius": false,
         "background_schema": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
         "background_color": "#e9f0ed",
         "padding_top": 160,

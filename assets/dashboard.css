@@ -291,6 +291,13 @@ background: #FFF0C9;
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.progress-start-block .family-block .family-graph.course-not-purchased-description .course-not-purchased-img img{
+    height: 200px;
+    max-width: 100%;
+    object-fit: contain;
 }
 .progress-start-block .family-block .family-graph img{
     height: 306px;
@@ -576,9 +583,7 @@ background: #FFF0C9;
     .family-graph-block .graph-block .graph--img img{
         height: auto;
     }
-    .progress-start-block .family-block .family-graph.course-not-purchased-description{
-        height: 300px;
-    }
+    
 }
 @media only screen and (max-width : 991px){
     .left_sidebar ul{

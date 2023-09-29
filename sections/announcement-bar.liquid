@@ -15,7 +15,7 @@
   {%- assign blockSize = blockSize | plus: 1 -%}
 {%- endfor -%}
 
-{%- if blockSize > 1 -%}
+{%- if blockSize > 0 -%}
   <div
     class="announcement-bar-main utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} utility-bar--bottom-border{% endif %}"
     {{ block.shopify_attributes }}

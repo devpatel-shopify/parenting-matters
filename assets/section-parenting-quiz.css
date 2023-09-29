@@ -246,3 +246,14 @@
 .contact-section .contact p{
   max-width: 100%;
 }
+
+.klaviyo-form--wrapper .field-box--wrapper {
+  margin-bottom: 2rem;
+}
+
+.checkbox-field-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
