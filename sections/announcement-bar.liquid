@@ -2,7 +2,7 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- assign isCoursePurchased = false -%}
-{% if customer and customer.tags contains 'Purchased Course' %}
+{% if customer and customer.metafields.klaviyo.ParentingStyle %}
   {%- assign isCoursePurchased = true -%}
 {% endif %}
 
