@@ -1,21 +1,21 @@
 {
   "sections": {
+    "59c062c5-ea0d-4e3c-8cdc-94a220463c23": {
+      "type": "contact-banner",
+      "settings": {
+        "contact_img": "shopify:\/\/shop_images\/contact-banner_131aa90b-3b2c-45b6-abc8-3aba7fd6c577.png"
+      }
+    },
     "main": {
       "type": "main-activate-account",
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "59c062c5-ea0d-4e3c-8cdc-94a220463c23": {
-      "type": "contact-banner",
-      "settings": {
-        "contact_img": "shopify:\/\/shop_images\/contact-banner_131aa90b-3b2c-45b6-abc8-3aba7fd6c577.png"
-      }
     }
   },
   "order": [
-    "main",
-    "59c062c5-ea0d-4e3c-8cdc-94a220463c23"
+    "59c062c5-ea0d-4e3c-8cdc-94a220463c23",
+    "main"
   ]
 }
