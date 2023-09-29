@@ -782,3 +782,9 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
 }
+@media only screen and (max-width: 750px) {
+  .activate_account{
+    padding: 0 20px;
+  }
+} 
+
