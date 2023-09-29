@@ -6,7 +6,13 @@ KlaviyoSubscribe.attachToForms('#fs_quiz', {
   $method_id: 'embed',
   $consent_version: 'Embed default text',
   },
-  success_url: "/pages/custom-family-star-result",
+  // success_url: "/pages/custom-family-star-result",
+  success: function(event){
+    console.log('formSubmited...');
+    let klaviyoFormSuccessWrapper = document.querySelector('.js-klaviyo-form-success-wrapper');
+    klaviyoFormSuccessWrapper.previousElementSibling.classList.add('hidden');
+    klaviyoFormSuccessWrapper.classList.remove('hidden');
+  },
   custom_success_message: true
 });
 

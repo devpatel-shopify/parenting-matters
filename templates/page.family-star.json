@@ -659,6 +659,11 @@
         "form_id": "family_star",
         "success_title": "",
         "success_overview": "",
+        "form_success_description": "<p>Thank you for completing Family Star Quiz.<\/p>",
+        "btn_title_1": "View Result",
+        "btn_url_1": "shopify:\/\/pages\/custom-family-star-result",
+        "btn_title_2": "About",
+        "btn_url_2": "",
         "color_scheme": "",
         "heading_font": "h2",
         "progress_bar_radius": 44

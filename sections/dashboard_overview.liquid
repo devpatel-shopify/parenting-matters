@@ -6,22 +6,18 @@
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
+{% assign ctagsArray = customer.tags | join: ','  | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %}
+
 {%- assign nextStepContent = false -%}
-{%- assign previoustStepContent = false -%}
-
-{% assign ctags = customer.tags | join: ',' %}
-{% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
-  {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
-{% endif %}
-{% assign ctagsArray = ctags | split: ',' %}
-
-
-{% # Get Active Step %}
-{%- assign lastCompletedStepIndex = 0 -%}
-{%- assign lastCompletedStepDetected = false -%}
-{%- assign tmpCount = 0 -%}
+{%- assign lastCompletedStep = false -%}
 {%- assign tmpPartCount = 0 -%}
-{%- assign currentPartIndex = 0 -%}
+{%- assign currentActivePart = false -%}
+{%- assign currentStepIndex = false -%}
+{%- assign tmpStepCount = 0 -%}
+{%- assign tagPrefix = 'prq_' -%}
+
+
+{% # Get NextLearn Section Step %}
 {%- for course in deshboardContent.courses -%}
   {%- assign courseValue = course | last -%}
 
@@ -33,87 +29,91 @@
       {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
       {%- assign totalSteps = partValue.steps | size -%}
 
-      {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
-        {%- assign stepValue = step | last -%}
-        {%- assign isActiveStep = false -%}
-        {%- assign jsoTag = stepValue.tag | prepend: 'prq_' -%}
+      {% if partValue.disabled == "true" %}
+        {%- continue -%}
+      {% endif %}
 
-        {%- if lastCompletedStepDetected == false -%}
-          {%- for tag in ctagsArray -%}
-            {%- if tag == jsoTag -%}
-              {%- assign isActiveStep = true -%}
-              {%- assign lastCompletedStepDetected = true -%}
-              {%- assign lastCompletedStepIndex = tmpCount -%}
-              {%- assign previoustStepContent = stepValue -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-
-        {%- if lastCompletedStepDetected == true -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- if lastCompletedStepDetected == true -%}
-        {%- if lastCompletedStepIndex > totalSteps -%}
-          {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
-        {%- endif -%}
-        {%- assign currentPartIndex = tmpPartCount -%}
-        {%- break -%}
-      {%- endif -%}
-    {%- endfor -%}
-
-    {%- if lastCompletedStepDetected == true -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- if lastCompletedStepDetected == true -%}
-    {%- break -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign currentStepIndex = lastCompletedStepIndex | plus: 1 -%}
-{%- assign nextStepIndex = currentStepIndex | plus: 1 -%}
-
-{%- assign tmpCount = 0 -%}
-{%- for course in deshboardContent.courses -%}
-  {%- assign courseValue = course | last -%}
-
-  {%- for innerCourse in courseValue.courses -%}
-    {%- assign innerCourseValue = innerCourse | last -%}
-
-    {%- for part in innerCourseValue.parts -%}
-      {%- assign partValue = part | last -%}
+      {%- assign completedStepCount = 0 -%}
 
       {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
+        {%- assign tmpStepCount = tmpStepCount | plus: 1 -%}
         {%- assign stepValue = step | last -%}
+        {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
+        {%- assign isStepCompleted = false -%}
 
-        {%- if tmpCount == nextStepIndex -%}
+        {%- for tag in ctagsArray -%}
+          {%- if tag == jsoTag -%}
+            {%- assign isStepCompleted = true -%}
+            {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if currentActivePart == false and isStepCompleted == false -%}
+          {%- assign currentActivePart = tmpPartCount -%}
+          {%- assign currentStepIndex = tmpStepCount -%}
           {%- assign nextStepContent = stepValue -%}
-          {%- break -%}
+
+          {% # Get Lstcompleted Step Start %}
+          
+          {%- assign _tmpStepCount = 0 -%}
+          {%- assign lastCompletedStepDetected = false -%}
+
+          {%- for _course in deshboardContent.courses -%}
+            {%- assign _courseValue = _course | last -%}
+              {%- for _innerCourse in _courseValue.courses -%}
+                {%- assign _innerCourseValue = _innerCourse | last -%}
+    
+                {%- for _part in _innerCourseValue.parts -%}
+                  {%- assign _partValue = _part | last -%}
+                  {%- assign _totalSteps = _partValue.steps | size -%}
+            
+                  {% if _partValue.disabled == "true" %}
+                    {%- continue -%}
+                  {% endif %}
+      
+                  {%- for _step in _partValue.steps -%}
+                    {%- assign _tmpStepCount = _tmpStepCount | plus: 1 -%}
+                    {%- assign _stepValue = _step | last -%}
+                    {%- assign _jsoTag = _stepValue.tag | prepend: tagPrefix -%}
+      
+                    {%- if _tmpStepCount == tmpStepCount -%}
+                      {%- assign lastCompletedStepDetected = true -%}
+                    {%- endif -%}
+      
+                    {%- if lastCompletedStepDetected == true -%}
+                      {%- break -%}
+                    {%- else -%}
+                      {%- for _tag in ctagsArray -%}
+                        {%- if _tag == _jsoTag -%}
+                          {%- assign lastCompletedStep = _stepValue -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+      
+                  {%- if lastCompletedStepDetected == true -%}
+                    {%- break -%}
+                  {%- endif -%}
+      
+                {%- endfor -%}
+    
+              {%- endfor -%}
+
+          {%- endfor -%}
+
+          {% # Get Lstcompleted Step End %}
+
         {%- endif -%}
         
       {%- endfor -%}
 
-      {%- if nextStepContent != false -%}
-        {%- break -%}
-      {%- endif -%}
     {%- endfor -%}
 
-    {%- if nextStepContent != false -%}
-      {%- break -%}
-    {%- endif -%}
   {%- endfor -%}
 
-  {%- if nextStepContent != false -%}
-    {%- break -%}
-  {%- endif -%}
 {%- endfor -%}
-
 
 
 <section class="dashboard dashboard_overview">
@@ -225,16 +225,17 @@
                                     {%- for step in partValue.steps -%}
                                       {%- assign stepValue = step | last -%}
                                       {%- assign tmpCount = tmpCount | plus: 1 -%}
+                                      {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
 
-                                      {%- if tmpCount <= lastCompletedStepIndex -%}
-                                        {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                      {%- endif -%}
+                                      {%- for tag in ctagsArray -%}
+                                        {%- if tag == jsoTag -%}
+                                          {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                          {%- break -%}
+                                        {%- endif -%}
+                                      {%- endfor -%}
                                     {%- endfor -%}
 
-                                    {%- assign totalProgress = completedStepCount
-                                      | divided_by: totalSteps
-                                      | times: 100
-                                    -%}
+                                    {%- assign totalProgress = completedStepCount | divided_by: totalSteps | times: 100 -%}
 
                                     <div class="meter item-{{ forloop.index }}">
                                       <span style="--progress-width: {{ totalProgress }}%"></span>
@@ -362,10 +363,10 @@
                       {%- endif -%}
 
                       {%- if isCoursePurchased == true -%}
-                        {%- if previoustStepContent.progress_summary.title != blank or nextStepContent.progress_summary.title != blank -%}
+                        {%- if lastCompletedStep.progress_summary.title != blank or nextStepContent.progress_summary.title != blank -%}
                           <div class="progress-details">
-                            {%- if previoustStepContent != blank and previoustStepContent.progress_summary.title != blank -%}
-                              {%- assign progress_summary = previoustStepContent.progress_summary -%}
+                            {%- if lastCompletedStep != blank and lastCompletedStep.progress_summary.title != blank -%}
+                              {%- assign progress_summary = lastCompletedStep.progress_summary -%}
                               <div class="course-link">
                                 <div class="link-icon">
                                   <p>{{ block.settings.ltl_heading }}</p>

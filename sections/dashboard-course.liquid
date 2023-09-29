@@ -5,15 +5,6 @@
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
-{% assign ctags = customer.tags | join: ',' %}
-{% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
-  {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
-{% endif %}
-{% assign ctagsArray = ctags | split: ',' %}
-{%- assign nextStepContent = false -%}
-{%- assign previoustStepContent = false -%}
-{%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
-
 {%- assign isCoursePurchased = false -%}
 {% if customer and customer.tags contains 'Purchased Course' %}
   {%- assign isCoursePurchased = true -%}
@@ -25,12 +16,24 @@
   </script>
 {% endif %}
 
-{% # Get Active Step %}
-{%- assign lastCompletedStepIndex = 0 -%}
-{%- assign lastCompletedStepDetected = false -%}
-{%- assign tmpCount = 0 -%}
+{% assign ctags = customer.tags | join: ',' %}
+{% comment %} {% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
+  {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
+{% endif %} {% endcomment %}
+{% assign ctags = ctags | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %}
+
+{% assign ctagsArray = ctags %}
+{%- assign nextStepContent = false -%}
+{%- assign lastCompletedStep = false -%}
+{%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
 {%- assign tmpPartCount = 0 -%}
-{%- assign currentPartIndex = 1 -%}
+{%- assign currentActivePart = false -%}
+{%- assign currentStepIndex = false -%}
+{%- assign tmpStepCount = 0 -%}
+{%- assign tagPrefix = 'prq_' -%}
+
+
+{% # Get NextLearn Section Step %}
 {%- for course in deshboardContent.courses -%}
   {%- assign courseValue = course | last -%}
 
@@ -42,89 +45,90 @@
       {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
       {%- assign totalSteps = partValue.steps | size -%}
 
-      {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
-        {%- assign stepValue = step | last -%}
-        {%- assign isActiveStep = false -%}
-        {%- assign jsoTag = stepValue.tag | prepend: 'prq_' -%}
-
-        {%- if lastCompletedStepDetected == false -%}
-          {%- for tag in ctagsArray -%}
-            {%- if tag == jsoTag -%}
-              {%- assign isActiveStep = true -%}
-              {%- assign lastCompletedStepDetected = true -%}
-              {%- assign lastCompletedStepIndex = tmpCount -%}
-              {%- assign previoustStepContent = stepValue -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-
-        {%- if lastCompletedStepDetected == true -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- if lastCompletedStepDetected == true -%}
-        {%- if lastCompletedStepIndex >= totalSteps -%}
-          {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
-        {%- endif -%}
-        {%- assign currentPartIndex = tmpPartCount -%}
-        {%- break -%}
-      {%- endif -%}
-    {%- endfor -%}
-
-    {%- if lastCompletedStepDetected == true -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- if lastCompletedStepDetected == true -%}
-    {%- break -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign currentStepIndex = lastCompletedStepIndex | plus: 1 -%}
-{%- assign nextStepIndex = currentStepIndex | plus: 1 -%}
-
-{%- assign tmpCount = 0 -%}
-{%- for course in deshboardContent.courses -%}
-  {%- assign courseValue = course | last -%}
-
-  {%- for innerCourse in courseValue.courses -%}
-    {%- assign innerCourseValue = innerCourse | last -%}
-
-    {%- for part in innerCourseValue.parts -%}
-      {%- assign partValue = part | last -%}
-
       {% if partValue.disabled == "true" %}
         {%- continue -%}
       {% endif %}
 
-      {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
-        {%- assign stepValue = step | last -%}
+      {%- assign completedStepCount = 0 -%}
 
-        {%- if tmpCount == nextStepIndex -%}
+      {%- for step in partValue.steps -%}
+        {%- assign tmpStepCount = tmpStepCount | plus: 1 -%}
+        {%- assign stepValue = step | last -%}
+        {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
+        {%- assign isStepCompleted = false -%}
+
+        {%- for tag in ctagsArray -%}
+          {%- if tag == jsoTag -%}
+            {%- assign isStepCompleted = true -%}
+            {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if currentActivePart == false and isStepCompleted == false -%}
+          {%- assign currentActivePart = tmpPartCount -%}
+          {%- assign currentStepIndex = tmpStepCount -%}
           {%- assign nextStepContent = stepValue -%}
-          {%- break -%}
+
+          {% # Get Lstcompleted Step Start %}
+          
+          {%- assign _tmpStepCount = 0 -%}
+          {%- assign lastCompletedStepDetected = false -%}
+
+          {%- for _course in deshboardContent.courses -%}
+            {%- assign _courseValue = _course | last -%}
+              {%- for _innerCourse in _courseValue.courses -%}
+                {%- assign _innerCourseValue = _innerCourse | last -%}
+    
+                {%- for _part in _innerCourseValue.parts -%}
+                  {%- assign _partValue = _part | last -%}
+                  {%- assign _totalSteps = _partValue.steps | size -%}
+            
+                  {% if _partValue.disabled == "true" %}
+                    {%- continue -%}
+                  {% endif %}
+      
+                  {%- for _step in _partValue.steps -%}
+                    {%- assign _tmpStepCount = _tmpStepCount | plus: 1 -%}
+                    {%- assign _stepValue = _step | last -%}
+                    {%- assign _jsoTag = _stepValue.tag | prepend: tagPrefix -%}
+      
+                    {%- if _tmpStepCount == tmpStepCount -%}
+                      {%- assign lastCompletedStepDetected = true -%}
+                    {%- endif -%}
+      
+                    {%- if lastCompletedStepDetected == true -%}
+                      {%- break -%}
+                    {%- else -%}
+                      {%- for _tag in ctagsArray -%}
+                        {%- if _tag == _jsoTag -%}
+                          {%- assign lastCompletedStep = _stepValue -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+      
+                  {%- if lastCompletedStepDetected == true -%}
+                    {%- break -%}
+                  {%- endif -%}
+      
+                {%- endfor -%}
+    
+              {%- endfor -%}
+
+          {%- endfor -%}
+
+          {% # Get Lstcompleted Step End %}
+
         {%- endif -%}
         
       {%- endfor -%}
 
-      {%- if nextStepContent != false -%}
-        {%- break -%}
-      {%- endif -%}
     {%- endfor -%}
 
-    {%- if nextStepContent != false -%}
-      {%- break -%}
-    {%- endif -%}
   {%- endfor -%}
 
-  {%- if nextStepContent != false -%}
-    {%- break -%}
-  {%- endif -%}
 {%- endfor -%}
 
 <dashboard-course>
@@ -179,10 +183,15 @@
                               {%- for step in partValue.steps -%}
                                 {%- assign stepValue = step | last -%}
                                 {%- assign tmpCount = tmpCount | plus: 1 -%}
+                                {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
                                 
-                                {%- if tmpCount <= lastCompletedStepIndex -%}
-                                  {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                {%- endif -%}
+                                {%- for tag in ctagsArray -%}
+                                  {%- if tag == jsoTag -%}
+                                    {%- assign isStepCompleted = true -%}
+                                    {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endfor -%}
 
                               {%- endfor -%}
   
@@ -244,7 +253,7 @@
                     <div class="content_item">
                       <div class="content_slider content_slider--wrapper">
   
-                        <div class="carousel carousel-main js-parts-slider scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};" data-active-slide="{{ currentPartIndex | minus: 1 }}">
+                        <div class="carousel carousel-main js-parts-slider scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};" data-active-slide="{{ currentActivePart | minus: 1 }}">
                           {%- assign tmpIndexCount1 = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
@@ -254,38 +263,54 @@
   
                               {% for part in innerCourseValue.parts %}
                                 {%- assign tmpIndexCount1 = tmpIndexCount1 | plus: 1 -%}
-                                {%- assign parValue = part | last -%} 
+                                {%- assign partValue = part | last -%} 
+                                {%- assign totalSteps = partValue.steps | size -%}
                                 
-                                {% if parValue.disabled == "true" %}
+                                {% if partValue.disabled == "true" %}
                                   {%- continue -%}
                                 {% endif %}
 
+                                {%- assign completedStepCount = 0 -%}
+
+                                {%- for step in partValue.steps -%}
+                                  {%- assign stepValue = step | last -%}
+                                  {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
+                                  
+                                  {%- for tag in ctagsArray -%}
+                                    {%- if tag == jsoTag -%}
+                                      {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                    {%- endif -%}
+                                  {%- endfor -%}
+
+                                {%- endfor -%}
+
                                   <div class="carousel-cell">
                                     <div class="internal_box_upper">
-                                      <div class="internal_box js-step-btn" data-target="{{ parValue.title | strip_html | handleize }}">
+                                      <div class="internal_box js-step-btn" data-target="{{ partValue.title | strip_html | handleize }}">
                                         <div class="internal_box_main">
                                           <div class="icon">
                                             <img src="{{ innerCourseValue.icon_url }}" alt="{{ innerCourseValue.title }}">
                                           </div>
                                           <div class="internal_button">
-                                            <button class="button button--secondary">{{ parValue.title }}</button>
+                                            <button class="button button--secondary">{{ partValue.title }}</button>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="bottom_line">
-                                      {%- if  tmpIndexCount1 == currentPartIndex -%}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                          <circle cx="9" cy="9" r="8" fill="#01333E" stroke="#FDF8EC" stroke-width="2"/>
-                                          <circle cx="9" cy="9" r="4" fill="#FDF8EC"/>
-                                        </svg>
-                                      {%- elsif tmpIndexCount1 < currentPartIndex -%}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+
+                                      {%- if completedStepCount == totalSteps -%}
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="completed_dot" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                           <circle cx="9" cy="9" r="8" fill="#9CBFB3" stroke="#FDF8EC" stroke-width="2"/>
                                           <path d="M12 7L8.81 11.33C8.76985 11.3847 8.71901 11.4306 8.66056 11.4649C8.60211 11.4993 8.53727 11.5215 8.47 11.53C8.40365 11.5385 8.33627 11.5335 8.27186 11.5155C8.20744 11.4975 8.1473 11.4667 8.095 11.425L6 9.75" stroke="#FDF8EC" stroke-width="0.614931" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
+                                      {%- elsif currentActivePart == tmpIndexCount1 -%}
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="active_dot" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                          <circle cx="9" cy="9" r="8" fill="#01333E" stroke="#FDF8EC" stroke-width="2"/>
+                                          <circle cx="9" cy="9" r="4" fill="#FDF8EC"/>
+                                        </svg>
                                       {%- else -%}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="unactive_dot" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                           <circle cx="9" cy="9" r="8" fill="#01333E" stroke="#FDF8EC" stroke-width="2"/>
                                         </svg>
                                       {%- endif -%}
@@ -319,84 +344,83 @@
                                   {%- continue -%}
                                 {% endif %}
 
-                                {%- assign activeStep = false -%}
+                                {%- assign activeStep = 0 -%}
                                 {%- for step in parValue.steps -%}
                                   {%- assign stepValue = step | last -%}
                                   {%- assign tmpCount1 = tmpCount1 | plus: 1 -%}
                                   {%- if tmpCount1 == currentStepIndex -%}
-                                    {%- assign activeStep = forloop.index -%}
+                                    {%- assign activeStep = forloop.index0 -%}
                                     {% break %}
                                   {%- endif -%}
                                 {%- endfor -%}
   
-                                <div id="{{ parValue.title | strip_html | handleize }}" data-active-slide="{{ activeStep | default:0 | minus: 1 }}" class="carousel carousel-nav js-steps-slider hidden">
+                                <div id="{{ parValue.title | strip_html | handleize }}" data-active-slide="{{ activeStep }}" class="carousel carousel-nav js-steps-slider hidden">
                                   {% for step in parValue.steps %}
                                     {%- assign stepValue = step | last -%}
                                     {%- assign tmpCount = tmpCount | plus: 1 -%}
-                                    <div class="carousel-cell {% if tmpCount == currentStepIndex %}active{% endif %} {% if tmpCount > currentStepIndex %}disabled{% endif %}">
-                                      <div class="content_course_main_box scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};">
-                                        <div class="content_text">
+                                    {%- assign jsonTag = stepValue.tag | prepend: tagPrefix -%}
+
+                                    
+                                    <div class="carousel-cell {% if tmpCount == currentStepIndex %}active{% endif %} {%- comment -%}{% if tmpCount > currentStepIndex %}disabled{% endif %}{%- endcomment -%}">
+                                    <div class="content_course_main_box scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index }};">
+                                      <div class="content_text">
                                           <div class="top_text">
                                             <div class="text">{{ stepValue.title }}</div>
                                             <div class="text">{{ stepValue.subtitle }}</div>
                                           </div>
                                           <div class="bottom_text-wrapper">
                                             {%- capture stepCompletedHtml -%}
-                                            <button class="button button--secondary">
-                                              <label>Done</label>
-                                              <svg class="icon icon-checkmark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                                <rect width="18" height="18" rx="9" fill="#FDF8EC"/>
-                                                <path d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524" stroke="#01333E" stroke-width="0.802083" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z" stroke="#01333E" stroke-width="0.802083" stroke-linecap="round" stroke-linejoin="round"/>
-                                              </svg>
-                                            </button>
-                                            {%- endcapture -%}
-  
-                                            {%- if tmpCount < currentStepIndex -%}
                                               <div class="bottom_text">{{ stepValue.menute_text }}</div>
                                               <div class="internal_button">
-                                                {{- stepCompletedHtml -}}
+                                                <button class="button button--secondary">
+                                                  <label>Done</label>
+                                                  <svg class="icon icon-checkmark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                                    <rect width="18" height="18" rx="9" fill="#FDF8EC"/>
+                                                    <path d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524" stroke="#01333E" stroke-width="0.802083" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z" stroke="#01333E" stroke-width="0.802083" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                </button>
                                               </div>
-                                            {%- else -%}
-                                              {%- if tmpCount > currentStepIndex -%}
-                                                {%- if stepValue.menute_text != "" -%}
-                                                  <div class="bottom_text">
-                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                      <g opacity="0.2">
-                                                      <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" fill="#FDF8EC"></rect>
-                                                      <g clip-path="url(#clip0_996_19859)">
+                                            {%- endcapture -%}
+
+                                            {%- capture lockhtml -%}
+                                              <div class="bottom_text">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                  <g opacity="0.2" 2>
+                                                    <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" fill="#FDF8EC"></rect>
+                                                    <g clip-path="url(#clip0_996_19859)">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00156 6.20937C7.00156 5.50881 7.19531 4.98488 7.51615 4.63942C7.83303 4.2982 8.31822 4.0832 9.00268 4.0832C9.68752 4.0832 10.172 4.29778 10.4881 4.63823C10.8083 4.98295 11.0016 5.50623 11.0016 6.20716V7.30055H7.00156V6.20937ZM6.20156 7.30055V6.20937C6.20156 5.36575 6.43627 4.62659 6.92995 4.09502C7.42758 3.55919 8.14296 3.2832 9.00268 3.2832C9.86223 3.2832 10.5772 3.55843 11.0744 4.09386C11.5676 4.62502 11.8016 5.36373 11.8016 6.20716V7.30055H12.6016C13.0434 7.30055 13.4016 7.65873 13.4016 8.10055V12.9006C13.4016 13.3424 13.0434 13.7006 12.6016 13.7006H5.40156C4.95974 13.7006 4.60156 13.3424 4.60156 12.9006V8.10055C4.60156 7.65873 4.95974 7.30055 5.40156 7.30055H6.20156ZM5.40156 8.10055H12.6016V12.9006H5.40156V8.10055Z" fill="#01333E"></path>
-                                                      </g>
-                                                      <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" stroke="#01333E"></rect>
-                                                      </g>
-                                                      <defs>
-                                                      <clipPath id="clip0_996_19859">
+                                                    </g>
+                                                    <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" stroke="#01333E"></rect>
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_996_19859">
                                                       <rect width="13.5" height="13.5" fill="white" transform="translate(2.25 2.25)"></rect>
-                                                      </clipPath>
-                                                      </defs>
-                                                    </svg> 
-                                                    <label>{{ stepValue.menute_text }}</label>
-                                                  </div>
-                                                {%- endif -%}
-                                              {%- else -%}
-                                                <div class="bottom_text">{{ stepValue.menute_text }}</div>
-                                                <div class="internal_button">
-                                                  {%- if tmpCount1 == currentStepIndex -%}
-                                                    <a href="{{ stepValue.quizid }}" class="button button--primary">
-                                                      <label>Start</label>
-                                                      <svg aria-hidden="true" class="icon icon-arrow" focusable="false" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-                                                      </svg>
-                                                    </a>
-                                                  {%- endif -%}
-  
-                                                  {%- if forloop.index < activeStep -%}
-                                                    {{- stepCompletedHtml -}}
-                                                  {%- endif -%}
-                                                </div>
-                                              {%- endif -%}
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg> 
+                                                <label>{{ stepValue.menute_text }}</label>
+                                              </div>
+                                            {%- endcapture -%}
+
+                                            {%- capture starHtml -%}
+                                              <div class="bottom_text">{{ stepValue.menute_text }}</div>
+                                              <div class="internal_button">
+                                                <a href="{{ stepValue.quizid }}" class="button button--primary">
+                                                  <label>Start</label>
+                                                  <svg aria-hidden="true" class="icon icon-arrow" focusable="false" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                                                  </svg>
+                                                </a>
+                                              </div>
+                                            {%- endcapture -%}
+
+                                            {%- if ctagsArray contains jsonTag -%}
+                                              {{ stepCompletedHtml }}
+                                            {%- else -%}
+                                              {{ starHtml }}
                                             {%- endif -%}
-  
+                                            
                                           </div>
                                         </div>
                                       </div>
@@ -415,8 +439,8 @@
                   </div>
                   <div class="content_footer">
                     <div class="content_footer_main">
-                      {% if previoustStepContent %}
-                        {%- assign prev_progress_summary = previoustStepContent.progress_summary -%}
+                      {% if lastCompletedStep %}
+                        {%- assign prev_progress_summary = lastCompletedStep.progress_summary -%}
                         {% assign title = prev_progress_summary.title | strip %}
                         {% if title != "" %}
                           <div class="content_footer_box item-1 scroll-trigger animate--slide-in" style="--animation-order: 7;">
