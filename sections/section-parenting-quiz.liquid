@@ -248,10 +248,12 @@ window.location.replace("{{shop.url}}/pages/custom-parenting-style");
         {% endfor %}
 
       {% assign fields = fields | append: "ParentingStyle" | append: "," %}
+      {% assign fields = fields | append: "ParentingStyleDate" | append: "," %}
       {% assign fields = fields | append: "Xaxis" | append: "," %}
       {% assign fields = fields | append: "Yaxis" | append: "," %}
       {% assign fields = fields | append: "ParentingType" | append: "," %}
       <input type="hidden" id="ParentingStyle" name="ParentingStyle" value="">
+      <input type="hidden" id="ParentingStyleDate" name="ParentingStyleDate" value="{{ 'now' | date: '%d %b %Y' }}">
       <input type="hidden" id="ParentingType" name="ParentingType" value="">
       <input type="hidden" id="Xaxis" name="Xaxis" value="">
       <input type="hidden" id="Yaxis" name="Yaxis" value="">
