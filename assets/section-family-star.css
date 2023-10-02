@@ -1,0 +1,675 @@
+:root{
+    --container: 68rem;
+    --container-padding: 0 2.4rem;
+  }
+  @media screen and (max-width: 1023px) {
+    :root{
+      --container: 62rem;
+    }
+  }
+  
+  .quiz_banner{
+    min-height: 21rem;
+  }
+  .quiz_banner .media{
+   background-color: transparent;
+  }
+  .quiz_banner .banner__heading{
+    font-size: 6.8rem;
+  }
+  .quiz_banner .banner__content{
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .quiz_slide{
+    width: 100%;
+    /* min-height: 50rem; */
+    border-radius: 2rem;
+    border: .1rem solid #DADADA;
+    background-color: var(--background-color);
+    color: #01333E;
+    overflow: hidden;
+  }
+  .quiz_header{
+    width: 100%;
+    /* min-height: 17rem; */
+    background-color: var(--heading-color);
+    padding: 2.4rem;
+    text-align: center;
+  }
+  
+  .quiz_subheading{
+    font-size: 1.6rem;
+    margin-bottom: .8rem;
+  }
+  .quiz_heading{
+    font-size: 2.8rem;
+  }
+  
+  .quiz_progress{
+    width: 100%;
+    height: .6rem;
+    background: #FDF8EC;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1.6rem;
+  }
+  .quiz_progress .progress{
+    width: var(--progress);
+    height: 100%;
+    display: block;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+  }
+  
+  .quiz_question_count{
+    display: inline-block;
+    border-radius: 2rem;
+    line-height: 1;
+    padding: .6rem 1rem;
+    border: .1rem solid currentColor;
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+  .quiz_footer{
+    margin:1rem auto 2.6rem;
+    max-width: var(--container);
+    padding: var(--container-padding);
+    display: flex;
+    align-items: center;
+  }
+  .quiz_footer .button{
+    font-size: 1.4rem;
+    padding: 0.7rem 1.6rem;
+    background-color: var(--button-color);
+    border-color: var(--button-color);
+  }
+  .quiz_footer .button > svg{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0;
+    color: var(--button-color);
+  }
+  .quiz_footer .button svg:first-child{
+    margin-right: 1.2rem;
+    margin-left: -0.8rem;
+  }
+  .quiz_footer .button svg:last-child{
+    margin-left: 1.2rem;
+    margin-right: -0.8rem;
+  }
+  .quiz_footer .button:not(.button_back){
+    margin-left: auto;
+  }
+  
+  .quiz_content{
+    padding-top:2.4rem;
+    padding-bottom: 2.4rem;
+  }
+  
+  .error_message{
+    color: red;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+    display:none;
+  }
+  .quiz_content.error .error_message{
+    display: block;
+  }
+  
+  .radio_container{
+    max-width: var(--container);
+    padding: var(--container-padding);
+    display: block;  
+    margin: auto;
+  }
+  .radio_container .radio_item:not(:last-child){
+    margin-bottom: 1.6rem;
+  }
+  .radio_container .radio_label{
+    display: flex;
+    align-items: center;
+    min-height: 6.4rem;
+    border-radius: 6rem;
+    padding: 1.6rem;
+    line-height: 1;
+    background-color: #FDF8EC;
+    font-size: 2rem;
+    padding: 1.6rem;
+    cursor: pointer;
+  }
+  .radio_container .radio_label .box{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 3.2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 100%;
+    background-color: var(--background-color);
+    margin-right: 1.6rem;
+    position: relative;
+  }
+  .radio_container input:checked + .radio_label .box:before{
+    content:'';
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 100%;
+    background-color: var(--primary-color);
+  }
+  .radio_container input:checked + .radio_label .box:after,
+  .radio_container input:focus + .radio_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: transparent;
+    border: .5rem solid var(--primary-color);
+  }
+
+  .checkbox_container{
+    max-width: var(--container);
+    padding: var(--container-padding);
+    display: block;  
+    margin: auto;
+  }
+  .checkbox_container .checkbox_item:not(:last-child){
+    margin-bottom: 1.6rem;
+  }
+  .checkbox_container .checkbox_label{
+    display: flex;
+    align-items: center;
+    min-height: 6.4rem;
+    border-radius: 6rem;
+    padding: 1.6rem;
+    line-height: 1;
+    background-color: #FDF8EC;
+    font-size: 2rem;
+    padding: 1.6rem;
+    cursor: pointer;
+  }
+  .checkbox_container .checkbox_label .box{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 3.2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: var(--background-color);
+    margin-right: 1.6rem;
+    position: relative;
+  }
+  .checkbox_container input:checked + .checkbox_label .box:before{
+    content:'';
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: var(--primary-color);
+  }
+  .checkbox_container input:checked + .checkbox_label .box:after,
+  .checkbox_container input:focus + .checkbox_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: .5rem solid var(--primary-color);
+  }
+  
+  
+  
+  .range_container{
+    display: block;
+    padding-top: 4rem;
+  }
+  
+  .range_bar{
+    width: 100%;
+    height: 0.6rem;
+    background-color: var(--heading-color);
+    display: block !important;
+    margin-bottom: -2rem;
+  }
+  
+  .range_relative{
+    position: relative;
+  }
+  
+  .range_wrapper{
+    max-width: var(--container);
+    padding: var(--container-padding);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .range_container .radio_item{
+    font-size: 0;
+    line-height: 0;
+  }
+  .range_container .radio_label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .range_container .radio_label .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 3.2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 100%;
+    background-color: var(--secondary-color);
+    position: relative;
+  }
+  .range_container input + .radio_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: transparent;
+    border: .5rem solid var(--background-color);
+  }
+  .range_container input:checked + .radio_label .box:before{
+    content:'';
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 100%;
+    background-color: var(--button-color);
+  }
+  .range_container input:checked + .radio_label .box:after,
+  .range_container input:focus + .radio_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: transparent;
+    border: .5rem solid var(--button-color);
+  }
+  
+  .range_rte{
+    max-width: var(--container);
+    padding: var(--container-padding);
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .range_rte .rte{
+    width: 29rem;
+    max-width: 100%;
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    position: relative;
+    background-color: #FDF8EC;
+    line-height: 1.2;
+    text-align: center;
+    position: relative;
+    margin-top:2rem;
+  }
+  .range_rte .rte:before{
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #FDF8EC;
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  
+  .range_rte .rte:first-child{
+    transform: translateX(-13rem);
+  }
+  .range_rte .rte:last-child{
+    transform: translateX(13rem);
+  }
+  
+  
+  
+  .dropdown_container{
+    display: block;
+    margin: auto;
+    max-width: var(--container);
+    padding: var(--container-padding);
+  }
+  
+  .dropdown_toggle{
+    -webkit-appearance: none;
+    padding: 1rem 1.6rem;
+    background: #FDF8EC;
+    border-radius: 1.6rem;
+    min-height: 5.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  [open] .dropdown_toggle{
+    border-radius: 1.6rem 1.6rem 0 0;
+  }
+  [open] .dropdown_toggle svg{
+    transform: scale(-1);
+  }
+  .dropdown_list{
+    background: #FDF8EC;
+    border-radius: 0 0 1.6rem 1.6rem;
+  }
+  .dropdown_list .dropdown_item{
+    border: 0;
+    border-top: .1rem solid #00000012;
+    color: currentColor;
+    background: transparent;
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .dropdown_list .dropdown_item label{
+    opacity: .5;
+    padding: 1rem 1.6rem;
+    width: 100%;
+    min-height: 5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .dropdown_list .dropdown_item:hover label,
+  .dropdown_list .dropdown_item:focus-within label,
+  .dropdown_list .dropdown_item input:checked + label{
+    opacity: 1;
+  }
+  
+  
+  .textarea_container{
+    display: block;
+    margin: auto;
+    max-width: var(--container);
+    padding: var(--container-padding);
+  }
+  .textarea_container textarea{
+    padding: 2.4rem;
+    background: #FDF8EC;
+    border-radius: 1.6rem;
+    min-height: 5.6rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    border: 0;
+    font: inherit;
+    color: rgba(1, 51, 62, 1);
+  }
+  
+  /* === Quiz Completed === */
+  .quiz_completed{
+    width: 100%;
+    max-width: 83rem;
+    border-radius: 2rem;
+    border: 0.1rem solid #DADADA;
+    background-color: #F9E8E2;
+    color: #01333E;
+    overflow: hidden;
+    text-align: center;
+    margin: auto;
+  }
+  .quiz_completed .quiz_header {
+    width: 100%;
+    background-color: #F4D3DD;
+    padding: 2.4rem 9rem;
+    text-align: center;
+    min-height: inherit;
+    position: relative;
+  }
+  .quiz_completed .quiz_heading{
+    font-size: 4.3rem;
+  }
+  .quiz_completed .quiz_heading span{
+    color:#C72457;
+  }
+  
+  .quiz_completed .quiz_header .quiz_header_image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .quiz_completed .quiz_header .quiz_header_image svg{
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  .quiz_completed .quiz_heading, .quiz_completed .quiz_question_count{
+    z-index: 1;
+    position: relative;
+  }
+  
+  .quiz_completed .quiz_content{
+    padding: 3.2rem 9rem;
+    line-height: 1.2;
+    position: relative;
+  }
+  .quiz_completed .quiz_content:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(249, 232, 226, 0) 0%, #F9E8E2 85%);
+    height: 70%;
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
+  }
+  .quiz_completed .quiz_content .rte-large{
+    font-weight: 500;
+    font-size: 140%;
+  }
+  .quiz_completed .quiz_lock{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .quiz_completed .quiz_lock svg{
+    min-width: 4.8rem;
+  }
+  .quiz_completed .quiz_lock:before,
+  .quiz_completed .quiz_lock:after{
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: #C72457;
+  }
+  
+  .quiz_completed .quiz_footer{
+    flex-direction: column;
+  }
+  .quiz_completed .quiz_footer .quiz_heading{
+    font-size: 2.8rem;
+    margin-bottom: 1.6rem;
+  }
+  .quiz_completed .quiz_footer .quiz_subheading{
+    font-size: 2rem;
+    margin-bottom: 2.4rem;
+  }
+  .quiz_completed .quiz_footer .form{
+    width: 100%;
+    max-width: 40rem;
+  }
+  .quiz_completed .quiz_footer .form .contact__button{
+    margin-top: 1rem !important;
+  }
+  .quiz_completed .quiz_footer .form .button{
+    font-size: 1.6rem;
+    padding: 1rem 2.4rem;
+  }
+  .quiz_completed .quiz_footer .form .button svg{
+    width: 3.2rem;
+    height: 3.2rem;
+    color: #F9E8E2;
+  }
+  
+  .checkbox-field-box {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+  .checkbox-field-box .radio_label{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.4rem;
+  }
+  .checkbox-field-box .radio_label .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    position: relative;
+    margin-right: 1rem;
+  }
+  .checkbox-field-box input + .radio_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: .2rem solid #e9a7bb;
+  }
+  .checkbox-field-box input:checked + .radio_label .box:before{
+    content:'';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #c72357;
+  }
+  .checkbox-field-box input:checked + .radio_label .box:after,
+  .checkbox-field-box input:focus + .radio_label .box:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: .2rem solid #c72357;
+  }
+  
+  
+  
+  @media screen and (max-width: 989px) {
+  
+    .range_rte.range_rte-first .rte{
+      transform: none;
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+    .range_rte.range_rte-first .rte:before{
+      bottom: -1rem;
+      top: inherit;
+    }
+    .range_rte.range_rte-second .rte{
+      transform: none;
+      width: 100%;
+    }
+    .range_bar{
+      height: 25rem;
+      width: .6rem;
+      margin: 2rem auto;
+    }
+    .range_wrapper{
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+    }
+    .range_container{
+      padding-top: 0;
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+    .quiz_banner .banner__heading{
+      font-size: 4rem;
+    }
+    .quiz_subheading{
+      font-size: 1.2rem;
+    }
+    .quiz_heading{
+      font-size: 1.8rem;
+    }
+    .radio_container .radio_label{
+      min-height: 4.8rem;
+      padding: .8rem;
+      font-size: 1.4rem;
+    }
+    .checkbox_container .checkbox_label{
+        min-height: 4.8rem;
+        padding: .8rem;
+        font-size: 1.4rem;
+      }
+    .dropdown_toggle, .dropdown_list .dropdown_item{
+      font-size: 1.4rem;
+    }
+    .textarea_container textarea{
+      font-size: 1.4rem;
+      padding: 1.6rem;
+    }
+    /* === Quiz Completed === */
+    .quiz_completed .quiz_header{
+      padding: 2.4rem 3rem;
+    }
+    .quiz_completed .quiz_heading{
+      font-size: 2.8rem;
+    }
+    .quiz_completed .quiz_content{
+      padding: 3.2rem 2.4rem 1.6rem;
+    }
+    .quiz_completed .quiz_content .rte{
+      font-size: 1.2rem;
+    }
+    .quiz_completed .quiz_footer .quiz_heading{
+      font-size: 1.6rem;
+    }
+    .quiz_completed .quiz_footer .quiz_subheading{
+      font-size: 1.4rem;
+    }
+  }

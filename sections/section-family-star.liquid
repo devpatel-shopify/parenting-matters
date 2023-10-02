@@ -7,148 +7,340 @@
 window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 </script>
 {% else  %}
-
-<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-{{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
-
-{% assign ss = section.settings %}
-{%- liquid
-  assign heading_font = section.settings.heading_font
--%}
-
-{% if ss.form_id != blank %}
-  {% assign formID = ss.form_id | handleize %}
-  
-  <style>
-
-  .ps-quiz .quiz-section .slide .range_container input{ height: 20px;}
-    .text-field--wrapper textarea{
-      width:100%;
-    }
     
-    .text-field--wrapper label{
-      display: block;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-    .range-slider {
-      /*background-color: #2c2641;
-      box-shadow: inset 0 0 8px #19182b;*/
-      border-radius: 8px;
-      height: 16px;
-      position: relative;
-      width: 100%;
-   }
-    .range-slider__indicators {
-      bottom: 64px;
-      left: -16px;
-      position: absolute;
-      width: calc(100% + 32px);
-   }
-    .range-slider__value {
-      color: #fff;
-      font-size: 1.8rem;
-      font-weight: bold;
-      position: absolute;
-      text-align: center;
-      text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-      width: calc(100% / 12);
-   }
-    .range-slider__slider {
-      appearance: none;
-      border-radius: 8px;
-      height: 12px;
-      /*left: -12px;
-      pointer-events: none;*/
-      position: absolute;
-      width: calc(100% + 24px);
-   }
-    .range-slider__slider::-webkit-slider-thumb {
-      appearance: none;
-      background-color: #fff;
-      border: 2px solid #cecece;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), inset 0 0 4px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      height: 40px;
-      pointer-events: all;
-      width: 40px;
-   }
-    .range-slider__slider::-moz-range-thumb {
-      background-color: #fff;
-      border: 2px solid #cecece;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), inset 0 0 4px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      height: 40px;
-      pointer-events: all;
-      width: 40px;
-   }
-    .range-slider__slider::-webkit-slider-thumb:hover {
-      background: #f7f7f7;
-   }
-    .range-slider__slider::-moz-range-thumb:hover {
-      background: #f7f7f7;
-   }
-    .range-slider__slider::-webkit-slider-thumb:active {
-      box-shadow: 0 0 8px #22aa96;
-   }
-    .range-slider__slider::-moz-range-thumb:active {
-      box-shadow: 0 0 8px #22aa96;
-   }
-    .range-slider__slider--from {
-      height: 0 !important;
-      top: 6px;
-      z-index: 1 !important;
-   }
-    .range-slider__scale {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding: 0 4px 0 8px;
-      position: relative;
-      width: 100%;
-   }
-    .range-slider__scale i {
-      background-color: #2c2641;
-      display: block;
-      height: 0;
-      /*width: 0;*/
-      margin-top: -15px;
-   }
-    .range-slider__label {
-      color: #19182b;
-      font-size: 1.8rem;
-      font-weight: bold;
-      position: absolute;
-      top: 24px;
-   }
-    .range-slider__label--min {
-      left: 4px;
-   }
-    .range-slider__label--max {
-      right: -4px;
-   }
-  </style>
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'section-family-star.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign ss = section.settings
+  assign heading_font = ss.heading_font
+-%}
+{%- style -%}
+@media screen and (max-width: 749px) {
+  .quiz_banner::before,
+  .quiz_banner .banner__media::before,
+  .quiz_banner:not(.banner--mobile-bottom) .banner__content::before {
+    padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
+    content: '';
+    display: block;
+  }
+}
 
-  <section class="ps-quiz color-{{ section.settings.color_scheme }}">
-    <div class="page-width">
-      {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
-      <!-- <form
-        class="quiz-section"
-        id="{{ formID }}"
-        style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
-      > -->
-        
-<form id="fs_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
-    <input type="hidden" name="g" value="QXvndD">
-    <input type="hidden" name="$list_fields" value="$consent">
-        
+@media screen and (min-width: 750px) {
+  .quiz_banner::before,
+  .quiz_banner .banner__media::before {
+    padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
+    content: '';
+    display: block;
+  }
+}
+{%- endstyle -%}
 
-        {% assign fields = '' %}
-  
+{%- if ss.form_id != blank -%}
+{%- assign formID = ss.form_id | handleize -%}
+
+<section class="ps-quiz color-{{ ss.color_scheme }}">
+  <div class="banner quiz_banner banner--adapt banner--desktop-transparent banner--content-align-center banner--content-align-mobile-center">
+    {%- if ss.image != blank -%}
+    <div class="banner__media media">
+    {%- assign image_height = ss.image.width | divided_by: ss.image.aspect_ratio -%}
+    {{ ss.image
+      | image_url: width: 3840
+      | image_tag:
+        loading: 'lazy',
+        width: ss.image.width,
+        height: image_height,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+    }}
+    </div>
+    {%- else -%}
+    <div class="banner__media media placeholder">
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+    {%- endif -%}
+    <div class="banner__content banner__content--bottom-center page-width">
+      <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
+        {%- if ss.banner_heading -%}
+        <h2 class="banner__heading inline-richtext quiz_headline">
+          {{ ss.banner_heading }}
+        </h2>
+        {%- endif -%}
+        {%- if ss.banner_completed_heading -%}
+        <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
+          {{ ss.banner_completed_heading }}
+        </h2>
+        {%- else -%}
+        <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
+          {{ ss.banner_heading }}
+        </h2>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  <div class="page-width">
+    <form id="fs_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+      <input type="hidden" name="g" value="QXvndD">
+      <input type="hidden" name="$list_fields" value="$consent">
+      {%- assign fields = '' -%}
+      <div class="quiz_questions">
+        {%- for block in section.blocks -%}
+          {%- liquid
+              assign bs = block.settings
+              assign field_name = bs.klaviyo_id | handleize
+              assign size = section.blocks.size | minus: 1
+              assign progress = forloop.index0 | times: 100 | divided_by: size
+              assign slide_forloop = forloop.index
+
+              assign name = "pq_questions_" | append: forloop.index0
+              if bs.klaviyo_id
+                  assign name = bs.klaviyo_id | handleize
+              endif
+
+              if field_name != ""
+                  assign fields = fields | append: field_name | append: ","
+              endif 
+              capture background_color
+                  cycle '#E9F0ED', '#F9E8E2', '#FFF0C9', '#FCEAD6'
+              endcapture
+              capture heading_color
+                  cycle '#C9D9D3', '#F4D3DD', '#FFD978', '#F7C083'
+              endcapture
+              capture primary_color
+                  cycle '#9CBFB3', '#C72457', '#F29630', '#F29630'
+              endcapture
+              capture button_color
+                  cycle '#01333E', '#C72457', '#F29630', '#F29630'
+              endcapture
+          -%}
+          <div id="quiz_slide-{{ block.id }}" class="quiz_slide slide {% unless forloop.first %} hidden{% endunless %} {% if block.type == 'checkbox' %}js-block-checkbox{% endif %}" data-klaviyoid="{{ bs.klaviyo_id }}"  {{ block.shopify_attributes }}>
+            <style>
+            #quiz_slide-{{ block.id }}{
+                --background-color: {{ bs.background_color | default: background_color }};
+                --heading-color: {{ bs.heading_color | default: heading_color }};
+                --primary-color: {{ bs.primary_color | default: primary_color }};
+                --secondary-color: {{ bs.heading_color | default: heading_color | color_lighten: 0.2 }};
+                --button-color: {{ bs.button_color | default: button_color }};
+                --progress: {{ progress | append: '%' }};
+            }
+            </style>
+            <div class="quiz_header">                    
+              <div class="quiz_progress"><span class="progress"></span></div>
+              <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
+              {%- if bs.q_group_title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.q_group_title }}</p></div>{%- endif -%}
+              {%- if bs.q != blank -%}<h2 class="quiz_heading">{{ bs.q | newline_to_br }}</h2>{%- endif -%}
+            </div>
+            <div class="quiz_content">
+              {%- if block.type == 'textfield' -%}
+                <div class="rte error_message"><p>Please write your answer here...</p></div>
+              {%- else -%}
+              <div class="rte error_message"><p>Select any single option</p></div>
+              {%- endif -%}
+              {%- case block.type -%}
+                {%- when 'range' -%}
+                <div class="range_container">
+                  <div class="range_relative">
+                    <div class="range_bar"></div>
+                    <div class="range_wrapper">
+                      {%- for radio in (1..4) -%}
+                      {%- capture values -%} {% cycle '-2', '-1', '1', '2' - %}{%- endcapture -%}
+                      <div class="radio_item">
+                          <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ name }}" value="{{ values }}" data-input-index="{{ slide_forloop }}" data-val="{{ values }}" required>
+                          <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label"><span class="box"></span></label>
+                      </div> 
+                      {%- endfor -%}                                
+                    </div>
+                  </div>
+                  <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
+                </div>
+                {%- when 'button' -%}
+                <div class="radio_container">
+                  {%- if bs.a1 != blank -%}
+                  <div class="radio_item">
+                      <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-1" name="{{ name }}" value="0" data-input-index="{{ slide_forloop }}"  data-val="0" required>
+                      <label for="{{ name }}-{{ block.id }}-1" class="radio_label"><span class="box"></span> {{ bs.a1 }}</label>
+                  </div>
+                  {%- endif -%}
+                  {%- if bs.a2 != blank -%}
+                  <div class="radio_item">
+                      <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-2" name="{{ name }}" value="1" data-input-index="{{ slide_forloop }}"  data-val="1" required>
+                      <label for="{{ name }}-{{ block.id }}-2" class="radio_label"><span class="box"></span> {{ bs.a2 }}</label>
+                  </div>
+                  {%- endif -%}
+                  {%- if bs.a3 != blank -%}
+                  <div class="radio_item">
+                      <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-3" name="{{ name }}" value="2" data-input-index="{{ slide_forloop }}"  data-val="2" required>
+                      <label for="{{ name }}-{{ block.id }}-3" class="radio_label"><span class="box"></span> {{ bs.a3 }}</label>
+                  </div>
+                  {%- endif -%}
+                  {%- if bs.a4 != blank -%}
+                  <div class="radio_item">
+                      <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-4" name="{{ name }}" value="3" data-input-index="{{ slide_forloop }}"  data-val="3" required>
+                      <label for="{{ name }}-{{ block.id }}-4" class="radio_label"><span class="box"></span> {{ bs.a4 }}</label>
+                  </div>
+                  {%- endif -%}
+                  {%- if bs.a5 != blank -%}
+                    <div class="radio_item">
+                        <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-5" name="{{ name }}" value="4" data-input-index="{{ slide_forloop }}"  data-val="4" required>
+                        <label for="{{ name }}-{{ block.id }}-5" class="radio_label"><span class="box"></span> {{ bs.a5 }}</label>
+                    </div>
+                    {%- endif -%}
+                  <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
+                </div>
+                {%- when 'textfield' -%}
+                <div class="textarea_container">
+                    <textarea name="{{ name }}" id="{{ bs.klaviyo_id }}" data-id="{{ name }}" placeholder="Enter your answer here..." rows="10" required></textarea>
+                </div>
+                {%- when 'dropdown' -%}
+                <div class="dropdown_container">
+                    {%- assign options = bs.options | split: "," -%}
+                    <details>
+                    <summary class="dropdown_toggle">
+                        <span>Select relationship person</span>
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.38591 9.96708C7.17865 10.1496 7.15856 10.4655 7.34104 10.6728L11.7094 15.6343L11.7096 15.6346C11.7966 15.7331 11.9034 15.8121 12.0232 15.8661C12.143 15.9202 12.2729 15.9481 12.4042 15.9481C12.5356 15.9481 12.6655 15.9202 12.7853 15.8661C12.9051 15.8121 13.0119 15.7331 13.0988 15.6346L13.0992 15.6342L17.4666 10.6727C17.6491 10.4654 17.629 10.1495 17.4217 9.96705C17.2144 9.78459 16.8985 9.80471 16.716 10.012L12.4042 14.9102L8.09159 10.0119C7.90911 9.80469 7.59317 9.7846 7.38591 9.96708Z" fill="currentColor"/>
+                            <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" transform="matrix(1.19249e-08 1 1 -1.19249e-08 0.5 0.000122064)" stroke="currentColor"/>
+                        </svg>                                
+                    </summary>
+                    <div class="dropdown_list">
+                        {%- for option in options -%}
+                        <div class="dropdown_item">
+                            <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ name }}" data-input-index="{{ slide_forloop }}" data-val="{{- option -}}" value="{{- option -}}" required>
+                            <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label">{{- option -}}</label>
+                        </div>
+                        {%- endfor -%}
+                    </div>
+                    <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
+                </div>
+                {%- when 'checkbox' -%}
+                <div class="checkbox_container">
+                  {% assign options = bs.options | newline_to_br | split: "<br />"%}
+                  {%- for option in options -%}
+                  <div class="checkbox_item">
+                      <input class="visually-hidden" type="checkbox" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ option | strip_newlines | escape }}" value="{{ option | strip_newlines | escape }}" data-input-index="{{ slide_forloop }}"  data-val="{{ option | strip_newlines | escape }}" required>
+                      <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="checkbox_label"><span class="box"></span> {{ option }}</label>
+                  </div>
+                  {%- endfor -%}
+                  <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
+                </div>
+              {%- endcase -%}
+            </div>
+            <div class="quiz_footer">
+              {%- unless forloop.first -%}
+              <button type="button" class="button button_back">{% render 'icon-left-arrow' %} <span>Back</span></button>
+              {%- endunless -%}
+              {%- if forloop.last -%}
+              <button type="submit" class="button button_submit"><span>Submit</span> {% render 'icon-arrow' %}</button>
+              {%- else -%}
+              <button type="button" class="button button_next"><span>Next</span>{% render 'icon-arrow' %}</button>
+              {%- endif -%}
+            </div>
+          </div>
+          {%- if block.type == 'checkbox' -%}
+          {%- comment -%} Metafield Slide {%- endcomment -%}
+          {%- capture metaCotent -%}
+            {%- liquid 
+              assign totalData = 0
+              assign tmp = 0
+              for objectStep in options
+                assign metaobjectHandle = objectStep | handleize
+                assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle]
+                if metaobject
+                  assign totalData = totalData | plus: 1
+                endif
+              endfor
+            -%}          
+            {%- for objectStep in options -%}
+              {%- assign metaobjectHandle = objectStep | handleize -%}
+              {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
+              {%- if metaobject -%}
+              {%- liquid
+                  assign tmp = tmp | plus: 1
+                  assign question = metaobject.question
+                  assign title = metaobject.title
+                  assign left_description = metaobject.left_description
+                  assign right_description = metaobject.right_description
+                  assign add_describe_this_section = metaobject.add_describe_this_section
+                  assign description_describe_this_step = metaobject.description_describe_this_step
+                  assign field_title_describe_this_step = metaobject.field_title_describe_this_step
+                  assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step
+                  assign add_range_section = metaobject.add_range_section
+                  assign description_range_section = metaobject.description_range_section
+                  assign title_range_section = metaobject.title_range_section
+
+                  capture background_color
+                      cycle '#E9F0ED', '#F9E8E2', '#FFF0C9', '#FCEAD6'
+                  endcapture
+                  capture heading_color
+                      cycle '#C9D9D3', '#F4D3DD', '#FFD978', '#F7C083'
+                  endcapture
+                  capture primary_color
+                      cycle '#9CBFB3', '#C72457', '#F29630', '#F29630'
+                  endcapture
+                  capture button_color
+                      cycle '#01333E', '#C72457', '#F29630', '#F29630'
+                  endcapture
+              -%}
+              {%- capture metaobjectContent -%}
+              <div id="quiz_slide-{{ metaobjectHandle }}" class="quiz_slide slide" data-klaviyoid="{{ bs.klaviyo_id }}"  {{ block.shopify_attributes }}>
+                <style>
+                #quiz_slide-{{ metaobjectHandle }}{
+                    --background-color: {{ bs.background_color | default: background_color }};
+                    --heading-color: {{ bs.heading_color | default: heading_color }};
+                    --primary-color: {{ bs.primary_color | default: primary_color }};
+                    --secondary-color: {{ bs.heading_color | default: heading_color | color_lighten: 0.2 }};
+                    --button-color: {{ bs.button_color | default: button_color }};
+                    --progress: {{ progress | append: '%' }};
+                }
+                </style>
+                <div class="quiz_header">                    
+                  <div class="quiz_progress"><span class="progress"></span></div>
+                  <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
+                  {%- if title != blank -%}<h2 class="quiz_heading">{{ title | newline_to_br }}</h2>{%- endif -%}
+                </div>
+                <div class="quiz_content">
+                  {%- if block.type == 'textfield' -%}
+                    <div class="rte error_message"><p>Please write your answer here...</p></div>
+                  {%- else -%}
+                  <div class="rte error_message"><p>Select any single option</p></div>
+                  {%- endif -%}
+                  <div class="rte_container">
+                    {%- if left_description != blank or right_description != blank -%}
+                    <div class="grid grid--1-col grid--2-col-tablet">
+                      {%- if left_description != blank -%}
+                      <div class="grid__item">
+                        <div class="rte">
+                          {{ left_description | metafield_tag }}
+                        </div>
+                      </div>
+                      {%- endif -%}
+                      {%- if right_description != blank -%}
+                      <div class="grid__item">
+                        <div class="rte">
+                          {{ right_description | metafield_tag }}
+                        </div>
+                      </div>
+                      {%- endif -%}
+                    </div>  
+                    {%- endif -%}
+                  </div>
+                </div>
+                <div class="quiz_footer">
+                  <button type="button" class="button button_back">{% render 'icon-left-arrow' %} <span>Back</span></button>
+                  <button type="button" class="button button_next"><span>Next</span>{% render 'icon-arrow' %}</button>
+                </div>
+              </div>
+              {%- endcapture -%}
+              {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endcapture -%}
+          <script type="application/json" data-metaobjects>{ {{ metaCotent }} }</script>
+          {%- comment -%} Metafield Slide {%- endcomment -%}
+        {%- endif -%}
+        {%- endfor -%}        
         {% for block in section.blocks %}
           {% assign bs = block.settings %}
           {% assign field_name = bs.klaviyo_id | handleize %}
@@ -557,7 +749,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
               </div>
           {% endcase %}
         {% endfor %}
-
+      </div>
         <div class="contact-section js-klaviyo-form-success-wrapper hidden">
           <div class="contact">
             
@@ -805,9 +997,9 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
         {% endcomment %}
             
       </div>
-   </form>
-    </div>
-  </section>
+    </form>
+  </div>
+</section>
 
   <script src="{{ 'family-star.js' | asset_url }}" defer="defer"></script>
 {% endif %}
@@ -815,14 +1007,37 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 {% endif %}
 
 
-
-
-
 {% schema %}
 {
   "name": "Family Star quiz",
-
+  "class": "section-family-star_quiz banner_section",
   "settings": [
+    { 
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Heading",
+      "default": "Family Star Quiz"
+    },
+    {
+      "type": "text",
+      "id": "banner_completed_heading",
+      "label": "Complete Heading",
+      "default": "Quiz complete!",
+      "info": "This heading will show after quiz completed"
+    },
+    { 
+      "type": "header",
+      "content": "Form"
+    },
     {
       "type": "text",
       "id": "form_id",
@@ -936,20 +1151,37 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
         },
         {
           "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
           "id": "q",
           "label": "Question"
         },
         {
-          "type": "text",
-          "id": "a1",
-          "label": "Answer 1",
-          "info": "Enter the first answer value"
+          "type": "header",
+          "content": "Color"
         },
         {
-          "type": "text",
-          "id": "a2",
-          "label": "Answer 2",
-          "info": "Enter the last answer value"
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Primary"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button"
         }
       ]
     },
@@ -966,7 +1198,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
         },
         {
           "type": "textarea",
-          "id": "title",
+          "id": "q_group_title",
           "label": "Question group title"
         },
         {
@@ -998,6 +1230,30 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           "type": "text",
           "id": "a5",
           "label": "Answer 5"
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Primary"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button"
         }
       ]
     },
@@ -1028,6 +1284,30 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           "label": "Options",
           "info": "Add a comma between each option",
           "default": "Option 1, Option 2, Option 3, Option 4"
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Primary"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button"
         }
       ]
     },
@@ -1064,6 +1344,30 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           "label": "Maximum Select",
           "default":1,
           "info":"Default will 1"
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Primary"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button"
         }
       ]
     },
@@ -1087,6 +1391,30 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           "type": "textarea",
           "id": "q",
           "label": "Question"
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Primary"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button"
         }
       ]
     }
