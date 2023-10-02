@@ -1,4 +1,10 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
+{%- assign ChildHassel = customer.metafields.klaviyo.FS_ChildHassel -%}
+{%- assign ChildTemper = customer.metafields.klaviyo.FS_ChildTemper -%}
+{%- assign MyConfidence = customer.metafields.klaviyo.FS_MyConfidence -%}
+{%- assign MyWellbeing = customer.metafields.klaviyo.FS_MyWellbeing -%}
+{%- assign MyChild = customer.metafields.klaviyo.FS_MyChild -%}
+{%- assign MyParenting = customer.metafields.klaviyo.FS_MyParenting -%}
 
 {%- assign isQuizCompleted = true -%}
 
@@ -6,7 +12,7 @@
   <div class="page-width">
     <div class="welcome-title">
       <h4>
-        Welcome back <span>{{ customer.first_name }}</span>
+        Welcome <span>{{ customer.first_name }}</span>
       </h4>
     </div>
     <div class="dash_tab_block">
@@ -71,11 +77,14 @@
             </div>
             <div class="graph-block scroll-trigger animate--slide-in" style="--animation-order: 2;">
               <div class="graph--img">
+                <canvas id="family_chat"></canvas>
+                {% comment %}
                 <img
                   src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Right_Content_2.png?v=1691820437"
                   alt=""
                   srcset=""
                 >
+                {% endcomment %}
               </div>
               <div class="family-key">
                 <h6>Key</h6>
@@ -109,6 +118,68 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+
+const family_chat = document.getElementById('family_chat');    
+const family_data = {
+  labels: ['My child', 'Child Temper', 'My confidence', 'My parenting', 'My wellbeing', 'Child hassle'],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [{{MyChild}}, {{ChildTemper}}, {{MyConfidence}}, {{MyParenting}}, {{MyWellbeing}}, {{ChildHassel}}],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }]
+};  
+
+new Chart(family_chat, {
+  type: 'radar',
+  data: family_data,
+  options: {
+    aspectRatio: 1,
+    responsive: true,
+    maintainAspectRatio: true,
+    elements: {
+      line: {
+        borderWidth: 1
+      }
+
+    },
+    scales: {
+      r: {
+        grid: {
+          display: false,
+          color: 'none'
+        },
+        ticks: {
+          display:false,
+        },
+        angleLines: {
+            display: true,
+        },
+        pointLabels: {
+          color: '#01333E',
+        },
+          suggestedMin: 0,
+          suggestedMax: 10
+        }
+    },
+    //tooltip:
+    layout: {
+      padding: 1
+    },
+    plugins: {
+      legend: false,
+      //tooltip: false,          
+    }
+  }
+});
+</script>
 
 {% schema %}
 {

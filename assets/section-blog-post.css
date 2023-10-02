@@ -179,7 +179,8 @@
 }
 .article-tag .article-block .article-template__content p{
   font-size: 20px;
-    line-height: 120%;
+    line-height: 1.2;
+    /* line-height: 120%; */
     letter-spacing: 0.2px;
     font-weight: 400;
     margin: 20px 0px;
@@ -199,9 +200,12 @@
 }
 .article-template__content span{
   margin-bottom: 60px;
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 16px;
 
+}
+.article-template__content figure{
+  margin: 0;
 }
 .article-template__content iframe{
   margin-top:80px ;

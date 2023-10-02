@@ -30,11 +30,12 @@
         "3fbd1212-6d2a-47cf-bff7-8452d81f7a60": {
           "type": "family_star_result",
           "settings": {
-            "title": "Family star results",
+            "title": "Join our Community",
             "np_title": "Join our Community",
             "description": "<p>Our safe and secure community connects you with likeminded parents looking to achieve similar goals.<\/p>",
+            "background_image": "shopify:\/\/shop_images\/Frame_7431.svg",
             "btn_title": "Read more",
-            "np_btn_title": "Read more",
+            "np_btn_title": "Buy The Course",
             "button_url": "https:\/\/community.parentingmattersonline.com\/"
           }
         }
@@ -46,12 +47,12 @@
       "settings": {
         "left_icon": "shopify:\/\/shop_images\/dash1.png",
         "left_icon_back_color": "#f7c083",
-        "left_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
-        "left_np_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
+        "left_description": "<p><strong>My goal for myself<\/strong> is to [dynamic_text]<\/p>",
+        "left_np_description": "<p><strong>Start the course to set up your goals!<\/strong><\/p>",
         "right_icon": "shopify:\/\/shop_images\/dash2.png",
         "right_icon_back_color": "#1c8da6",
-        "right_description": "<p><strong>My goal for myself<\/strong> is to better understand my child and their feelings<\/p>",
-        "right_np_description": "<p>Start the course to set your goal<\/p>"
+        "right_description": "<p><strong>My goal for my child<\/strong> is to [dynamic_text]<\/p>",
+        "right_np_description": "<p><strong>Start the course to set up your goals!<\/strong><\/p>"
       }
     },
     "96f0a4d0-0b59-4b50-82c6-5e1f6d7d0409": {

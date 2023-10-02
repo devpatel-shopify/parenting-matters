@@ -135,7 +135,7 @@
             "button_text": "Take the quiz",
             "disable_course_not_purchase_button": false,
             "np_button_text": "Buy the Course",
-            "button_url": "shopify:\/\/pages\/parenting-style-quiz",
+            "button_url": "shopify:\/\/pages\/family-star",
             "background_schema": "scheme-1e61bff0-d154-4839-bede-29496c5ac2ef",
             "layout": "text_first"
           }

@@ -1,20 +1,26 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | divided_by: 2 | round: 0 }}px;
+    padding-right: {{ section.settings.padding_right | divided_by: 2 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 | round: 0 }}px;
+    padding-left: {{ section.settings.padding_left | divided_by: 2 | round: 0 }}px;
+    
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
+      padding-right: {{ section.settings.padding_right }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_left }}px;
     }
   }
 {%- endstyle -%}
 
-<div class="customer activate section-{{ section.id }}-padding">
+<div class="customer contact-form contact activate section-{{ section.id }}-padding">
   <svg style="display: none">
     <symbol id="icon-error" viewBox="0 0 13 13">
       <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -23,9 +29,9 @@
       <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
     </symbol>
   </svg>
-  <h1>
+  <h2>
     {{ 'customer.activate_account.title' | t }}
-  </h1>
+  </h2>
   <p>
     {{ 'customer.activate_account.subtext' | t }}
   </p>
@@ -53,7 +59,10 @@
       </ul>
     {%- endif -%}
 
-    <div class="field">
+    <div class="field-box">
+      <label for="password">
+        {{ 'customer.activate_account.password' | t }}
+      </label>
       <input
         type="password"
         name="customer[password]"
@@ -65,9 +74,7 @@
           aria-describedby="password-error"
         {% endif %}
       >
-      <label for="password">
-        {{ 'customer.activate_account.password' | t }}
-      </label>
+      
       {%- if form.errors contains 'password' -%}
         <small id="password-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
@@ -79,7 +86,10 @@
       {%- endif -%}
     </div>
 
-    <div class="field">
+    <div class="field-box">
+      <label for="password_confirmation">
+        {{ 'customer.activate_account.password_confirm' | t }}
+      </label>
       <input
         type="password"
         name="customer[password_confirmation]"
@@ -91,9 +101,7 @@
           aria-describedby="password_confirmation-error"
         {% endif %}
       >
-      <label for="password_confirmation">
-        {{ 'customer.activate_account.password_confirm' | t }}
-      </label>
+      
       {%- if form.errors contains 'password_confirmation' -%}
         <small id="password_confirmation-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
@@ -105,10 +113,10 @@
       {%- endif -%}
     </div>
 
-    <button>
+    <button class="button button--primary">
       {{ 'customer.activate_account.submit' | t }}
     </button>
-    <button name="decline">
+    <button name="decline" class="button button--secondary">
       {{ 'customer.activate_account.cancel' | t }}
     </button>
   {%- endform -%}
@@ -117,6 +125,7 @@
 {% schema %}
 {
   "name": "t:sections.main-activate-account.name",
+  "class":"activate_account",
   "settings": [
     {
       "type": "header",
@@ -140,6 +149,26 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding left",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding right",
       "default": 36
     }
   ]

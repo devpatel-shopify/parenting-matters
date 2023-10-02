@@ -172,7 +172,8 @@
     margin: 20px 0;
 }
 
-.qtype-button.radio-container.error {
+.qtype-button.radio-container.error,
+.qtype-button.checkbox-container.error {
   
   /* background-color: rgb(255, 236, 236); */
   animation:blink linear 1s 2 forwards;
@@ -226,4 +227,33 @@
 .dropdown-container .select .icon-caret{
     height: 1.6rem;
     top: calc(50% - 0.8rem);
+}
+
+.meta-description--wrapper {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.klaviyo-form__buttons {
+  max-width: unset;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-section .contact p{
+  max-width: 100%;
+}
+
+.klaviyo-form--wrapper .field-box--wrapper {
+  margin-bottom: 2rem;
+}
+
+.checkbox-field-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
 }

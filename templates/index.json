@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Get started",
-            "button_link_1": "shopify:\/\/pages\/quiz-hub",
+            "button_link_1": "shopify:\/\/pages\/about",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -129,7 +129,7 @@
           "settings": {
             "card_icon": "shopify:\/\/shop_images\/Icon_14.svg",
             "card_name": "Community",
-            "card_paragraph": "<p>Our safe and secure community connects you with likeminded parents looking to achieve similar goals.<\/p>"
+            "card_paragraph": "<p>Our safe and secure community connects you with like-minded parents looking to achieve similar goals.<\/p>"
           }
         }
       },
@@ -142,8 +142,8 @@
         "full_width": false,
         "heading_text": "If you have children aged 2-10, this is the place for you!",
         "button_text": "Learn more",
-        "button_url": "shopify:\/\/pages\/organisations",
-        "top_radius": true,
+        "button_url": "shopify:\/\/pages\/about",
+        "top_radius": false,
         "background_schema": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
         "background_color": "#e9f0ed",
         "padding_top": 160,
@@ -156,7 +156,7 @@
         "section_title": "Parenting Matters is here to help you bring out the best in your child.",
         "background_schema": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
         "button_text": "Join today",
-        "button_url": "shopify:\/\/pages\/contact",
+        "button_url": "shopify:\/\/pages\/about",
         "top_radius": true,
         "padding_top": 160,
         "padding_bottom": 80
@@ -168,31 +168,25 @@
         "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
+            "community_description": "<p>\"The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!\"<\/p>"
           }
         },
         "37a8384d-1da6-41aa-b62f-508ba445bd10": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do”<\/p>"
           }
         },
         "5c3f1c02-d084-4e17-8e9b-592eece0b834": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>“It made me feel a lot more in touch with my child”<\/p>"
           }
         },
         "517326d9-1383-4fbf-9c39-4a645fd94f56": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
-          }
-        },
-        "1ea6f8c5-d57f-44a9-ac40-bb7551bb431e": {
-          "type": "block",
-          "settings": {
-            "community_description": ""
+            "community_description": "<p>“I now speak, rather than shout!”<\/p>"
           }
         }
       },
@@ -200,8 +194,7 @@
         "template--19650833285418__cc855bf0-99e0-47fd-b8ae-878122144c79-1687786211c716be58-0",
         "37a8384d-1da6-41aa-b62f-508ba445bd10",
         "5c3f1c02-d084-4e17-8e9b-592eece0b834",
-        "517326d9-1383-4fbf-9c39-4a645fd94f56",
-        "1ea6f8c5-d57f-44a9-ac40-bb7551bb431e"
+        "517326d9-1383-4fbf-9c39-4a645fd94f56"
       ],
       "settings": {
         "full_width": false,
@@ -299,7 +292,7 @@
         "heading": "Read the latest from our blog.",
         "heading_size": "h2",
         "button_text1": "Explore our blog",
-        "button_url": "shopify:\/\/blogs\/ddp-page",
+        "button_url": "shopify:\/\/blogs\/news",
         "blog": "news",
         "post_limit": 3,
         "columns_desktop": 3,
@@ -326,16 +319,16 @@
         "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long does the course take?",
-            "row_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>",
+            "heading": "What are the principles this course is based on?",
+            "row_content": "<p>There are 4 underpinning theories that we draw on: (i) attachment theory, which is about how to make your child feel safe and loved and strong inside, so then they are more willing to fit in with the family; (ii) social learning theory, which shows how to help children learn better habits, change their behaviour and gives you the tools to do this; (iii) educational language and reading learning theory, so that you use the best methods proven to help your child learn better; and finally (iv) neuroscience, choosing the approaches that have been shown to lead to better brain growth.<\/p>",
             "page": ""
           }
         },
         "template--19650833285418__44b31fca-2192-4c98-8fe6-4a04af6cb99a-16877820057b73e5a7-2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long does the course take?",
-            "row_content": "<p>It is designed for children aged 3 to 9. Young infants need a slightly different approach, and with teenagers the same ideas apply but more negotiation is necessary.<\/p>",
+            "heading": "How do I know this will work?",
+            "row_content": "<p>Because it consists of ingredients proven to work in trials with over 10,000 parents -this is their lived experience, that compared with parents who didn’t take a course, their children are happier, pay better, and make better friendships. And the family home is calmer. But this wouldn’t be enough for us, if we hadn’t seen with our own eyes how family life can be transformed. However, to bring about lasting changes will require some input from yourself to practise the new methods with your child.<\/p>",
             "page": ""
           }
         }

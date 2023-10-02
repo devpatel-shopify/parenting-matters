@@ -8,9 +8,9 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Discover your parenting persona",
+            "text": "Discover your Parenting Style",
             "link_text": "Take the quiz",
-            "link": "shopify:\/\/pages\/quiz-hub"
+            "link": "shopify:\/\/pages\/parenting-style-quiz"
           }
         }
       },

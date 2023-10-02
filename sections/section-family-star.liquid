@@ -1,0 +1,1101 @@
+{% assign tarray = customer.tags | join: ',' %}
+{% assign tarray = tarray | append : "prq_FamilyStarQuiz_true," %}
+{% assign ctagsArray = tarray | split: ',' %}
+
+{% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
+<script type="text/javascript">
+window.location.replace("{{shop.url}}/pages/custom-family-star-result");
+</script>
+{% else  %}
+
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
+
+{% assign ss = section.settings %}
+{%- liquid
+  assign heading_font = section.settings.heading_font
+-%}
+
+{% if ss.form_id != blank %}
+  {% assign formID = ss.form_id | handleize %}
+  
+  <style>
+
+  .ps-quiz .quiz-section .slide .range_container input{ height: 20px;}
+    .text-field--wrapper textarea{
+      width:100%;
+    }
+    
+    .text-field--wrapper label{
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .range-slider {
+      /*background-color: #2c2641;
+      box-shadow: inset 0 0 8px #19182b;*/
+      border-radius: 8px;
+      height: 16px;
+      position: relative;
+      width: 100%;
+   }
+    .range-slider__indicators {
+      bottom: 64px;
+      left: -16px;
+      position: absolute;
+      width: calc(100% + 32px);
+   }
+    .range-slider__value {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+      position: absolute;
+      text-align: center;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+      width: calc(100% / 12);
+   }
+    .range-slider__slider {
+      appearance: none;
+      border-radius: 8px;
+      height: 12px;
+      /*left: -12px;
+      pointer-events: none;*/
+      position: absolute;
+      width: calc(100% + 24px);
+   }
+    .range-slider__slider::-webkit-slider-thumb {
+      appearance: none;
+      background-color: #fff;
+      border: 2px solid #cecece;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), inset 0 0 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      height: 40px;
+      pointer-events: all;
+      width: 40px;
+   }
+    .range-slider__slider::-moz-range-thumb {
+      background-color: #fff;
+      border: 2px solid #cecece;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), inset 0 0 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      height: 40px;
+      pointer-events: all;
+      width: 40px;
+   }
+    .range-slider__slider::-webkit-slider-thumb:hover {
+      background: #f7f7f7;
+   }
+    .range-slider__slider::-moz-range-thumb:hover {
+      background: #f7f7f7;
+   }
+    .range-slider__slider::-webkit-slider-thumb:active {
+      box-shadow: 0 0 8px #22aa96;
+   }
+    .range-slider__slider::-moz-range-thumb:active {
+      box-shadow: 0 0 8px #22aa96;
+   }
+    .range-slider__slider--from {
+      height: 0 !important;
+      top: 6px;
+      z-index: 1 !important;
+   }
+    .range-slider__scale {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding: 0 4px 0 8px;
+      position: relative;
+      width: 100%;
+   }
+    .range-slider__scale i {
+      background-color: #2c2641;
+      display: block;
+      height: 0;
+      /*width: 0;*/
+      margin-top: -15px;
+   }
+    .range-slider__label {
+      color: #19182b;
+      font-size: 1.8rem;
+      font-weight: bold;
+      position: absolute;
+      top: 24px;
+   }
+    .range-slider__label--min {
+      left: 4px;
+   }
+    .range-slider__label--max {
+      right: -4px;
+   }
+  </style>
+
+
+  <section class="ps-quiz color-{{ section.settings.color_scheme }}">
+    <div class="page-width">
+      {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
+      <!-- <form
+        class="quiz-section"
+        id="{{ formID }}"
+        style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
+      > -->
+        
+<form id="fs_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="QXvndD">
+    <input type="hidden" name="$list_fields" value="$consent">
+        
+
+        {% assign fields = '' %}
+  
+        {% for block in section.blocks %}
+          {% assign bs = block.settings %}
+          {% assign field_name = bs.klaviyo_id | handleize %}
+
+          {% if field_name != "" %}
+            {% assign fields = fields | append: field_name | append: "," %}
+          {% endif %}
+  
+          {% case block.type %}
+            {% when 'range' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
+                {% if bs.q != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.a1 != blank and bs.a2 != blank %}
+                  <div class="range_container">
+                    <div class="labels">
+                      <p>{{ bs.a1 }}</p>
+                      <p>{{ bs.a2 }}</p>
+                    </div>
+                    <div class="range_inner">
+                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                      <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
+                      <div class="range_steps">
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                        <span class="step">&nbsp;</span>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="range">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'button' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
+                {% if bs.title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="qtype-button radio-container">
+                  {% if bs.a1 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a1 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a1 | handleize }}"
+                        data-val="0"
+                        required
+                      >
+                      <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a2 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a2 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a2 | handleize }}"
+                        data-val="1"
+                        required
+                      >
+                      <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a3 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a3 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a3 | handleize }}"
+                        data-val="2"
+                        required
+                      >
+                      <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a4 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a4 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a4 | handleize }}"
+                        data-val="3"
+                        required
+                      >
+                      <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
+                    </div>
+                  {% endif %}
+
+                  {% if bs.a5 != blank %}
+                    <div class="item">
+                      <input
+                        type="radio"
+                        id="{{ bs.a5 | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ bs.a5 | handleize }}"
+                        data-val="4"
+                        required
+                      >
+                      <label for="{{ bs.a5 | handleize }}-{{forloop.index}}">{{ bs.a5 }}</label>
+                    </div>
+                  {% endif %}
+
+                  <input type="hidden" id="slidervalue{{ forloop.index }}" value >
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="radio">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'textfield' %}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.q_group_title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                <div class="textfield-container">
+                  <textarea
+                    name="{{ bs.klaviyo_id }}"
+                    id="{{ bs.klaviyo_id }}"
+                    placeholder="Enter your answer here..."
+                  ></textarea>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next"  data-type="text">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% when 'checkbox' %}
+              {%- assign maxSelect = 1 -%}
+              {%- assign blockIndex = forloop.index -%}
+              {%- if block.settings.max_answer > 0 -%}
+                {%- assign maxSelect = block.settings.max_answer -%}
+              {%- endif -%}
+              <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox" data-title="{{ bs.title | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
+                <div class="inner-slide-content">
+                </div>
+                {% if bs.title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                {% assign options = bs.options | newline_to_br | split: "<br />"%}
+
+                <div class="qtype-button checkbox-container">
+                  {%- for option in options -%}
+                    <div class="item">
+                      <input
+                        type="checkbox"
+                        id="{{ option | handleize }}-{{forloop.index}}"
+                        data-input-index="{{ forloop.index }}"
+                        name="{{ bs.klaviyo_id | handleize }}"
+                        value="{{ option | strip_newlines | escape }}"
+                        data-val="{{ option | strip_newlines | escape }}"
+                        data-text-handleize = "{{ option | handleize }}"
+                        data-que="{{ bs.title | handleize }}"
+                        required
+                      >
+                      <label for="{{ option | handleize }}-{{forloop.index}}">{{ option }}</label>
+                    </div>
+                  {%- endfor -%}
+                </div>
+                {%- for i in (1..maxSelect) -%}
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}" id="{{ bs.title | handleize }}_{{ i }}" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i   %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
+
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_values" id="{{ bs.title | handleize }}_{{ i }}_values" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values'    %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
+                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_score" id="{{ bs.title | handleize }}_{{ i }}_score" value >
+                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score'   %}
+                  {% assign fields = fields | append: inputName | append: "," %}
+
+                {%- endfor -%}
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="button" class="button button_submit js-next-btn">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next js-next-btn" data-type="checkbox">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+
+                {%- capture metaCotent -%}
+                  {%- assign totalData = 0 -%}
+                  {%- assign tmp = 0 -%}
+
+                  {%- for objectStep in options -%}
+                    {%- assign metaobjectHandle = objectStep | handleize -%}
+                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
+                    {%- if metaobject -%}
+                      {%- assign totalData = totalData | plus: 1 -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+
+                  {%- for objectStep in options -%}
+                    {%- assign metaobjectHandle = objectStep | handleize -%}
+                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
+                    {%- if metaobject -%}
+                      {%- assign tmp = tmp | plus: 1 -%}
+                      {%- assign question = metaobject.question -%}
+                      {%- assign title = metaobject.title -%}
+                      {%- assign left_description = metaobject.left_description -%}
+                      {%- assign right_description = metaobject.right_description -%}
+                      {%- assign add_describe_this_section = metaobject.add_describe_this_section -%}
+                      {%- assign description_describe_this_step = metaobject.description_describe_this_step -%}
+                      {%- assign field_title_describe_this_step = metaobject.field_title_describe_this_step -%}
+                      {%- assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step -%}
+                      {%- assign add_range_section = metaobject.add_range_section -%}
+                      {%- assign description_range_section = metaobject.description_range_section -%}
+                      {%- assign title_range_section = metaobject.title_range_section -%}
+                      
+                      {%- capture metaobjectContent -%}
+                        {%- if title != blank or left_description != blank or right_description != blank -%}
+                          <div class="slide inner-slide-content hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="meta-description--wrapper">
+                              {%- if left_description != blank -%}
+                                <div class="left-description--wrapper">
+                                  {{ left_description | metafield_tag }}
+                                </div>
+                              {%- endif -%}
+                              {%- if right_description != blank -%}
+                                <div class="right-description--wrapper">
+                                  {{ right_description | metafield_tag }}
+                                </div>
+                              {%- endif -%}
+                            </div>
+    
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-description">Next {% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+    
+                        {%- if add_describe_this_section == true -%}
+                          <div class="slide inner-slide-content js-step-describe-this hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="description--wrapper">
+                              {{ description_describe_this_step | metafield_tag }}
+                            </div>
+    
+                            <div class="text-field--wrapper">
+                              <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
+                              <textarea class="textarea_{{ title | handleize }}" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
+                            </div>
+    
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-textarea">Next {% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+    
+                        {%- if add_range_section == true -%}
+                          <div class="slide inner-slide-content js-range-step hidden" data-meta-step="{{ question | handleize }}">
+                            <h1>{{ title }}</h1>
+                            <div class="description--wrapper">
+                              {{ description_range_section | metafield_tag }}
+                            </div>
+                            <div class="range_container">
+                              <label for="slider{{ question | handleize }}">
+                                {{ title_range_section }}
+                              </label>
+
+                              <div class="range-slider range-slider--dual">
+                                <div class="range-slider__indicators">
+                                  <div class="range-slider__value range-slider__value--min"></div>
+                                  <div class="range-slider__value range-slider__value--max"></div>
+                                </div>
+                                {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
+                                <input  data-que="{{ title | handleize }}" class="range-slider__slider range-slider__slider--to range_{{ title | handleize }}" type="range" value="1" min="1" max="10" />
+                                <div class="range-slider__scale">
+                                  {%- for i in (1..10) -%}
+                                    <i>{{ i }}</i>
+                                  {%- endfor -%}
+                                </div>
+                              </div>
+
+                              {% comment %} <div class="range_inner">
+                                <input class="sliderinput" id="slider{{ question | handleize }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="10" value="1" data-val="1">
+                                <input type="hidden" id="slidervalue{{ question | handleize }}" value="1" >
+                                <div class="range_steps">
+                                  {%- for i in (1..10) -%}
+                                    <span class="step">&nbsp;</span>
+                                  {%- endfor -%}
+                                </div>
+                              </div> {% endcomment %}
+
+                            </div>
+                            <div class="btn-flex">
+                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %}Back</button>
+                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next{% render 'icon-arrow' %}</button>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      {%- endcapture -%}
+                      
+                      {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
+
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if block.settings.metaobject_steps != blank -%}
+                  {%- endif -%}
+                {%- endcapture -%}
+
+                <script type="application/json" data-metaobjects>
+                  {
+                    {{ metaCotent }}
+                  }
+                </script>
+              </div>
+
+            {% when 'dropdown' %}
+              <div class="slide " data-klaviyoid="{{ bs.klaviyo_id }}">
+                {% if bs.title != blank %}
+                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
+                {% endif %}
+
+                {% if bs.q != blank %}
+                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
+                {% endif %}
+
+                {% assign options = bs.options | split: ","%}
+
+                <div class="dropdown-container">
+                  <div class="select">
+                    <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
+                      {% for option in options %}
+                          <option value="{{ option }}">{{ option }}</option>
+                      {% endfor %}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                </div>
+
+                <div class="btn-flex">
+                  {% unless forloop.first %}
+                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
+                  {% endunless %}
+                  {% if forloop.last %}
+                    <button type="button" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
+                  {% else %}
+                    <button type="button" class="button button_next" data-type="dropdown">Next {% render 'icon-arrow' %}</button>
+                  {% endif %}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+
+        <div class="contact-section js-klaviyo-form-success-wrapper hidden">
+          <div class="contact">
+            
+            <h5 class="title">{{ section.settings.form_success_description }}</h5>
+            <div class="klaviyo-form__buttons">
+              {%- for i in (1..2) -%}
+                {%- assign btnTitleTxt = 'btn_title_' | append: i -%}
+                {%- assign btnUrlTxt = 'btn_url_' | append: i -%}
+                {%- assign buttonTile = section.settings[btnTitleTxt] -%}
+                {%- assign btnUrl = section.settings[btnUrlTxt] -%}
+                {%- if buttonTile != blank and btnUrl != blank -%}
+                  <a href="{{ btnUrl }}" class="button">
+                    {{ buttonTile }}
+                    <svg
+                      aria-hidden="true"
+                      class="icon icon-arrow"
+                      focusable="false"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+        
+      {% assign ctags = customer.tags | push: "prq_FamilyStarQuiz_true" %}  
+      {% assign fields = fields | append: "Shopify Tags" | append: "," %}
+      {% assign fields = fields | append: "FS_ChildHassel" | append: "," %}
+      {% assign fields = fields | append: "FS_ChildTemper" | append: "," %}
+      {% assign fields = fields | append: "FS_MyConfidence" | append: "," %}
+      {% assign fields = fields | append: "FS_MyWellbeing" | append: "," %}
+      {% assign fields = fields | append: "FS_MyChild" | append: "," %}
+      {% assign fields = fields | append: "FS_MyParenting" | append: "," %}
+      {% assign fields = fields | append: "FamilyStarCompleted" | append: "," %}
+      <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
+      <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
+      <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
+      <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
+      <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
+      <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
+      <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
+      <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{ctagsArray}}">
+      <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
+      <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
+      <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
+      <input type="hidden" name="$fields" value="$consent,{{ fields }}">
+
+
+    
+        {% comment %}
+<div class="form-success-msg hidden">
+        {% if ss.success_title != blank %}
+          <h2 class="title">{{ ss.success_title }}</h2>
+          <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
+        {% endif %}
+
+<div class="customer contact-form register quiz-signup">
+
+        {% if ss.success_overview != blank %}
+          <h5 class="rte">{{ ss.success_overview }}</h5>
+        {% endif %}
+        <p>Enter your details below to create your account.</p>
+  
+
+   
+    <div class="field-box">
+      <label for="RegisterForm-FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="Enter your First name"
+      >
+    </div>
+
+    <div class="field-box">
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="Enter your Last name"
+      >
+    </div>      
+  
+    <div class="field-box">
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="Enter your email"
+      >
+    </div>
+
+    
+    <div class="field-box">
+      <label for="RegisterForm-password"> Password* </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="Enter your password"
+      >
+    </div>
+    <div class="field-box">
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="Enter your password"
+      >
+    </div>
+    
+    <div class="button-block">
+      <button id="RegistrationSubmit" class="button button--primary">
+        {{ 'customer.register.submit' | t }}
+        <svg
+          aria-hidden="true"
+          class="icon icon-arrow"
+          focusable="false"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+   
+</div>
+
+
+
+
+
+        <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
+          <div class="contact">
+            <div class="contact__fields">
+              <div class="grid grid--1-col grid--2-col-tablet">
+              <div class="field-box grid__item">
+                <label class="" for="pq_first_name">First name</label>
+                <input
+                  class=""
+                  autocomplete="first_name"
+                  type="text"
+                  id="pq_first_name"
+                  name="first_name"
+                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
+                  placeholder="First name"
+                >
+              </div>
+                <div class="field-box grid__item">
+                <label class="" for="pq_last_name">Last name</label>
+                <input
+                  class=""
+                  autocomplete="last_name"
+                  type="text"
+                  id="pq_last_name"
+                  name="last_name"
+                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
+                  placeholder="Last name"
+                >
+              </div>
+              </div>
+              <div class=" field-box field--with-error">
+                <label class="" for="ContactForm-email">
+                  {{- 'templates.contact.form.email' | t }}
+                </label>
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="pq_email"
+                  class=""
+                  name="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  required
+                  placeholder="Enter your email"
+                >
+              </div>
+            </div>
+            <div class="contact__button">
+              <button type="submit" class="button button--primary">
+                {{ 'templates.contact.form.send' | t }}
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-arrow"
+                  focusable="false"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>          
+          </div>
+        </div>
+        {% endcomment %}
+            
+      </div>
+   </form>
+    </div>
+  </section>
+
+  <script src="{{ 'family-star.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% endif %}
+
+
+
+
+
+{% schema %}
+{
+  "name": "Family Star quiz",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "Form ID",
+      "info": "This name is used to feed the data into Klaviyo. This form ID will be handleized."
+    },
+    {
+      "type": "textarea",
+      "id": "success_title",
+      "label": "Success title"
+    },
+    {
+      "type": "textarea",
+      "id": "success_overview",
+      "label": "Success overview"
+    },
+    {
+      "type": "header",
+      "content": "Form Success content"
+    },
+    {
+      "type": "richtext",
+      "id": "form_success_description",
+      "label": "Form Success description"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "btn_title_1",
+      "label": "Button title",
+      "default": "Join Now"
+    },
+    { 
+      "type": "url",
+      "id": "btn_url_1",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "btn_title_2",
+      "label": "Button title",
+      "default": "About"
+    },
+    { 
+      "type": "url",
+      "id": "btn_url_2",
+      "label": "Button Link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading Font Size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "progress_bar_radius",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "default": 44,
+      "label": "Progress Bar Radius"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "range",
+      "name": "Question type: Range",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1",
+          "info": "Enter the first answer value"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2",
+          "info": "Enter the last answer value"
+        }
+      ]
+    },
+
+    {
+      "type": "button",
+      "name": "Question type: Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "a1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "a2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "a3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "text",
+          "id": "a4",
+          "label": "Answer 4"
+        },
+        {
+          "type": "text",
+          "id": "a5",
+          "label": "Answer 5"
+        }
+      ]
+    },
+
+    {
+      "type": "dropdown",
+      "name": "Question type: Dropdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options",
+          "info": "Add a comma between each option",
+          "default": "Option 1, Option 2, Option 3, Option 4"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "name": "Question type: Checkbox",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "options",
+          "label": "Options",
+          "info": "Add every Options in new line.",
+          "default": "Option 1\nOption 2\nOption 3\nOption 4"
+        },
+        {
+          "type": "number",
+          "id": "max_answer",
+          "label": "Maximum Select",
+          "default":1,
+          "info":"Default will 1"
+        }
+      ]
+    },
+
+    {
+      "type": "textfield",
+      "name": "Question type: Textfield",
+      "settings": [
+        {
+          "type": "text",
+          "id": "klaviyo_id",
+          "label": "Klaviyo field ID",
+          "info": "Used for segmentation within Klaviyo. Must be unique."
+        },
+        {
+          "type": "textarea",
+          "id": "q_group_title",
+          "label": "Question group title"
+        },
+        {
+          "type": "textarea",
+          "id": "q",
+          "label": "Question"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Family Star quiz"
+    }
+  ]
+}
+{% endschema %}

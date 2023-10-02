@@ -1175,9 +1175,11 @@ customElements.define('product-recommendations', ProductRecommendations);
 // close announcement
 var close_announcement = document.querySelector(".close-announcement");
 var announcement_bar = document.querySelector(".announcement-bar");
-close_announcement.addEventListener("click", (e) => {
-  announcement_bar.parentElement.remove();
-});
+if(close_announcement && announcement_bar){
+  close_announcement.addEventListener("click", (e) => {
+    announcement_bar.parentElement.remove();
+  });
+}
 
 var ready = (callback) => {
   if (document.readyState != "loading") callback();
@@ -1189,7 +1191,7 @@ var ready = (callback) => {
 function headerHeightup(){  
   const headerElement = document.querySelector('.section-header');
   const bannerElement = document.querySelector('.section-header + main .banner_section:first-child');
-  const headerHeight = headerElement.offsetHeight;
+  const headerHeight = (headerElement) ? headerElement.offsetHeight : 0 ;
   let marginTopValue = -headerHeight; 
   if(bannerElement) bannerElement.style.marginTop = marginTopValue + "px";
 }

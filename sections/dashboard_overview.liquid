@@ -1,22 +1,23 @@
 {{ 'dashboard.css' | asset_url | stylesheet_tag }}
 
-{%- assign isCoursePurchased = false -%}
 {% if customer and customer.tags contains 'Purchased Course' %}
   {%- assign isCoursePurchased = true -%}
 {% endif %}
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
+{% assign ctagsArray = customer.tags | join: ','  | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %}
+
 {%- assign nextStepContent = false -%}
-{%- assign previoustStepContent = false -%}
-
-
-{% # Get Active Step %}
-{%- assign lastCompletedStepIndex = 0 -%}
-{%- assign lastCompletedStepDetected = false -%}
-{%- assign tmpCount = 0 -%}
+{%- assign lastCompletedStep = false -%}
 {%- assign tmpPartCount = 0 -%}
-{%- assign currentPartIndex = 0 -%}
+{%- assign currentActivePart = false -%}
+{%- assign currentStepIndex = false -%}
+{%- assign tmpStepCount = 0 -%}
+{%- assign tagPrefix = 'prq_' -%}
+
+
+{% # Get NextLearn Section Step %}
 {%- for course in deshboardContent.courses -%}
   {%- assign courseValue = course | last -%}
 
@@ -28,96 +29,109 @@
       {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
       {%- assign totalSteps = partValue.steps | size -%}
 
-      {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
-        {%- assign stepValue = step | last -%}
-        {%- assign isActiveStep = false -%}
+      {% if partValue.disabled == "true" %}
+        {%- continue -%}
+      {% endif %}
 
-        {%- if lastCompletedStepDetected == false -%}
-          {%- for tag in customer.tags -%}
-            {%- if tag == stepValue.tag -%}
-              {%- assign isActiveStep = true -%}
-              {%- assign lastCompletedStepDetected = true -%}
-              {%- assign lastCompletedStepIndex = tmpCount -%}
-              {%- assign previoustStepContent = stepValue -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-
-        {%- if lastCompletedStepDetected == true -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      {%- if lastCompletedStepDetected == true -%}
-        {%- if lastCompletedStepIndex > totalSteps -%}
-          {%- assign tmpPartCount = tmpPartCount | plus: 1 -%}
-        {%- endif -%}
-        {%- assign currentPartIndex = tmpPartCount -%}
-        {%- break -%}
-      {%- endif -%}
-    {%- endfor -%}
-
-    {%- if lastCompletedStepDetected == true -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- if lastCompletedStepDetected == true -%}
-    {%- break -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign currentStepIndex = lastCompletedStepIndex | plus: 1 -%}
-{%- assign nextStepIndex = currentStepIndex | plus: 1 -%}
-
-{%- assign tmpCount = 0 -%}
-{%- for course in deshboardContent.courses -%}
-  {%- assign courseValue = course | last -%}
-
-  {%- for innerCourse in courseValue.courses -%}
-    {%- assign innerCourseValue = innerCourse | last -%}
-
-    {%- for part in innerCourseValue.parts -%}
-      {%- assign partValue = part | last -%}
+      {%- assign completedStepCount = 0 -%}
 
       {%- for step in partValue.steps -%}
-        {%- assign tmpCount = tmpCount | plus: 1 -%}
+        {%- assign tmpStepCount = tmpStepCount | plus: 1 -%}
         {%- assign stepValue = step | last -%}
+        {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
+        {%- assign isStepCompleted = false -%}
 
-        {%- if tmpCount == nextStepIndex -%}
+        {%- for tag in ctagsArray -%}
+          {%- if tag == jsoTag -%}
+            {%- assign isStepCompleted = true -%}
+            {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if currentActivePart == false and isStepCompleted == false -%}
+          {%- assign currentActivePart = tmpPartCount -%}
+          {%- assign currentStepIndex = tmpStepCount -%}
           {%- assign nextStepContent = stepValue -%}
-          {%- break -%}
+
+          {% # Get Lstcompleted Step Start %}
+          
+          {%- assign _tmpStepCount = 0 -%}
+          {%- assign lastCompletedStepDetected = false -%}
+
+          {%- for _course in deshboardContent.courses -%}
+            {%- assign _courseValue = _course | last -%}
+              {%- for _innerCourse in _courseValue.courses -%}
+                {%- assign _innerCourseValue = _innerCourse | last -%}
+    
+                {%- for _part in _innerCourseValue.parts -%}
+                  {%- assign _partValue = _part | last -%}
+                  {%- assign _totalSteps = _partValue.steps | size -%}
+            
+                  {% if _partValue.disabled == "true" %}
+                    {%- continue -%}
+                  {% endif %}
+      
+                  {%- for _step in _partValue.steps -%}
+                    {%- assign _tmpStepCount = _tmpStepCount | plus: 1 -%}
+                    {%- assign _stepValue = _step | last -%}
+                    {%- assign _jsoTag = _stepValue.tag | prepend: tagPrefix -%}
+      
+                    {%- if _tmpStepCount == tmpStepCount -%}
+                      {%- assign lastCompletedStepDetected = true -%}
+                    {%- endif -%}
+      
+                    {%- if lastCompletedStepDetected == true -%}
+                      {%- break -%}
+                    {%- else -%}
+                      {%- for _tag in ctagsArray -%}
+                        {%- if _tag == _jsoTag -%}
+                          {%- assign lastCompletedStep = _stepValue -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+      
+                  {%- if lastCompletedStepDetected == true -%}
+                    {%- break -%}
+                  {%- endif -%}
+      
+                {%- endfor -%}
+    
+              {%- endfor -%}
+
+          {%- endfor -%}
+
+          {% # Get Lstcompleted Step End %}
+
         {%- endif -%}
         
       {%- endfor -%}
 
-      {%- if nextStepContent != false -%}
-        {%- break -%}
-      {%- endif -%}
     {%- endfor -%}
 
-    {%- if nextStepContent != false -%}
-      {%- break -%}
-    {%- endif -%}
   {%- endfor -%}
 
-  {%- if nextStepContent != false -%}
-    {%- break -%}
-  {%- endif -%}
 {%- endfor -%}
-
 
 
 <section class="dashboard dashboard_overview">
   <div class="page-width">
-    <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;" >
-      {% if customer %}<h4>Welcome back <span>{{ customer.first_name }}</span></h4>{% else %}<h4>Welcome, guest!</h4>{% endif %}
+    <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;">
+      {% if customer %}
+        <h4>
+          Welcome <span>{{ customer.first_name }}</span>
+        </h4>
+      {% else %}
+        <h4>Welcome, guest!</h4>
+      {% endif %}
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
-        <div class="left_sidebar scroll-trigger animate--slide-in" style="--animation-order: 2;" >{% render 'left-sidebar' section:section %}</div>
+        <div class="left_sidebar scroll-trigger animate--slide-in" style="--animation-order: 2;">
+          {% render 'left-sidebar', section: section %}
+        </div>
         <div class="dashbord_box dash_over_info">
           <div class="icon-with-text-block">
             {%- assign left_icon = section.settings.left_icon -%}
@@ -126,10 +140,10 @@
             {%- assign left_np_description = section.settings.left_np_description -%}
             {%- assign leftDescription = left_np_description -%}
             {%- assign ParentGole = customer.metafields.klaviyo['Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
-            {%- if isCoursePurchased -%}
+            {%- if isCoursePurchased and ParentGole != blank -%}
               {%- assign leftDescription = left_description -%}
             {%- endif -%}
-            {%- if left_icon != blank and leftDescription != blank and ParentGole != blank -%}
+            {%- if left_icon != blank and leftDescription != blank -%}
               <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 3;">
                 <div class="icon" style="background:{{ left_icon_back_color }};">
                   <img src="{{ left_icon | image_url }}" alt="{{ left_icon.alt | default:'icon' }}">
@@ -145,15 +159,15 @@
             {%- assign right_description = section.settings.right_description -%}
             {%- assign right_np_description = section.settings.right_np_description -%}
             {%- assign rightDescription = right_np_description -%}
-            {%- assign ChildGole = customer.metafields.klaviyo['.Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
-            {%- if isCoursePurchased -%}
+            {%- assign ChildGole = customer.metafields.klaviyo['Q-vwHmPJ_3Oin1Gd__How_would_you_like_to_help_your_child_'] -%}
+            {%- if isCoursePurchased and ChildGole != blank -%}
               {%- assign rightDescription = right_description -%}
             {%- endif -%}
 
-            {%- if left_icon != blank and leftDescription != blank and ChildGole != blank -%}
+            {%- if left_icon != blank and leftDescription != blank -%}
               <div class="icon-box scroll-trigger animate--slide-in" style="--animation-order: 4;">
                 <div class="icon" style="background:{{ right_icon_back_color }};">
-                  <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}" />
+                  <img src="{{ right_icon | image_url }}" alt="{{ right_icon.alt | default:'icon' }}">
                 </div>
                 <div class="icon-text">
                   {{ rightDescription | replace: '[dynamic_text]', ChildGole }}
@@ -167,9 +181,13 @@
             {%- assign animationCount = 4 -%}
             {% for block in section.blocks %}
               {%- case block.type -%}
-                {%- when "course_progress" -%}
+                {%- when 'course_progress' -%}
                   {%- assign animationCount = animationCount | plus: 1 -%}
-                  <div class="course-progress scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
+                  <div
+                    class="course-progress scroll-trigger animate--slide-in"
+                    style="--animation-order: {{ animationCount }};"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -185,7 +203,7 @@
                           {%- assign tmpCount = 0 -%}
                           {% for course in deshboardContent.courses %}
                             {%- assign courseValue = course | last -%}
-                            {% if courseValue.disable_course_progress == "true" %}{%- continue -%}{% endif %}
+                            {% if courseValue.disable_course_progress == 'true' %}{%- continue -%}{% endif %}
                             <div class="white-box {% unless forloop.first %}top-border{% endunless %}">
                               <div class="icon-text">
                                 <img src="{{ courseValue.icon_url }}" alt="{{ courseValue.title }}">
@@ -196,6 +214,9 @@
                                   {% assign innerCourseValue = innerCourse | last %}
                                   {% for part in innerCourseValue.parts %}
                                     {%- assign partValue = part | last -%}
+                                    {% if partValue.disabled == 'true' %}
+                                      {%- continue -%}
+                                    {% endif %}
 
                                     {%- assign totalCourses = totalCourses | plus: 1 -%}
                                     {%- assign totalSteps = partValue.steps | size | times: 1.0 -%}
@@ -204,14 +225,18 @@
                                     {%- for step in partValue.steps -%}
                                       {%- assign stepValue = step | last -%}
                                       {%- assign tmpCount = tmpCount | plus: 1 -%}
+                                      {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
 
-                                      {%- if tmpCount <= lastCompletedStepIndex -%}
-                                        {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                      {%- endif -%}
+                                      {%- for tag in ctagsArray -%}
+                                        {%- if tag == jsoTag -%}
+                                          {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                          {%- break -%}
+                                        {%- endif -%}
+                                      {%- endfor -%}
                                     {%- endfor -%}
 
                                     {%- assign totalProgress = completedStepCount | divided_by: totalSteps | times: 100 -%}
-        
+
                                     <div class="meter item-{{ forloop.index }}">
                                       <span style="--progress-width: {{ totalProgress }}%"></span>
                                     </div>
@@ -338,112 +363,119 @@
                       {%- endif -%}
 
                       {%- if isCoursePurchased == true -%}
-                        <div class="progress-details">
-                          {%- if previoustStepContent != blank -%}
-                            {%- assign progress_summary = previoustStepContent.progress_summary -%}
-                            <div class="course-link">
-                              <div class="link-icon">
-                                <p>{{ block.settings.ltl_heading }}</p>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="18"
-                                  height="18"
-                                  viewBox="0 0 18 18"
-                                  fill="none"
-                                >
-                                  <rect width="18" height="18" rx="9" fill="#C9D9D3" />
-                                  <path
-                                    d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524"
-                                    stroke="#01333E"
-                                    stroke-width="0.802083"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                  <path
-                                    d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
-                                    stroke="#01333E"
-                                    stroke-width="0.802083"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  />
-                                </svg>
+                        {%- if lastCompletedStep.progress_summary.title != blank or nextStepContent.progress_summary.title != blank -%}
+                          <div class="progress-details">
+                            {%- if lastCompletedStep != blank and lastCompletedStep.progress_summary.title != blank -%}
+                              {%- assign progress_summary = lastCompletedStep.progress_summary -%}
+                              <div class="course-link">
+                                <div class="link-icon">
+                                  <p>{{ block.settings.ltl_heading }}</p>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 18 18"
+                                    fill="none"
+                                  >
+                                    <rect width="18" height="18" rx="9" fill="#C9D9D3" />
+                                    <path
+                                      d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524"
+                                      stroke="#01333E"
+                                      stroke-width="0.802083"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
+                                      stroke="#01333E"
+                                      stroke-width="0.802083"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                                <div class="link-text">
+                                  <p class="text-bg">
+                                    {{ progress_summary.title }}
+                                  </p>
+                                  <p>{{ progress_summary.description }}</p>
+                                </div>
                               </div>
-                              <div class="link-text">
-                                <p class="text-bg">
-                                  {{ progress_summary.title }}
-                                </p>
-                                <p>{{ progress_summary.description }}</p>
+                            {%- endif -%}
+                            {%- if nextStepContent != blank and nextStepContent.progress_summary.title != blank -%}
+                              {%- assign progress_summary = nextStepContent.progress_summary -%}
+                              <div class="course-link">
+                                <div class="link-icon">
+                                  <p>{{ block.settings.ntl_heading }}</p>
+                                  {% render 'icon-red-forword' %}
+                                </div>
+                                <div class="link-text">
+                                  <p class="text-bg">
+                                    {{ progress_summary.title }}
+                                  </p>
+                                  <p>{{ progress_summary.description }}</p>
+                                </div>
                               </div>
-                            </div>
-                          {%- endif -%}
-                          {%- if nextStepContent != blank -%}
-                            {%- assign progress_summary = nextStepContent.progress_summary -%}
-                            <div class="course-link">
-                              <div class="link-icon">
-                                <p>{{ block.settings.ntl_heading }}</p>
-                                {% render 'icon-red-forword' %}
-                              </div>
-                              <div class="link-text">
-                                <p class="text-bg">
-                                  {{ progress_summary.title }}
-                                </p>
-                                <p>{{ progress_summary.description }}</p>
-                              </div>
-                            </div>
-                          {%- endif -%}
-
-                        </div>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
                       {%- else -%}
-                        <div class="progress-details">
-                          <div class="course-link">
-                            <div class="link-icon">
-                              <p>{{ block.settings.ltl_heading }}</p>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 18 18"
-                                fill="none"
-                              >
-                                <rect width="18" height="18" rx="9" fill="#C9D9D3" />
-                                <path
-                                  d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524"
-                                  stroke="#01333E"
-                                  stroke-width="0.802083"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                />
-                                <path
-                                  d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
-                                  stroke="#01333E"
-                                  stroke-width="0.802083"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                />
-                              </svg>
-                            </div>
-                            <div class="link-text">
-                              <p class="text-bg">
-                                {%- assign text = block.settings.ltl_title | replace_first: ' ', '|' | split: '|' -%}
-                                <span>{{ text | first }}</span>&nbsp;{{ text | last }}
-                              </p>
-                              {{ block.settings.ltl_description }}
-                            </div>
+                        {%- if block.settings.show_custom_last_time_section == true or block.settings.show_custom_next_time_section == true -%}
+                          <div class="progress-details">
+                            {%- if block.settings.show_custom_last_time_section == true -%}
+                              <div class="course-link">
+                                <div class="link-icon">
+                                  <p>{{ block.settings.ltl_heading }}</p>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 18 18"
+                                    fill="none"
+                                  >
+                                    <rect width="18" height="18" rx="9" fill="#C9D9D3" />
+                                    <path
+                                      d="M12.912 5.73828L8.75115 11.3861C8.69879 11.4574 8.63247 11.5173 8.55623 11.5621C8.47999 11.607 8.39542 11.6358 8.30768 11.647C8.22113 11.658 8.13325 11.6516 8.04923 11.6281C7.96521 11.6046 7.88677 11.5644 7.81855 11.51L5.08594 9.32524"
+                                      stroke="#01333E"
+                                      stroke-width="0.802083"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
+                                      stroke="#01333E"
+                                      stroke-width="0.802083"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                                <div class="link-text">
+                                  <p class="text-bg">
+                                    {%- assign text = block.settings.ltl_title | replace_first: ' ', '|' | split: '|' -%}
+                                    <span>{{ text | first }}</span>&nbsp;{{ text | last }}
+                                  </p>
+                                  {{ block.settings.ltl_description }}
+                                </div>
+                              </div>
+                            {%- endif -%}
+                            {%- if block.settings.show_custom_next_time_section -%}
+                              <div class="course-link">
+                                <div class="link-icon">
+                                  <p>{{ block.settings.ntl_heading }}</p>
+                                  {% render 'icon-red-forword' %}
+                                </div>
+                                <div class="link-text">
+                                  <p class="text-bg">
+                                    {%- assign ntltext = block.settings.ntl_title | replace_first: ' ', '|' | split: '|' -%}
+                                    <span>{{ ntltext | first }}</span>&nbsp;{{ ntltext | last }}
+                                  </p>
+                                  {{ block.settings.ntl_description }}
+                                </div>
+                              </div>
+                            {%- endif -%}
                           </div>
-                          <div class="course-link">
-                            <div class="link-icon">
-                              <p>{{ block.settings.ntl_heading }}</p>
-                              {% render 'icon-red-forword' %}
-                            </div>
-                            <div class="link-text">
-                              <p class="text-bg">
-                                {%- assign ntltext = block.settings.ntl_title | replace_first: ' ', '|' | split: '|' -%}
-                                <span>{{ ntltext | first }}</span>&nbsp;{{ ntltext | last }}
-                              </p>
-                              {{ block.settings.ntl_description }}
-                            </div>
-                          </div>
-                        </div>
+                        {%- endif -%}
                       {%- endif -%}
                     </div>
                     
@@ -476,9 +508,14 @@
                       </div>
                     {%- endif -%}
                   </div>
-                {%- when "family_star_result" -%}
+                {%- when 'family_star_result' -%}
+                  {% assign isCoursePurchased = false %}
                   {%- assign animationCount = animationCount | plus: 1 -%}
-                  <div class="family-block scroll-trigger animate--slide-in" style="--animation-order: {{ animationCount }};" {{ block.shopify_attributes }}>
+                  <div
+                    class="family-block scroll-trigger animate--slide-in"
+                    style="--animation-order: {{ animationCount }};"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- assign title = block.settings.np_title -%}
                     {%- if isCoursePurchased -%}
                       {%- assign title = block.settings.title -%}
@@ -498,12 +535,21 @@
                       </div>
                     {%- else -%}
                       <div class="family-graph course-not-purchased-description">
+                        <div class="course-not-purchased-img">
+                          <img
+                            src="{{ block.settings.background_image | image_url }}"
+                            alt="{{ block.settings.background_image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.background_image.width }}"
+                            height="{{ block.settings.background_image.height }}"
+                          >
+                        </div>
                         {{ block.settings.description }}
                       </div>
                     {%- endif -%}
                     {%- assign buttonTitle = block.settings.np_btn_title -%}
                     {%- assign buttonUrl = settings.course_product.url -%}
-                    {%- if isCoursePurchased == true -%}
+                    {%- if customer and customer.tags contains 'Purchased Course' -%}
                       {%- assign buttonTitle = block.settings.btn_title -%}
                       {%- assign buttonUrl = block.settings.button_url -%}
                     {%- endif -%}
@@ -631,6 +677,12 @@
           "content": "Last time learn section"
         },
         {
+          "type": "checkbox",
+          "id": "show_custom_last_time_section",
+          "label": "Show section",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "ltl_heading",
           "label": "Heading",
@@ -653,6 +705,12 @@
         {
           "type": "header",
           "content": "Next time learn section"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_custom_next_time_section",
+          "label": "Show section",
+          "default": false
         },
         {
           "type": "text",
@@ -696,7 +754,7 @@
           "type": "url",
           "id": "button_url",
           "label": "Button link",
-          "info":"This Link will add when user will Purchase course."
+          "info": "This Link will add when user will Purchase course."
         }
       ]
     },
@@ -729,6 +787,11 @@
           "label": "Description"
         },
         {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Custom Background Image"
+        },
+        {
           "type": "paragraph",
           "content": "NOTE: Description will show when user has been purchased course."
         },
@@ -754,7 +817,7 @@
           "type": "url",
           "id": "button_url",
           "label": "Button link",
-          "info":"This Link will add when user will Purchase course."
+          "info": "This Link will add when user will Purchase course."
         }
       ]
     }

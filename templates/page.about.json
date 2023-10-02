@@ -14,7 +14,7 @@
         "template--19754753196330__ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a-1687941566f7dab774-0": {
           "type": "heading",
           "settings": {
-            "heading": "Why choose Parenting Matters online?",
+            "heading": "Why choose <\/br> Parenting Matters?",
             "heading_size": "h0"
           }
         },
@@ -40,29 +40,53 @@
         "mobile_content_alignment": "center"
       }
     },
+    "56d16038-8cd8-4e8c-8abe-6012349b4e9a": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https:\/\/vimeo.com\/786248207",
+        "cover_image": "shopify:\/\/shop_images\/Screenshot_2023-09-21_at_15.34.41.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "e31753ed-f7aa-4281-ab93-ab017c8d7859": {
+      "type": "rich-text",
+      "blocks": {
+        "template--19760290693418__e31753ed-f7aa-4281-ab93-ab017c8d7859-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<h5>We have created a fun online course, Parenting Matters. Through entertaining videos, cartoons and exercises where you try out new ways of communicating, you will get closer to your child and understand what makes them tick. They will become calmer, more helpful and learn better.<\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19760290693418__e31753ed-f7aa-4281-ab93-ab017c8d7859-text-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa": {
       "type": "course-highlights-section",
       "blocks": {
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0": {
-          "type": "track_quiz",
-          "settings": {
-            "quiz_image": "shopify:\/\/shop_images\/Family_star.svg",
-            "sub_title": "Quiz",
-            "heading_text": "Track your Family Star",
-            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
-            "button_text": "Take the Quiz",
-            "np_button_text": "Buy the Course",
-            "button_url": "shopify:\/\/pages\/quiz-hub",
-            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
-            "layout": "image_first"
-          }
-        },
         "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1": {
           "type": "exercise_quiz",
           "settings": {
             "sub_heading": "Course",
             "heading": "Bite Sized Exercises",
-            "about_quiz": "Split into easy daily exercise's, the course let’s you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.",
+            "about_quiz": "Split into easy daily exercises, the course lets you focus on improvement around your schedule (even if it’s a busy one!) so you can focus on learning when it suits you, and spend the rest of the time experiencing the benefits.",
+            "disable_course_not_purchase_button": false,
             "button_name": "Take the Quiz",
             "np_button_text": "Buy the Course",
             "button_link": "shopify:\/\/pages\/quiz-hub",
@@ -80,11 +104,26 @@
             "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
             "layout_2": "image_first"
           }
+        },
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0": {
+          "type": "track_quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Family_star.svg",
+            "sub_title": "Quiz",
+            "heading_text": "Track your Family Star",
+            "paragraph": "Take the Family Star quiz throughout your journey with us and track the changes in yours and your child’s behaviours from when you first started, to where you are now! The family star quiz can help you see what areas you are struggling with the most and what you should be focusing on.",
+            "button_text": "Take the Quiz",
+            "disable_course_not_purchase_button": false,
+            "np_button_text": "Buy the Course",
+            "button_url": "shopify:\/\/pages\/quiz-hub",
+            "background_schema": "scheme-98894f5c-cb7a-46d1-9489-b1f6b344a99b",
+            "layout": "image_first"
+          }
         }
       },
       "block_order": [
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0",
-        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1"
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-1",
+        "template--19754753196330__16d0b00f-eefe-4648-8a19-37bc0023c8fa-1687959337f1047049-0"
       ],
       "settings": {
         "full_width": false,
@@ -204,9 +243,9 @@
           "type": "ourteam",
           "settings": {
             "blog_card_image": "shopify:\/\/shop_images\/Stephen_head.jpg",
-            "our_team_title": "Professor Stephen Scott",
-            "our_team_sub_title": "Professor of Child Health and Behaviour",
-            "our_team_description": "<ul><li>Professor of Child Health and Behaviour, King's College London<\/li><li>Consultant Children’s Doctor, and head of a team helping parents support children with behavioural and emotional issues. Based at the Maudsley Hospital – the leading centre in Europe.<\/li><li>Director, National Academy for Parenting Research, and author of a bestselling textbook on children’s mental health and wellbeing.<\/li><li>Awarded CBE by the Queen for services to families .<\/li><\/ul><p>\"I have always liked working with children, so it was natural for me to become a paediatrician. But despite being an \"expert\" who worked at Great Ormond Street, when I became a real-life father I couldn't stop my 3 day old son screaming his head off. I had to call the midwife, who soon sorted him out. Over time I became more and more interested in understanding how the ways that parents behave affects their children.<\/p><p>I was fortunate to be appointed head of the parenting clinic at the Maudsley Hospital, where for the last 25 years I and my team have worked with families. We’ve researched the most effective way to enable them help their children become happier and better adjusted, as well as learning faster and having improved brain growth. Every family and every child is different, but there are some universal truths about good parenting. My clinic is limited in how many families we can see, so I am delighted to bring the fruits of my research and personal experience to a far wider audience by going online.\"<\/p>",
+            "our_team_title": "Prof Stephen Scott",
+            "our_team_sub_title": "Professor of Child Health and Behaviour, King's College London",
+            "our_team_description": "",
             "our_team_description2": "<ul><li>Professor of Child Health and Behaviour, King's College London<\/li><li>Consultant Children’s Doctor, and head of a team helping parents support children with behavioural and emotional issues. Based at the Maudsley Hospital – the leading centre in Europe.<\/li><li>Director, National Academy for Parenting Research, and author of a bestselling textbook on children’s mental health and wellbeing.<\/li><li>Awarded CBE by the Queen for services to families .<\/li><\/ul><p>\"I have always liked working with children, so it was natural for me to become a paediatrician. But despite being an \"expert\" who worked at Great Ormond Street, when I became a real-life father I couldn't stop my 3 day old son screaming his head off. I had to call the midwife, who soon sorted him out. Over time I became more and more interested in understanding how the ways that parents behave affects their children.<\/p><p>I was fortunate to be appointed head of the parenting clinic at the Maudsley Hospital, where for the last 25 years I and my team have worked with families. We’ve researched the most effective way to enable them help their children become happier and better adjusted, as well as learning faster and having improved brain growth. Every family and every child is different, but there are some universal truths about good parenting. My clinic is limited in how many families we can see, so I am delighted to bring the fruits of my research and personal experience to a far wider audience by going online.\"<\/p>",
             "card_btn": "Read more"
           }
@@ -216,8 +255,8 @@
           "settings": {
             "blog_card_image": "shopify:\/\/shop_images\/Clare_portrait_for_book_small_0a974dea-7d35-4b44-a5db-35eb3ca96ccb.png",
             "our_team_title": "Dr Clare Bailey",
-            "our_team_sub_title": "Founder, Parenting Matters",
-            "our_team_description": "<ul><li>GP with a special interest in parenting<\/li><li>Founder, <em>Parenting Matters<\/em> – running parenting courses individually, in groups or by Skype and seminars in schools and businesses.<\/li><li>Author of the bestselling <em>Blood Sugar Diet, Clever Guts & Fast 800<\/em> Recipe Books. Married to Dr Michael Mosley<\/li><li><em>Mail on Sunday <\/em>health columnist.<\/li><\/ul><p>“Before I had children I assumed that bringing them up would come naturally. But it doesn’t. Finally, with 3 children under 5 and working as a busy GP, I realised that I was out of my depth! I was lucky that my mum was very supportive, and she encouraged me to go on a University course about parenting. What I learnt made such a big difference that I wanted to share it with other parents.<\/p><p>So I set up a successful face-to-face programme called Parenting Matters, which ran for many years, but I realised that an online course would be far more accessible for parents. So I teamed up with Prof Stephen Scott to create Parenting Matters. Here we share the secrets of effective parenting, based on the latest evidence and years of experience working with families.”<\/p>",
+            "our_team_sub_title": "GP, Parenting Specialist, Bestselling Author",
+            "our_team_description": "",
             "our_team_description2": "<ul><li>GP with a special interest in parenting<\/li><li>Founder, <em>Parenting Matters<\/em> – running parenting courses individually, in groups or by Skype and seminars in schools and businesses.<\/li><li>Author of the bestselling <em>Blood Sugar Diet, Clever Guts & Fast 800<\/em> Recipe Books. Married to Dr Michael Mosley<\/li><li><em>Mail on Sunday <\/em>health columnist.<\/li><\/ul><p>“Before I had children I assumed that bringing them up would come naturally. But it doesn’t. Finally, with 3 children under 5 and working as a busy GP, I realised that I was out of my depth! I was lucky that my mum was very supportive, and she encouraged me to go on a University course about parenting. What I learnt made such a big difference that I wanted to share it with other parents.<\/p><p>So I set up a successful face-to-face programme called Parenting Matters, which ran for many years, but I realised that an online course would be far more accessible for parents. So I teamed up with Prof Stephen Scott to create Parenting Matters. Here we share the secrets of effective parenting, based on the latest evidence and years of experience working with families.”<\/p>",
             "card_btn": "Read more"
           }
@@ -226,9 +265,9 @@
           "type": "ourteam",
           "settings": {
             "blog_card_image": "shopify:\/\/shop_images\/MOSLEY-069.jpg",
-            "our_team_title": "Dr Michael Mosely",
-            "our_team_sub_title": "BBC Science Broadcaster",
-            "our_team_description": "<ul><li>BBC Science Broadcaster (Trust Me I’m a Doctor, Horizons)<\/li><li>Columnist for various newspapers<\/li><li>Bestselling author of The 5:2 Fast Diet, The Blood Sugar Diet and The Fast 800<\/li><li>Expert on helping people change their behaviour and habits<\/li><\/ul><p>“I met Clare at medical school, and we later got married. Unlike her, I didn’t stay in medicine but instead I became a BBC journalist and then a television presenter. Like Clare, I thought that having kids would be a breeze. It wasn’t. We did the best we could, but it was sometimes a struggle.<\/p><p>When Clare set up Parenting Matters, I was so impressed to see how parents appreciated it and what a difference it made that I decided to make a TV series called Little Angels with Prof Tanya Byron, a leading psychologist who helped families with challenging children turn their lives around by working on more effective parenting skills. I think an online course is a brilliant idea and I do hope you enjoy it! Simple changes can transform your life, as in my book, \"Just One Thing!\"<\/p>",
+            "our_team_title": "Dr Michael Mosley",
+            "our_team_sub_title": "Acclaimed Health Broadcaster & Author",
+            "our_team_description": "",
             "our_team_description2": "<ul><li>BBC Science Broadcaster (Trust Me I’m a Doctor, Horizons)<\/li><li>Columnist for various newspapers<\/li><li>Bestselling author of The 5:2 Fast Diet, The Blood Sugar Diet and The Fast 800<\/li><li>Expert on helping people change their behaviour and habits<\/li><\/ul><p>“I met Clare at medical school, and we later got married. Unlike her, I didn’t stay in medicine but instead I became a BBC journalist and then a television presenter. Like Clare, I thought that having kids would be a breeze. It wasn’t. We did the best we could, but it was sometimes a struggle.<\/p><p>When Clare set up Parenting Matters, I was so impressed to see how parents appreciated it and what a difference it made that I decided to make a TV series called Little Angels with Prof Tanya Byron, a leading psychologist who helped families with challenging children turn their lives around by working on more effective parenting skills. I think an online course is a brilliant idea and I do hope you enjoy it! Simple changes can transform your life, as in my book, \"Just One Thing!\"<\/p>",
             "card_btn": "Read more"
           }
@@ -272,28 +311,28 @@
           "type": "text",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Icon_15.svg",
-            "checklist": "Easy ways to connect with your child"
+            "checklist": "Easy ways to connect with your child."
           }
         },
         "3adc54e8-7974-48ad-812d-e80cff459c6d": {
           "type": "text",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Icon_15.svg",
-            "checklist": "Parenting tips, exercises, videos and feedback on progress"
+            "checklist": "Parenting tips, exercises, videos and feedback on progress."
           }
         },
         "a7aca6dd-cfd5-40ad-b39e-34d0a4af6935": {
           "type": "text",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Icon_15.svg",
-            "checklist": "Access to a supported private Community"
+            "checklist": "Access to a supported private Community."
           }
         },
         "e075b1c5-7fdc-490f-9389-8d722d07ccab": {
           "type": "text",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Icon_15.svg",
-            "checklist": "A calmer, happier home and a more confident parent"
+            "checklist": "A calmer, happier home and a more confident parent."
           }
         }
       },
@@ -326,25 +365,25 @@
         "template--19754753196330__4345c6d8-b16b-4b79-aaf6-8d815b85b129-1687929040a764d34f-0": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“The ability to prevent problems and feel that every evening is not a struggle and is even enjoyable being with your children is very valuable!”<\/p>"
+            "community_description": "<p>“Every parent needs help and this course has some of the answers! It was relevant and the techniques actually worked at home!”<\/p>"
           }
         },
         "66207b46-1efe-484b-84f9-7dc195f5aa33": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
+            "community_description": "<p>“My only disappointment was that I didn't do it earlier”<\/p>"
           }
         },
         "14c728da-a8c2-4ed5-a273-f289c8a229b6": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>“I really enjoyed this course. I think it was very well structured, providing bite-sized information in an impactful way.”<\/p>"
           }
         },
-        "2d4819d2-0add-4a8f-9844-5e877672daca": {
+        "c3e83ad2-58d9-49d1-a4bb-19240a89ff02": {
           "type": "block",
           "settings": {
-            "community_description": "<p>“We really enjoyed it and I got even more hugs than I normally do.”<\/p>"
+            "community_description": "<p>\"It was amazing and positively transformed how I parent my kids, my relationship with them and the atmosphere at home\" <\/p>"
           }
         }
       },
@@ -352,11 +391,11 @@
         "template--19754753196330__4345c6d8-b16b-4b79-aaf6-8d815b85b129-1687929040a764d34f-0",
         "66207b46-1efe-484b-84f9-7dc195f5aa33",
         "14c728da-a8c2-4ed5-a273-f289c8a229b6",
-        "2d4819d2-0add-4a8f-9844-5e877672daca"
+        "c3e83ad2-58d9-49d1-a4bb-19240a89ff02"
       ],
       "settings": {
         "full_width": false,
-        "section_title": "Some words from <br> our Community.",
+        "section_title": "Some words from  our Community.",
         "top_border": true,
         "bottom_border": true,
         "padding_top": 64,
@@ -369,6 +408,8 @@
   "order": [
     "main",
     "ff445ef0-f3a9-4da6-b4db-24c0dbe43d5a",
+    "56d16038-8cd8-4e8c-8abe-6012349b4e9a",
+    "e31753ed-f7aa-4281-ab93-ab017c8d7859",
     "16d0b00f-eefe-4648-8a19-37bc0023c8fa",
     "31fc5afb-d0b6-41a8-824d-2153581bde4e",
     "91165899-7dc1-43fc-b674-0b386b4d68b0",

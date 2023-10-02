@@ -129,7 +129,12 @@
               {%- if shop.customer_accounts_enabled -%}
                 <div class="customer_accounts_buttons">
                   <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button">
-                    Join now {% render 'icon-arrow' %}
+                    {%- if customer -%}
+                      My account
+                    {%- else -%}
+                      Join now
+                    {%- endif -%}
+                    {% render 'icon-arrow' %}
                     <span class="visually-hidden">
                       {%- liquid
                         if customer

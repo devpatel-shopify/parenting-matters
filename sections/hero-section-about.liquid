@@ -37,12 +37,16 @@
         {% comment %}
           {{ 'hero-about-illustration.svg' | asset_url | img_tag }}
         {% endcomment %}
-        <img
-          src="{{ section.settings.banner_img | img_url:'master' }}"
-          alt="{{ section.settings.banner_img.alt }}"
-          width="{{ section.settings.banner_img.width }}"
-          height="{{ section.settings.banner_img.height }}"
-        >
+        {%- if section.settings.banner_img != blank -%}
+          <img
+            src="{{ section.settings.banner_img | img_url:'master' }}"
+            alt="{{ section.settings.banner_img.alt }}"
+            width="{{ section.settings.banner_img.width }}"
+            height="{{ section.settings.banner_img.height }}"
+          >
+        {%- else -%}
+          {{ 'hero-apparel-1' | placeholder_svg_tag }}
+        {%- endif -%}
       </div>
     </div>
   </div>

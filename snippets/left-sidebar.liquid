@@ -26,6 +26,10 @@
             {%- assign showLink = false -%}
         {%- endif -%}
 
+        {% if customer and customer.metafields.klaviyo.FamilyStarCompleted == blank and textValue contains 'Family' %}
+            {%- assign showLink = false -%}
+        {% endif %}
+
         {%- if textValue != blank and linkValue != blank and showLink == true -%}
             <li class="scroll-trigger animate--slide-in" style="--animation-order: {{ forloop.index | plus: 1 }};">
                 <a href="{{- linkValue -}}" class="js-dashbord-link {% if linkValue == page.url %}active{% endif %}" {% if newTabValue %}target="_blank"{% endif %}>

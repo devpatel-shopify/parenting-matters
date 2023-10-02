@@ -6,14 +6,14 @@
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "Our parenting quizzes",
+            "heading": "Starting the quiz",
             "heading_size": "h1"
           }
         },
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1": {
           "type": "text",
           "settings": {
-            "text": "We’ve got a bunch of fun and informative quizzes which will help you identify different parenting features about yourself.",
+            "text": "Take our parenting styles quiz. Find out what type of parent you are within minutes and what that means for you and your child. Answer each of the questions below as accurately as you can!",
             "text_style": "body"
           }
         },
@@ -99,7 +99,7 @@
         "d33351df-137b-40e7-a7ac-98fba6b2424e": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_childneed",
             "q_group_title": "How much do you agree with...",
             "q": "Children need to learn to fit in and not to make a fuss",
             "a1": "Agree",
@@ -111,7 +111,7 @@
         "792d64c3-4c3b-40ce-846b-ab0ea77d383f": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_boundaries",
             "q_group_title": "How much do you agree with...",
             "q": "Clear boundaries (limits) are important",
             "a1": "Agree",
@@ -123,7 +123,7 @@
         "4b9fe844-a508-4ed5-a5a2-8f8c90d893c3": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_spendtime",
             "q_group_title": "How much do you agree with...",
             "q": "I often spend time having fun with my child",
             "a1": "Agree",
@@ -135,7 +135,7 @@
         "7597dc50-57c1-411f-857f-ccab97643401": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_time_consequances",
             "q_group_title": "How much do you agree with...",
             "q": "At times consequences are needed to help children learn how to behave",
             "a1": "Agree",
@@ -147,7 +147,7 @@
         "f6a2412d-92e8-4a7e-b761-41dadb414c2e": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_different_need",
             "q_group_title": "How much do you agree with...",
             "q": "Each child has different needs and so needs to be accommodated to",
             "a1": "Agree",
@@ -159,7 +159,7 @@
         "9f96bdf9-451a-467d-90c6-6a7ce3ff661c": {
           "type": "button",
           "settings": {
-            "klaviyo_id": "",
+            "klaviyo_id": "pq_tell_behave",
             "q_group_title": "How much do you agree with...",
             "q": "I often tell\/show my child how to behave",
             "a1": "Agree",
@@ -373,6 +373,11 @@
         "form_id": "parenting style quiz",
         "success_title": "You have now completed the parenting quiz!",
         "success_overview": "<p>Lorem ipsum domest ipsular est. <a href=\"\/pages\/contact\" title=\"Contact\">Click here to go somewhere<\/a>.<\/p>",
+        "form_success_description": "<p>Thank you, your result will be emailed to you with account activation email - in the meantime why don’t you learn more about the full Parenting Matters experience with our Course! <\/p>",
+        "btn_title_1": "Learn More",
+        "btn_url_1": "shopify:\/\/pages\/about",
+        "btn_title_2": "",
+        "btn_url_2": "",
         "color_scheme": "background-1",
         "heading_font": "h3",
         "progress_bar_radius": 44

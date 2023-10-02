@@ -103,7 +103,7 @@
           {%- endif -%}
         </div>
 
-        <div class="field-box">
+        {% comment %} <div class="field-box">
           <label class="" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
           <input
             type="tel"
@@ -115,7 +115,7 @@
             value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
             placeholder="Enter your number"
           >
-        </div>
+        </div> {% endcomment %}
         <div class="field-box">
           <label class="" for="ContactForm-body">
             {{- 'templates.contact.form.comment' | t -}}

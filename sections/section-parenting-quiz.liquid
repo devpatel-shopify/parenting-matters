@@ -1,3 +1,10 @@
+{% if customer and customer.metafields.klaviyo.ParentingStyle %}
+<script type="text/javascript">
+window.location.replace("{{shop.url}}/pages/custom-parenting-style");
+</script>
+{% else  %}
+
+
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
 {{ 'section-parenting-quiz.css' | asset_url | stylesheet_tag }}
@@ -19,7 +26,7 @@
         style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
       > -->
         
-<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+<form id="pq_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank">
     <input type="hidden" name="g" value="SsT6w6">
     <input type="hidden" name="$list_fields" value="$consent">
         
@@ -36,6 +43,10 @@
   
           {% case block.type %}
             {% when 'range' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+              {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
@@ -48,7 +59,7 @@
                       <p>{{ bs.a2 }}</p>
                     </div>
                     <div class="range_inner">
-                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
+                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ name }}" min="1" max="4" value="1" data-val="-2">
                       <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
                       <div class="range_steps">
                         <span class="step">&nbsp;</span>
@@ -73,6 +84,10 @@
               </div>
 
             {% when 'button' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -89,7 +104,7 @@
                         type="radio"
                         id="{{ bs.a1 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a1 | handleize }}"
                         data-val="-2"
                         required
@@ -104,7 +119,7 @@
                         type="radio"
                         id="{{ bs.a2 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a2 | handleize }}"
                         data-val="-1"
                         required
@@ -119,7 +134,7 @@
                         type="radio"
                         id="{{ bs.a3 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a3 | handleize }}"
                         data-val="1"
                         required
@@ -134,7 +149,7 @@
                         type="radio"
                         id="{{ bs.a4 | handleize }}-{{forloop.index}}"
                         data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
+                        name="{{ name }}"
                         value="{{ bs.a4 | handleize }}"
                         data-val="2"
                         required
@@ -158,6 +173,10 @@
               </div>
 
             {% when 'textfield' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -169,7 +188,7 @@
 
                 <div class="textfield-container">
                   <textarea
-                    name="{{ bs.klaviyo_id }}"
+                    name="{{ name }}"
                     id="{{ bs.klaviyo_id }}"
                     placeholder="Enter your answer here..."
                   ></textarea>
@@ -188,6 +207,10 @@
               </div>
 
             {% when 'dropdown' %}
+              {%  assign name = "pq_questions_" | append: forloop.index  %} 
+              {% if bs.klaviyo_id %}
+              {%  assign name = bs.klaviyo_id | handleize  %} 
+            {% endif %}
               <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
                 {% if bs.q_group_title != blank %}
                   <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
@@ -240,181 +263,108 @@
 
     
 
-<div class="form-success-msg hidden">
-        {% if ss.success_title != blank %}
-          <h2 class="title">{{ ss.success_title }}</h2>
-          <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
-        {% endif %}
+      <div class="form-success-msg hidden">
 
-<div class="customer contact-form register quiz-signup">
+          {% comment %}
+            <div class="customer contact-form register quiz-signup">
 
-        {% if ss.success_overview != blank %}
-          <h5 class="rte">{{ ss.success_overview }}</h5>
-        {% endif %}
-        <p>Enter your details below to create your account.</p>
-  
+            {% if ss.success_overview != blank %}
+              <h5 class="rte">{{ ss.success_overview }}</h5>
+            {% endif %}
+            <p>Enter your details below to create your account.</p>
+      
 
-   
-    <div class="field-box">
-      <label for="RegisterForm-FirstName">
-        {{ 'customer.register.first_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your First name"
-      >
-    </div>
-
-    <div class="field-box">
-      <label for="RegisterForm-LastName">
-        {{ 'customer.register.last_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[last_name]"
-        id="RegisterForm-LastName"
-        {% if form.last_name %}
-          value="{{ form.last_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your Last name"
-      >
-    </div>      
-  
-    <div class="field-box">
-      <label for="RegisterForm-email">
-        {{ 'customer.register.email' | t }}
-      </label>
-      <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
-        {% endif %}
-        placeholder="Enter your email"
-      >
-    </div>
-
-    
-    <div class="field-box">
-      <label for="RegisterForm-password"> Password* </label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-    </div>
-    <div class="field-box">
-      <label for="RegisterForm-password">
-        {{ 'customer.register.password' | t }}
-      </label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-    </div>
-    
-    <div class="button-block">
-      <button id="RegistrationSubmit" class="button button--primary">
-        {{ 'customer.register.submit' | t }}
-        <svg
-          aria-hidden="true"
-          class="icon icon-arrow"
-          focusable="false"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-        </svg>
-      </button>
-    </div>
-   
-</div>
-
-
-
-
-        {% comment %}
-        <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
-          <div class="contact">
-            <div class="contact__fields">
-              <div class="grid grid--1-col grid--2-col-tablet">
-              <div class="field-box grid__item">
-                <label class="" for="pq_first_name">First name</label>
-                <input
-                  class=""
-                  autocomplete="first_name"
-                  type="text"
-                  id="pq_first_name"
-                  name="first_name"
-                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
-                  placeholder="First name"
-                >
-              </div>
-                <div class="field-box grid__item">
-                <label class="" for="pq_last_name">Last name</label>
-                <input
-                  class=""
-                  autocomplete="last_name"
-                  type="text"
-                  id="pq_last_name"
-                  name="last_name"
-                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
-                  placeholder="Last name"
-                >
-              </div>
-              </div>
-              <div class=" field-box field--with-error">
-                <label class="" for="ContactForm-email">
-                  {{- 'templates.contact.form.email' | t }}
-                </label>
-                <input
-                  autocomplete="email"
-                  type="email"
-                  id="pq_email"
-                  class=""
-                  name="email"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  value="{% if customer %}{{ customer.email }}{% endif %}"
-                  aria-required="true"
-                  required
-                  placeholder="Enter your email"
-                >
-              </div>
+      
+            <div class="field-box">
+              <label for="RegisterForm-FirstName">
+                {{ 'customer.register.first_name' | t }}
+              </label>
+              <input
+                type="text"
+                name="customer[first_name]"
+                id="RegisterForm-FirstName"
+                {% if form.first_name %}
+                  value="{{ form.first_name }}"
+                {% endif %}
+                autocomplete="given-name"
+                placeholder="Enter your First name"
+              >
             </div>
-            <div class="contact__button">
-              <button type="submit" class="button button--primary">
-                {{ 'templates.contact.form.send' | t }}
+
+            <div class="field-box">
+              <label for="RegisterForm-LastName">
+                {{ 'customer.register.last_name' | t }}
+              </label>
+              <input
+                type="text"
+                name="customer[last_name]"
+                id="RegisterForm-LastName"
+                {% if form.last_name %}
+                  value="{{ form.last_name }}"
+                {% endif %}
+                autocomplete="given-name"
+                placeholder="Enter your Last name"
+              >
+            </div>      
+          
+            <div class="field-box">
+              <label for="RegisterForm-email">
+                {{ 'customer.register.email' | t }}
+              </label>
+              <input
+                type="email"
+                name="customer[email]"
+                id="RegisterForm-email"
+                {% if form.email %}
+                  value="{{ form.email }}"
+                {% endif %}
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="email"
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                  aria-invalid="true"
+                  aria-describedby="RegisterForm-email-error"
+                {% endif %}
+                placeholder="Enter your email"
+              >
+            </div>
+
+            
+            <div class="field-box">
+              <label for="RegisterForm-password"> Password* </label>
+              <input
+                type="password"
+                name="customer[password]"
+                id="RegisterForm-password"
+                aria-required="true"
+                {% if form.errors contains 'password' %}
+                  aria-invalid="true"
+                  aria-describedby="RegisterForm-password-error"
+                {% endif %}
+                placeholder="Enter your password"
+              >
+            </div>
+            <div class="field-box">
+              <label for="RegisterForm-password">
+                {{ 'customer.register.password' | t }}
+              </label>
+              <input
+                type="password"
+                name="customer[password]"
+                id="RegisterForm-password"
+                aria-required="true"
+                {% if form.errors contains 'password' %}
+                  aria-invalid="true"
+                  aria-describedby="RegisterForm-password-error"
+                {% endif %}
+                placeholder="Enter your password"
+              >
+            </div>
+            
+            <div class="button-block">
+              <button id="RegistrationSubmit" class="button button--primary">
+                {{ 'customer.register.submit' | t }}
                 <svg
                   aria-hidden="true"
                   class="icon icon-arrow"
@@ -426,33 +376,191 @@
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
                 </svg>
               </button>
-            </div>          
-          </div>
+            </div>
+          
         </div>
         {% endcomment %}
+
+        <div class="form-wrapper js-klaviyo-form--wrapper klaviyo-form--wrapper">
+          {% if ss.success_title != blank %}
+            <h2 class="title">{{ ss.success_title }}</h2>
+            <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
+            <div id="description" class="ps_desc"></div>
+          {% endif %}
+          <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
+            <div class="contact">
+              {% comment %} {% if ss.success_overview != blank %}
+                <h5 class="rte">{{ ss.success_overview }}</h5>
+              {% endif %} {% endcomment %}
+              <h5 class="rte" style="margin-bottom: 30px;">Enter your information below to get your full results emailed to you</h5>
+  
+              <div class="contact__fields">
+                <div class="grid grid--1-col grid--2-col-tablet">
+                <div class="field-box grid__item">
+                  <label class="" for="pq_first_name">First name</label>
+                  <input
+                  class=""
+                    autocomplete="first_name"
+                    type="text"
+                    id="pq_first_name"
+                    name="pq_first_name"
+                    value="{% if customer %}{{ customer.first_name }}{% endif %}"
+                    placeholder="First name"
+                  >
+                </div>
+                  <div class="field-box grid__item">
+                  <label class="" for="pq_last_name">Last name</label>
+                  <input
+                    class=""
+                    autocomplete="last_name"
+                    type="text"
+                    id="pq_last_name"
+                    name="pq_last_name"
+                    value="{% if customer %}{{ customer.last_name }}{% endif %}"
+                    placeholder="Last name"
+                  >
+                </div>
+                </div>
+                <div class="field-box--wrapper field-box field--with-error">
+                  <label class="" for="ContactForm-email">
+                    {{- 'templates.contact.form.email' | t }}
+                  </label>
+                  <input
+                    autocomplete="email"
+                    type="email"
+                    id="pq_email"
+                    class=""
+                    name="pq_email"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    value="{% if customer %}{{ customer.email }}{% endif %}"
+                    aria-required="true"
+                    required
+                    placeholder="Enter your email"
+                  >
+                </div>
+                
+                <div class="checkbox-field-box">
+                  <input
+                    id="confirmation_checkbox"
+                    type="checkbox"
+                    aria-required="true"
+                    required
+                  >
+                  <label class="" for="confirmation_checkbox">
+                    {{- 'quiz.parenting_quiz.form_checkbox_label' | t }}
+                  </label>
+                </div>
+              </div>
+              <div class="contact__button">
+                <button type="button" class="button button--primary js-klaviyo-form-submit-btn">
+                  {{ 'templates.contact.form.send' | t }}
+                  <svg
+                    aria-hidden="true"
+                    class="icon icon-arrow"
+                    focusable="false"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                  </svg>
+                  <div class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
+                </button>
+                <input type="submit" class="hidden js-klaviyo-form-submit">
+              </div>
+            </div>
+          </div>  
+        </div>
+
+        <div class="contact-section js-klaviyo-form-success-wrapper hidden">
+          <div class="contact">
             
+            <h5 class="title">{{ section.settings.form_success_description }}</h5>
+            <div class="klaviyo-form__buttons">
+              {%- for i in (1..2) -%}
+                {%- assign btnTitleTxt = 'btn_title_' | append: i -%}
+                {%- assign btnUrlTxt = 'btn_url_' | append: i -%}
+                {%- assign buttonTile = section.settings[btnTitleTxt] -%}
+                {%- assign btnUrl = section.settings[btnUrlTxt] -%}
+                {%- if buttonTile != blank and btnUrl != blank -%}
+                  <a href="{{ btnUrl }}" class="button">
+                    {{ buttonTile }}
+                    <svg
+                      aria-hidden="true"
+                      class="icon icon-arrow"
+                      focusable="false"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+  
       </div>
    </form>
     </div>
   </section>
 
+  {%- assign ParentingStyleArray = "Well Balanced|‘Well-balanced’, with a tendency to being ‘Permissive’|‘Well-balanced’ with a tendency to being ‘Strict’|Strict|‘Strict’, with a tendency to ‘Well-balanced’|‘Strict’ with a tendency to ‘Hands-off’|Hands-off|‘Hands-off’ with a tendency towards being ‘Strict’|‘Hands-off’ with a tendency to being ‘Permissive’|Permissive|‘Permissive’ with a tendency to being ‘Hands-off’|‘Permissive’, with a tendency towards ‘Well-balanced’|Middle-of-the-Field" | split: '|' -%}
+
+  <script type="application/json" id="parentingStyleDescriptionJson">
+    {
+      {%- for ParentingStyle in ParentingStyleArray -%}
+        {%- assign styleHandleize = ParentingStyle | handleize -%}
+        {{ ParentingStyle | json }}:{{ shop.metaobjects['parenting_style'][styleHandleize].description | metafield_tag | strip_newlines | json }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    }
+  </script>
 
 
   <script defer>
 
       KlaviyoSubscribe.attachToForms('#pq_quiz', {
-        hide_form_on_success: false,
-        extra_properties: {
-        $source: 'https://parenting-matters.myshopify.com/pages/parenting-style-quiz-1',
-        $method_type: "Klaviyo Form",
-        $method_id: 'embed',
-        $consent_version: 'Embed default text',
+        hide_form_on_success: true,
+          extra_properties: {
+          $source: 'https://parenting-matters.myshopify.com/pages/parenting-style-quiz-1',
+          $method_type: "Klaviyo Form",
+          $method_id: 'embed',
+          $consent_version: 'Embed default text',
         },
-        hide_form_on_success: false,
+        //success_url: "/account/register",
+        success: function(event){
+          console.log('formSubmited...');
+          let klaviyoFormWrapper = document.querySelector('.js-klaviyo-form--wrapper');
+          let klaviyoFormSuccessWrapper = document.querySelector('.js-klaviyo-form-success-wrapper')
+          klaviyoFormWrapper.classList.add('hidden');
+          klaviyoFormSuccessWrapper.classList.remove('hidden');
+        },
         custom_success_message: true
       });
 
-    
+    const parentingStyleDescriptions = JSON.parse(document.getElementById('parentingStyleDescriptionJson').innerText);
+    document.querySelector('.js-klaviyo-form-submit-btn').addEventListener('click',function(){
+      document.querySelector('.js-klaviyo-form-submit').click();
+      let confirmation_checkbox = document.getElementById('confirmation_checkbox');
+      if(confirmation_checkbox.checked == false) return;
+      this.disabled = true;
+      this.classList.add('loading');
+      this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+    });
+
     document.addEventListener('DOMContentLoaded',function () {
       const slides = document.querySelectorAll('#pq_quiz .slide');
       
@@ -700,9 +808,14 @@
               pType='authoritarian';
             }
 
+            let MetaDescriptions = parentingStyleDescriptions[pStyle] || '';
+
             $("#pstyle").text(pStyle);
+            {% comment %} $("#description").text(description); {% endcomment %}
+            $("#description").html(MetaDescriptions);
             $("#ParentingStyle").val(pStyle);
             $("#ParentingType").val(pType);
+
             
             $("#Xaxis").val(xaxis);
             $("#Yaxis").val(yaxis);
@@ -756,23 +869,23 @@
           })
 
          //On change of create account fields.
-          $(document).on('change', '#RegisterForm-FirstName', function () {
+          $(document).on('change', '#pq_first_name', function () {
             var fname = $(this).val();
             $("#pq_first_name").val(fname)
           });
           
-          $(document).on('change', '#RegisterForm-LastName', function () {
+          $(document).on('change', '#pq_last_name', function () {
             var fname = $(this).val();
             $("#pq_last_name").val(fname)
           });
           
-          $(document).on('change', '#RegisterForm-email', function () {
+          $(document).on('change', '#pq_email', function () {
             var fname = $(this).val();
             $("#pq_email").val(fname)
           });
 
 
-          $("#RegistrationSubmit").on("click",function(){
+          /*$("#RegistrationSubmit").on("click",function(){
               $("#pq_quiz").submit();
 
                 var escapedData = {
@@ -801,7 +914,7 @@
                     }
                   }).fail(function(){alert('error could not submit');});
                   return false;
-          })
+          })*/
 
             // $('#create_customer').unbind('submit', function(){
             //   event.preventDefault();
@@ -833,6 +946,7 @@
 {% endif %}
 
 
+{% endif %}
 
 
 
@@ -856,6 +970,45 @@
       "type": "textarea",
       "id": "success_overview",
       "label": "Success overview"
+    },
+    {
+      "type": "header",
+      "content": "Form Success content"
+    },
+    {
+      "type": "richtext",
+      "id": "form_success_description",
+      "label": "Form Success description"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "btn_title_1",
+      "label": "Button title",
+      "default": "Join Now"
+    },
+    { 
+      "type": "url",
+      "id": "btn_url_1",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "btn_title_2",
+      "label": "Button title",
+      "default": "About"
+    },
+    { 
+      "type": "url",
+      "id": "btn_url_2",
+      "label": "Button Link"
     },
     {
       "type": "color_scheme",
