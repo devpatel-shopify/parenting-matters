@@ -563,6 +563,9 @@
   letter-spacing: 0.72px;
   line-height: 120%;
 }
+.template--family-star .banner__box .banner__heading {
+  font-size: 32px;
+}
 
 .hero-image-about {
   position: absolute;
@@ -645,11 +648,13 @@ padding: 180px 4.6rem;
   max-width: 690px;
 }
 .template--parenting-quiz .hero-design-main .banner__box .banner__text p,
-.template--family-star .hero-design-main .banner__box .banner__text p,
 .template--parenting-quiz-hub .hero-design-main .banner__box .banner__text p {
   font-size: 20px;
   letter-spacing: 0.2px;
   line-height: 120%;
+}
+.template--family-star .hero-design-main .banner__box .banner__text p{
+  font-size: 16px !important;
 }
 .template--parenting-quiz .quiz_info,
 .template--family-star .quiz_info,

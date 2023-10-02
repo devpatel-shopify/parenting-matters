@@ -17,6 +17,9 @@
 .ps-quiz {
     margin-top: 30px;
 }
+.ps-quiz .slide .slide-title{
+  font-size: calc(var(--font-heading-scale) * 26px);
+}
 
 .ps-quiz .page-title {
     margin: 32px 0;

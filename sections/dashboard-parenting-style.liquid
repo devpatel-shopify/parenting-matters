@@ -26,6 +26,9 @@
                     <label class="scroll-trigger animate--slide-in">{{ section.settings.title | replace: '[parenting_style]', ParentingStyle }}</label>
                   {%- endif -%}
                 </h5>
+                <div class="date">
+                  <p> Test taken on <span> [26 Jun 2023] </span> </p>
+                </div>
                 {%- if ParentingStyle == blank and section.settings.description != blank -%}
                   <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
                     {{ section.settings.description }}
