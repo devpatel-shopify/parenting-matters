@@ -59,7 +59,7 @@
   },
   "quiz":{
     "parenting_quiz":{
-      "form_checkbox_label":"This had a disclaimer about agreeing to sign up for news, tips, and contact from Parenting Matters via email"
+      "form_checkbox_label":"by ticking here you are agreeing to Parenting Matters sending your full quiz results, news, and free tips by email which you can opt out of at any time"
     }
   },
   "newsletter": {

@@ -106,6 +106,7 @@
                               <a
                                 href="{{ link.url }}"
                                 class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                                {%- if block.settings.open_new_tab == true -%}target="_blank"{%- endif -%}
                               >
                                 {{ link.title }}
                               </a>
@@ -418,6 +419,12 @@
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label",
           "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open Linsk in New tab",
+          "default": false
         }
       ]
     },

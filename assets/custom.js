@@ -1,20 +1,10 @@
-// // add active class
-// ( function (){
-//     var navLinks = document.querySelectorAll('.js-dashbord-link');
+/**
+ * Open all external links in new Tab
+ */
+{
 
-//     navLinks.forEach(function(navLink){
-//         navLink.classList.remove('active');
-//         navLink.addEventListener('click', function(event){
-//             let name = event.target.getAttribute('data-name');
-//             localStorage.setItem('dashbord', name);
-          
-//         });
-//         let getLink = localStorage.getItem('dashbord');
-//         if(navLink.getAttribute('data-name') == getLink){
-//             // navLinks.forEach(function(navLink){
-               
-//             // })
-//             navLink.classList.add('active');
-//         }
-//     })
-// });
+  document.querySelectorAll('a[href]').forEach(button => {
+    let newUrl = new URL(button.href);
+    if(newUrl.origin != window.shopUrl) button.setAttribute('target',"_blank");
+  });
+}

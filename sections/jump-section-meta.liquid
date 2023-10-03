@@ -46,16 +46,16 @@
             {% for objectData in article.benefit_grid.value %}
               {% if objectData.title != blank %}
                 <div class="down-arrow">
-                  <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
+                  <button class="button button--secondary down_arrow js-hide-block">
                     <h6 style="color:{{ article.font_color.value }}">Expand</h6>
                     {% render 'icon-arrow' %}
-                  </a>
+                  </button>
                 </div>
                 <div class="down-arrow">
-                  <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
+                  <button class="button button--secondary down_arrow js-show-block hidden">
                     <h6 style="color:{{ article.font_color.value }}">Close</h6>
                     {% render 'icon-arrow' %}
-                  </a>
+                  </button>
                 </div>
               {% endif %}
             {% endfor %}
@@ -212,16 +212,16 @@
               {% for objectData in article.benefit_grid.value %}
                 {% if objectData.title != blank %}
                   <div class="down-arrow">
-                    <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
+                    <button class="button button--secondary down_arrow js-hide-block">
                       <h6 style="color:{{ article.font_color.value }}">Exapnd</h6>
                       {% render 'icon-arrow' %}
-                    </a>
+                    </button>
                   </div>
                   <div class="down-arrow">
-                    <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden">
+                    <button class="button button--secondary down_arrow js-show-block hidden">
                       <h6 style="color:{{ article.font_color.value }}">Close</h6>
                       {% render 'icon-arrow' %}
-                    </a>
+                    </button>
                   </div>
                 {% endif %}
               {% endfor %}
