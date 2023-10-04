@@ -12,7 +12,7 @@
       "type": "dashboard-course",
       "settings": {
         "parenting_style_text": "My  parenting style is [parenting_style]",
-        "nq_parenting_style_text": "Complete Parenting Style Quiz",
+        "nq_parenting_style_text": "Complete the Parenting Style quiz to get your style results!",
         "goal_icon": "shopify:\/\/shop_images\/dash1.png",
         "goal_icon_back_color": "#f7c083",
         "goal_description": "<p>My goal is to [dynamic_text]<\/p>",

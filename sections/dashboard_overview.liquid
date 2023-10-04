@@ -6,7 +6,8 @@
 
 {%- assign deshboardContent = shop.metaobjects['admin_dashboard']['admin-dashboard-content']['content'].value -%}
 
-{% assign ctagsArray = customer.tags | join: ','  | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %}
+{% comment %} {% assign ctagsArray = customer.tags | join: ','  | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %} {% endcomment %}
+{% assign ctagsArray = customer.tags %}
 
 {%- assign nextStepContent = false -%}
 {%- assign lastCompletedStep = false -%}
@@ -41,13 +42,20 @@
         {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
         {%- assign isStepCompleted = false -%}
 
-        {%- for tag in ctagsArray -%}
-          {%- if tag == jsoTag -%}
+        {%- if stepValue.klaviyo_metafield_key != blank -%}
+          {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
             {%- assign isStepCompleted = true -%}
             {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+          {% endif %}
+        {%- else -%}
+          {%- for tag in ctagsArray -%}
+            {%- if tag == jsoTag -%}
+              {%- assign isStepCompleted = true -%}
+              {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
 
         {%- if currentActivePart == false and isStepCompleted == false -%}
           {%- assign currentActivePart = tmpPartCount -%}
@@ -120,9 +128,8 @@
   <div class="page-width">
     <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;">
       {% if customer %}
-        <h4>
-          Welcome <span>{{ customer.first_name }}</span>
-        </h4>
+        {%- capture customerName -%}<span>{{ customer.first_name }}</span>{%- endcapture -%}
+        <h4>{{ 'quiz.general.welcome_text_html' | t: name:customerName }}</h4>
       {% else %}
         <h4>Welcome, guest!</h4>
       {% endif %}
@@ -227,12 +234,19 @@
                                       {%- assign tmpCount = tmpCount | plus: 1 -%}
                                       {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
 
-                                      {%- for tag in ctagsArray -%}
-                                        {%- if tag == jsoTag -%}
+                                      {%- if stepValue.klaviyo_metafield_key != blank -%}
+                                        {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
+                                          {%- assign isStepCompleted = true -%}
                                           {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                          {%- break -%}
-                                        {%- endif -%}
-                                      {%- endfor -%}
+                                        {% endif %}
+                                      {%- else -%}
+                                        {%- for tag in ctagsArray -%}
+                                          {%- if tag == jsoTag -%}
+                                            {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                            {%- break -%}
+                                          {%- endif -%}
+                                        {%- endfor -%}
+                                      {%- endif -%}
                                     {%- endfor -%}
 
                                     {%- assign totalProgress = completedStepCount | divided_by: totalSteps | times: 100 -%}

@@ -11,9 +11,8 @@
 <section class="dashboard dashboard_family">
   <div class="page-width">
     <div class="welcome-title">
-      <h4>
-        Welcome <span>{{ customer.first_name }}</span>
-      </h4>
+      {%- capture customerName -%}<span>{{ customer.first_name }}</span>{%- endcapture -%}
+        <h4>{{ 'quiz.general.welcome_text_html' | t: name:customerName }}</h4>
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">

@@ -8,7 +8,8 @@
 <section class="dashboard parenting_style">
   <div class="page-width">
     <div class="welcome-title">
-      <h4>Welcome back <span>{{ customer.first_name }}</span></h4>
+      {%- capture customerName -%}<span>{{ customer.first_name }}</span>{%- endcapture -%}
+      <h4>{{ 'quiz.general.welcome_text_html' | t: name:customerName }}</h4>
     </div>
     <div class="dash_tab_block">
       <div class="tab_dash">
@@ -26,6 +27,11 @@
                     <label class="scroll-trigger animate--slide-in">{{ section.settings.title | replace: '[parenting_style]', ParentingStyle }}</label>
                   {%- endif -%}
                 </h5>
+                {%- if customer.metafields.klaviyo.ParentingStyleDate -%}
+                  <div class="date">
+                    <p> Test taken on <span> [{{ customer.metafields.klaviyo.ParentingStyleDate }}] </span> </p>
+                  </div>
+                {%- endif -%}
                 {%- if ParentingStyle == blank and section.settings.description != blank -%}
                   <div class="parenting-style-description scroll-trigger animate--slide-in" style="--animation-order: 2;">
                     {{ section.settings.description }}
