@@ -491,6 +491,22 @@
     </div>
   </section>
 </dashboard-course>
+<script type="text/javascript">
+
+window.addEventListener('message', function (event) {
+  console.log("inside message",event)
+    //if (event.origin !== 'https://admin.revenuehunt.com/') return; // Ensure the message is from a trusted domain
+    
+    if (event.data === 'refreshParent') { console.log("inside refresh");
+        setTimeout(function(){
+          location.reload(); // Refresh the parent window
+          //window.location.href = "https://parenting-matters.myshopify.com/pages/custom-course"
+        },1000)
+    }
+},false);
+
+</script>
+
 
 {% schema %}
 {
