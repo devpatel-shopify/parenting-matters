@@ -57,12 +57,12 @@
       "name": "Slider"
     }
   },
-  "quiz":{
-    "general":{
+  "quiz": {
+    "general": {
       "welcome_text_html": "Welcome {{ name }}"
     },
-    "parenting_quiz":{
-      "form_checkbox_label":"This had a disclaimer about agreeing to sign up for news, tips, and contact from Parenting Matters via email"
+    "parenting_quiz": {
+      "form_checkbox_label": "This had a disclaimer about agreeing to sign up for news, tips, and contact from Parenting Matters via email"
     }
   },
   "newsletter": {
@@ -397,7 +397,7 @@
       "guest_continue": "Continue",
       "guest_title": "Continue as a guest",
       "password": "Password*",
-      "title": "Welcome back",
+      "title": "Welcome",
       "sign_in": "Login",
       "submit": "Submit"
     },
