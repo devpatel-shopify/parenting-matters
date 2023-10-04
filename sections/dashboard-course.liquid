@@ -19,8 +19,9 @@
 {% assign ctags = customer.tags | join: ',' %}
 {% comment %} {% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
   {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
-{% endif %} {% endcomment %}
+{% endif %}
 {% assign ctags = ctags | replace:"FamilyStarQuiz_true", "prq_FamilyStarQuiz_true" | split: ',' %}
+{% endcomment %}
 
 {% assign ctagsArray = ctags %}
 {%- assign nextStepContent = false -%}
@@ -57,13 +58,20 @@
         {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
         {%- assign isStepCompleted = false -%}
 
-        {%- for tag in ctagsArray -%}
-          {%- if tag == jsoTag -%}
+        {%- if stepValue.klaviyo_metafield_key != blank -%}
+          {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
             {%- assign isStepCompleted = true -%}
             {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+          {% endif %}
+        {%- else -%}
+          {%- for tag in ctagsArray -%}
+            {%- if tag == jsoTag -%}
+              {%- assign isStepCompleted = true -%}
+              {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
 
         {%- if currentActivePart == false and isStepCompleted == false -%}
           {%- assign currentActivePart = tmpPartCount -%}
@@ -184,14 +192,22 @@
                                 {%- assign stepValue = step | last -%}
                                 {%- assign tmpCount = tmpCount | plus: 1 -%}
                                 {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
-                                
-                                {%- for tag in ctagsArray -%}
-                                  {%- if tag == jsoTag -%}
+
+                                {%- if stepValue.klaviyo_metafield_key != blank -%}
+                                  {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
                                     {%- assign isStepCompleted = true -%}
                                     {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                    {%- break -%}
-                                  {%- endif -%}
-                                {%- endfor -%}
+                                  {% endif %}
+                                {%- else -%}
+                                  {%- for tag in ctagsArray -%}
+                                    {%- if tag == jsoTag -%}
+                                      {%- assign isStepCompleted = true -%}
+                                      {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                      {%- break -%}
+                                    {%- endif -%}
+                                  {%- endfor -%}
+                                {%- endif -%}
+                                
 
                               {%- endfor -%}
   
@@ -231,7 +247,7 @@
                         {%- capture ParentingStyletext -%}<span>{{ ParentingStyle }}</span>{%- endcapture -%}
                         <div class="title">{{ section.settings.parenting_style_text | replace: '[parenting_style]', ParentingStyletext }}</div>
                       {%- else -%}
-                        <div class="title">{{ section.setitngs.nq_parenting_style_text }}</div>
+                        <div class="title">{{ section.settings.nq_parenting_style_text }}</div>
                       {%- endif -%}
                     </div>
                     {%- assign ParentGole = customer.metafields.klaviyo['Q-vwHmPJ_laiMEQN__What_do_you_want_to_do_better_as_a_parent_'] -%}
@@ -276,11 +292,17 @@
                                   {%- assign stepValue = step | last -%}
                                   {%- assign jsoTag = stepValue.tag | prepend: tagPrefix -%}
                                   
-                                  {%- for tag in ctagsArray -%}
-                                    {%- if tag == jsoTag -%}
+                                  {%- if stepValue.klaviyo_metafield_key != blank -%}
+                                    {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
                                       {%- assign completedStepCount = completedStepCount | plus: 1 -%}
-                                    {%- endif -%}
-                                  {%- endfor -%}
+                                    {% endif %}
+                                  {%- else -%}
+                                    {%- for tag in ctagsArray -%}
+                                      {%- if tag == jsoTag -%}
+                                        {%- assign completedStepCount = completedStepCount | plus: 1 -%}
+                                      {%- endif -%}
+                                    {%- endfor -%}
+                                  {%- endif -%}
 
                                 {%- endfor -%}
 
@@ -415,7 +437,18 @@
                                               </div>
                                             {%- endcapture -%}
 
-                                            {%- if ctagsArray contains jsonTag -%}
+                                            {%- assign isStepCompleted = false -%}
+                                            {%- if stepValue.klaviyo_metafield_key != blank -%}
+                                              {% if customer.metafields.klaviyo[stepValue.klaviyo_metafield_key] != blank %}
+                                                {%- assign isStepCompleted = true -%}
+                                              {% endif %}
+                                            {%- else -%}
+                                              {%- if ctagsArray contains jsonTag -%}
+                                                {%- assign isStepCompleted = true -%}
+                                              {%- endif -%}
+                                            {%- endif -%}
+
+                                            {%- if isStepCompleted -%}
                                               {{ stepCompletedHtml }}
                                             {%- else -%}
                                               {{ starHtml }}
