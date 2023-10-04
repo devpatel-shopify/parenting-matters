@@ -128,9 +128,8 @@
   <div class="page-width">
     <div class="welcome-title scroll-trigger animate--slide-in" style="--animation-order: 1;">
       {% if customer %}
-        <h4>
-          Welcome <span>{{ customer.first_name }}</span>
-        </h4>
+        {%- capture customerName -%}<span>{{ customer.first_name }}</span>{%- endcapture -%}
+        <h4>{{ 'quiz.general.welcome_text_html' | t: name:customerName }}</h4>
       {% else %}
         <h4>Welcome, guest!</h4>
       {% endif %}
