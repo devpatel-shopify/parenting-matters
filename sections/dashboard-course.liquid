@@ -16,7 +16,7 @@
   </script>
 {% endif %}
 
-{% assign ctags = customer.tags | join: ',' %}
+{% assign ctags = customer.tags %}
 {% comment %} {% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
   {% assign ctags = ctags | replace:"prq_CourseIntroduction_true", "prq_FamilyStarQuiz_true" %}
 {% endif %}
