@@ -345,6 +345,15 @@ document.addEventListener('DOMContentLoaded',function () {
     });
   });
 
+
+  
+
+  // Add a 'change' event listener to the 'user_email' element
+  document.getElementById('user_email').addEventListener('change', function () {
+      var fname = this.value; // 'this' refers to the 'user_email' element
+      document.getElementById('pq_email').value = fname;
+  });
+
 })
 
 

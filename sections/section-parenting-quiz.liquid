@@ -483,9 +483,12 @@
       <input type="hidden" id="pq_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
       <input type="hidden" id="pq_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
       <input type="hidden" type="email" id="pq_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
+
+      {% comment  %}  
       <input type="hidden" id="pq_first_name" name="pq_first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
       <input type="hidden" id="pq_last_name" name="pq_last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
       <input type="hidden" type="email" id="pq_email" name="pq_email" value="{% if customer %}{{ customer.email }}{% endif %}">
+      {% endcomment %}
       <input type="hidden" name="$fields" value="$consent,{{ fields }}">
 
 
@@ -540,9 +543,9 @@
                 <input
                   autocomplete="email"
                   type="email"
-                  id="pq_email"
+                  id="user_email"
                   class=""
-                  name="email"
+                  name="user_email"
                   spellcheck="false"
                   autocapitalize="off"
                   value="{% if customer %}{{ customer.email }}{% endif %}"
