@@ -688,9 +688,93 @@ background: #FFF0C9;
 .family_result{
     position: relative;
 }
+
+.family_result .canvas_desc{    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-size: 1.3rem;
+    line-height: 1;
+    color:#01333E;
+    padding: 2rem;
+}
+
+.family_result .canvas_desc ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.family_result .canvas_desc ul li{
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.family_result .canvas_desc span{
+    color:#01333E;
+    margin-left: .5rem;
+}
+
+.family_result .canvas_center{    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color:#01333E;
+    padding: 2rem;
+}
+.family_result .canvas_circle{
+    pointer-events: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.family_result .canvas_circle svg{
+    width: 100%;
+    aspect-ratio: 1;
+    margin-top: 15%;
+    height: auto;
+    display: block;
+    min-width: 40rem;
+}
+
 canvas#family_chat {
-    max-width: 50%;
+    max-width: 60%;
     height: auto !important;
     margin: 0 auto;
     border: none;
+}
+
+@media only screen and (max-width : 750px){
+    .family_result .canvas_desc{    
+        display: none;
+    }
+    .family_result .canvas_center svg{
+        width: 4rem;
+        height: 4rem;
+    }   
+    canvas#family_chat {
+        max-width: 90%;
+    }
 }
