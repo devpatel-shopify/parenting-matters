@@ -35,6 +35,7 @@
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1",
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-buttons-1"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "middle-left",
         "banner_img": "shopify:\/\/shop_images\/Group_1_1.png",
@@ -370,6 +371,9 @@
         "e8a4db1e-1b99-4067-8c29-a0843d33e617"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/Parenting-Style-Hero.svg",
+        "banner_heading": "Parenting Quiz",
+        "banner_completed_heading": "Quiz complete!",
         "form_id": "parenting style quiz",
         "success_title": "You have now completed the parenting quiz!",
         "success_overview": "<p>Lorem ipsum domest ipsular est. <a href=\"\/pages\/contact\" title=\"Contact\">Click here to go somewhere<\/a>.<\/p>",
