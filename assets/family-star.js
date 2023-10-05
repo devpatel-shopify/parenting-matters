@@ -16,11 +16,18 @@ KlaviyoSubscribe.attachToForms('#fs_quiz', {
   custom_success_message: true
 });
 
+const slides = document.querySelectorAll('#fs_quiz .slide');
+
 function nextPrevEvent(){
-  const slides = document.querySelectorAll('#fs_quiz .slide');
-  slides.forEach((slide) =>{
+  document.querySelectorAll('#fs_quiz .slide').forEach((slide) =>{
     let nextBtn = slide.querySelector('.button_next');
     let prevBtn = slide.querySelector('.button_back');
+    let slideType = slide.dataset.type;
+    let quiz_content = slide.querySelector('.quiz_content');
+
+    /**
+     * Next Button Click Event
+     */
     if(nextBtn){
       if(nextBtn.classList.contains('event-added')) return;
       nextBtn.classList.add('event-added');
@@ -28,34 +35,32 @@ function nextPrevEvent(){
         event.preventDefault();
         var btn = $(event.currentTarget);
         var isValid = true;
-        if(btn.data("type") == "radio"){
-          isValid = false;
-          //console.log(btn.parents(".slide").find("input[type='radio']:checked").length);
-          if(btn.parents(".slide").find("input[type='radio']:checked").length){
-            btn.parents(".slide").find(".radio-container").removeClass("error");
-            isValid = true;
-          }else{
-            btn.parents(".slide").find(".radio-container").addClass("error");
-          }
+        let types = ['range','radio','button','dropdown','inner-range'];
+        if(types.includes(slideType)){
+          isValid = (slide.querySelectorAll("input[type='radio']:checked").length > 0);
+        }else if(slideType == "textfield" || slideType == "inner-textarea") {
+          isValid = (slide.querySelector('textarea').value != "");
         }
 
         if(btn.data('type') == "checkbox"){
           isValid = false;
-          let wrapper = btn.closest('.slide');
-          let checkboxWrapper = wrapper.find('.checkbox-container');
-          let max_answer = parseInt(wrapper.data('max'));
-          let validate = (wrapper.find("input[type='checkbox']:checked").length == max_answer)
-          checkboxWrapper[0].classList.toggle('error',(!validate))
+          let max_answer = parseInt(slide.dataset.max);
+          let validate = (slide.querySelectorAll("input[type='checkbox']:checked").length == max_answer)
+          quiz_content.classList.toggle('error',(!validate))
           isValid = validate;
         }
 
-
+        quiz_content.classList.toggle('error',!isValid);
         if(isValid){
           event.currentTarget.closest('.slide').nextElementSibling.classList.remove('hidden');
           event.currentTarget.closest('.slide').classList.add('hidden');
         }
       })
     }
+
+    /**
+     * Previous Btn Click Event
+     */
     if(prevBtn){
       if(prevBtn.classList.contains('event-added')) return;
       prevBtn.classList.add('event-added');
@@ -75,10 +80,93 @@ function nextPrevEvent(){
 
       });
     }
-  })
+
+    /**
+     * Radio Button change Event
+     */
+    slide.querySelectorAll('input[type="radio"]').forEach(radio => {
+      if(radio.classList.contains('event-added')) return;
+      radio.classList.add('event-added');
+      radio.addEventListener('change',function(){
+        this.closest('.quiz_content').classList.remove('error');
+        if(document.querySelector(`#slidervalue${this.dataset.inputIndex}`)) document.querySelector(`#slidervalue${this.dataset.inputIndex}`).value = this.dataset.val;
+        if(slideType == "dropdown"){
+          slide.querySelector('.dropdown_toggle span').innerText = this.value;
+          slide.querySelector('details').removeAttribute('open');
+        }
+      });
+    });
+  });
 }
 
 nextPrevEvent();
+
+slides.forEach((slide) =>{
+  let slideType = slide.dataset.type;
+  let quiz_content = slide.querySelector('.quiz_content');
+
+  /**
+   * Checkbox change Event
+   */
+  if (slideType == "checkbox") {
+    slide.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+      checkbox.addEventListener('change',function(){
+        quiz_content.classList.remove('error');
+        let maxSelect = parseInt(slide.dataset.max);
+        var val = this.dataset.val;
+        var index = this.dataset.inputIndex;
+        let checkedElements = slide.querySelectorAll('input[type=checkbox]:checked');
+        let haveInnerSlideCount = 0;
+        let jsonContent = JSON.parse(slide.querySelector('[data-metaobjects]').innerText);
+        let handleizeValue = this.dataset.textHandleize;
+    
+        
+        if(this.checked && jsonContent[handleizeValue]){
+          slide.insertAdjacentHTML("afterend", jsonContent[handleizeValue]);
+
+          if(slide.querySelectorAll(".button_submit").length){
+            let submitbtn = slide.querySelector(".button_submit");
+            submitbtn.classList.remove("button_submit");
+            submitbtn.classList.add("button_next");
+            submitbtn.querySelector('span').innerText = "Next";
+            console.log(submitbtn)
+          }
+          
+          var sBtn = $(".slide").last().find(".button_next");
+          if(sBtn.length && !sBtn.hasClass("button_submit")){
+            var sBtnHtml = sBtn.html().replace("Next","Submit");
+            //sBtn.addClass("button_submit");
+            sBtn.removeClass("button_next").addClass("button_submit").html(sBtnHtml);
+          }
+
+          nextPrevEvent();
+        }else{
+          document.querySelectorAll(`[data-meta-step="${handleizeValue}"]`).forEach((element) => {
+            element.remove();
+          });
+        }
+
+        slide.querySelectorAll('input[type=checkbox]:not(:checked)').forEach((checkbox) => {
+          checkbox.disabled = (checkedElements.length == maxSelect);
+        });
+    
+    
+        // wrapper.find('[type=hidden]').each((index,element) => {
+        //   let checkboxElement = checkedElements[index];
+        //   element.value = checkboxElement ? checkboxElement.value : '';
+        // });
+    
+        checkedElements.forEach((element,index) => {
+          var i = index + 1;
+          var id = element.dataset.que+"_"+i;
+          document.querySelector("#"+id).value = element.value;
+        });
+
+      });
+    });
+  }
+
+});
 
 // Script for setting a value based on change in range/radio input type.
 $(function () {
@@ -112,77 +200,26 @@ $(function () {
     console.log($("#slidervalue"+index).val());
   });
 
-  // On change of checkbox Button
-  $(document).on('change', '.checkbox-container input[type=checkbox]', function () {
-    $(".qtype-button.checkbox-container.error").removeClass("error");
-    let wrapper = $(this).closest('.slide');
-    let maxSelect = parseInt(wrapper.data('max'));
-    var val = $(this).data('val');
-    var index = $(this).data('input-index');
-    let checkedElements = wrapper.find('input[type=checkbox]:checked');
-    let haveInnerSlideCount = 0;
-    let jsonContent = JSON.parse(wrapper.find('[data-metaobjects]').text());
-    let handleizeValue = $(this).data('text-handleize');
-
-    setTimeout(function(){
-      if(wrapper.find(".button_submit").length){
-        var btnHtml = wrapper.find(".button_submit").html().replace("Submit","Next");
-        wrapper.find(".button_submit").removeClass("button_submit").addClass("button_next").html(btnHtml);
-      }
-      
-      var sBtn = $(".slide").last().find(".button_next");
-      if(sBtn.length && !sBtn.hasClass("button_submit")){
-        var sBtnHtml = sBtn.html().replace("Next","Submit");
-        //sBtn.addClass("button_submit");
-        sBtn.addClass("button_submit").html(sBtnHtml);
-      }
-      nextPrevEvent();
-  
-    },1000)
-
-    if(this.checked && jsonContent[handleizeValue]){
-      wrapper.get(0).insertAdjacentHTML("afterend", jsonContent[handleizeValue]);
-      nextPrevEvent();
-    }else{
-      $(`[data-meta-step="${handleizeValue}"]`).each((index,element) => {
-        element.remove();
-      });
-    }
-    wrapper.find('input[type=checkbox]:not(:checked)').each((index,checkbox) => {
-      $(checkbox).get(0).disabled = (checkedElements.length == maxSelect);
-    });
 
 
-    // wrapper.find('[type=hidden]').each((index,element) => {
-    //   let checkboxElement = checkedElements[index];
-    //   element.value = checkboxElement ? checkboxElement.value : '';
-    // });
-
-    checkedElements.each((index,element) => {
-      var i = index + 1;
-      console.log(element.value);
-      var id = $(element).data("que")+"_"+i;
-      $("#"+id).val(element.value);
-    
-    });
-
-
-
-
-  });
-
-
-
-  $(document).on('click', '.button_submit', function(){ 
+  $(document).on('click', '.button_submit', function(e){ 
 
     console.log("click on new submit");
+    let slide = this.closest('.slide');
+    if(slide.dataType == "inner-range"){
+      if(!slide.querySelector('input[type="radio"]:checked')){
+        slide.querySelector('.quiz_content').classList.add('error');
+        return;
+      }
+    }
+
      // Result for Child Hassle
      var no_que = 20
      var max_score = no_que * 4;
      var d = max_score / 10;
      var sum = 0;
      for (let i = 1; i <= no_que; i++) {
-         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
          sum = sum + val;
      }
      var ch = sum/d
@@ -196,7 +233,7 @@ $(function () {
      var d = max_score / 10;
      var sum = 0;
      for (let i = 21; i <= 28; i++) {
-         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
          sum = sum + val;
      }
      var ct = sum/d
@@ -210,7 +247,7 @@ $(function () {
      var d = max_score / 10;
      var sum = 0;
      for (let i = 29; i <= 33; i++) {
-         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
          sum = sum + val;
      }
      var mc = sum/d
@@ -225,7 +262,7 @@ $(function () {
      var d = max_score / 10;
      var sum = 0;
      for (let i = 34; i <= 40; i++) {
-         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val);
+         var val = parseFloat(document.getElementById('slidervalue' + i).value); console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
          sum = sum + val;
      }
      var mc = sum/d
@@ -239,17 +276,17 @@ $(function () {
       //console.log(".textarea_"+bTitle);
       $(".textarea_"+bTitle).each((index, element)=>{
         var i = index + 1;
-        console.log($(element).val());
         $("#"+bTitle+"_"+i+"_values").val($(element).val());        
+        console.log('11 >> ',"#"+bTitle+"_"+i+"_values" ,$(element).val(),$("#"+bTitle+"_"+i+"_values"),$("#"+bTitle+"_"+i+"_values").val());
       })
 
       console.log(".range_"+bTitle);
       var sum = 0;
-      $(".range_"+bTitle).each((index, element)=>{
+      $(`.range_${bTitle}:checked`).each((index, element)=>{
         var i = index + 1;
         var v = parseInt($(element).val())
-        console.log($(element).val());
         $("#"+bTitle+"_"+i+"_score").val(v);     
+        console.log('22 >>',"#"+bTitle+"_"+i+"_score",$(element).val(),$("#"+bTitle+"_"+i+"_score"),$("#"+bTitle+"_"+i+"_score").val());
         sum = parseInt(sum) + v;
       })
 
@@ -264,7 +301,6 @@ $(function () {
       }
 
     })
-
 
     $("#fs_quiz").submit();
 

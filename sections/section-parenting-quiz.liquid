@@ -1,6 +1,6 @@
 {% if customer and customer.metafields.klaviyo.ParentingStyle %}
-{% comment %} <script type="text/javascript">window.location.replace("{{shop.url}}/pages/custom-parenting-style");</script>
-{% else  %} {% endcomment %}
+<script type="text/javascript">window.location.replace("{{shop.url}}/pages/custom-parenting-style");</script>
+{% else  %}
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
