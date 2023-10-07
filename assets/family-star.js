@@ -22,6 +22,8 @@ function nextPrevEvent(){
   document.querySelectorAll('#fs_quiz .slide').forEach((slide) =>{
     let nextBtn = slide.querySelector('.button_next');
     let prevBtn = slide.querySelector('.button_back');
+    let submitBtn = slide.querySelector('.button_submit');
+    let textarea = slide.querySelector('.js-textara-input');
     let slideType = slide.dataset.type;
     let quiz_content = slide.querySelector('.quiz_content');
 
@@ -33,6 +35,7 @@ function nextPrevEvent(){
       nextBtn.classList.add('event-added');
       nextBtn.addEventListener('click',function(event){
         event.preventDefault();
+        if(!this.classList.contains('button_next')) return;
         var btn = $(event.currentTarget);
         var isValid = true;
         let types = ['range','radio','button','dropdown','inner-range'];
@@ -42,7 +45,7 @@ function nextPrevEvent(){
           isValid = (slide.querySelector('textarea').value != "");
         }
 
-        if(btn.data('type') == "checkbox"){
+        if(slide.dataset.type == "checkbox"){
           isValid = false;
           let max_answer = parseInt(slide.dataset.max);
           let validate = (slide.querySelectorAll("input[type='checkbox']:checked").length == max_answer)
@@ -71,12 +74,218 @@ function nextPrevEvent(){
       })
     }
 
-    if(slide.querySelector('.button_submit')){
-      slide.querySelector('.button_submit').addEventListener('click', function(event){
-        event.preventDefault();
-        var sbtn = $(event.currentTarget);
+    /**
+     * Textarea input Event
+     */
+    if(textarea){
+      textarea.addEventListener('input',() => {
+        quiz_content.classList.toggle('error',(textarea.value == ""));
+      });
+    }
 
-       
+    /**
+     * Form Submit Button Click Event
+     */
+    if(submitBtn){
+      submitBtn.addEventListener('click', function(event){
+        event.preventDefault();
+        if(!this.classList.contains('button_submit')) return;
+        console.log("click on new submit");
+        let finalResult = {};
+
+        let isValid = true;
+
+        if(slideType == "inner-range"){
+          if(!slide.querySelector('input[type="radio"]:checked')){
+            slide.querySelector('.quiz_content').classList.add('error');
+            isValid = false;
+          }
+        }else if(slideType == "checkbox"){
+          let max_answer = parseInt(slide.dataset.max);
+          isValid = (slide.querySelectorAll("input[type='checkbox']:checked").length == max_answer)
+          quiz_content.classList.toggle('error',(!isValid));
+        }
+
+        if (!isValid) return;
+
+        let elementsIds = ["FS_ChildHassel","FS_ChildTemper","FS_MyConfidence","FS_MyWellbeing","FS_MyChild","FS_MyParenting","fs_quiz"];
+        let elements = {};
+        elementsIds.forEach(id => {
+          elements[id] = document.getElementById(id);
+        });
+
+
+        // Result for Child Hassle
+        {
+          let no_que = 20
+          let max_score = no_que * 4;
+          let d = max_score / 10;
+          let sum = 0;
+          let formObject = [];
+          for (let i = 1; i <= no_que; i++) {
+            let val = parseFloat(document.getElementById('slidervalue' + i).value); 
+            // console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
+            sum = sum + val;
+
+            formObject.push({
+              index:i,
+              id:`slidervalue_${i}`,
+              value : val
+            });
+          }
+          
+          let ch = sum/d
+          elements.FS_ChildHassel.value = ch;
+          console.log('## Child Hassle');
+          console.table(formObject);
+          console.log("-->> Child Hassel",ch);
+          finalResult["Child Hassel"] = ch;
+        }
+
+        // Result for Child Temper
+        {
+          let no_que = 8
+          let max_score = no_que * 3;
+          let d = max_score / 10;
+          let sum = 0;
+          let formObject = [];
+          for (let i = 21; i <= 28; i++) {
+            let val = parseFloat(document.getElementById('slidervalue' + i).value); 
+            // console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
+            sum = sum + val;
+            formObject.push({
+              index:i,
+              id:`slidervalue_${i}`,
+              value : val
+            });
+          }
+          
+          let ct = sum/d
+          elements.FS_ChildTemper.value = ct;
+          console.log('## Child Templer');
+          console.table(formObject);
+          console.log("-->> Child Temper",ct);
+          finalResult["Child Temper"] = ct;
+        }
+
+        
+        // Result for My Confidence
+        {
+          let no_que = 5
+          let max_score = no_que * 4;
+          let d = max_score / 10;
+          let sum = 0;
+          let formObject = [];
+          for (let i = 29; i <= 33; i++) {
+            let val = parseFloat(document.getElementById('slidervalue' + i).value); 
+            // console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
+            sum = sum + val;
+            
+            formObject.push({
+              index:i,
+              id:`slidervalue_${i}`,
+              value : val
+            });
+          }
+          let mc = sum/d
+          elements.FS_MyConfidence.value = mc;
+          console.log('## My Confidence');
+          console.table(formObject);
+          console.log("-->> My Confidence",mc);
+          finalResult["My Confidence"] = mc;
+        }
+
+        // Result for My Wellbeing
+        {
+          let no_que = 7
+          let max_score = no_que * 4;
+          let d = max_score / 10;
+          let sum = 0;
+          let formObject = [];
+          for (let i = 34; i <= 40; i++) {
+            let val = parseFloat(document.getElementById('slidervalue' + i).value); 
+            // console.log("slidervalue",i,val,document.getElementById('slidervalue' + i));
+            sum = sum + val;
+            
+            formObject.push({
+              index:i,
+              id:`slidervalue_${i}`,
+              value : val
+            });
+          }
+          let mc = sum/d;
+          elements.FS_MyWellbeing.value = mc;
+          console.log('## My Wellbeing');
+          console.table(formObject);
+          console.log("-->> My Wellbeing",mc);
+          finalResult["My Wellbeing"] = mc;
+        }
+
+
+        document.querySelectorAll('.js-block-checkbox').forEach((checkboxBlock,_index) => {
+          // console.log(checkboxBlock,checkboxBlock.dataset)
+          var bTitle = checkboxBlock.dataset.title;
+          console.log(`--> Title:: ${bTitle}`);
+          let consoleData = [];
+          // Textarea
+          document.querySelectorAll(`.textarea_${bTitle}`).forEach((element,index) => {
+            var i = index + 1;
+            document.querySelector(`#${bTitle}_${i}_values`).value = element.value;
+            consoleData.push({
+              type:"TxtArea",
+              Id:`#${bTitle}_${i}_values`,
+              value:document.querySelector(`#${bTitle}_${i}_values`).value
+            });
+          });
+
+          // Range
+          var sum = 0;
+          document.querySelectorAll(`.range_${bTitle}:checked`).forEach((element,index) => {
+            var i = index + 1;
+            var v = parseInt(element.value);
+            document.querySelector(`#${bTitle}_${i}_score`).value = v;
+            // console.log('22 >>',"#"+bTitle+"_"+i+"_score",$(element).val(),$("#"+bTitle+"_"+i+"_score"),$("#"+bTitle+"_"+i+"_score").val());
+            sum = parseInt(sum) + v;
+
+            consoleData.push({
+              type:"Range",
+              Id:`#${bTitle}_${i}_score`,
+              value:document.querySelector(`#${bTitle}_${i}_score`).value
+            });
+          });
+
+          var res = parseFloat( sum / 2);
+
+          consoleData.push({
+            type:"sum",
+            Id:"",
+            value:sum
+          });
+
+          if(bTitle == "concerns-about-my-child"){
+            elements.FS_MyChild.value = res;
+            consoleData.push({
+              type:"My Child",
+              Id:"",
+              value:res
+            });
+          }
+          if(bTitle == "my-parenting"){
+            elements.FS_MyParenting.value = res;
+            consoleData.push({
+              type:"My parenting",
+              Id:"",
+              value:res
+            });
+          }
+
+          console.log(`# js-block-checkbox -- `,_index);
+          console.table(consoleData);
+        });
+        
+        console.table(finalResult);
+        // elements.fs_quiz.submit();
+        $("#fs_quiz").submit();
 
       });
     }
@@ -129,14 +338,17 @@ slides.forEach((slide) =>{
             submitbtn.classList.remove("button_submit");
             submitbtn.classList.add("button_next");
             submitbtn.querySelector('span').innerText = "Next";
-            console.log(submitbtn)
+            // console.log(submitbtn)
           }
           
-          var sBtn = $(".slide").last().find(".button_next");
-          if(sBtn.length && !sBtn.hasClass("button_submit")){
-            var sBtnHtml = sBtn.html().replace("Next","Submit");
-            //sBtn.addClass("button_submit");
-            sBtn.removeClass("button_next").addClass("button_submit").html(sBtnHtml);
+          let slides = document.querySelectorAll('#fs_quiz .slide');
+          var sBtn =  slides[(slides.length - 1)].querySelector(".button_next");
+          if(sBtn){
+            if(sBtn.classList.contains("button_next")){
+              sBtn.classList.remove("button_next","event-added");
+              sBtn.classList.add('button_submit');
+              sBtn.querySelector('span').innerText = "Submit";
+            }
           }
 
           nextPrevEvent();
@@ -168,10 +380,19 @@ slides.forEach((slide) =>{
 
 });
 
+
+
+
+/**
+ * ----------------------
+ * ------- Old Code -----
+ * ----------------------
+ */
+
 // Script for setting a value based on change in range/radio input type.
-$(function () {
+// $(function () {
   // On change of Range Slider
-  $(document).on('change', '.range_container input', function () {
+  /*$(document).on('change', '.range_container input', function () {
     var val = $(this).val();
 
     if (val == 1) {
@@ -198,11 +419,11 @@ $(function () {
     var index = $(this).data('input-index');
     $("#slidervalue"+index).val(val);
     console.log($("#slidervalue"+index).val());
-  });
+  });*/
 
 
 
-  $(document).on('click', '.button_submit', function(e){ 
+  /*$(document).on('click', '.button_submit', function(e){ 
 
     console.log("click on new submit");
     let slide = this.closest('.slide');
@@ -304,57 +525,59 @@ $(function () {
 
     $("#fs_quiz").submit();
 
-  })
+  })*/
 
 
 
  //On change of create account fields.
-  // $(document).on('change', '#RegisterForm-FirstName', function () {
-  //   var fname = $(this).val();
-  //   $("#fs_first_name").val(fname)
-  // });
+  /*$(document).on('change', '#RegisterForm-FirstName', function () {
+    var fname = $(this).val();
+    $("#fs_first_name").val(fname)
+  });
   
-  // $(document).on('change', '#RegisterForm-LastName', function () {
-  //   var fname = $(this).val();
-  // $("#fs_last_name").val(fname)
-  // });
+  $(document).on('change', '#RegisterForm-LastName', function () {
+    var fname = $(this).val();
+  $("#fs_last_name").val(fname)
+  });
   
-  // $(document).on('change', '#RegisterForm-email', function () {
-  //   var fname = $(this).val();
-  //   $("#fs_email").val(fname)
-  // });
+  $(document).on('change', '#RegisterForm-email', function () {
+    var fname = $(this).val();
+    $("#fs_email").val(fname)
+  });
 
 
-  // $("#RegistrationSubmit").on("click",function(){
-  //     $("#fs_quiz").submit();
+  $("#RegistrationSubmit").on("click",function(){
+      $("#fs_quiz").submit();
 
-  //       var escapedData = {
-  //           firstName: escape($("#fs_first_name").val()),
-  //           lastName: escape($("#fs_last_name").val()),
-  //           email: escape($("#fs_email").val()),
-  //           password: escape($("#RegisterForm-password").val()).replace(/\+/g, '%2B')
-  //       }
-  //         var data = 'form_type=create_customer&utf8=%E2%9C%93&customer%5Bfirst_name%5D=';
-  //         data += escapedData.firstName;
-  //         data += '&customer%5Blast_name%5D=';
-  //         data += escapedData.lastName;
-  //         data += '&customer%5Bemail%5D=';
-  //         data += escapedData.email;
-  //         data += '&customer%5Bpassword%5D=';
-  //         data += escapedData.password;
-  //         $.post('/account', data)
-  //         .done(function(response){
-  //           var logErrors = $(response).find('.errors').text();
-  //           if (logErrors != '' && logErrors != 'undefined'){
-  //             alert(logErrors);
-  //           }
-  //           else{
-  //             //alert('success!');
-  //             //window.location.href = "{{ shop.url }}/account/login";
-  //           }
-  //         }).fail(function(){alert('error could not submit');});
-  //         return false;
-  // })
+        var escapedData = {
+            firstName: escape($("#fs_first_name").val()),
+            lastName: escape($("#fs_last_name").val()),
+            email: escape($("#fs_email").val()),
+            password: escape($("#RegisterForm-password").val()).replace(/\+/g, '%2B')
+        }
+          var data = 'form_type=create_customer&utf8=%E2%9C%93&customer%5Bfirst_name%5D=';
+          data += escapedData.firstName;
+          data += '&customer%5Blast_name%5D=';
+          data += escapedData.lastName;
+          data += '&customer%5Bemail%5D=';
+          data += escapedData.email;
+          data += '&customer%5Bpassword%5D=';
+          data += escapedData.password;
+          $.post('/account', data)
+          .done(function(response){
+            var logErrors = $(response).find('.errors').text();
+            if (logErrors != '' && logErrors != 'undefined'){
+              alert(logErrors);
+            }
+            else{
+              //alert('success!');
+              //window.location.href = "{{ shop.url }}/account/login";
+            }
+          }).fail(function(){alert('error could not submit');});
+          return false;
+  })*/
+
+  
 
   /*$('#create_customer').unbind('submit', function(){
       event.preventDefault();
@@ -380,4 +603,4 @@ $(function () {
   });*/
 
 
-});  
+// });  

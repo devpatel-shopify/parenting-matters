@@ -676,3 +676,27 @@
     font-size: 1.4rem;
   }
 }
+
+.quiz_slide[data-type=inner-textarea] textarea{
+  width: 100%;
+}
+
+.quiz_slide[data-type=inner-textarea] .text-field--wrapper{
+  margin-top: 20px;
+}
+
+.quiz_slide[data-type=inner-textarea] .text-field--wrapper label{
+  margin-bottom: 10px;
+}
+
+.quiz_slide[data-type=inner-range] .range_container .radio_label{
+  position: relative;
+}
+
+.quiz_slide[data-type=inner-range] .range_container .radio_label .text {
+  font-size: 13px;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+}

@@ -431,7 +431,28 @@ background: #FFF0C9;
     border-radius: 20px;
     border: 1px solid #DADADA;
     background: #FDF8EC;
+    position: relative;
 }
+
+.family-graph-block:not(.calculating) .calculating-result--wrapper{
+    display: none;
+}
+
+.calculating-result--wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 20px;
+    color: #FFF;
+}
+
 .family-graph-block .graph-block .graph--img img{
     width: 100%;
     border-radius: 20px 20px 0 0;
