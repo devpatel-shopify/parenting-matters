@@ -3,10 +3,10 @@
 {% assign ctagsArray = tarray | split: ',' %}
 
 {% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
-{% comment %} <script type="text/javascript">
+<script type="text/javascript">
 window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 </script>
-{% else  %} {% endcomment %}
+{% else  %}
 
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
