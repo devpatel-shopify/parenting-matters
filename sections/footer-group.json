@@ -9,28 +9,32 @@
           "type": "link_list",
           "settings": {
             "heading": "About",
-            "menu": "about"
+            "menu": "about",
+            "open_new_tab": false
           }
         },
         "9a7114df-f008-45cf-bf0e-6740dabcf38b": {
           "type": "link_list",
           "settings": {
             "heading": "Support",
-            "menu": "support"
+            "menu": "support",
+            "open_new_tab": false
           }
         },
         "d807ca4b-5b24-4dec-9ef8-0d2de4b62340": {
           "type": "link_list",
           "settings": {
             "heading": "Legal",
-            "menu": "legal"
+            "menu": "legal",
+            "open_new_tab": false
           }
         },
         "0599de27-8fb2-4dae-a835-59c7c4db63eb": {
           "type": "link_list",
           "settings": {
             "heading": "Social",
-            "menu": "social"
+            "menu": "social",
+            "open_new_tab": true
           }
         },
         "065482f7-4be6-4f6b-a84e-4ec04b67b1da": {

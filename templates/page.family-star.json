@@ -35,6 +35,7 @@
         "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-text-1",
         "template--21236465238314__a6d13e36-2adb-43d2-8dce-cdd7dc09045a-buttons-1"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "middle-left",
         "banner_img": "shopify:\/\/shop_images\/Group_1.png",
@@ -656,6 +657,9 @@
         "0d7104a5-be95-4b17-a56c-457e7d6616ec"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/Parenting-Style-Hero.svg",
+        "banner_heading": "Family Star Quiz",
+        "banner_completed_heading": "Quiz complete!",
         "form_id": "family_star",
         "success_title": "",
         "success_overview": "",
