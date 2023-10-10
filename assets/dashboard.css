@@ -206,10 +206,14 @@ background: #FFF0C9;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
-.course-grid .white-box.top-border {
-    border-radius: 0 0 16px 16px;
+.course-grid .white-box.top-border:first-child {
+    border-radius: 16px 16px 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
+.course-grid .white-box.top-border:last-child{
+    border-radius:0 0 16px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+} 
 .course-grid .progress-grid .meter{
     
     height: 14px;
@@ -797,5 +801,8 @@ canvas#family_chat {
     }   
     canvas#family_chat {
         max-width: 90%;
+    }
+    .course-grid{
+        flex-wrap: wrap;
     }
 }
