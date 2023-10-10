@@ -2,14 +2,11 @@
 {% assign tarray = tarray | append : "prq_FamilyStarQuiz_true," %}
 {% assign ctagsArray = tarray | split: ',' %}
 
-{{ request.design_mode }}
 {% if customer and customer.metafields.klaviyo.FamilyStarCompleted and request.design_mode == false %}
-  {% comment %}
 <script type="text/javascript">
 window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 </script>
 {% else  %}
-  {% endcomment %}
 
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
