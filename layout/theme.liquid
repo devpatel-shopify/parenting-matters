@@ -38,6 +38,7 @@
     {% endif %}
 
     {% comment  %} To redirect customer who haven't purchased course  {% endcomment %}
+    {% comment %}
     {% if template contains "family-star"  %}
       {% unless customer and customer.tags contains "Purchased Course" %}
         <script type="text/javascript">
@@ -45,6 +46,7 @@
         </script>
       {% endunless %}
     {% endif %}
+    {% endcomment %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
