@@ -324,9 +324,9 @@
             "title": "Child Temper",
             "q": "My child is angry and resentful",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -337,9 +337,9 @@
             "title": "Child Temper",
             "q": "My child loses their temper.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -350,9 +350,9 @@
             "title": "Child Temper",
             "q": "My child blames others for his or her mistakes or misbehaviour.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -363,9 +363,9 @@
             "title": "Child Temper",
             "q": "My child argues with adults.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -376,9 +376,9 @@
             "title": "Child Temper",
             "q": "My child actively defies or refuses to do what they are asked or stick to rules.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -389,9 +389,9 @@
             "title": "Child Temper",
             "q": "My child deliberately annoys people.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -402,9 +402,9 @@
             "title": "Child Temper",
             "q": "My child is spiteful or unkind.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -415,9 +415,9 @@
             "title": "Child Temper",
             "q": "My child is touchy or easily annoyed by others.",
             "a1": "Not true",
-            "a2": "somewhat",
-            "a3": "true",
-            "a4": "certainly true",
+            "a2": "Somewhat",
+            "a3": "True",
+            "a4": "Certainly true",
             "a5": ""
           }
         },
@@ -496,7 +496,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_2": {
@@ -509,7 +509,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_3": {
@@ -522,7 +522,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_4": {
@@ -535,7 +535,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_5": {
@@ -548,7 +548,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_6": {
@@ -561,7 +561,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_7": {
@@ -574,7 +574,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_8": {
@@ -587,7 +587,7 @@
             "a2": "Rarely",
             "a3": "Some of the time",
             "a4": "Often",
-            "a5": "All of the timeagree"
+            "a5": "All of the time"
           }
         },
         "ddfc5b8e-afe3-456f-9e69-750a0dcc0175": {
