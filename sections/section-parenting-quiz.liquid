@@ -1,4 +1,4 @@
-{% if customer and customer.metafields.klaviyo.ParentingStyle %}
+{% if customer and customer.metafields.klaviyo.ParentingStyle and request.design_mode == false %}
 <script type="text/javascript">window.location.replace("{{shop.url}}/pages/custom-parenting-style");</script>
 {% else  %}
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
@@ -560,11 +560,13 @@
                     class="visually-hidden"
                     type="checkbox"
                     aria-required="true"
-                    {% comment %} value="policy" {% endcomment %}
-                    {% comment %} name="contact[policy]" {% endcomment %}
+                    value="policy"
+                    name="contact[policy]"
                     required
                   >
-                  <label class="radio_label" for="confirmation_checkbox"><span class="box"></span>This had a disclaimer about agreeing to sign up for news, tips, and contact from Parenting Matters via email</label>
+                  <label class="radio_label" for="confirmation_checkbox"><span class="box"></span>
+                    {{- 'quiz.parenting_quiz.form_checkbox_label' | t }}
+                  </label>
               </div>
               <div class="contact__button">
                 <button type="button" class="button button--secondary js-klaviyo-form-submit-btn">

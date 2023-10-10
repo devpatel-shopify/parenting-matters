@@ -14,9 +14,9 @@
         "nq_title": "My Family Star",
         "title": "My Family Star",
         "description": "<p>The Course Introduction section is where you entered the initial questionnaires to define your initial Family Star. <br\/><br\/>The chart here shows your results from the initial questionnaires. <\/p>",
-        "btn_text": "Go to Family Star",
+        "btn_text": "Continue with Course",
         "nq_btn_text": "Take a Quizz",
-        "btn_link": "shopify:\/\/pages\/family-star"
+        "btn_link": "shopify:\/\/pages\/course-dashboard"
       }
     }
   },

@@ -314,14 +314,15 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
               <div class="quiz_header">                    
                 <div class="quiz_progress"><span class="progress"></span></div>
                 <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
-                {%- if bs.q_group_title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.q_group_title }}</p></div>{%- endif -%}
+                {%- if bs.title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.title }}</p></div>{%- endif -%}
                 {%- if bs.q != blank -%}<h2 class="quiz_heading">{{ bs.q | newline_to_br }}</h2>{%- endif -%}
               </div>
               <div class="quiz_content">
                 {%- if block.type == 'textfield' -%}
                   <div class="rte error_message"><p>Please write your answer here...</p></div>
                 {%- elsif block.type == 'checkbox' -%}
-                  <div class="rte error_message"><p>Need to select atlist {{ maxSelect }} Option</p></div>
+                  {%- assign numberText = ",one,two,three,four,five,six,saven,eight,nine,ten" | split: ',' -%}
+                  <div class="rte error_message"><p>Select {{ numberText[maxSelect] }} options</p></div>
                 {%- else -%}
                 <div class="rte error_message"><p>Select any single option</p></div>
                 {%- endif -%}

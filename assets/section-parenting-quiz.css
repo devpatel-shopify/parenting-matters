@@ -484,9 +484,14 @@
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
+.checkbox-field-box input[type=checkbox]{
+  height: auto;
+  margin: 5px;
+}
+
 .checkbox-field-box .radio_label{
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   line-height: 1;
   cursor: pointer;
