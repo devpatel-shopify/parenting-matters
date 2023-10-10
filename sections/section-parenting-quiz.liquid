@@ -1,4 +1,4 @@
-{% if customer and customer.metafields.klaviyo.ParentingStyle %}
+{% if customer and customer.metafields.klaviyo.ParentingStyle and request.design_mode == false %}
 <script type="text/javascript">window.location.replace("{{shop.url}}/pages/custom-parenting-style");</script>
 {% else  %}
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
