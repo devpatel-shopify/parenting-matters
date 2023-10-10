@@ -133,6 +133,7 @@
     "link_4": "shopify:\/\/pages\/parenting-style-dashboard",
     "title_5": "Help!",
     "link_5": "shopify:\/\/pages\/help",
+    "new_tab_5": true,
     "show_course_only_5": true,
     "sections": {
       "main-password-header": {

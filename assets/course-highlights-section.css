@@ -180,6 +180,20 @@ height: 134.818px;
 width: 100%;
 height: auto;
 }
+.template--parenting-quiz-hub .image-text--reverse .quiz_detail{
+  text-align: left;
+}
+.template--parenting-quiz-hub .quiz_rules h2{
+  font-size: 28px;
+}
+.track_info .quiz_info .track_activity .quiz_detail img{
+  width: 185px;
+  height: 134.818px;
+}
+.track_info .quiz_info .track_activity.image-text--reverse .quiz_detail img{
+  width: 100%;
+  height: auto;
+}
 }
 @media screen and (max-width: 750px){
   .track_quiz_info{
