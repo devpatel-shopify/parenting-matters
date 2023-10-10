@@ -38,15 +38,13 @@
     {% endif %}
 
     {% comment  %} To redirect customer who haven't purchased course  {% endcomment %}
-    {% comment %}
-    {% if template contains "family-star"  %}
+    {% if template contains "family-star" and request.design_mode == false %}
       {% unless customer and customer.tags contains "Purchased Course" %}
         <script type="text/javascript">
           window.location.replace("{{shop.url}}/products/course");
         </script>
       {% endunless %}
     {% endif %}
-    {% endcomment %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
