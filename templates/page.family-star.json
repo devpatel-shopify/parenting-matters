@@ -665,7 +665,7 @@
         "success_overview": "",
         "form_success_description": "<p>Thank you for completing Family Star Quiz.<\/p>",
         "btn_title_1": "View Result",
-        "btn_url_1": "shopify:\/\/pages\/custom-family-star-result",
+        "btn_url_1": "shopify:\/\/pages\/family-star-result-dashboard",
         "btn_title_2": "About",
         "btn_url_2": "",
         "color_scheme": "",
