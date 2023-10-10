@@ -141,6 +141,7 @@
   .track_info .quiz_info .track_activity .quiz_detail{ 
     margin-bottom:30px;
   }
+  
   .track_info .quiz_info .exercise_task .quiz_about{
     margin-bottom:30px;
   }
@@ -170,6 +171,14 @@
 }
 .template--parenting-quiz-hub .quiz_rules h2{
   font-size: 28px;
+}
+.track_info .quiz_info .track_activity .quiz_detail img{
+  width: 185px;
+  height: 134.818px;
+}
+.track_info .quiz_info .track_activity.image-text--reverse .quiz_detail img{
+  width: 100%;
+  height: auto;
 }
 }
 @media screen and (max-width: 750px){
@@ -236,6 +245,12 @@
  .template--parenting-quiz .course_highlights_section{
     padding-bottom: 64px!important;
    padding-top: 128px!important;
+  }
+  .track_info .quiz_info .track_activity .quiz_detail{ 
+    margin-bottom:00px;
+  }
+  .template--parenting-quiz-hub .course_highlights_section{
+    padding-top: 84px !important;
   }
 }
 @media screen and (max-width: 500px){

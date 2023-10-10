@@ -2,7 +2,7 @@
 {% assign tarray = tarray | append : "prq_FamilyStarQuiz_true," %}
 {% assign ctagsArray = tarray | split: ',' %}
 
-{% if customer and customer.metafields.klaviyo.FamilyStarCompleted %}
+{% if customer and customer.metafields.klaviyo.FamilyStarCompleted and request.design_mode == false %}
 <script type="text/javascript">
 window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 </script>
