@@ -624,9 +624,9 @@
   display: none;
 }
 
-.ps-quiz.quiz-started .quiz_banner .banner__content{
+/* .ps-quiz.quiz-started .quiz_banner .banner__content{
   align-items: flex-end;
-}
+} */
 
 .ps-quiz.quiz-started .welcome-content--wrapper{
   display: none;
