@@ -19,7 +19,7 @@
 }
 .quiz_banner .banner__content{
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .quiz_slide{
@@ -705,9 +705,9 @@
 .ps-quiz:not(.quiz-started) .quiz-section{
   display: none;
 }
-.ps-quiz.quiz-started .quiz_banner .banner__content{
+/* .ps-quiz.quiz-started .quiz_banner .banner__content{
   align-items: flex-end;
-}
+} */
 
 .ps-quiz.quiz-started .welcome-content--wrapper{
   display: none;
