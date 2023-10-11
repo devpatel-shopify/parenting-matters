@@ -64,7 +64,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       </div>
       {%- endif -%}
       <div class="banner__content banner__content--bottom-center page-width">
-        <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
+        <div class="starter-content--wrapper banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
           {%- if ss.banner_heading -%}
           <h2 class="banner__heading inline-richtext quiz_headline">
             {{ ss.banner_heading }}
@@ -78,6 +78,26 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
             {{ ss.banner_heading }}
           </h2>
+          {%- endif -%}
+        </div>
+        <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient welcome-content--wrapper ">
+          {%- if ss.welcome_title != blank -%}
+          <h2 class="banner__heading inline-richtext quiz_headline">
+            {{ ss.welcome_title }}
+          </h2>
+          {%- endif -%}
+          {%- if ss.welcome_description != blank -%}
+          <div class="banner__text rte">
+            <p>{{ ss.welcome_description }}</p>
+          </div>
+          {%- endif -%}
+          {%- if ss.welcome_button_title != blank -%}
+          <div class="banner__buttons">
+            <button type="button" class="button" onclick="this.closest('.ps-quiz').classList.add('quiz-started');">
+              {{ ss.welcome_button_title }}
+              {% render 'icon-arrow' %}
+            </button>
+          </div>
           {%- endif -%}
         </div>
       </div>
@@ -314,14 +334,15 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
               <div class="quiz_header">                    
                 <div class="quiz_progress"><span class="progress"></span></div>
                 <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
-                {%- if bs.q_group_title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.q_group_title }}</p></div>{%- endif -%}
+                {%- if bs.title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.title }}</p></div>{%- endif -%}
                 {%- if bs.q != blank -%}<h2 class="quiz_heading">{{ bs.q | newline_to_br }}</h2>{%- endif -%}
               </div>
               <div class="quiz_content">
                 {%- if block.type == 'textfield' -%}
                   <div class="rte error_message"><p>Please write your answer here...</p></div>
                 {%- elsif block.type == 'checkbox' -%}
-                  <div class="rte error_message"><p>Need to select atlist {{ maxSelect }} Option</p></div>
+                  {%- assign numberText = ",one,two,three,four,five,six,saven,eight,nine,ten" | split: ',' -%}
+                  <div class="rte error_message"><p>Select {{ numberText[maxSelect] }} options</p></div>
                 {%- else -%}
                 <div class="rte error_message"><p>Select any single option</p></div>
                 {%- endif -%}
@@ -1556,6 +1577,27 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       "label": "Complete Heading",
       "default": "Quiz complete!",
       "info": "This heading will show after quiz completed"
+    },
+    {
+      "type": "header",
+      "content": "Welcome content"
+    },
+    {
+      "type": "text",
+      "id": "welcome_title",
+      "label": "Title",
+      "default": "Welcome to the Family Style Quiz"
+    },
+    {
+      "type": "richtext",
+      "id": "welcome_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "label": "Button title",
+      "id": "welcome_button_title",
+      "default": "Take the quiz"
     },
     { 
       "type": "header",

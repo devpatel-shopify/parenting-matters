@@ -1739,3 +1739,63 @@ a.product__text {
   }
 
 }
+
+/* === Signup Condition === */
+.sign-up--wrapper{
+  display:block;
+  width: calc(100% - 2px);
+  text-align:center;
+  border-radius: 20px;
+  /* border: 1px solid #C72457; */
+  background: rgb(var(--color-background));
+  position:relative;
+  /* z-index: 1; */
+  background-clip: padding-box;
+  border: solid 1px transparent;
+  margin-top: -24px;
+}
+.sign-up--inner{
+  position:relative;
+  z-index: 1;
+  background: rgb(var(--color-background));
+  border-radius: 20px;
+}
+.sign-up--wrapper:before{
+  content: '';
+  display: block;
+  width: calc(100% + 2px);
+  left: -1px;
+  height:60px;
+  background: linear-gradient(180deg, rgba(253, 248, 236, 0) 0%, #FDF8EC 100%);
+  position: absolute;
+  bottom:calc(100% - 25px); 
+  z-index: 0;
+}
+.sign-up--wrapper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    margin: -1px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #C72457 0, #C7245700 60%);
+}
+.sign-up--wrapper .quiz_lock{
+  display:inline-block;
+  margin-bottom:15px;
+  margin-top: -26px;
+  position:relative;
+  z-index: 1;
+}
+.sign-up--wrapper .title--wrapper{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+@media screen and (max-width: 768px){
+  .sign-up--wrapper{
+    margin-top: -15px;
+  }
+}

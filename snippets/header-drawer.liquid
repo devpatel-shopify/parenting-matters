@@ -128,9 +128,7 @@
             <div class="menu-drawer__utility-links-inr">
               {%- if shop.customer_accounts_enabled -%}
                 <div class="customer_accounts_buttons">
-                  {% comment %}
-                  <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button"></a>
-                  {% endcomment %}
+                  {% comment %} <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button"></a> {% endcomment %}
                   <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}/pages/about{%- endif -%}" class="header__icon header__icon--account button">
                     {%- if customer -%}
                       My account
@@ -148,7 +146,7 @@
                       -%}
                     </span>
                   </a>
-                  {%- if customer -%}
+                  {%- if customer -%} 
                   <a href="{{ routes.account_logout_url }}" class="header__icon header__icon--account button button--secondary">Log out</a>  
                   {%- else -%}
                   <a href="{{ routes.account_login_url }}" class="header__icon header__icon--account button button--secondary">Login {% render 'icon-arrow' %}</a>
