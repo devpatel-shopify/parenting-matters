@@ -129,6 +129,7 @@
         
         </div>
       {%- endform -%}
+    {% unless customer %}
       <div class="sign-up--wrapper">
         <div class="sign-up--inner">
         <div class="quiz_lock">
@@ -162,6 +163,7 @@
         </a>
             </div>
       </div>
+    {% endunless %}
     </product-form>
   {%- else -%}
     <div class="product-form">
