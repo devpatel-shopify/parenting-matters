@@ -128,7 +128,7 @@
       "sku": "SKU",
       "on_sale": "Sale",
       "product_variants": "Product variants",
-      "sign_up_text":"Sign up now to purchase",
+      "sign_up_text": "Sign up now to purchase",
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",
