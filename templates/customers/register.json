@@ -10,7 +10,7 @@
       "type": "main-register",
       "settings": {
         "heading_size": "h1",
-        "small_text": "Enter your details below to create your account.",
+        "small_text": "Enter your details below to create your account and purchase the course.",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -19,6 +19,11 @@
       "type": "dashboard-course",
       "disabled": true,
       "settings": {
+        "parenting_style_text": "Your parenting style is [parenting_style]",
+        "nq_parenting_style_text": "Complete Parenting Style Quiz",
+        "goal_icon_back_color": "#F7C083",
+        "goal_description": "",
+        "goal_np_description": ""
       }
     }
   },

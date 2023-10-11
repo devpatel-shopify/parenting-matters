@@ -11,10 +11,14 @@ document.addEventListener('DOMContentLoaded',function () {
     //success_url: "/account/register",
     success: function(event){
       console.log('formSubmited...');
-      let klaviyoFormWrapper = document.querySelector('.js-klaviyo-form--wrapper');
-      let klaviyoFormSuccessWrapper = document.querySelector('.js-klaviyo-form-success-wrapper')
-      klaviyoFormWrapper.classList.add('hidden');
-      klaviyoFormSuccessWrapper.classList.remove('hidden');
+      if (window.isCustomerLoggedIn) {
+        window.location.href = "/pages/parenting-style-dashboard?result=quiz-completed";
+      }else{
+        let klaviyoFormWrapper = document.querySelector('.js-klaviyo-form--wrapper');
+        let klaviyoFormSuccessWrapper = document.querySelector('.js-klaviyo-form-success-wrapper')
+        klaviyoFormWrapper.classList.add('hidden');
+        klaviyoFormSuccessWrapper.classList.remove('hidden');
+      }
     },
     custom_success_message: true
   });
@@ -22,11 +26,13 @@ document.addEventListener('DOMContentLoaded',function () {
   const parentingStyleDescriptions = JSON.parse(document.getElementById('parentingStyleDescriptionJson').innerText);
   document.querySelector('.js-klaviyo-form-submit-btn').addEventListener('click',function(){
     document.querySelector('.js-klaviyo-form-submit').click();
-    let confirmation_checkbox = document.getElementById('confirmation_checkbox');
-    if(confirmation_checkbox.checked == false) return;
-    this.disabled = true;
-    this.classList.add('loading');
-    this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+    if(!window.isCustomerLoggedIn) {
+      let confirmation_checkbox = document.getElementById('confirmation_checkbox');
+      if(confirmation_checkbox.checked == false) return;
+      this.disabled = true;
+      this.classList.add('loading');
+      this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+    }
   });
   
   const slides = document.querySelectorAll('#pq_quiz .slide');
@@ -292,19 +298,20 @@ document.addEventListener('DOMContentLoaded',function () {
   
         let MetaDescriptions = parentingStyleDescriptions[pStyle] || '';
   
-        document.getElementById('pstyle').innerHTML = pStyle.replaceAll('‘','<span>').replaceAll('’','</span>');
-        document.getElementById('description').innerHTML = MetaDescriptions;
-        document.getElementById('ParentingStyle').value = pStyle;
-        document.getElementById('ParentingType').value = pType;
-  
-        document.getElementById('Xaxis').value = xaxis;
-        document.getElementById('Yaxis').value = yaxis;
-
+        
         
         /**Now adjust axes for the plot*/
         xaxis = xaxis + 20;
         yaxis = yaxis + 20;
         
+        document.getElementById('ParentingStyle').value = pStyle;
+        document.getElementById('ParentingType').value = pType;
+        
+        document.getElementById('Xaxis').value = xaxis;
+        document.getElementById('Yaxis').value = yaxis;
+        
+        document.getElementById('pstyle').innerHTML = pStyle.replaceAll('‘','<span>').replaceAll('’','</span>');
+        document.getElementById('description').innerHTML = MetaDescriptions;
         document.querySelector('.form-success-msg').classList.remove('hidden');
         event.currentTarget.closest('.slide').classList.add('hidden');
 
@@ -349,10 +356,12 @@ document.addEventListener('DOMContentLoaded',function () {
   
 
   // Add a 'change' event listener to the 'user_email' element
-  document.getElementById('user_email').addEventListener('change', function () {
-      var fname = this.value; // 'this' refers to the 'user_email' element
-      document.getElementById('pq_email').value = fname;
-  });
+  if(!window.isCustomerLoggedIn) {
+    document.getElementById('user_email').addEventListener('change', function () {
+        var fname = this.value; // 'this' refers to the 'user_email' element
+        document.getElementById('pq_email').value = fname;
+    });
+  }
 
 })
 

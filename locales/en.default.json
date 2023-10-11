@@ -128,6 +128,7 @@
       "sku": "SKU",
       "on_sale": "Sale",
       "product_variants": "Product variants",
+      "sign_up_text":"Sign up now to purchase",
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",
@@ -447,7 +448,9 @@
       "first_name": "Full name*",
       "last_name": "Last name",
       "email": "Email address*",
-      "password": "Confirm password*",
+      "password_confirm": "Confirm password",
+      "password_confirm_alert": "Passwords do not match.",
+      "password": "Password",
       "submit": "Create account"
     },
     "reset_password": {

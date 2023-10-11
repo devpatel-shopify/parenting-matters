@@ -107,6 +107,9 @@
                 {% render 'dash-info-icon' %}
                 <p>The small dots on the chart above are examples of scores from other test results received - your result us shown by the larger dot.</p>
               </div>
+              <div class="calculating-result--wrapper">
+                <label>Calculatingt Result...</label>
+              </div>
             </div>
           </div>
         </div>
@@ -208,6 +211,17 @@
       },        
     }      
   });
+  let windowUrl = window.location.search;
+  let familyBlock = document.querySelector('.family-graph-block')
+  if(windowUrl =="?result=quiz-completed"){
+    {%- if ParentingStyle == blank -%}
+      familyBlock.classList.add('calculating');
+      setTimeout(function(){
+        window.location.reload();
+      },10000)
+    {%- endif -%}
+  }
+
 </script>
 
 <script>

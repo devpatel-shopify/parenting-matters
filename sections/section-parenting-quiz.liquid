@@ -56,7 +56,7 @@
       </div>
       {%- endif -%}
       <div class="banner__content banner__content--bottom-center page-width">
-        <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
+        <div class="starter-content--wrapper banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
           {%- if ss.banner_heading -%}
           <h2 class="banner__heading inline-richtext quiz_headline">
             {{ ss.banner_heading }}
@@ -70,6 +70,26 @@
           <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
             {{ ss.banner_heading }}
           </h2>
+          {%- endif -%}
+        </div>
+        <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient welcome-content--wrapper ">
+          {%- if ss.welcome_title != blank -%}
+          <h2 class="banner__heading inline-richtext quiz_headline">
+            {{ ss.welcome_title }}
+          </h2>
+          {%- endif -%}
+          {%- if ss.welcome_description != blank -%}
+          <div class="banner__text rte">
+            <p>{{ ss.welcome_description }}</p>
+          </div>
+          {%- endif -%}
+          {%- if ss.welcome_button_title != blank -%}
+          <div class="banner__buttons">
+            <button type="button" class="button" onclick="this.closest('.ps-quiz').classList.add('quiz-started');">
+              {{ ss.welcome_button_title }}
+              {% render 'icon-arrow' %}
+            </button>
+          </div>
           {%- endif -%}
         </div>
       </div>
@@ -493,7 +513,6 @@
 
 
     
-
       <div class="form-success-msg quiz_completed hidden">
         <div class="js-klaviyo-form--wrapper">
           <div class="quiz_header">
@@ -532,42 +551,46 @@
             </svg>                        
           </div>
           <div class="quiz_footer">
-            <h2 class="quiz_heading">To see your full results and access your dashboard register here. </h2>
-            {% comment %} <div class="quiz_subheading rte"><p>You’ll also be emailed a copy of your results!</p></div> {% endcomment %}
-            <div class="quiz_subheading rte"><p>Enter your information below to get your full results emailed to you</p></div>
+            {%- unless customer -%}
+              <h2 class="quiz_heading">To see your full results and access your dashboard register here. </h2>
+              {% comment %} <div class="quiz_subheading rte"><p>You’ll also be emailed a copy of your results!</p></div> {% endcomment %}
+              <div class="quiz_subheading rte"><p>Enter your information below to get your full results emailed to you</p></div>
+            {%- endunless -%}
             <div class="form">
-              <div class=" field-box field--with-error">
-                <label class="visually-hidden" for="ContactForm-email">
-                  {{- 'templates.contact.form.email' | t }}
-                </label>
-                <input
-                  autocomplete="email"
-                  type="email"
-                  id="user_email"
-                  class=""
-                  name="user_email"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  value="{% if customer %}{{ customer.email }}{% endif %}"
-                  aria-required="true"
-                  required
-                  placeholder="Enter your email"
-                >
-              </div>
-              <div class="checkbox-field-box">
-                  <input
-                    id="confirmation_checkbox"
-                    class="visually-hidden"
-                    type="checkbox"
-                    aria-required="true"
-                    value="policy"
-                    name="contact[policy]"
-                    required
-                  >
-                  <label class="radio_label" for="confirmation_checkbox"><span class="box"></span>
-                    {{- 'quiz.parenting_quiz.form_checkbox_label' | t }}
+              {%- unless customer -%}
+                <div class="111 field-box field--with-error">
+                  <label class="visually-hidden" for="ContactForm-email">
+                    {{- 'templates.contact.form.email' | t }}
                   </label>
-              </div>
+                  <input
+                    autocomplete="email"
+                    type="email"
+                    id="user_email"
+                    class=""
+                    name="user_email"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    value="{% if customer %}{{ customer.email }}{% endif %}"
+                    aria-required="true"
+                    required
+                    placeholder="Enter your email"
+                  >
+                </div>
+                <div class="checkbox-field-box">
+                    <input
+                      id="confirmation_checkbox"
+                      class="visually-hidden"
+                      type="checkbox"
+                      aria-required="true"
+                      value="policy"
+                      name="contact[policy]"
+                      required
+                    >
+                    <label class="radio_label" for="confirmation_checkbox"><span class="box"></span>
+                      {{- 'quiz.parenting_quiz.form_checkbox_label' | t }}
+                    </label>
+                </div>
+              {%- endunless -%}
               <div class="contact__button">
                 <button type="button" class="button button--secondary js-klaviyo-form-submit-btn">
                   {{ 'templates.contact.form.send' | t }}
@@ -892,6 +915,27 @@
       "label": "Complete Heading",
       "default": "Quiz complete!",
       "info": "This heading will show after quiz completed"
+    },
+    {
+      "type": "header",
+      "content": "Welcome content"
+    },
+    {
+      "type": "text",
+      "id": "welcome_title",
+      "label": "Title",
+      "default": "Welcome to the Parenting Style Quiz"
+    },
+    {
+      "type": "richtext",
+      "id": "welcome_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "label": "Button title",
+      "id": "welcome_button_title",
+      "default": "Take the quiz"
     },
     { 
       "type": "header",
