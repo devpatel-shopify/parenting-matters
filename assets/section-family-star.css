@@ -705,6 +705,12 @@
 .ps-quiz:not(.quiz-started) .quiz-section{
   display: none;
 }
+
+.ps-quiz .quiz-section{
+  position: relative;
+  z-index: 1;
+}
+
 /* .ps-quiz.quiz-started .quiz_banner .banner__content{
   align-items: flex-end;
 } */
@@ -728,10 +734,6 @@
   margin-top: 2rem;
   --color-button: 1, 51, 62;
 }
-.ps-quiz .quiz-section{
-  position: relative;
-  z-index: 1;
-}
 
 .banner_extra{
   position: absolute;
@@ -743,6 +745,16 @@
 .banner_extra svg{
   width: 100%;
   height: auto;
+}
+
+.banner--only_media{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.banner:not(.banner--only_media):before{
+  display: none;
 }
 
 @media screen and (max-width: 749px) {
