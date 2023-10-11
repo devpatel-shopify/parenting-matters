@@ -479,7 +479,7 @@
     </script>
   </head>
 
-  <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} template--{{ template | handlize | remove:'.' }}  {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}" {%- comment -%}id="{{ template | handlize }}"{%- endcomment -%}>
+  <body class="main-template--{{ template.name }} template--{{ page.template_suffix }} template--{{ template | handlize | remove:'.' }}  {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}" {%- comment -%}id="{{ template | handlize }}"{%- endcomment -%} style="opacity:0;">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -534,5 +534,25 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script>
+      let locationPathname = window.location.pathname;
+      if(!locationPathname.includes('/challenge')){
+        let sessionStorageRedirection = window.sessionStorage.getItem('redirect_to');
+        if(locationPathname == sessionStorageRedirection){
+          window.sessionStorage.removeItem('redirect_to');
+          window.sessionStorage.removeItem('make_redirection');
+          document.body.removeAttribute('style');
+        }else{
+          if(sessionStorageRedirection ){
+            window.location.href = sessionStorageRedirection;
+          }else{
+            document.body.removeAttribute('style');
+          }
+        }
+      }else{
+        console.log('esle')
+        document.body.removeAttribute('style');
+      }
+    </script>
   </body>
 </html>
