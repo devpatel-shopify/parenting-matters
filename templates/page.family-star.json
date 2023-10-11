@@ -595,7 +595,7 @@
           "settings": {
             "klaviyo_id": "fs_child_concerns",
             "title": "Concerns about my child",
-            "q": "Please select any two Concerns about your child",
+            "q": "please select two concerns about your child",
             "options": "Disobedience and aggression\nWorries, lacking confidence\nIrritable, highly sensitive\nImpulsive, distractible (or lacking focus instead of distractable?)\nRelationships (including being bullied)\nLearning and homework\nEating, sleeping, bedwetting\nOther",
             "max_answer": 2
           }
