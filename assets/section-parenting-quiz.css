@@ -19,7 +19,7 @@
 }
 .quiz_banner .banner__content{
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .quiz_slide{
@@ -647,6 +647,24 @@
   margin-top: 2rem;
   --color-button: 1, 51, 62;
 }
+
+.ps-quiz .quiz-section{
+  position: relative;
+  z-index: 1;
+}
+
+.banner_extra{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+.banner_extra svg{
+  width: 100%;
+  height: auto;
+}
+
 @media screen and (max-width: 749px) {
   .ps-quiz .welcome-content--wrapper .banner__text{
     font-size: 1.6rem;
