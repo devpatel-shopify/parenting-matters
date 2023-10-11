@@ -62,7 +62,11 @@
       "welcome_text_html": "Welcome {{ name }}"
     },
     "parenting_quiz": {
-      "form_checkbox_label": "by ticking here you are agreeing to Parenting Matters sending your full quiz results, news, and free tips by email which you can opt out of at any time"
+      "form_checkbox_label": "By ticking here you are agreeing to Parenting Matters sending your full quiz results, news, and free tips by email which you can opt out of at any time",
+      "submit_button_text": {
+        "logged_in_user": "View Full Result",
+        "without_logged_in_user": "Submit"
+      }
     }
   },
   "newsletter": {
@@ -128,7 +132,7 @@
       "sku": "SKU",
       "on_sale": "Sale",
       "product_variants": "Product variants",
-      "sign_up_text":"Sign up now to purchase",
+      "sign_up_text": "Sign up now to purchase",
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",
