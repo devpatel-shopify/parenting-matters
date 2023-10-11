@@ -31,6 +31,9 @@
   {% comment %} return_to:routes.account_url {% endcomment %}
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
+      <script>
+        window.sessionStorage.removeItem('redirect_to');
+      </script>
       <h2 class="form__message" tabindex="-1" autofocus>
         <svg aria-hidden="true" focusable="false">
           <use href="#icon-error" />
@@ -144,7 +147,7 @@
       </span>
     {%- endif -%}
     <div class="login-button">
-      <button type="submit" class="button button--primary">
+      <button type="submit" class="button button--primary js-form-submit-btn" data-redirect="{{ routes.account_url }}">
         {{ 'customer.register.submit' | t }}
         <svg
           aria-hidden="true"
@@ -197,6 +200,12 @@
     confirmPassword.nextElementSibling.classList.toggle('hidden',!(this.value != password.value));
     document.querySelector('[type="submit"]').disabled = (this.value != password.value);
   });
+  document.querySelector('.js-form-submit-btn').addEventListener('click',function(){
+    let sessionRedirectionUrl = window.sessionStorage.getItem('make_redirection');
+    let url = this.dataset.redirect;
+    if(sessionRedirectionUrl) url = sessionRedirectionUrl;
+    window.sessionStorage.setItem('redirect_to',url);
+  })
 </script>
 
 {% schema %}
