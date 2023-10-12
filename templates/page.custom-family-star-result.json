@@ -10,6 +10,70 @@
     },
     "6e4d551e-c162-4e5b-ba08-4b17d6922a6b": {
       "type": "dashboard-family-star",
+      "blocks": {
+        "97e51d72-b2ee-434e-bbed-34ed0fe30e78": {
+          "type": "faces",
+          "settings": {
+            "type": "my_child",
+            "title": "My child",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        },
+        "c6a1554a-3a43-4627-a72b-69089fdd7808": {
+          "type": "faces",
+          "settings": {
+            "type": "child_temper",
+            "title": "Child temper",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        },
+        "5ca6aea0-f049-4c05-95aa-5c7e4710d377": {
+          "type": "faces",
+          "settings": {
+            "type": "my_confidence",
+            "title": "My confidence",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        },
+        "933eb292-1515-4243-a5be-913c32c52561": {
+          "type": "faces",
+          "settings": {
+            "type": "my_parenting",
+            "title": "My parenting",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        },
+        "5a2fec57-5661-4c63-9816-57b39e1db0d8": {
+          "type": "faces",
+          "settings": {
+            "type": "my_wellbeing",
+            "title": "My wellbeing",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        },
+        "b60f9a64-f9ec-44b5-b0c5-1f0c77ce47ae": {
+          "type": "faces",
+          "settings": {
+            "type": "child_hassle",
+            "title": "Child hassle",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "97e51d72-b2ee-434e-bbed-34ed0fe30e78",
+        "c6a1554a-3a43-4627-a72b-69089fdd7808",
+        "5ca6aea0-f049-4c05-95aa-5c7e4710d377",
+        "933eb292-1515-4243-a5be-913c32c52561",
+        "5a2fec57-5661-4c63-9816-57b39e1db0d8",
+        "b60f9a64-f9ec-44b5-b0c5-1f0c77ce47ae"
+      ],
       "settings": {
         "nq_title": "My Family Star",
         "title": "My Family Star",

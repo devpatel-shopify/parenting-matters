@@ -314,6 +314,11 @@
   border: .5rem solid var(--button-color);
 }
 
+.range_container input:checked + .radio_label,
+.range_container input:focus + .radio_label{
+  color: #FFFFFF;
+}
+
 .range_rte{
   max-width: var(--container);
   padding: var(--container-padding);

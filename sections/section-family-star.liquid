@@ -237,7 +237,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
   
                         <div class="text-field--wrapper">
                           <label style="display: block;" for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
-                          <textarea class="textarea_{{ title | handleize }} js-textara-input" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
+                          <textarea class="textarea_{{ title | handleize }} js-textara-input" data-target="range-desc-{{ metaobjectHandle }}" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
                         </div>
                       </div>
                       <div class="quiz_footer">
@@ -254,8 +254,8 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
                       </div>
                       <div class="quiz_content page-width">
                         <div class="rte error_message"><p>Select any single option</p></div>
-                        <div class="description--wrapper">
-                          {{ description_range_section | metafield_tag }}
+                        <div class="description--wrapper" id="range-desc-{{ metaobjectHandle }}">
+                          {{ description_range_section | metafield_tag | replace: '[dynamic_text]', '<span class="js-dynamic-text"></span>' }}
                         </div>
                         <div class="range_container">
                           <label for="slider{{ question | handleize }}">
