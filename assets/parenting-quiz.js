@@ -299,11 +299,6 @@ document.addEventListener('DOMContentLoaded',function () {
         let MetaDescriptions = parentingStyleDescriptions[pStyle] || '';
   
         
-        
-        /**Now adjust axes for the plot*/
-        xaxis = xaxis + 20;
-        yaxis = yaxis + 20;
-        
         document.getElementById('ParentingStyle').value = pStyle;
         document.getElementById('ParentingType').value = pType;
         
@@ -314,6 +309,11 @@ document.addEventListener('DOMContentLoaded',function () {
         document.getElementById('description').innerHTML = MetaDescriptions;
         document.querySelector('.form-success-msg').classList.remove('hidden');
         event.currentTarget.closest('.slide').classList.add('hidden');
+        
+        /**Now adjust axes for the plot*/
+        xaxis = xaxis + 20;
+        yaxis = yaxis + 20;
+        
 
         let frmData =  new FormData(document.getElementById('pq_quiz'));
         let formObject = {}
