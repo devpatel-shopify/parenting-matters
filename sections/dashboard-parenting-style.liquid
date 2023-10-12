@@ -2,8 +2,8 @@
 {%- assign ParentingStyle = customer.metafields.klaviyo.ParentingStyle -%}
 {%- assign ParentingStyleHandleize = ParentingStyle | handleize -%}
 {%- assign ParentingStyleMetaobject = shop.metaobjects['parenting_style'][ParentingStyleHandleize] -%}
-{%- assign x = customer.metafields.klaviyo.Xaxis -%}
-{%- assign y = customer.metafields.klaviyo.Yaxis -%}
+{%- assign x = customer.metafields.klaviyo.Xaxis | default: 0 -%}
+{%- assign y = customer.metafields.klaviyo.Yaxis | default: 0 -%}
 
 <section class="dashboard parenting_style">
   <div class="page-width">
@@ -212,7 +212,7 @@
     }      
   });
   let windowUrl = window.location.search;
-  let familyBlock = document.querySelector('.family-graph-block')
+  let familyBlock = document.querySelector('.family-graph-block');
   if(windowUrl =="?result=quiz-completed"){
     {%- if ParentingStyle == blank -%}
       familyBlock.classList.add('calculating');
