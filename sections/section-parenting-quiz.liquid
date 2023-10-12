@@ -31,6 +31,7 @@
   }
 }
 {%- endstyle -%}
+{% assign fields = '' %}
 
 {% if ss.form_id != blank %}
   {% assign formID = ss.form_id | handleize %}
@@ -287,7 +288,7 @@
       {%- endfor -%}
     </div>
 
-        {% comment %} {% assign fields = '' %}
+        {% comment %}
   
         {% for block in section.blocks %}
           {% assign bs = block.settings %}

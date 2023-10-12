@@ -91,7 +91,7 @@
              {{ form | payment_button }}
             </div>
           {%- endif -%}
-          <button
+          {% comment %} <button
             id = "ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
@@ -125,7 +125,7 @@
                 <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
               </svg>
             </div>
-          </button>
+          </button> {% endcomment %}
         
         </div>
       {%- endform -%}
