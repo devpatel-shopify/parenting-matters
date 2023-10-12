@@ -722,7 +722,7 @@ background: #FFF0C9;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    /* pointer-events: none; */
     font-size: 1.3rem;
     line-height: 1;
     color:#01333E;
@@ -740,6 +740,13 @@ background: #FFF0C9;
     display: flex;
     align-items: center;
 }
+
+.family_result .canvas_desc li .tooltip_trigger{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+} 
 
 .family_result .canvas_desc span{
     color:#01333E;
@@ -798,8 +805,8 @@ canvas#family_chat {
         display: none;
     }
     .family_result .canvas_center svg{
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
     }   
     canvas#family_chat {
         max-width: 90%;
@@ -807,4 +814,45 @@ canvas#family_chat {
     .course-grid{
         flex-wrap: wrap;
     }
+}
+
+.family_result .tooltip{
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 30rem;
+    pointer-events: all;
+    display: none;
+    padding: .5rem 1rem;
+    z-index: 1;
+}
+
+
+.family_result .canvas_desc li .tooltip_trigger:hover .tooltip,
+.family_result .canvas_desc li .tooltip_trigger:focus-within .tooltip{
+    display: block;
+}
+
+.family_result .tooltip svg{
+    margin-bottom: 1rem;
+}
+.family_result .tooltip .tooltip_content{
+    padding: 1.6rem;
+    border-radius: 10px;
+    border: 1px solid #DADADA;
+    background: #F3F4EC;    
+}
+.family_result .tooltip hr{
+    margin: 1.6rem -1.6rem;
+    width: calc(100% + 3.2rem);
+    height: 1px;
+    background: #DADADA;
+}
+.family_result .tooltip .content_top{
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+.family_result .tooltip .content_bottom{
+    font-size: 1.2rem;
+    line-height: 1.2;
 }

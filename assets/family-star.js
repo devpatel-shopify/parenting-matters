@@ -80,6 +80,9 @@ function nextPrevEvent(){
     if(textarea){
       textarea.addEventListener('input',() => {
         quiz_content.classList.toggle('error',(textarea.value == ""));
+        document.querySelector(`#${textarea.dataset.target}`).querySelectorAll('.js-dynamic-text').forEach(ele => {
+          ele.innerText = textarea.value;
+        });
       });
     }
 
