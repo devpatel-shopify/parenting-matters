@@ -57,10 +57,10 @@
                                 {%- if block.settings.card_btn != blank -%}
                                     <div class="card_btn">
                                         {%- if block.settings.card_btn != blank -%}
-                                            <a href="javascript:void(0);" data-modal="{{ block.id }}" class="button button--secondary">
+                                            <button type="button" data-modal="{{ block.id }}" class="button button--secondary">
                                                 {{- block.settings.card_btn | escape -}}
                                                 {%- render 'icon-arrow' -%}
-                                            </a>
+                                            </button>
                                         {%- endif -%}
                                     </div>
                                 {%- endif -%}

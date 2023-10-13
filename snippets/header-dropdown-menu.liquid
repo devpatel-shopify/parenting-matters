@@ -42,6 +42,9 @@
                 tabindex="-1"
               >
                 {%- for childlink in link.links -%}
+                  {%- if childlink.title contains 'Community' and isCoursePurchased == false -%}
+                    {%- continue -%}
+                  {%- endif -%}
                   <li>
                     {%- if childlink.links == blank -%}
                       <a
@@ -71,6 +74,9 @@
                           class="header__submenu list-menu motion-reduce"
                         >
                           {%- for grandchildlink in childlink.links -%}
+                            {%- if grandchildlink.title contains 'Community' and isCoursePurchased == false -%}
+                              {%- continue -%}
+                            {%- endif -%}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"

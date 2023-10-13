@@ -29,16 +29,9 @@
       <div class="jump-btn-block" id ="section_link-bar">
         {%- for block in section.blocks -%}
           {%- if block.settings.tab_id != blank -%}
-            <a href="#{{- block.settings.tab_id -}}" id="{{- block.settings.tab_id -}}" data-section-scroll>{{- block.settings.tab_id -}}</a>
-
+            <button type="button" class="button button--secondary button-small jump-btn" id="{{- block.settings.tab_id | handleize -}}" data-section-scroll-trigger="scroll-section--{{- block.settings.tab_id | handleize -}}">{{- block.settings.tab_id -}}</button>
           {%- endif -%}
         {%- endfor -%}
-        {% comment %}
-          <a href="#educationalsettings">Educational settings</a>
-          <a href="#parentingcoaches">Parenting coaches & other professionals</a>
-          <a href="#healthprofessionals">Health professionals</a>
-          <a href="#charities">Charities & family hubs</a>
-        {% endcomment %}
       </div>
     </div>
     {%- for block in section.blocks -%}
@@ -46,7 +39,7 @@
         or block.settings.subtitle != blank
         or block.settings.description != blank
       -%}
-        <div class="jump-redirect-block section--{{ block.id }}" id="{{- block.settings.tab_id -}}"  {{ block.shopify_attributes }}>
+        <div class="jump-redirect-block section--{{ block.id }}" id="scroll-section--{{- block.settings.tab_id | handleize -}}"  {{ block.shopify_attributes }}>
           <div class="jump-details">
             {%- if block.settings.title != blank
               or block.settings.subtitle != blank
@@ -70,8 +63,10 @@
               </div>
             {%- endif -%}
             <div class="down-arrow">
-              <a href="javascript:void(0);" class="button button--secondary down_arrow js-hide-block">
-                {{- block.settings.button_name -}}
+              <button type="button" data-target="target-section--{{ block.id }}" data-btn-txt="{{ block.settings.button_name }}" data-expanded-btn-txt="{{ block.settings.expanded_button_name }}" class="button button--secondary down_arrow js-toggle-btn">
+                <span class="btn-text js-btn-text">
+                  {{- block.settings.button_name -}}
+                </span>
                 <svg
                   aria-hidden="true"
                   class="icon icon-arrow"
@@ -82,8 +77,8 @@
                 >
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
                 </svg>
-              </a>
-              <a href="javascript:void(0);" class="button button--secondary down_arrow js-show-block hidden"
+              </button>
+              {% comment %} <button type="button" class="button button--secondary down_arrow js-show-block hidden"
                 >Close
                 <svg
                   aria-hidden="true"
@@ -95,10 +90,10 @@
                 >
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
                 </svg>
-              </a>
+              </button> {% endcomment %}
             </div>
           </div>
-          <div class="jump-open-block js-hide-element" style="display: none;">
+          <div id="target-section--{{ block.id }}" class="jump-open-block js-hide-element hidden">
             <div class="round-text-block">
               {%- if block.settings.percentage_count_1 != blank or block.settings.organisation_text_1 != blank -%}
                 <div class="inner-first-count">
@@ -199,45 +194,6 @@
   </div>
 </section>
 
-<script>
- 
-  let elements = document.querySelectorAll("[data-section-scroll]");
-  elements.forEach(function(element){
-    element.addEventListener("click", _scrollToDown.bind(this),true);
-  });
-  function _scrollToDown(event){
-    let elementToScrolls = event.currentTarget.closest(".jump-block").querySelectorAll(".jump-redirect-block");
-    elementToScrolls.forEach(function(elementToScroll){
-      if (elementToScroll.getAttribute("id") == event.target.getAttribute("id")) {
-        event.preventDefault();
-        let scrollDistance = elementToScroll.offsetTop - document.querySelector(".header").offsetHeight 
-        document.documentElement.scrollTo({
-          top: scrollDistance,
-          behavior: "smooth"
-        })
-        // elementToScroll.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    })
-  }
-
-    
-  let hideButtons = document.querySelectorAll(".js-hide-block");
-  let showButtons = document.querySelectorAll(".js-show-block");
-  hideButtons.forEach(function(hideButton){
-    hideButton.addEventListener("click",function(button){
-      button.target.closest(".jump-redirect-block").querySelector(".js-hide-element").style.display = "block";
-      button.target.closest(".jump-redirect-block").querySelector(".js-show-block").classList.remove("hidden");
-      button.target.closest(".js-hide-block").classList.add("hidden");
-    });
-  });
-  showButtons.forEach(function(showButton){
-    showButton.addEventListener("click",function(button){
-      button.target.closest(".jump-redirect-block").querySelector(".js-hide-element").style.display = "none";
-      button.target.closest(".jump-redirect-block").querySelector(".js-hide-block").classList.remove("hidden");
-      button.target.closest(".js-show-block").classList.add("hidden");
-    });
-  });
-</script>
 {% schema %}
 {
 "name": "Jupm section",
@@ -286,9 +242,19 @@
         "label": "Description"
       },
       {
+        "type": "header",
+        "content": "Button"
+      },
+      {
         "type": "text",
         "id": "button_name",
         "label": "Button name"
+      },
+      {
+        "type": "text",
+        "id": "expanded_button_name",
+        "label": "Expanded Button name",
+        "default":"Close"
       },
       {
         "type": "header",
