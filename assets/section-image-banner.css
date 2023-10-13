@@ -754,7 +754,7 @@ padding: 180px 4.6rem;
 @media only screen and (max-width: 1440px) {
   .hero_about .hero-background-design-cover > svg {
     height: 100%;
-    width: auto;
+    width: 100%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
