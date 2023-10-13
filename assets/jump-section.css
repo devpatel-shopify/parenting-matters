@@ -31,7 +31,7 @@
   font-size: 54px;
   
 }
-.down-arrow a svg {
+.down-arrow .button svg {
   width: 24px;
   margin-left: 12px;
   height: 24px;
@@ -39,15 +39,15 @@
   transform: rotate(90deg);
   transition: all 0.5s ease;
 }
-.down-arrow a.js-show-block svg{
+.down-arrow .button.js-show-block svg{
   transform: rotate(270deg);
   transition: all 0.5s ease;
 }
-.down-arrow a h6{
+.down-arrow .button h6{
   font-size: 14px;
 }
 
-.down-arrow a {
+.down-arrow .button {
   font-size: 14px;
   padding: 7px 8px 7px 16px;
 }
@@ -56,18 +56,17 @@
   margin-bottom: 12px;
   font-size: 14px;
 }
-.jump-btn-block a {
+.jump-btn-block .jump-btn {
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 25px;
   border: 1px solid #01333e;
   display: inline-block;
   font-size: 14px;
-
   margin-bottom: 8px;
-      color: #01333E;
+  color: #01333E;
   letter-spacing: 0.14px;
-    line-height: 120%;
+  line-height: 120%;
 }
 .jump-btn-block {
   text-align: center;
@@ -275,13 +274,13 @@
 .jump-redirect-block{
   position: relative;
 }
-.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow a svg{
+.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow .button svg{
   background: #fff;
 }
-.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow a svg path{
+.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow .button svg path{
   fill: #c72457;
 }
-.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow a{
+.template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block .down-arrow .button{
   border-color: #fff;
 }
 .template--articleddp-detail-page .jump-redirect-block:last-child .jump-details.unlock-block {

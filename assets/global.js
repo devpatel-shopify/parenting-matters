@@ -1245,11 +1245,3 @@ modals.forEach(function (trigger) {
     });
   });
 });
-
-
-// $('.down-arrow a').on('click', function(){
-//       $('.jump-open-block').toggleClass('current');
-//   });
-
-
-
