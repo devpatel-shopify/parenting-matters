@@ -11,8 +11,9 @@
     "7a061b52-0729-4c7d-b9a2-2b3af0def55e": {
       "type": "ddp-banner",
       "settings": {
+        "custom_class": "",
         "ddp_heading": "Struggling with particular difficulties with your child?",
-        "ddp_text": "<p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together a simple guide on how you can identify the causes, understand rhe impact and what you can do to manage these.<\/p>",
+        "ddp_text": "<p><\/p><p>We’ve highlighted some of the main difficulties that parents struggle with, and have put together simple guides on how you can identify the causes, understand the impact and what you can do to manage these. We will continue adding to these topics.<\/p>",
         "image_add": "shopify:\/\/shop_images\/ddp-right.svg"
       }
     },
