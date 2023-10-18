@@ -259,7 +259,7 @@
         "name": "Full name",
         "email": "Email address",
         "phone": "Confirm phone number",
-        "comment": "Comments (optional)",
+        "comment": "Comments",
         "send": "Submit",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:"

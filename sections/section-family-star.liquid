@@ -132,6 +132,9 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
         <div class="quiz_questions">
           {%- for block in section.blocks -%}
 
+            {%- assign mainIndex = forloop.index -%}
+            {%- assign mainZeroIndex = forloop.index0 -%}
+
             {%- if block.type == 'checkbox' -%}
               {%- comment -%} Metafield Slide {%- endcomment -%}
               
@@ -153,6 +156,8 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
                   {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
                   {%- if metaobject -%}
                   {%- liquid
+                      assign size = section.blocks.size | minus: 1 
+                      assign progress = mainZeroIndex | times: 100 | divided_by: size
                       assign tmp = tmp | plus: 1
                       assign question = metaobject.question
                       assign title = metaobject.title
@@ -193,7 +198,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
                     </style>
                     <div class="quiz_header">                    
                       <div class="quiz_progress"><span class="progress"></span></div>
-                      <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
+                      <div class="quiz_question_count"><span>Question {{ mainIndex }}/{{ section.blocks.size }}</span></div>
                       {%- if title != blank -%}<h2 class="quiz_heading">{{ title | newline_to_br }}</h2>{%- endif -%}
                     </div>
                     <div class="quiz_content page-width">
@@ -226,8 +231,10 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 
                   {%- if add_describe_this_section == true -%}
                     <div id="quiz_slide-{{ metaobjectHandle }}" data-type="inner-textarea" class="hidden quiz_slide slide inner-slide-content js-step-describe-this" data-meta-step="{{ question | handleize }}">
-                      <div class="quiz_header">
-                        <h1>{{ title }}</h1>
+                      <div class="quiz_header">                    
+                        <div class="quiz_progress"><span class="progress"></span></div>
+                        <div class="quiz_question_count"><span>Question {{ mainIndex }}/{{ section.blocks.size }}</span></div>
+                        {%- if title != blank -%}<h2 class="quiz_heading">{{ title | newline_to_br }}</h2>{%- endif -%}
                       </div>
                       <div class="quiz_content page-width">
                         <div class="rte error_message"><p>Please write your answer here...</p></div>
@@ -249,8 +256,10 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
 
                   {%- if add_range_section == true -%}
                     <div id="quiz_slide-{{ metaobjectHandle }}" data-type="inner-range" class="hidden quiz_slide slide inner-slide-content js-range-step" data-meta-step="{{ question | handleize }}">
-                      <div class="quiz_header">
-                        <h1>{{ title }}</h1>
+                      <div class="quiz_header">                    
+                        <div class="quiz_progress"><span class="progress"></span></div>
+                        <div class="quiz_question_count"><span>Question {{ mainIndex }}/{{ section.blocks.size }}</span></div>
+                        {%- if title != blank -%}<h2 class="quiz_heading">{{ title | newline_to_br }}</h2>{%- endif -%}
                       </div>
                       <div class="quiz_content page-width">
                         <div class="rte error_message"><p>Select any single option</p></div>

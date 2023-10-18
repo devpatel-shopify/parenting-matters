@@ -16,7 +16,12 @@
         "description": "<p>You'll see the full description of your parenting style once you've taken the quiz.<\/p>",
         "btn_text": "Download PDF",
         "nq_btn_text": "Take the quiz",
-        "btn_link": "shopify:\/\/pages\/parenting-style-quiz"
+        "btn_link": "shopify:\/\/pages\/parenting-style-quiz",
+        "corner_text_1": "Permissive\/\nIndulgent",
+        "corner_text_2": "Balanced &\nAuthoritative",
+        "corner_text_3": "Hands-off\/\nUninvolved",
+        "corner_text_4": "Authoritarian\/\nStrict",
+        "bottom_description": "The small dots on the chart above are examples of scores from other test results received - your result us shown by the larger dot."
       }
     }
   },
