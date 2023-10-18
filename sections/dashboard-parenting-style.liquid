@@ -90,10 +90,11 @@
                   <div class="content parenting_result active" id="result">
                     <canvas id="parenting_chat"></canvas>
                     <div class="canvas_desc">
-                      <span>Permissive/<br>Indulgent</span>
-                      <span>Balanced &<br>Authoritative</span>
-                      <span>Hand-off/<br>Uninvolved</span>
-                      <span>Authoritarian/<br>Strict</span>
+                      {%- for i in (1..4) -%}
+                        {%- assign corner_text_txt = "corner_text_" | append: i -%}
+                        {%- assign cornerTextValue = section.settings[corner_text_txt] -%}
+                        <span>{{ cornerTextValue | newline_to_br }}</span>
+                      {%- endfor -%}
                     </div>                    
                     {% comment %} <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/Chart_1.png?v=1691832851" /> {% endcomment %}
                   </div>
@@ -103,10 +104,12 @@
                   </div>
                 </div>
               </div>
-              <div class="click-info">
-                {% render 'dash-info-icon' %}
-                <p>The small dots on the chart above are examples of scores from other test results received - your result us shown by the larger dot.</p>
-              </div>
+              {%- if section.settings.bottom_description != blank -%}
+                <div class="click-info">
+                  {% render 'dash-info-icon' %}
+                  <p>{{ section.settings.bottom_description }}</p>
+                </div>
+              {%- endif -%}
               <div class="calculating-result--wrapper">
                 <label>Calculating Result...</label>
               </div>
@@ -142,7 +145,7 @@
         { x: 0, y: -2}, 
         { x: -2, y: -4}, 
         { x: 5, y: -2}, 
-  ],
+      ],
       backgroundColor: 'rgb(3,52,63,0.4)',
       radius: 3,
       hoverRadius: 4
@@ -171,7 +174,7 @@
       },        
       plugins: {
         legend: false,
-        //tooltip: false,          
+        tooltip: false,          
       },
       scales: {
         x: {
@@ -269,7 +272,7 @@
       },
       plugins: {
         legend: false,
-        //tooltip: false,          
+        tooltip: false,          
       }
     }
   });
@@ -324,6 +327,39 @@
       "type": "url",
       "id": "btn_link",
       "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Graph Section"
+    },
+    {
+      "type": "textarea",
+      "id": "corner_text_1",
+      "label": "Top Left Corner Text",
+      "default": "Permissive/Indulgent"
+    },
+    {
+      "type": "textarea",
+      "id": "corner_text_2",
+      "label": "Top Right Corner Text",
+      "default": "Balanced & Authoritative"
+    },
+    {
+      "type": "textarea",
+      "id": "corner_text_3",
+      "label": "Bottom Left Corner Text",
+      "default": "Hands-off/Uninvolved"
+    },
+    {
+      "type": "textarea",
+      "id": "corner_text_4",
+      "label": "Bottom Right Corner Text",
+      "default": "Authoritarian/Strict"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bottom_description",
+      "label": "Bottom description"
     }
   ],
   "presets": [
