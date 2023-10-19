@@ -18,24 +18,24 @@
   }
 {%- endstyle -%}
 
-<div class="contact-section color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-      <p>{{ section.settings.small_text }}</p>
-    {%- else -%}
-      <h2 class="">{{ 'templates.contact.form.title' | t }}</h2>
-      <p>{{ section.settings.small_text }}</p>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+{%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+  <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
+    <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading }}
+        </h2>
+        <p>{{ section.settings.small_text }}</p>
+      {%- else -%}
+        <h2 class="">{{ 'templates.contact.form.title' | t }}</h2>
+        <p>{{ section.settings.small_text }}</p>
+      {%- endif -%}
+      {%- liquid
+        assign contact_form_class = 'isolate'
+        if settings.animations_reveal_on_scroll
+          assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+        endif
+      -%}
       {%- if form.posted_successfully? -%}
         <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
           {% render 'icon-success' %}
@@ -90,7 +90,7 @@
             {% endif %}
             placeholder="Enter your email"
           >
-
+  
           {%- if form.errors contains 'email' -%}
             <small class="contact__field-error" id="ContactForm-email-error">
               <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
@@ -102,7 +102,7 @@
             </small>
           {%- endif -%}
         </div>
-
+  
         {% comment %} <div class="field-box">
           <label class="" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
           <input
@@ -147,9 +147,9 @@
           </svg>
         </button>
       </div>
-    {%- endform -%}
+    </div>
   </div>
-</div>
+{%- endform -%}
 
 {% schema %}
 {
