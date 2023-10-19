@@ -9,6 +9,13 @@
   assign question = metaObjectData.question
   assign questionAnswer = metaObjectData.question_and_answer.value
   assign buttonUrl = metaObjectData.button_url
+
+  assign DataSize = 0 
+  for page in questionAnswer
+    if page.brief_question_one != blank or page.brief_answer_one != blank or page.brief_question_two != blank or page.brief_answer_two != blank or page.date_and_time != blank
+      assign DataSize = DataSize | plus: 1
+    endif
+  endfor
 %}
 
 {% if bannerTitle != blank or playPartNo != blank or playPartTitle != blank or question != blank %}
@@ -53,9 +60,8 @@
             or briefAnswerOne != blank
             or briefQuestionTwo != blank
             or briefAnswerTwo != blank
-            or briefQuestionTwo != blank
           %}
-            <div class="answer-box {% if forloop.index > 10 %} hidden {% endif %} scroll-trigger animate--slide-in">
+            <div class="answer-box {% if forloop.index > 6 %} hidden {% endif %} scroll-trigger animate--slide-in">
               {% if briefQuestionOne != blank or briefAnswerOne != blank %}
                 <div class="que_ans">
                   {% if briefQuestionOne != blank %}
@@ -85,29 +91,33 @@
           {% endif %}
         {% endfor %}
       </div>
-      <div class="load-more-btn scroll-trigger animate--slide-in" style="--animation-order: 7;">
-        <button class="button button--secondary js-read-more">
-          <span class="btn-text">{{ 'sections.page.button_title' | t }}</span>
-          {% render 'icon-arrow' %}
-        </button>
-      </div>
+      {% if DataSize > 6 %}
+        <div class="load-more-btn scroll-trigger animate--slide-in" style="--animation-order: 7;">
+          <button class="button button--secondary js-read-more">
+            <span class="btn-text">{{ 'sections.page.button_title' | t }}</span>
+            {% render 'icon-arrow' %}
+          </button>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
 
-<script>
-  let section = document.getElementById(`shopify-section-{{ section.id }}`);
-  let totalBlockCount = section.querySelectorAll('.answer-block .answer-box').length;
-  let revealedBlockCount = 10;
-  document.querySelector('.js-read-more').addEventListener('click', function () {
-    let hiddenBlocks = this.closest('.answer-block').querySelectorAll('.answer-box.hidden');
-    for (let i = 0; i < 6; i++) {
-      if (hiddenBlocks[i]) hiddenBlocks[i].classList.remove('hidden');
-    }
-    revealedBlockCount += 6;
-    if (revealedBlockCount >= totalBlockCount) this.classList.add('hidden');
-  });
-</script>
+{% if DataSize > 6 %}
+  <script>
+    let section = document.getElementById(`shopify-section-{{ section.id }}`);
+    let totalBlockCount = section.querySelectorAll('.answer-block .answer-box').length;
+    let revealedBlockCount = 10;
+    document.querySelector('.js-read-more').addEventListener('click', function () {
+      let hiddenBlocks = this.closest('.answer-block').querySelectorAll('.answer-box.hidden');
+      for (let i = 0; i < 6; i++) {
+        if (hiddenBlocks[i]) hiddenBlocks[i].classList.remove('hidden');
+      }
+      revealedBlockCount += 6;
+      if (revealedBlockCount >= totalBlockCount) this.classList.add('hidden');
+    });
+  </script>
+{% endif %}
 
 
 

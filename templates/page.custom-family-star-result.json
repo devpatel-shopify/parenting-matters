@@ -16,7 +16,7 @@
           "settings": {
             "type": "my_child",
             "title": "My child",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My child<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         },
@@ -25,7 +25,7 @@
           "settings": {
             "type": "child_temper",
             "title": "Child temper",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>Child temper<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         },
@@ -34,7 +34,7 @@
           "settings": {
             "type": "my_confidence",
             "title": "My confidence",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My confidence<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         },
@@ -43,7 +43,7 @@
           "settings": {
             "type": "my_parenting",
             "title": "My parenting",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My parenting<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         },
@@ -52,7 +52,7 @@
           "settings": {
             "type": "my_wellbeing",
             "title": "My wellbeing",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My wellbeing<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         },
@@ -61,7 +61,7 @@
           "settings": {
             "type": "child_hassle",
             "title": "Child hassle",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age.",
+            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>Child hassle<\/strong>",
             "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
           }
         }

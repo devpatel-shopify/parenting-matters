@@ -95,52 +95,60 @@
                         </div>
                       </div>
                       <div class="inner-boxes">
+                        {% assign count = 0 %}
                         {% for benefit_metaobject in article.benefit_metaobject.value %}
-                          <div
-                            class="inner-card {% if forloop.index > 4 %} hidden {% endif %}"
-                            style=" background: {{ article.secondary_backgroud_color.value }};"
-                          >
-                            <div class="card-text">
-                              {% if benefit_metaobject.benefit_title.value != blank %}
-                                <h5 style="color : {{ article.benefit_title_color }}">
-                                  {{ benefit_metaobject.benefit_title.value }}
-                                </h5>
-                              {% endif %}
-                              {% if benefit_metaobject.benefit_description != blank %}
-                                <p>{{ benefit_metaobject.benefit_description | metafield_tag }}</p>
-                              {% endif %}
+                          {% assign benefit_title = benefit_metaobject.benefit_title %}
+                          {% assign benefit_description = benefit_metaobject.benefit_description %}
+                          {% if benefit_title != blank or benefit_description != blank %}
+                            {% assign count = count | plus: 1 %}
+                            <div
+                              class="inner-card {% if forloop.index > 4 %} hidden {% endif %}"
+                              style=" background: {{ article.secondary_backgroud_color.value }};"
+                            >
+                              <div class="card-text">
+                                {% if benefit_title.value != blank %}
+                                  <h5 style="color : {{ article.benefit_title_color }}">
+                                    {{ benefit_title.value }}
+                                  </h5>
+                                {% endif %}
+                                {% if benefit_description != blank %}
+                                  <p>{{ benefit_description | metafield_tag }}</p>
+                                {% endif %}
+                              </div>
                             </div>
-                          </div>
+                          {% endif %}
                         {% endfor %}
 
-                        <div class="button_space">
-                          <a
-                            class="button button--secondary js-read-more"
-                            style=" background: {{ article.secondary_backgroud_color.value }};"
-                          >
-                            {% comment %} {{- article.button_title.value -}} {% endcomment %}
-                            <span class="btn-text">Read more</span>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
+                        {% if count > 4 %}
+                          <div class="button_space">
+                            <a
+                              class="button button--secondary js-read-more"
+                              style=" background: {{ article.secondary_backgroud_color.value }};"
                             >
-                              <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                            >
-                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                          </a>
-                        </div>
+                              {% comment %} {{- article.button_title.value -}} {% endcomment %}
+                              <span class="btn-text">Read more</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                              >
+                                <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                              >
+                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </a>
+                          </div>
+                        {% endif %}
 
                         <div class="right-svg">
                           <svg
@@ -279,7 +287,7 @@
                             </div>
                           {% endfor %}
 
-                          <div class="button_space">
+                          <div class="button_space 11">
                             <a
                               class="button button--secondary js-read-more aa"
                               style=" background: {{ article.secondary_backgroud_color.value }};"

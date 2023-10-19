@@ -16,9 +16,11 @@
           "settings": {
             "title": "Course progress",
             "np_title": "Course progress",
+            "show_custom_last_time_section": false,
             "ltl_heading": "Last time you learn",
             "ltl_title": "Praise <strong>Part 2<\/strong> - Introduction",
             "ltl_description": "<p>How to give praise for the right things<\/p>",
+            "show_custom_next_time_section": false,
             "ntl_heading": "Next time you'll learn",
             "ntl_title": "Praise <strong>Part 3<\/strong> - Introduction",
             "ntl_description": "<p>How to give praise for the right things<\/p>",
@@ -33,7 +35,7 @@
             "title": "Join our Community",
             "np_title": "Join our Community",
             "description": "<p>Our safe and secure community connects you with likeminded parents looking to achieve similar goals.<\/p>",
-            "background_image": "shopify:\/\/shop_images\/Frame_7431.svg",
+            "background_image": "shopify:\/\/shop_images\/illustration-parents2.svg",
             "btn_title": "Read more",
             "np_btn_title": "Buy The Course",
             "button_url": "https:\/\/community.parentingmattersonline.com\/"
