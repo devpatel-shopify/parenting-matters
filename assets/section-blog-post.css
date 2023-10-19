@@ -420,5 +420,5 @@
 }
 
 .article-tag .article-block .article-template__content li p {
-  margin: revert;
+  margin-bottom: 12px;
 }
