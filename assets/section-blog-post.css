@@ -412,3 +412,13 @@
   margin-top: 55px;
 }
 }
+
+
+.article-template__content.rte ul {
+  list-style-position: revert;
+  padding: revert;
+}
+
+.article-tag .article-block .article-template__content li p {
+  margin: revert;
+}
