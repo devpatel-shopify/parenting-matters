@@ -160,6 +160,13 @@
             "heading_content": "<p>Yes, you can pause at any time just by logging out. When you log back in you will be taken back to your dashboard where you can see which sessions you've completed and which are coming up next.<\/p>"
           }
         },
+        "8b646599-3845-4979-8d7c-cc05cbe122f0": {
+          "type": "course",
+          "settings": {
+            "heading_title": "Do I have to do the course in a fixed order?",
+            "heading_content": "<p>No, but we strongly recommend you to go in the order shown in the course, as sessions build upon each other<\/p>"
+          }
+        },
         "8d694ff0-1a50-4078-9a3f-802a3c6308aa": {
           "type": "course",
           "settings": {
@@ -224,27 +231,6 @@
             "heading_content": "<p>Yes, our Community Manager is responsible for managing discussions in the private community in order to create a safe, secure and respectful space for members. <\/p>"
           }
         },
-        "8b646599-3845-4979-8d7c-cc05cbe122f0": {
-          "type": "course",
-          "settings": {
-            "heading_title": "Do I have to do the course in a fixed order?",
-            "heading_content": "<p>No, but we strongly recommend you to go in the order shown in the course, as sessions build upon each other<\/p>"
-          }
-        },
-        "f2049a91-d372-44bf-89f3-c6ee78ca9b54": {
-          "type": "course",
-          "settings": {
-            "heading_title": "I am struggling with my child – who can I contact?",
-            "heading_content": "<p>Please see \"Help!\" On the menu bar once you have logged in to the course<\/p>"
-          }
-        },
-        "db705577-c4ab-47e9-a3fb-77fd72012c42": {
-          "type": "course",
-          "settings": {
-            "heading_title": "I am struggling and not in a good place – who can I contact?",
-            "heading_content": "<p>Please see \"Help!\" On the menu bar once you have logged in to the course<\/p>"
-          }
-        },
         "5b8c8c57-059a-4f2f-ba30-d7bbfad2c0ff": {
           "type": "heading",
           "settings": {
@@ -257,7 +243,7 @@
           "type": "course",
           "settings": {
             "heading_title": "I'm having difficulties registering or at log in. Who should I contact?",
-            "heading_content": "<p>If you have forgotten your password click the 'Forgotten password' link in the login page. For other serious technical issues goto help.parentingmattersonline.com and raise a support ticket - we will get back to you<\/p>"
+            "heading_content": "<p>You can use the contact us form on the site (via the top menu) if you need to contact the Parenting Matters team.<\/p>"
           }
         },
         "e0165522-4034-4d94-9d76-baf9e3307338": {
@@ -310,6 +296,7 @@
         "a209f6d1-eba0-4092-b858-e33b67ce0ae8",
         "b728e4f2-e253-406c-b0da-889c3e91bdcb",
         "5522719c-3097-42f7-b528-e3c6825f6233",
+        "8b646599-3845-4979-8d7c-cc05cbe122f0",
         "8d694ff0-1a50-4078-9a3f-802a3c6308aa",
         "589226e9-b22f-41e3-b6d6-3eb54cfe8db7",
         "f95b4a3c-f0c8-442e-8676-7fdb637e149d",
@@ -319,9 +306,6 @@
         "95f4d23d-a682-47d8-ad1a-2df373271f55",
         "57a69ff2-04ca-47fe-9444-9d4ee24f3597",
         "45e332f8-5507-43b4-9578-60118258641c",
-        "8b646599-3845-4979-8d7c-cc05cbe122f0",
-        "f2049a91-d372-44bf-89f3-c6ee78ca9b54",
-        "db705577-c4ab-47e9-a3fb-77fd72012c42",
         "5b8c8c57-059a-4f2f-ba30-d7bbfad2c0ff",
         "5dde480d-87e7-42af-a49d-beb875c76d83",
         "e0165522-4034-4d94-9d76-baf9e3307338",
