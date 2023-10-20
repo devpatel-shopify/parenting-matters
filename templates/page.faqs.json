@@ -25,6 +25,13 @@
             "padding_bottom": 0
           }
         },
+        "7f2d5a39-8793-4989-9c5e-54ab671d66fd": {
+          "type": "course",
+          "settings": {
+            "heading_title": "What if I'm looking for a solution to a specific problem? Do I still have to do the whole course?",
+            "heading_content": "<p>We have picked some of the main difficulties parents face and are in the process of putting together simple guides to help you identify the causes, understand the impact and what you can do to manage this. They can be found in the Resources section in the top navigation bar - Common Difficulties. We will continue adding to these topics in the coming months.<\/p>"
+          }
+        },
         "13992476-e767-47b5-9706-4a0839ff7803": {
           "type": "course",
           "settings": {
@@ -270,6 +277,7 @@
       },
       "block_order": [
         "78e23a45-3f43-4ed4-8831-010f62928521",
+        "7f2d5a39-8793-4989-9c5e-54ab671d66fd",
         "13992476-e767-47b5-9706-4a0839ff7803",
         "b2f8be5d-8795-4040-ad43-281f7e6f769c",
         "6ec34533-b5fd-433a-a568-805d38a172c8",
