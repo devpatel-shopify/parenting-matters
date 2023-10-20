@@ -157,7 +157,7 @@
           "type": "course",
           "settings": {
             "heading_title": "Can I stop before the session is completed?",
-            "heading_content": "<p>Yes, you can pause at any time just by logging out. When you log back in you will be taken back to exactly where you were<\/p>"
+            "heading_content": "<p>Yes, you can pause at any time just by logging out. When you log back in you will be taken back to your dashboard where you can see which sessions you've completed and which are coming up next.<\/p>"
           }
         },
         "8d694ff0-1a50-4078-9a3f-802a3c6308aa": {
