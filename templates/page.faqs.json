@@ -228,7 +228,7 @@
           "type": "course",
           "settings": {
             "heading_title": "Do I have to do the course in a fixed order?",
-            "heading_content": "<p>No, but we strongly recommend you to go in the order shown in the course, as modules build upon each other<\/p>"
+            "heading_content": "<p>No, but we strongly recommend you to go in the order shown in the course, as sessions build upon each other<\/p>"
           }
         },
         "f2049a91-d372-44bf-89f3-c6ee78ca9b54": {
