@@ -253,18 +253,11 @@
             "heading_content": "<p>You can access the course from any internet enabled device - desktop, laptop, tablet or mobile phone. We support all major browsers on these devices<\/p>"
           }
         },
-        "8bb6a6a8-6b18-48c1-a703-528145084063": {
-          "type": "course",
-          "settings": {
-            "heading_title": "Can I get a record of my home practice?",
-            "heading_content": "<p>Full records of the subject and the response you enter for your Home Practice sessions can be viewed via a link in any page in the course. If you want to print off your results you can do so via the Print capability of your browser<\/p>"
-          }
-        },
         "70f76d8c-9940-4845-8b1c-e2bd32d3e05c": {
           "type": "course",
           "settings": {
             "heading_title": "Is it available in languages other than English?",
-            "heading_content": "<p>Not at present. Over 60 languages are spoken in the UK with a sizeable population; if you would like to suggest another language, please contact us using the link at the top of each page<\/p>"
+            "heading_content": "<p>Not at present. However you can get a simultaneous translation app for many languages.<\/p>"
           }
         },
         "47dd448f-92bf-42da-b8c5-aca0545183d1": {
@@ -309,7 +302,6 @@
         "5b8c8c57-059a-4f2f-ba30-d7bbfad2c0ff",
         "5dde480d-87e7-42af-a49d-beb875c76d83",
         "e0165522-4034-4d94-9d76-baf9e3307338",
-        "8bb6a6a8-6b18-48c1-a703-528145084063",
         "70f76d8c-9940-4845-8b1c-e2bd32d3e05c",
         "47dd448f-92bf-42da-b8c5-aca0545183d1"
       ],
