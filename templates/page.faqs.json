@@ -95,6 +95,13 @@
             "heading_content": "<p>Yes, learning how to speak up for yourself and express your needs in a constructive way is part of the course, as is how to listen to them and show them that you understand what they are feeling<\/p>"
           }
         },
+        "7f2d5a39-8793-4989-9c5e-54ab671d66fd": {
+          "type": "course",
+          "settings": {
+            "heading_title": "What if I'm looking for a solution to a specific problem? Do I still have to do the whole course?",
+            "heading_content": "<p>We have picked some of the main difficulties parents face and are in the process of putting together simple guides to help you identify the causes, understand the impact and what you can do to manage this. They can be found in the Resources section in the top navigation bar - Common Difficulties. We will continue adding to these topics in the coming months.<\/p>"
+          }
+        },
         "52651694-4446-44b7-94b3-3715b2bef9f6": {
           "type": "heading",
           "settings": {
@@ -280,6 +287,7 @@
         "f0aa7513-edb5-4454-8cea-81a4a282dcbb",
         "1b356ba4-72ab-4370-a00a-0677a0963a8c",
         "96742bb3-9659-46b2-a6c0-f63e293af7a4",
+        "7f2d5a39-8793-4989-9c5e-54ab671d66fd",
         "52651694-4446-44b7-94b3-3715b2bef9f6",
         "b686e915-ca34-4904-b976-9a1946a0854d",
         "cb7c9bf5-a1f4-4694-a64d-8c7983fb3512",
