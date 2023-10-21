@@ -1,144 +1,162 @@
 {% assign tarray = customer.tags | join: ',' %}
-{% assign tarray = tarray | append : "prq_FamilyStarQuiz_true," %}
+{% assign tarray = tarray | append: 'prq_FamilyStarQuiz_true,' %}
 {% assign ctagsArray = tarray | split: ',' %}
+{%- assign FamilyStarQuizStage = customer.metafields.klaviyo.FamilyStarQuizStage -%}
 
+{% assign makeRedirection = false %}
 {% if customer and customer.metafields.klaviyo.FamilyStarCompleted and request.design_mode == false %}
-<script type="text/javascript">
-window.location.replace("{{shop.url}}/pages/custom-family-star-result");
-</script>
-{% else  %}
+  {% assign makeRedirection = true %}
+{% endif %}
 
-<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-{{ 'section-family-star.css' | asset_url | stylesheet_tag }}
+{% if ctagsArray contains "prq_planpt1Roundup_true" and customer.metafields.klaviyo.FamilyStarCompleted != blank and FamilyStarQuizStage == "First" %}
+  {% assign makeRedirection = false %}
+{% endif %}
 
-{% assign ss = section.settings %}
-{%- liquid
-  assign heading_font = section.settings.heading_font
--%}
+{% if makeRedirection %}
+  <script type="text/javascript">
+    window.location.replace('{{ pages['family-star-result-dashboard'].url }}');
+  </script>
+{% else %}
+  <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+  {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+  {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+  {{ 'section-family-star.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-@media screen and (max-width: 749px) {
-  .quiz_banner::before,
-  .quiz_banner .banner__media::before,
-  .quiz_banner:not(.banner--mobile-bottom) .banner__content::before {
-    padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
-    content: '';
-    display: block;
-  }
-}
+  {% assign ss = section.settings %}
+  {%- liquid
+    assign heading_font = section.settings.heading_font
+  -%}
 
-@media screen and (min-width: 750px) {
-  .quiz_banner::before,
-  .quiz_banner .banner__media::before {
-    padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
-    content: '';
-    display: block;
-  }
-}
-{%- endstyle -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      .quiz_banner::before,
+      .quiz_banner .banner__media::before,
+      .quiz_banner:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
 
-{% if ss.form_id != blank %}
-  {% assign formID = ss.form_id | handleize %}
+    @media screen and (min-width: 750px) {
+      .quiz_banner::before,
+      .quiz_banner .banner__media::before {
+        padding-bottom: {{ 1 | divided_by: ss.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
 
+  {% if ss.form_id != blank %}
+    {% assign formID = ss.form_id | handleize %}
 
-  <section class="ps-quiz color-{{ section.settings.color_scheme }}">
-    {%- if ss.image != blank -%}
-      <div class="banner banner--only_media quiz_banner banner--adapt banner--desktop-transparent banner--content-align-center banner--content-align-mobile-center">      
-        <div class="banner__media media">
-        {%- assign image_height = ss.image.width | divided_by: ss.image.aspect_ratio -%}
-        {{ ss.image
-          | image_url: width: 3840
-          | image_tag:
-            loading: 'lazy',
-            width: ss.image.width,
-            height: image_height,
-            sizes: '100vw',
-            widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-        }}
+    <section class="ps-quiz color-{{ section.settings.color_scheme }}">
+      {%- if ss.image != blank -%}
+        <div class="banner banner--only_media quiz_banner banner--adapt banner--desktop-transparent banner--content-align-center banner--content-align-mobile-center">
+          <div class="banner__media media">
+            {%- assign image_height = ss.image.width | divided_by: ss.image.aspect_ratio -%}
+            {{
+              ss.image
+              | image_url: width: 3840
+              | image_tag:
+                loading: 'lazy',
+                width: ss.image.width,
+                height: image_height,
+                sizes: '100vw',
+                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+            }}
+          </div>
+          <div class="banner_extra">
+            <svg width="1440" height="416" viewBox="0 0 1440 416" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_114)">
+              <path d="M141.345 49.2896C252.264 165.055 94.4071 206.811 76.256 209.822C-32.7123 227.897 -52.6336 172.906 -50.8863 139.872C-48.3934 92.741 30.4257 -66.4754 141.345 49.2896Z" fill="#C9D9D3"/>
+              <path d="M256.095 164.678C242.276 120.586 288.382 130.014 293.455 131.561C323.905 140.845 322.009 157.595 317.328 165.901C310.65 177.751 269.914 208.771 256.095 164.678Z" fill="#D4E1DC"/>
+              <path d="M1327.94 380.144C1179.64 306.252 1318.62 210.531 1335.22 201.266C1434.91 145.647 1473.49 192.186 1483.32 224.929C1497.34 271.646 1476.25 454.035 1327.94 380.144Z" fill="#DFE8E5"/>
+              <path d="M1219.95 165.207C1204.5 115.911 1256.05 126.452 1261.72 128.181C1295.77 138.561 1293.64 157.288 1288.41 166.574C1280.95 179.823 1235.4 214.503 1219.95 165.207Z" fill="#C9D9D3"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_6_114">
+              <rect width="1440" height="416" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+          </div>
         </div>
-        <div class="banner_extra">
-          <svg width="1440" height="416" viewBox="0 0 1440 416" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_6_114)">
-            <path d="M141.345 49.2896C252.264 165.055 94.4071 206.811 76.256 209.822C-32.7123 227.897 -52.6336 172.906 -50.8863 139.872C-48.3934 92.741 30.4257 -66.4754 141.345 49.2896Z" fill="#C9D9D3"/>
-            <path d="M256.095 164.678C242.276 120.586 288.382 130.014 293.455 131.561C323.905 140.845 322.009 157.595 317.328 165.901C310.65 177.751 269.914 208.771 256.095 164.678Z" fill="#D4E1DC"/>
-            <path d="M1327.94 380.144C1179.64 306.252 1318.62 210.531 1335.22 201.266C1434.91 145.647 1473.49 192.186 1483.32 224.929C1497.34 271.646 1476.25 454.035 1327.94 380.144Z" fill="#DFE8E5"/>
-            <path d="M1219.95 165.207C1204.5 115.911 1256.05 126.452 1261.72 128.181C1295.77 138.561 1293.64 157.288 1288.41 166.574C1280.95 179.823 1235.4 214.503 1219.95 165.207Z" fill="#C9D9D3"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_6_114">
-            <rect width="1440" height="416" fill="white"/>
-            </clipPath>
-            </defs>
-            </svg>            
-        </div>
-      </div>
       {%- endif -%}
-      <div class="banner quiz_banner banner--adapt banner--desktop-transparent banner--content-align-center banner--content-align-mobile-center">      
+      <div class="banner quiz_banner banner--adapt banner--desktop-transparent banner--content-align-center banner--content-align-mobile-center">
         <div class="banner__content banner__content--bottom-center page-width">
           <div class="starter-content--wrapper banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient">
             {%- if ss.banner_heading -%}
-            <h2 class="banner__heading inline-richtext quiz_headline">
-              {{ ss.banner_heading }}
-            </h2>
+              <h2 class="banner__heading inline-richtext quiz_headline">
+                {{ ss.banner_heading }}
+              </h2>
             {%- endif -%}
             {%- if ss.banner_completed_heading -%}
-            <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
-              {{ ss.banner_completed_heading }}
-            </h2>
+              <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
+                {{ ss.banner_completed_heading }}
+              </h2>
             {%- else -%}
-            <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
-              {{ ss.banner_heading }}
-            </h2>
+              <h2 class="banner__heading inline-richtext quiz_complete_headline hidden">
+                {{ ss.banner_heading }}
+              </h2>
             {%- endif -%}
           </div>
           <div class="banner__box content-container content-container--full-width-mobile color-{{ ss.color_scheme }} gradient welcome-content--wrapper ">
             {%- if ss.welcome_title != blank -%}
-            <h2 class="banner__heading inline-richtext quiz_headline">
-              {{ ss.welcome_title }}
-            </h2>
+              <h2 class="banner__heading inline-richtext quiz_headline">
+                {{ ss.welcome_title }}
+              </h2>
             {%- endif -%}
             {%- if ss.welcome_description != blank -%}
-            <div class="banner__text rte">
-              <p>{{ ss.welcome_description }}</p>
-            </div>
+              <div class="banner__text rte">
+                <p>{{ ss.welcome_description }}</p>
+              </div>
             {%- endif -%}
             {%- if ss.welcome_button_title != blank -%}
-            <div class="banner__buttons">
-              <button type="button" class="button" onclick="this.closest('.ps-quiz').classList.add('quiz-started');">
-                {{ ss.welcome_button_title }}
-                {% render 'icon-arrow' %}
-              </button>
-            </div>
+              <div class="banner__buttons">
+                <button type="button" class="button" onclick="this.closest('.ps-quiz').classList.add('quiz-started');">
+                  {{ ss.welcome_button_title }}
+                  {% render 'icon-arrow' %}
+                </button>
+              </div>
             {%- endif -%}
           </div>
         </div>
       </div>
 
-    <div class="page-width">
-      {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
-      <!-- <form
-        class="quiz-section"
-        id="{{ formID }}"
-        style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
-      > -->
-        
-      <form id="fs_quiz" class="quiz-section" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
-        <input type="hidden" name="g" value="QXvndD">
-        <input type="hidden" name="$list_fields" value="$consent">
-        {% assign fields = '' %}
+      <div class="page-width">
+        {% comment %} <h1 class="page-title">Parenting style quiz</h1> {% endcomment %}
+        <!--
+          <form
+            class="quiz-section"
+            id="{{ formID }}"
+            style="--progress-bar-radius:{{ section.settings.progress_bar_radius}}px"
+          >
+        -->
 
-        <div class="quiz_questions">
-          {%- for block in section.blocks -%}
+        <form
+          id="fs_quiz"
+          class="quiz-section"
+          action="//manage.kmail-lists.com/subscriptions/subscribe"
+          data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe"
+          method="GET"
+          target="_blank"
+          novalidate="novalidate"
+        >
+          <input type="hidden" name="g" value="QXvndD">
+          <input type="hidden" name="$list_fields" value="$consent">
+          {% assign fields = '' %}
 
-            {%- assign mainIndex = forloop.index -%}
-            {%- assign mainZeroIndex = forloop.index0 -%}
+          <div class="quiz_questions">
+            {%- for block in section.blocks -%}
+              {%- assign mainIndex = forloop.index -%}
+              {%- assign mainZeroIndex = forloop.index0 -%}
 
-            {%- if block.type == 'checkbox' -%}
-              {%- comment -%} Metafield Slide {%- endcomment -%}
-              
-              {%- capture metaCotent -%}
+              {%- if block.type == 'checkbox' -%}
+                {%- comment -%} Metafield Slide {%- endcomment -%}
+
+                {%- capture metaCotent -%}
               {% assign options = block.settings.options | newline_to_br | split: "<br />"%}
                 {%- liquid 
                   assign totalData = 0
@@ -302,1283 +320,472 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
                   {%- endif -%}
                 {%- endfor -%}
               {%- endcapture -%}
-              {%- comment -%} Metafield Slide {%- endcomment -%}
-            {%- endif -%}
+                {%- comment -%} Metafield Slide {%- endcomment -%}
+              {%- endif -%}
 
-            {%- liquid
+              {%- liquid
                 assign bs = block.settings
                 assign field_name = bs.klaviyo_id | handleize
                 assign size = section.blocks.size | minus: 1
                 assign progress = forloop.index0 | times: 100 | divided_by: size
                 assign slide_forloop = forloop.index
-  
-                assign name = "pq_questions_" | append: forloop.index0
+
+                assign name = 'pq_questions_' | append: forloop.index0
                 if bs.klaviyo_id
-                    assign name = bs.klaviyo_id | handleize
+                  assign name = bs.klaviyo_id | handleize
                 endif
-  
-                if field_name != ""
-                    assign fields = fields | append: field_name | append: ","
-                endif 
+
+                if field_name != ''
+                  assign fields = fields | append: field_name | append: ','
+                endif
                 capture background_color
-                    cycle '#E9F0ED', '#F9E8E2', '#FFF0C9', '#FCEAD6'
+                  cycle '#E9F0ED', '#F9E8E2', '#FFF0C9', '#FCEAD6'
                 endcapture
                 capture heading_color
-                    cycle '#C9D9D3', '#F4D3DD', '#FFD978', '#F7C083'
+                  cycle '#C9D9D3', '#F4D3DD', '#FFD978', '#F7C083'
                 endcapture
                 capture primary_color
-                    cycle '#9CBFB3', '#C72457', '#F29630', '#F29630'
+                  cycle '#9CBFB3', '#C72457', '#F29630', '#F29630'
                 endcapture
                 capture button_color
-                    cycle '#01333E', '#C72457', '#F29630', '#F29630'
+                  cycle '#01333E', '#C72457', '#F29630', '#F29630'
                 endcapture
-            -%}
+              -%}
 
-            {%- if block.type == "checkbox" -%}
-              {%- assign maxSelect = 1 -%}
-              {%- assign blockIndex = forloop.index -%}
-              {%- if block.settings.max_answer > 0 -%}
-                {%- assign maxSelect = block.settings.max_answer -%}
-              {%- endif -%}
-            {%- endif -%}
-
-            <div id="quiz_slide-{{ block.id }}" data-type="{{ block.type }}" data-title="{{ bs.title | handleize }}" {%- if block.type == "checkbox" %}data-max="{{ maxSelect }}"{% endif %} class="quiz_slide slide {% unless forloop.first %} hidden{% endunless %} {% if block.type == 'checkbox' %}js-block-checkbox{% endif %}" data-klaviyoid="{{ bs.klaviyo_id }}"  {{ block.shopify_attributes }}>
-              <style>
-              #quiz_slide-{{ block.id }}{
-                  --background-color: {{ bs.background_color | default: background_color }};
-                  --heading-color: {{ bs.heading_color | default: heading_color }};
-                  --primary-color: {{ bs.primary_color | default: primary_color }};
-                  --secondary-color: {{ bs.heading_color | default: heading_color | color_lighten: 0.2 }};
-                  --button-color: {{ bs.button_color | default: button_color }};
-                  --progress: {{ progress | append: '%' }};
-              }
-              </style>
-              <div class="quiz_header">                    
-                <div class="quiz_progress"><span class="progress"></span></div>
-                <div class="quiz_question_count"><span>Question {{ forloop.index }}/{{ section.blocks.size }}</span></div>
-                {%- if bs.title != blank -%}<div class="quiz_subheading rte"><p>{{ bs.title }}</p></div>{%- endif -%}
-                {%- if bs.q != blank -%}<h2 class="quiz_heading">{{ bs.q | newline_to_br }}</h2>{%- endif -%}
-              </div>
-              <div class="quiz_content">
-                {%- if block.type == 'textfield' -%}
-                  <div class="rte error_message"><p>Please write your answer here...</p></div>
-                {%- elsif block.type == 'checkbox' -%}
-                  {%- assign numberText = ",one,two,three,four,five,six,saven,eight,nine,ten" | split: ',' -%}
-                  <div class="rte error_message"><p>Select {{ numberText[maxSelect] }} options</p></div>
-                {%- else -%}
-                <div class="rte error_message"><p>Select any single option</p></div>
-                {%- endif -%}
-                {%- case block.type -%}
-                  {%- when 'range' -%}
-                  <div class="range_container">
-                    <div class="range_relative">
-                      <div class="range_bar"></div>
-                      <div class="range_wrapper">
-                        {%- for radio in (1..4) -%}
-                        {%- capture values -%} {% cycle '-2', '-1', '1', '2' - %}{%- endcapture -%}
-                        <div class="radio_item">
-                            <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ name }}" value="{{ values }}" data-input-index="{{ slide_forloop }}" data-val="{{ values }}" required>
-                            <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label"><span class="box"></span></label>
-                        </div> 
-                        {%- endfor -%}                                
-                      </div>
-                    </div>
-                    <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
-                  </div>
-                  {%- when 'button' -%}
-                  <div class="radio_container">
-                    {%- if bs.a1 != blank -%}
-                    <div class="radio_item">
-                        <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-1" name="{{ name }}" value="0" data-input-index="{{ slide_forloop }}"  data-val="0" required>
-                        <label for="{{ name }}-{{ block.id }}-1" class="radio_label"><span class="box"></span> {{ bs.a1 }}</label>
-                    </div>
-                    {%- endif -%}
-                    {%- if bs.a2 != blank -%}
-                    <div class="radio_item">
-                        <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-2" name="{{ name }}" value="1" data-input-index="{{ slide_forloop }}"  data-val="1" required>
-                        <label for="{{ name }}-{{ block.id }}-2" class="radio_label"><span class="box"></span> {{ bs.a2 }}</label>
-                    </div>
-                    {%- endif -%}
-                    {%- if bs.a3 != blank -%}
-                    <div class="radio_item">
-                        <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-3" name="{{ name }}" value="2" data-input-index="{{ slide_forloop }}"  data-val="2" required>
-                        <label for="{{ name }}-{{ block.id }}-3" class="radio_label"><span class="box"></span> {{ bs.a3 }}</label>
-                    </div>
-                    {%- endif -%}
-                    {%- if bs.a4 != blank -%}
-                    <div class="radio_item">
-                        <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-4" name="{{ name }}" value="3" data-input-index="{{ slide_forloop }}"  data-val="3" required>
-                        <label for="{{ name }}-{{ block.id }}-4" class="radio_label"><span class="box"></span> {{ bs.a4 }}</label>
-                    </div>
-                    {%- endif -%}
-                    {%- if bs.a5 != blank -%}
-                      <div class="radio_item">
-                          <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-5" name="{{ name }}" value="4" data-input-index="{{ slide_forloop }}"  data-val="4" required>
-                          <label for="{{ name }}-{{ block.id }}-5" class="radio_label"><span class="box"></span> {{ bs.a5 }}</label>
-                      </div>
-                      {%- endif -%}
-                    <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
-                  </div>
-                  {%- when 'textfield' -%}
-                  <div class="textarea_container">
-                      <textarea name="{{ name }}" id="{{ bs.klaviyo_id }}" data-id="{{ name }}" placeholder="Enter your answer here..." rows="10" required></textarea>
-                  </div>
-                  {%- when 'dropdown' -%}
-                  <div class="dropdown_container">
-                      {%- assign options = bs.options | split: "," -%}
-                      <details>
-                      <summary class="dropdown_toggle">
-                          <span>Select relationship person</span>
-                          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.38591 9.96708C7.17865 10.1496 7.15856 10.4655 7.34104 10.6728L11.7094 15.6343L11.7096 15.6346C11.7966 15.7331 11.9034 15.8121 12.0232 15.8661C12.143 15.9202 12.2729 15.9481 12.4042 15.9481C12.5356 15.9481 12.6655 15.9202 12.7853 15.8661C12.9051 15.8121 13.0119 15.7331 13.0988 15.6346L13.0992 15.6342L17.4666 10.6727C17.6491 10.4654 17.629 10.1495 17.4217 9.96705C17.2144 9.78459 16.8985 9.80471 16.716 10.012L12.4042 14.9102L8.09159 10.0119C7.90911 9.80469 7.59317 9.7846 7.38591 9.96708Z" fill="currentColor"/>
-                              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" transform="matrix(1.19249e-08 1 1 -1.19249e-08 0.5 0.000122064)" stroke="currentColor"/>
-                          </svg>                                
-                      </summary>
-                      <div class="dropdown_list">
-                          {%- for option in options -%}
-                          <div class="dropdown_item">
-                              <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ name }}" data-input-index="{{ slide_forloop }}" data-val="{{- option -}}" value="{{- option -}}" required>
-                              <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label">{{- option -}}</label>
-                          </div>
-                          {%- endfor -%}
-                      </div>
-                      <input type="hidden" id="slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
-                  </div>
-                  {%- when 'checkbox' -%}
-                  <div class="checkbox_container">
-                    {% assign options = bs.options | newline_to_br | split: "<br />"%}
-                    {%- for option in options -%}
-                    <div class="checkbox_item">
-                      <input class="visually-hidden" type="checkbox" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ option | strip_newlines | escape }}" value="{{ option | strip_newlines | escape }}" data-input-index="{{ slide_forloop }}"  data-val="{{ option | strip_newlines | escape }}" required data-text-handleize = "{{ option | handleize }}" data-que="{{ bs.title | handleize }}">
-                      <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="checkbox_label"><span class="box"></span> {{ option }}</label>
-                    </div>
-                    {%- endfor -%}
-                    <input type="hidden" id="_slidervalue{{ slide_forloop }}" data-id="{{ name }}" class="slide_value">
-                    {%- for i in (1..maxSelect) -%}
-                      <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}" id="{{ bs.title | handleize }}_{{ i }}" value >
-                      {% assign inputName = bs.title | handleize | append: '_' | append: i   %}
-                      {% assign fields = fields | append: inputName | append: "," %}
-    
-    
-                      <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_values" id="{{ bs.title | handleize }}_{{ i }}_values" value >
-                      {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values'    %}
-                      {% assign fields = fields | append: inputName | append: "," %}
-    
-                      <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_score" id="{{ bs.title | handleize }}_{{ i }}_score" value >
-                      {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score'   %}
-                      {% assign fields = fields | append: inputName | append: "," %}
-                    {%- endfor -%}
-                  </div>
-                {%- endcase -%}
-              </div>
-              <div class="quiz_footer">
-                {%- unless forloop.first -%}
-                <button type="button" class="button button_back">{% render 'icon-left-arrow' %} <span>Back</span></button>
-                {%- endunless -%}
-                {%- if forloop.last -%}
-                <button type="submit" class="button button_submit"><span>Submit</span> {% render 'icon-arrow' %}</button>
-                {%- else -%}
-                <button type="button" class="button button_next" data-type="{{ block.type }}" ><span>Next</span>{% render 'icon-arrow' %}</button>
-                {%- endif -%}
-              </div>
-              {% if block.type == "checkbox" %}
-                <script type="application/json" data-metaobjects>{ {{ metaCotent }} }</script>
-              {% endif %}
-            </div>
-          {%- endfor -%}        
-
-          <div id="quiz_slide-thankyou" class="js-klaviyo-form-success-wrapper quiz_slide hidden">
-            <style>
-              #quiz_slide-thankyou{
-                --background-color: #C9D9D3;
-                --heading-color: #C9D9D3;
-              }
-            </style>
-            <div class="quiz_header">
-              <h2 class="quiz_heading">{{ section.settings.form_success_description }}</h2>
-            </div>
-            <div class="klaviyo-form__buttons quiz_content center">
-              {%- for i in (1..2) -%}
-                {%- assign btnTitleTxt = 'btn_title_' | append: i -%}
-                {%- assign btnUrlTxt = 'btn_url_' | append: i -%}
-                {%- assign buttonTile = section.settings[btnTitleTxt] -%}
-                {%- assign btnUrl = section.settings[btnUrlTxt] -%}
-                {%- if buttonTile != blank and btnUrl != blank -%}
-                  <a href="{{ btnUrl }}" class="button">
-                    {{ buttonTile }}
-                    <svg
-                      aria-hidden="true"
-                      class="icon icon-arrow"
-                      focusable="false"
-                      viewBox="0 0 21 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-                    </svg>
-                  </a>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-
-          {% comment %} {% for block in section.blocks %}
-            {% assign bs = block.settings %}
-            {% assign field_name = bs.klaviyo_id | handleize %}
-  
-            {% if field_name != "" %}
-              {% assign fields = fields | append: field_name | append: "," %}
-            {% endif %}
-    
-            {% case block.type %}
-              {% when 'range' %}
-                <div class="slide{% unless forloop.first %} hidden{% endunless %}">
-                  {% if bs.q != blank %}
-                    <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
-                  {% endif %}
-  
-                  {% if bs.a1 != blank and bs.a2 != blank %}
-                    <div class="range_container">
-                      <div class="labels">
-                        <p>{{ bs.a1 }}</p>
-                        <p>{{ bs.a2 }}</p>
-                      </div>
-                      <div class="range_inner">
-                        <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
-                        <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
-                        <div class="range_steps">
-                          <span class="step">&nbsp;</span>
-                          <span class="step">&nbsp;</span>
-                          <span class="step">&nbsp;</span>
-                          <span class="step">&nbsp;</span>
-                        </div>
-                      </div>
-                    </div>
-                  {% endif %}
-  
-                  <div class="btn-flex">
-                    {% unless forloop.first %}
-                      <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                    {% endunless %}
-                    {% if forloop.last %}
-                      <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                    {% else %}
-                      <button type="button" class="button button_next" data-type="range">Next {% render 'icon-arrow' %}</button>
-                    {% endif %}
-                  </div>
-                </div>
-  
-              {% when 'button' %}
-                <div class="slide{% unless forloop.first %} hidden{% endunless %}">
-                  {% if bs.title != blank %}
-                    <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
-                  {% endif %}
-  
-                  {% if bs.q != blank %}
-                    <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                  {% endif %}
-  
-                  <div class="qtype-button radio-container">
-                    {% if bs.a1 != blank %}
-                      <div class="item">
-                        <input
-                          type="radio"
-                          id="{{ bs.a1 | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ bs.a1 | handleize }}"
-                          data-val="0"
-                          required
-                        >
-                        <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
-                      </div>
-                    {% endif %}
-  
-                    {% if bs.a2 != blank %}
-                      <div class="item">
-                        <input
-                          type="radio"
-                          id="{{ bs.a2 | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ bs.a2 | handleize }}"
-                          data-val="1"
-                          required
-                        >
-                        <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
-                      </div>
-                    {% endif %}
-  
-                    {% if bs.a3 != blank %}
-                      <div class="item">
-                        <input
-                          type="radio"
-                          id="{{ bs.a3 | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ bs.a3 | handleize }}"
-                          data-val="2"
-                          required
-                        >
-                        <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
-                      </div>
-                    {% endif %}
-  
-                    {% if bs.a4 != blank %}
-                      <div class="item">
-                        <input
-                          type="radio"
-                          id="{{ bs.a4 | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ bs.a4 | handleize }}"
-                          data-val="3"
-                          required
-                        >
-                        <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
-                      </div>
-                    {% endif %}
-  
-                    {% if bs.a5 != blank %}
-                      <div class="item">
-                        <input
-                          type="radio"
-                          id="{{ bs.a5 | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ bs.a5 | handleize }}"
-                          data-val="4"
-                          required
-                        >
-                        <label for="{{ bs.a5 | handleize }}-{{forloop.index}}">{{ bs.a5 }}</label>
-                      </div>
-                    {% endif %}
-  
-                    <input type="hidden" id="slidervalue{{ forloop.index }}" value >
-                  </div>
-  
-                  <div class="btn-flex">
-                    {% unless forloop.first %}
-                      <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                    {% endunless %}
-                    {% if forloop.last %}
-                      <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                    {% else %}
-                      <button type="button" class="button button_next" data-type="radio">Next {% render 'icon-arrow' %}</button>
-                    {% endif %}
-                  </div>
-                </div>
-  
-              {% when 'textfield' %}
-                <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
-                  {% if bs.q_group_title != blank %}
-                    <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
-                  {% endif %}
-  
-                  {% if bs.q != blank %}
-                    <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                  {% endif %}
-  
-                  <div class="textfield-container">
-                    <textarea
-                      name="{{ bs.klaviyo_id }}"
-                      id="{{ bs.klaviyo_id }}"
-                      placeholder="Enter your answer here..."
-                    ></textarea>
-                  </div>
-  
-                  <div class="btn-flex">
-                    {% unless forloop.first %}
-                      <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                    {% endunless %}
-                    {% if forloop.last %}
-                      <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                    {% else %}
-                      <button type="button" class="button button_next"  data-type="text">Next {% render 'icon-arrow' %}</button>
-                    {% endif %}
-                  </div>
-                </div>
-  
-              {% when 'checkbox' %}
+              {%- if block.type == 'checkbox' -%}
                 {%- assign maxSelect = 1 -%}
                 {%- assign blockIndex = forloop.index -%}
                 {%- if block.settings.max_answer > 0 -%}
                   {%- assign maxSelect = block.settings.max_answer -%}
                 {%- endif -%}
-                <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox" data-title="{{ bs.title | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
-                  <div class="inner-slide-content">
-                  </div>
-                  {% if bs.title != blank %}
-                    <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
-                  {% endif %}
-  
-                  {% if bs.q != blank %}
-                    <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                  {% endif %}
-  
-                  {% assign options = bs.options | newline_to_br | split: "<br />"%}
-  
-                  <div class="qtype-button checkbox-container">
-                    {%- for option in options -%}
-                      <div class="item">
-                        <input
-                          type="checkbox"
-                          id="{{ option | handleize }}-{{forloop.index}}"
-                          data-input-index="{{ forloop.index }}"
-                          name="{{ bs.klaviyo_id | handleize }}"
-                          value="{{ option | strip_newlines | escape }}"
-                          data-val="{{ option | strip_newlines | escape }}"
-                          data-text-handleize = "{{ option | handleize }}"
-                          data-que="{{ bs.title | handleize }}"
-                          required
-                        >
-                        <label for="{{ option | handleize }}-{{forloop.index}}">{{ option }}</label>
-                      </div>
-                    {%- endfor -%}
-                  </div>
-                  {%- for i in (1..maxSelect) -%}
-                    <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}" id="{{ bs.title | handleize }}_{{ i }}" value >
-                    {% assign inputName = bs.title | handleize | append: '_' | append: i   %}
-                    {% assign fields = fields | append: inputName | append: "," %}
-  
-  
-                    <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_values" id="{{ bs.title | handleize }}_{{ i }}_values" value >
-                    {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values'    %}
-                    {% assign fields = fields | append: inputName | append: "," %}
-  
-                    <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_score" id="{{ bs.title | handleize }}_{{ i }}_score" value >
-                    {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score'   %}
-                    {% assign fields = fields | append: inputName | append: "," %}
-  
-                  {%- endfor -%}
-  
-                  <div class="btn-flex">
-                    {% unless forloop.first %}
-                      <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                    {% endunless %}
-                    {% if forloop.last %}
-                      <button type="button" class="button button_submit js-next-btn">Submit {% render 'icon-arrow' %}</button>
-                    {% else %}
-                      <button type="button" class="button button_next js-next-btn" data-type="checkbox">Next {% render 'icon-arrow' %}</button>
-                    {% endif %}
-                  </div>
-  
-                  {%- capture metaCotent -%}
-                    {%- assign totalData = 0 -%}
-                    {%- assign tmp = 0 -%}
-  
-                    {%- for objectStep in options -%}
-                      {%- assign metaobjectHandle = objectStep | handleize -%}
-                      {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                      {%- if metaobject -%}
-                        {%- assign totalData = totalData | plus: 1 -%}
-                      {%- endif -%}
-                    {%- endfor -%}
-  
-                    {%- for objectStep in options -%}
-                      {%- assign metaobjectHandle = objectStep | handleize -%}
-                      {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                      {%- if metaobject -%}
-                        {%- assign tmp = tmp | plus: 1 -%}
-                        {%- assign question = metaobject.question -%}
-                        {%- assign title = metaobject.title -%}
-                        {%- assign left_description = metaobject.left_description -%}
-                        {%- assign right_description = metaobject.right_description -%}
-                        {%- assign add_describe_this_section = metaobject.add_describe_this_section -%}
-                        {%- assign description_describe_this_step = metaobject.description_describe_this_step -%}
-                        {%- assign field_title_describe_this_step = metaobject.field_title_describe_this_step -%}
-                        {%- assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step -%}
-                        {%- assign add_range_section = metaobject.add_range_section -%}
-                        {%- assign description_range_section = metaobject.description_range_section -%}
-                        {%- assign title_range_section = metaobject.title_range_section -%}
-                        
-                        {%- capture metaobjectContent -%}
-                          {%- if title != blank or left_description != blank or right_description != blank -%}
-                            <div class="slide inner-slide-content hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="meta-description--wrapper">
-                                {%- if left_description != blank -%}
-                                  <div class="left-description--wrapper">
-                                    {{ left_description | metafield_tag }}
-                                  </div>
-                                {%- endif -%}
-                                {%- if right_description != blank -%}
-                                  <div class="right-description--wrapper">
-                                    {{ right_description | metafield_tag }}
-                                  </div>
-                                {%- endif -%}
-                              </div>
-      
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-description">Next {% render 'icon-arrow' %}</button>
-                              </div>
-                            </div>
-                          {%- endif -%}
-      
-                          {%- if add_describe_this_section == true -%}
-                            <div class="slide inner-slide-content js-step-describe-this hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="description--wrapper">
-                                {{ description_describe_this_step | metafield_tag }}
-                              </div>
-      
-                              <div class="text-field--wrapper">
-                                <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
-                                <textarea class="textarea_{{ title | handleize }}" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
-                              </div>
-      
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-textarea">Next {% render 'icon-arrow' %}</button>
-                              </div>
-                            </div>
-                          {%- endif -%}
-      
-                          {%- if add_range_section == true -%}
-                            <div class="slide inner-slide-content js-range-step hidden" data-meta-step="{{ question | handleize }}">
-                              <h1>{{ title }}</h1>
-                              <div class="description--wrapper">
-                                {{ description_range_section | metafield_tag }}
-                              </div>
-                              <div class="range_container">
-                                <label for="slider{{ question | handleize }}">
-                                  {{ title_range_section }}
-                                </label>
-  
-                                <div class="range-slider range-slider--dual">
-                                  <div class="range-slider__indicators">
-                                    <div class="range-slider__value range-slider__value--min"></div>
-                                    <div class="range-slider__value range-slider__value--max"></div>
-                                  </div>
-                                  {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
-                                  <input  data-que="{{ title | handleize }}" class="range-slider__slider range-slider__slider--to range_{{ title | handleize }}" type="range" value="1" min="1" max="10" />
-                                  <div class="range-slider__scale">
-                                    {%- for i in (1..10) -%}
-                                      <i>{{ i }}</i>
-                                    {%- endfor -%}
-                                  </div>
-                                </div>
-  
-                                {% comment %} <div class="range_inner">
-                                  <input class="sliderinput" id="slider{{ question | handleize }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="10" value="1" data-val="1">
-                                  <input type="hidden" id="slidervalue{{ question | handleize }}" value="1" >
-                                  <div class="range_steps">
-                                    {%- for i in (1..10) -%}
-                                      <span class="step">&nbsp;</span>
-                                    {%- endfor -%}
-                                  </div>
-                                </div> {% endcomment %}
-  
-                              </div>
-                              <div class="btn-flex">
-                                <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %}Back</button>
-                                <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next{% render 'icon-arrow' %}</button>
-                              </div>
-                            </div>
-                          {%- endif -%}
-                        {%- endcapture -%}
-                        
-                        {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
-  
-                      {%- endif -%}
-                    {%- endfor -%}
-                    {%- if block.settings.metaobject_steps != blank -%}
-                    {%- endif -%}
-                  {%- endcapture -%}
-  
-                  <script type="application/json" data-metaobjects>
-                    {
-                      {{ metaCotent }}
-                    }
-                  </script>
-                </div>
-  
-              {% when 'dropdown' %}
-                <div class="slide " data-klaviyoid="{{ bs.klaviyo_id }}">
-                  {% if bs.title != blank %}
-                    <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
-                  {% endif %}
-  
-                  {% if bs.q != blank %}
-                    <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                  {% endif %}
-  
-                  {% assign options = bs.options | split: ","%}
-  
-                  <div class="dropdown-container">
-                    <div class="select">
-                      <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
-                        {% for option in options %}
-                            <option value="{{ option }}">{{ option }}</option>
-                        {% endfor %}
-                      </select>
-                      {% render 'icon-caret' %}
-                    </div>
-                  </div>
-  
-                  <div class="btn-flex">
-                    {% unless forloop.first %}
-                      <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                    {% endunless %}
-                    {% if forloop.last %}
-                      <button type="button" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                    {% else %}
-                      <button type="button" class="button button_next" data-type="dropdown">Next {% render 'icon-arrow' %}</button>
-                    {% endif %}
-                  </div>
-                </div>
-            {% endcase %}
-          {% endfor %} {% endcomment %}
-        </div>
-
-      
-  
-        {% comment %} {% for block in section.blocks %}
-          {% assign bs = block.settings %}
-          {% assign field_name = bs.klaviyo_id | handleize %}
-
-          {% if field_name != "" %}
-            {% assign fields = fields | append: field_name | append: "," %}
-          {% endif %}
-  
-          {% case block.type %}
-            {% when 'range' %}
-              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
-                {% if bs.q != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q | newline_to_br }}</h2>
-                {% endif %}
-
-                {% if bs.a1 != blank and bs.a2 != blank %}
-                  <div class="range_container">
-                    <div class="labels">
-                      <p>{{ bs.a1 }}</p>
-                      <p>{{ bs.a2 }}</p>
-                    </div>
-                    <div class="range_inner">
-                      <input class="sliderinput" id="slider{{ forloop.index }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="4" value="1" data-val="-2">
-                      <input type="hidden" id="slidervalue{{ forloop.index }}" value="-2" >
-                      <div class="range_steps">
-                        <span class="step">&nbsp;</span>
-                        <span class="step">&nbsp;</span>
-                        <span class="step">&nbsp;</span>
-                        <span class="step">&nbsp;</span>
-                      </div>
-                    </div>
-                  </div>
-                {% endif %}
-
-                <div class="btn-flex">
-                  {% unless forloop.first %}
-                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                  {% endunless %}
-                  {% if forloop.last %}
-                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                  {% else %}
-                    <button type="button" class="button button_next" data-type="range">Next {% render 'icon-arrow' %}</button>
-                  {% endif %}
-                </div>
-              </div>
-
-            {% when 'button' %}
-              <div class="slide{% unless forloop.first %} hidden{% endunless %}">
-                {% if bs.title != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
-                {% endif %}
-
-                {% if bs.q != blank %}
-                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                {% endif %}
-
-                <div class="qtype-button radio-container">
-                  {% if bs.a1 != blank %}
-                    <div class="item">
-                      <input
-                        type="radio"
-                        id="{{ bs.a1 | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ bs.a1 | handleize }}"
-                        data-val="0"
-                        required
-                      >
-                      <label for="{{ bs.a1 | handleize }}-{{forloop.index}}">{{ bs.a1 }}</label>
-                    </div>
-                  {% endif %}
-
-                  {% if bs.a2 != blank %}
-                    <div class="item">
-                      <input
-                        type="radio"
-                        id="{{ bs.a2 | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ bs.a2 | handleize }}"
-                        data-val="1"
-                        required
-                      >
-                      <label for="{{ bs.a2 | handleize }}-{{forloop.index}}">{{ bs.a2 }}</label>
-                    </div>
-                  {% endif %}
-
-                  {% if bs.a3 != blank %}
-                    <div class="item">
-                      <input
-                        type="radio"
-                        id="{{ bs.a3 | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ bs.a3 | handleize }}"
-                        data-val="2"
-                        required
-                      >
-                      <label for="{{ bs.a3 | handleize }}-{{forloop.index}}">{{ bs.a3 }}</label>
-                    </div>
-                  {% endif %}
-
-                  {% if bs.a4 != blank %}
-                    <div class="item">
-                      <input
-                        type="radio"
-                        id="{{ bs.a4 | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ bs.a4 | handleize }}"
-                        data-val="3"
-                        required
-                      >
-                      <label for="{{ bs.a4 | handleize }}-{{forloop.index}}">{{ bs.a4 }}</label>
-                    </div>
-                  {% endif %}
-
-                  {% if bs.a5 != blank %}
-                    <div class="item">
-                      <input
-                        type="radio"
-                        id="{{ bs.a5 | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ bs.a5 | handleize }}"
-                        data-val="4"
-                        required
-                      >
-                      <label for="{{ bs.a5 | handleize }}-{{forloop.index}}">{{ bs.a5 }}</label>
-                    </div>
-                  {% endif %}
-
-                  <input type="hidden" id="slidervalue{{ forloop.index }}" value >
-                </div>
-
-                <div class="btn-flex">
-                  {% unless forloop.first %}
-                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                  {% endunless %}
-                  {% if forloop.last %}
-                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                  {% else %}
-                    <button type="button" class="button button_next" data-type="radio">Next {% render 'icon-arrow' %}</button>
-                  {% endif %}
-                </div>
-              </div>
-
-            {% when 'textfield' %}
-              <div class="slide{% unless forloop.first %} hidden{% endunless %}" data-klaviyoid="{{ bs.klaviyo_id }}">
-                {% if bs.q_group_title != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.q_group_title | newline_to_br }}</h2>
-                {% endif %}
-
-                {% if bs.q != blank %}
-                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                {% endif %}
-
-                <div class="textfield-container">
-                  <textarea
-                    name="{{ bs.klaviyo_id }}"
-                    id="{{ bs.klaviyo_id }}"
-                    placeholder="Enter your answer here..."
-                  ></textarea>
-                </div>
-
-                <div class="btn-flex">
-                  {% unless forloop.first %}
-                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                  {% endunless %}
-                  {% if forloop.last %}
-                    <button type="submit" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                  {% else %}
-                    <button type="button" class="button button_next"  data-type="text">Next {% render 'icon-arrow' %}</button>
-                  {% endif %}
-                </div>
-              </div>
-
-            {% when 'checkbox' %}
-              {%- assign maxSelect = 1 -%}
-              {%- assign blockIndex = forloop.index -%}
-              {%- if block.settings.max_answer > 0 -%}
-                {%- assign maxSelect = block.settings.max_answer -%}
               {%- endif -%}
-              <div class="slide{% unless forloop.first %} hidden{% endunless %} js-block-checkbox" data-title="{{ bs.title | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}" data-max="{{ maxSelect }}">
-                <div class="inner-slide-content">
-                </div>
-                {% if bs.title != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
+
+              <div
+                id="quiz_slide-{{ block.id }}"
+                data-type="{{ block.type }}"
+                data-title="{{ bs.title | handleize }}"
+                {%- if block.type == 'checkbox' %}
+                  data-max="{{ maxSelect }}"
                 {% endif %}
-
-                {% if bs.q != blank %}
-                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                {% endif %}
-
-                {% assign options = bs.options | newline_to_br | split: "<br />"%}
-
-                <div class="qtype-button checkbox-container">
-                  {%- for option in options -%}
-                    <div class="item">
-                      <input
-                        type="checkbox"
-                        id="{{ option | handleize }}-{{forloop.index}}"
-                        data-input-index="{{ forloop.index }}"
-                        name="{{ bs.klaviyo_id | handleize }}"
-                        value="{{ option | strip_newlines | escape }}"
-                        data-val="{{ option | strip_newlines | escape }}"
-                        data-text-handleize = "{{ option | handleize }}"
-                        data-que="{{ bs.title | handleize }}"
-                        required
-                      >
-                      <label for="{{ option | handleize }}-{{forloop.index}}">{{ option }}</label>
-                    </div>
-                  {%- endfor -%}
-                </div>
-                {%- for i in (1..maxSelect) -%}
-                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}" id="{{ bs.title | handleize }}_{{ i }}" value >
-                  {% assign inputName = bs.title | handleize | append: '_' | append: i   %}
-                  {% assign fields = fields | append: inputName | append: "," %}
-
-
-                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_values" id="{{ bs.title | handleize }}_{{ i }}_values" value >
-                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values'    %}
-                  {% assign fields = fields | append: inputName | append: "," %}
-
-                  <input type="hidden" name="{{ bs.title | handleize }}_{{ i }}_score" id="{{ bs.title | handleize }}_{{ i }}_score" value >
-                  {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score'   %}
-                  {% assign fields = fields | append: inputName | append: "," %}
-
-                {%- endfor -%}
-
-                <div class="btn-flex">
-                  {% unless forloop.first %}
-                    <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                  {% endunless %}
-                  {% if forloop.last %}
-                    <button type="button" class="button button_submit js-next-btn">Submit {% render 'icon-arrow' %}</button>
-                  {% else %}
-                    <button type="button" class="button button_next js-next-btn" data-type="checkbox">Next {% render 'icon-arrow' %}</button>
-                  {% endif %}
-                </div>
-
-                {%- capture metaCotent -%}
-                  {%- assign totalData = 0 -%}
-                  {%- assign tmp = 0 -%}
-
-                  {%- for objectStep in options -%}
-                    {%- assign metaobjectHandle = objectStep | handleize -%}
-                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                    {%- if metaobject -%}
-                      {%- assign totalData = totalData | plus: 1 -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-
-                  {%- for objectStep in options -%}
-                    {%- assign metaobjectHandle = objectStep | handleize -%}
-                    {%- assign metaobject = shop.metaobjects['question_answer_description_and_range_step'][metaobjectHandle] -%}
-                    {%- if metaobject -%}
-                      {%- assign tmp = tmp | plus: 1 -%}
-                      {%- assign question = metaobject.question -%}
-                      {%- assign title = metaobject.title -%}
-                      {%- assign left_description = metaobject.left_description -%}
-                      {%- assign right_description = metaobject.right_description -%}
-                      {%- assign add_describe_this_section = metaobject.add_describe_this_section -%}
-                      {%- assign description_describe_this_step = metaobject.description_describe_this_step -%}
-                      {%- assign field_title_describe_this_step = metaobject.field_title_describe_this_step -%}
-                      {%- assign field_placeholder_describe_this_step = metaobject.field_placeholder_describe_this_step -%}
-                      {%- assign add_range_section = metaobject.add_range_section -%}
-                      {%- assign description_range_section = metaobject.description_range_section -%}
-                      {%- assign title_range_section = metaobject.title_range_section -%}
-                      
-                      {%- capture metaobjectContent -%}
-                        {%- if title != blank or left_description != blank or right_description != blank -%}
-                          <div class="slide inner-slide-content hidden" data-meta-step="{{ question | handleize }}">
-                            <h1>{{ title }}</h1>
-                            <div class="meta-description--wrapper">
-                              {%- if left_description != blank -%}
-                                <div class="left-description--wrapper">
-                                  {{ left_description | metafield_tag }}
-                                </div>
-                              {%- endif -%}
-                              {%- if right_description != blank -%}
-                                <div class="right-description--wrapper">
-                                  {{ right_description | metafield_tag }}
-                                </div>
-                              {%- endif -%}
-                            </div>
-    
-                            <div class="btn-flex">
-                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-description">Next {% render 'icon-arrow' %}</button>
-                            </div>
-                          </div>
-                        {%- endif -%}
-    
-                        {%- if add_describe_this_section == true -%}
-                          <div class="slide inner-slide-content js-step-describe-this hidden" data-meta-step="{{ question | handleize }}">
-                            <h1>{{ title }}</h1>
-                            <div class="description--wrapper">
-                              {{ description_describe_this_step | metafield_tag }}
-                            </div>
-    
-                            <div class="text-field--wrapper">
-                              <label for="textarea-{{ question | handleize }}">{{ field_title_describe_this_step }}</label>
-                              <textarea class="textarea_{{ title | handleize }}" data-que="{{ title | handleize }}" name="" id="textarea-{{ question | handleize }}" cols="70" rows="10" placeholder="{{ field_placeholder_describe_this_step }}"></textarea>
-                            </div>
-    
-                            <div class="btn-flex">
-                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %} Back</button>
-                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-textarea">Next {% render 'icon-arrow' %}</button>
-                            </div>
-                          </div>
-                        {%- endif -%}
-    
-                        {%- if add_range_section == true -%}
-                          <div class="slide inner-slide-content js-range-step hidden" data-meta-step="{{ question | handleize }}">
-                            <h1>{{ title }}</h1>
-                            <div class="description--wrapper">
-                              {{ description_range_section | metafield_tag }}
-                            </div>
-                            <div class="range_container">
-                              <label for="slider{{ question | handleize }}">
-                                {{ title_range_section }}
-                              </label>
-
-                              <div class="range-slider range-slider--dual">
-                                <div class="range-slider__indicators">
-                                  <div class="range-slider__value range-slider__value--min"></div>
-                                  <div class="range-slider__value range-slider__value--max"></div>
-                                </div>
-                                {% comment %} <input class="range-slider__slider range-slider__slider--from" type="range" value="5" min="1" max="12" /> {% endcomment %}
-                                <input  data-que="{{ title | handleize }}" class="range-slider__slider range-slider__slider--to range_{{ title | handleize }}" type="range" value="1" min="1" max="10" />
-                                <div class="range-slider__scale">
-                                  {%- for i in (1..10) -%}
-                                    <i>{{ i }}</i>
-                                  {%- endfor -%}
-                                </div>
-                              </div>
-
-                              {% comment %} <div class="range_inner">
-                                <input class="sliderinput" id="slider{{ question | handleize }}" data-input-index="{{ forloop.index }}" type="range" name="{{ bs.klaviyo_id | handleize }}" min="1" max="10" value="1" data-val="1">
-                                <input type="hidden" id="slidervalue{{ question | handleize }}" value="1" >
-                                <div class="range_steps">
-                                  {%- for i in (1..10) -%}
-                                    <span class="step">&nbsp;</span>
-                                  {%- endfor -%}
-                                </div>
-                              </div> {% endcomment %}
-
-                            </div>
-                            <div class="btn-flex">
-                              <button type="button" class="button button_back js-back-btn">{% render 'icon-left-arrow' %}Back</button>
-                              <button type="button" class="button button_next js-next-btn" data-type="inner-slide-range">Next{% render 'icon-arrow' %}</button>
-                            </div>
-                          </div>
-                        {%- endif -%}
-                      {%- endcapture -%}
-                      
-                      {{ metaobjectHandle | json }} : {{ metaobjectContent | strip_newlines | json }}{%- unless totalData == tmp -%},{%- endunless -%}
-
-                    {%- endif -%}
-                  {%- endfor -%}
-                  {%- if block.settings.metaobject_steps != blank -%}
-                  {%- endif -%}
-                {%- endcapture -%}
-
-                <script type="application/json" data-metaobjects>
-                  {
-                    {{ metaCotent }}
+                class="quiz_slide slide {% unless forloop.first %} hidden{% endunless %} {% if block.type == 'checkbox' %}js-block-checkbox{% endif %}"
+                data-klaviyoid="{{ bs.klaviyo_id }}"
+                {{ block.shopify_attributes }}
+              >
+                <style>
+                  #quiz_slide-{{ block.id }}{
+                      --background-color: {{ bs.background_color | default: background_color }};
+                      --heading-color: {{ bs.heading_color | default: heading_color }};
+                      --primary-color: {{ bs.primary_color | default: primary_color }};
+                      --secondary-color: {{ bs.heading_color | default: heading_color | color_lighten: 0.2 }};
+                      --button-color: {{ bs.button_color | default: button_color }};
+                      --progress: {{ progress | append: '%' }};
                   }
-                </script>
-              </div>
-
-            {% when 'dropdown' %}
-              <div class="slide " data-klaviyoid="{{ bs.klaviyo_id }}">
-                {% if bs.title != blank %}
-                  <h2 class="slide-title {{ heading_font }}">({{ forloop.index }}) - {{ bs.title | newline_to_br }}</h2>
-                {% endif %}
-
-                {% if bs.q != blank %}
-                  <h3 class="slide-title {{ heading_font }}">{{ bs.q | newline_to_br }}</h3>
-                {% endif %}
-
-                {% assign options = bs.options | split: ","%}
-
-                <div class="dropdown-container">
-                  <div class="select">
-                    <select class="select__select" name="{{ field_name }}" id="{{ field_name }}">
-                      {% for option in options %}
-                          <option value="{{ option }}">{{ option }}</option>
-                      {% endfor %}
-                    </select>
-                    {% render 'icon-caret' %}
+                </style>
+                <div class="quiz_header">
+                  <div class="quiz_progress"><span class="progress"></span></div>
+                  <div class="quiz_question_count">
+                    <span>Question {{ forloop.index }}/{{ section.blocks.size }}</span>
                   </div>
+                  {%- if bs.title != blank -%}
+                    <div class="quiz_subheading rte">
+                      <p>{{ bs.title }}</p>
+                    </div>
+                  {%- endif -%}
+                  {%- if bs.q != blank -%}
+                    <h2 class="quiz_heading">{{ bs.q | newline_to_br }}</h2>
+                  {%- endif -%}
                 </div>
+                <div class="quiz_content">
+                  {%- if block.type == 'textfield' -%}
+                    <div class="rte error_message"><p>Please write your answer here...</p></div>
+                  {%- elsif block.type == 'checkbox' -%}
+                    {%- assign numberText = ',one,two,three,four,five,six,saven,eight,nine,ten' | split: ',' -%}
+                    <div class="rte error_message">
+                      <p>Select {{ numberText[maxSelect] }} options</p>
+                    </div>
+                  {%- else -%}
+                    <div class="rte error_message"><p>Select any single option</p></div>
+                  {%- endif -%}
+                  {%- case block.type -%}
+                    {%- when 'range' -%}
+                      <div class="range_container">
+                        <div class="range_relative">
+                          <div class="range_bar"></div>
+                          <div class="range_wrapper">
+                            {%- for radio in (1..4) -%}
+                              {%- capture values -%} {% cycle '-2', '-1', '1', '2' - %}{%- endcapture -%}
+                              <div class="radio_item">
+                                <input
+                                  class="visually-hidden"
+                                  type="radio"
+                                  id="{{ name }}-{{ block.id }}-{{ forloop.index }}"
+                                  name="{{ name }}"
+                                  value="{{ values }}"
+                                  data-input-index="{{ slide_forloop }}"
+                                  data-val="{{ values }}"
+                                  required
+                                >
+                                <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label"
+                                  ><span class="box"></span
+                                ></label>
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          id="slidervalue{{ slide_forloop }}"
+                          data-id="{{ name }}"
+                          class="slide_value"
+                        >
+                      </div>
+                    {%- when 'button' -%}
+                      <div class="radio_container">
+                        {%- if bs.a1 != blank -%}
+                          <div class="radio_item">
+                            <input
+                              class="visually-hidden"
+                              type="radio"
+                              id="{{ name }}-{{ block.id }}-1"
+                              name="{{ name }}"
+                              value="0"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="0"
+                              required
+                            >
+                            <label for="{{ name }}-{{ block.id }}-1" class="radio_label"
+                              ><span class="box"></span> {{ bs.a1 -}}
+                            </label>
+                          </div>
+                        {%- endif -%}
+                        {%- if bs.a2 != blank -%}
+                          <div class="radio_item">
+                            <input
+                              class="visually-hidden"
+                              type="radio"
+                              id="{{ name }}-{{ block.id }}-2"
+                              name="{{ name }}"
+                              value="1"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="1"
+                              required
+                            >
+                            <label for="{{ name }}-{{ block.id }}-2" class="radio_label"
+                              ><span class="box"></span> {{ bs.a2 -}}
+                            </label>
+                          </div>
+                        {%- endif -%}
+                        {%- if bs.a3 != blank -%}
+                          <div class="radio_item">
+                            <input
+                              class="visually-hidden"
+                              type="radio"
+                              id="{{ name }}-{{ block.id }}-3"
+                              name="{{ name }}"
+                              value="2"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="2"
+                              required
+                            >
+                            <label for="{{ name }}-{{ block.id }}-3" class="radio_label"
+                              ><span class="box"></span> {{ bs.a3 -}}
+                            </label>
+                          </div>
+                        {%- endif -%}
+                        {%- if bs.a4 != blank -%}
+                          <div class="radio_item">
+                            <input
+                              class="visually-hidden"
+                              type="radio"
+                              id="{{ name }}-{{ block.id }}-4"
+                              name="{{ name }}"
+                              value="3"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="3"
+                              required
+                            >
+                            <label for="{{ name }}-{{ block.id }}-4" class="radio_label"
+                              ><span class="box"></span> {{ bs.a4 -}}
+                            </label>
+                          </div>
+                        {%- endif -%}
+                        {%- if bs.a5 != blank -%}
+                          <div class="radio_item">
+                            <input
+                              class="visually-hidden"
+                              type="radio"
+                              id="{{ name }}-{{ block.id }}-5"
+                              name="{{ name }}"
+                              value="4"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="4"
+                              required
+                            >
+                            <label for="{{ name }}-{{ block.id }}-5" class="radio_label"
+                              ><span class="box"></span> {{ bs.a5 -}}
+                            </label>
+                          </div>
+                        {%- endif -%}
+                        <input
+                          type="hidden"
+                          id="slidervalue{{ slide_forloop }}"
+                          data-id="{{ name }}"
+                          class="slide_value"
+                        >
+                      </div>
+                    {%- when 'textfield' -%}
+                      <div class="textarea_container">
+                        <textarea
+                          name="{{ name }}"
+                          id="{{ bs.klaviyo_id }}"
+                          data-id="{{ name }}"
+                          placeholder="Enter your answer here..."
+                          rows="10"
+                          required
+                        ></textarea>
+                      </div>
+                    {%- when 'dropdown' -%}
+                      <div class="dropdown_container">
+                        {%- assign options = bs.options | split: ',' -%}
+                        <details>
+                          <summary class="dropdown_toggle">
+                            <span>Select relationship person</span>
+                            <svg
+                              width="25"
+                              height="24"
+                              viewBox="0 0 25 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.38591 9.96708C7.17865 10.1496 7.15856 10.4655 7.34104 10.6728L11.7094 15.6343L11.7096 15.6346C11.7966 15.7331 11.9034 15.8121 12.0232 15.8661C12.143 15.9202 12.2729 15.9481 12.4042 15.9481C12.5356 15.9481 12.6655 15.9202 12.7853 15.8661C12.9051 15.8121 13.0119 15.7331 13.0988 15.6346L13.0992 15.6342L17.4666 10.6727C17.6491 10.4654 17.629 10.1495 17.4217 9.96705C17.2144 9.78459 16.8985 9.80471 16.716 10.012L12.4042 14.9102L8.09159 10.0119C7.90911 9.80469 7.59317 9.7846 7.38591 9.96708Z" fill="currentColor"/>
+                              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" transform="matrix(1.19249e-08 1 1 -1.19249e-08 0.5 0.000122064)" stroke="currentColor"/>
+                            </svg>
+                          </summary>
+                          <div class="dropdown_list">
+                            {%- for option in options -%}
+                              <div class="dropdown_item">
+                                <input
+                                  class="visually-hidden"
+                                  type="radio"
+                                  id="{{ name }}-{{ block.id }}-{{ forloop.index }}"
+                                  name="{{ name }}"
+                                  data-input-index="{{ slide_forloop }}"
+                                  data-val="{{- option -}}"
+                                  value="{{- option -}}"
+                                  required
+                                >
+                                <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label">
+                                  {{- option -}}
+                                </label>
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                          <input
+                            type="hidden"
+                            id="slidervalue{{ slide_forloop }}"
+                            data-id="{{ name }}"
+                            class="slide_value"
+                          >
+                        </details>
+                      </div>
+                    {%- when 'checkbox' -%}
+                      <div class="checkbox_container">
+                        {% assign options = bs.options | newline_to_br | split: '<br />' %}
+                        {%- for option in options -%}
+                          <div class="checkbox_item">
+                            <input
+                              class="visually-hidden"
+                              type="checkbox"
+                              id="{{ name }}-{{ block.id }}-{{ forloop.index }}"
+                              name="{{ option | strip_newlines | escape }}"
+                              value="{{ option | strip_newlines | escape }}"
+                              data-input-index="{{ slide_forloop }}"
+                              data-val="{{ option | strip_newlines | escape }}"
+                              required
+                              data-text-handleize="{{ option | handleize }}"
+                              data-que="{{ bs.title | handleize }}"
+                            >
+                            <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="checkbox_label"
+                              ><span class="box"></span> {{ option -}}
+                            </label>
+                          </div>
+                        {%- endfor -%}
+                        <input
+                          type="hidden"
+                          id="_slidervalue{{ slide_forloop }}"
+                          data-id="{{ name }}"
+                          class="slide_value"
+                        >
+                        {%- for i in (1..maxSelect) -%}
+                          <input
+                            type="hidden"
+                            name="{{ bs.title | handleize }}_{{ i }}"
+                            id="{{ bs.title | handleize }}_{{ i }}"
+                            value
+                          >
+                          {% assign inputName = bs.title | handleize | append: '_' | append: i %}
+                          {% assign fields = fields | append: inputName | append: ',' %}
 
-                <div class="btn-flex">
-                  {% unless forloop.first %}
-                    <button type="button" class="button button_back">{% render 'icon-left-arrow' %} Back</button>
-                  {% endunless %}
-                  {% if forloop.last %}
-                    <button type="button" class="button button_submit">Submit {% render 'icon-arrow' %}</button>
-                  {% else %}
-                    <button type="button" class="button button_next" data-type="dropdown">Next {% render 'icon-arrow' %}</button>
-                  {% endif %}
+                          <input
+                            type="hidden"
+                            name="{{ bs.title | handleize }}_{{ i }}_values"
+                            id="{{ bs.title | handleize }}_{{ i }}_values"
+                            value
+                          >
+                          {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_values' %}
+                          {% assign fields = fields | append: inputName | append: ',' %}
+
+                          <input
+                            type="hidden"
+                            name="{{ bs.title | handleize }}_{{ i }}_score"
+                            id="{{ bs.title | handleize }}_{{ i }}_score"
+                            value
+                          >
+                          {% assign inputName = bs.title | handleize | append: '_' | append: i | append: '_score' %}
+                          {% assign fields = fields | append: inputName | append: ',' %}
+                        {%- endfor -%}
+                      </div>
+                  {%- endcase -%}
                 </div>
+                <div class="quiz_footer">
+                  {%- unless forloop.first -%}
+                    <button type="button" class="button button_back">
+                      {% render 'icon-left-arrow' %}
+                      <span>Back</span>
+                    </button>
+                  {%- endunless -%}
+                  {%- if forloop.last -%}
+                    <button type="submit" class="button button_submit">
+                      <span>Submit</span> {% render 'icon-arrow' %}
+                    </button>
+                  {%- else -%}
+                    <button type="button" class="button button_next" data-type="{{ block.type }}">
+                      <span>Next</span>{% render 'icon-arrow' %}
+                    </button>
+                  {%- endif -%}
+                </div>
+                {% if block.type == 'checkbox' %}
+                  <script type="application/json" data-metaobjects>
+                    { {{ metaCotent }} }
+                  </script>
+                {% endif %}
               </div>
-          {% endcase %}
-        {% endfor %} {% endcomment %}
+            {%- endfor -%}
 
-        
-      {% assign ctags = customer.tags | push: "prq_FamilyStarQuiz_true" %}  
-      {% assign fields = fields | append: "Shopify Tags" | append: "," %}
-      {% assign fields = fields | append: "FS_ChildHassel" | append: "," %}
-      {% assign fields = fields | append: "FS_ChildTemper" | append: "," %}
-      {% assign fields = fields | append: "FS_MyConfidence" | append: "," %}
-      {% assign fields = fields | append: "FS_MyWellbeing" | append: "," %}
-      {% assign fields = fields | append: "FS_MyChild" | append: "," %}
-      {% assign fields = fields | append: "FS_MyParenting" | append: "," %}
-      {% assign fields = fields | append: "FamilyStarCompleted" | append: "," %}
-      <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
-      <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
-      <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
-      <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
-      <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
-      <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
-      <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
-      <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{ctagsArray}}">
-      <input type="hidden" id="fs_first_name" name="first_name" value="{% if customer %}{{ customer.first_name }}{% endif %}">
-      <input type="hidden" id="fs_last_name" name="last_name" value="{% if customer %}{{ customer.last_name }}{% endif %}">
-      <input type="hidden" type="email" id="fs_email" name="email" value="{% if customer %}{{ customer.email }}{% endif %}">
-      <input type="hidden" name="$fields" value="$consent,{{ fields }}">
-
-
-    
-        {% comment %}
-<div class="form-success-msg hidden">
-        {% if ss.success_title != blank %}
-          <h2 class="title">{{ ss.success_title }}</h2>
-          <h4 class="sub-title">Your parenting style is: <span id='pstyle'></span></h4>
-        {% endif %}
-
-<div class="customer contact-form register quiz-signup">
-
-        {% if ss.success_overview != blank %}
-          <h5 class="rte">{{ ss.success_overview }}</h5>
-        {% endif %}
-        <p>Enter your details below to create your account.</p>
-  
-
-   
-    <div class="field-box">
-      <label for="RegisterForm-FirstName">
-        {{ 'customer.register.first_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your First name"
-      >
-    </div>
-
-    <div class="field-box">
-      <label for="RegisterForm-LastName">
-        {{ 'customer.register.last_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[last_name]"
-        id="RegisterForm-LastName"
-        {% if form.last_name %}
-          value="{{ form.last_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your Last name"
-      >
-    </div>      
-  
-    <div class="field-box">
-      <label for="RegisterForm-email">
-        {{ 'customer.register.email' | t }}
-      </label>
-      <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
-        {% endif %}
-        placeholder="Enter your email"
-      >
-    </div>
-
-    
-    <div class="field-box">
-      <label for="RegisterForm-password"> Password* </label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-    </div>
-    <div class="field-box">
-      <label for="RegisterForm-password">
-        {{ 'customer.register.password' | t }}
-      </label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-    </div>
-    
-    <div class="button-block">
-      <button id="RegistrationSubmit" class="button button--primary">
-        {{ 'customer.register.submit' | t }}
-        <svg
-          aria-hidden="true"
-          class="icon icon-arrow"
-          focusable="false"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-        </svg>
-      </button>
-    </div>
-   
-</div>
-
-
-
-
-
-        <div class="contact-section color-{{ section.settings.color_scheme }} gradient">
-          <div class="contact">
-            <div class="contact__fields">
-              <div class="grid grid--1-col grid--2-col-tablet">
-              <div class="field-box grid__item">
-                <label class="" for="pq_first_name">First name</label>
-                <input
-                  class=""
-                  autocomplete="first_name"
-                  type="text"
-                  id="pq_first_name"
-                  name="first_name"
-                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
-                  placeholder="First name"
-                >
+            <div id="quiz_slide-thankyou" class="js-klaviyo-form-success-wrapper quiz_slide hidden">
+              <style>
+                #quiz_slide-thankyou {
+                  --background-color: #c9d9d3;
+                  --heading-color: #c9d9d3;
+                }
+              </style>
+              <div class="quiz_header">
+                <h2 class="quiz_heading">{{ section.settings.form_success_description }}</h2>
               </div>
-                <div class="field-box grid__item">
-                <label class="" for="pq_last_name">Last name</label>
-                <input
-                  class=""
-                  autocomplete="last_name"
-                  type="text"
-                  id="pq_last_name"
-                  name="last_name"
-                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
-                  placeholder="Last name"
-                >
-              </div>
-              </div>
-              <div class=" field-box field--with-error">
-                <label class="" for="ContactForm-email">
-                  {{- 'templates.contact.form.email' | t }}
-                </label>
-                <input
-                  autocomplete="email"
-                  type="email"
-                  id="pq_email"
-                  class=""
-                  name="email"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  value="{% if customer %}{{ customer.email }}{% endif %}"
-                  aria-required="true"
-                  required
-                  placeholder="Enter your email"
-                >
+              <div class="klaviyo-form__buttons quiz_content center">
+                {%- for i in (1..2) -%}
+                  {%- assign btnTitleTxt = 'btn_title_' | append: i -%}
+                  {%- assign btnUrlTxt = 'btn_url_' | append: i -%}
+                  {%- assign buttonTile = section.settings[btnTitleTxt] -%}
+                  {%- assign btnUrl = section.settings[btnUrlTxt] -%}
+                  {%- if buttonTile != blank and btnUrl != blank -%}
+                    <a href="{{ btnUrl }}" class="button">
+                      {{ buttonTile }}
+                      <svg
+                        aria-hidden="true"
+                        class="icon icon-arrow"
+                        focusable="false"
+                        viewBox="0 0 21 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                      </svg>
+                    </a>
+                  {%- endif -%}
+                {%- endfor -%}
               </div>
             </div>
-            <div class="contact__button">
-              <button type="submit" class="button button--primary">
-                {{ 'templates.contact.form.send' | t }}
-                <svg
-                  aria-hidden="true"
-                  class="icon icon-arrow"
-                  focusable="false"
-                  viewBox="0 0 21 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-                </svg>
-              </button>
-            </div>          
           </div>
-        </div>
-        {% endcomment %}
-            
+
+          {% assign ctags = customer.tags | push: 'prq_FamilyStarQuiz_true' %}
+          {% assign fields = fields | append: 'Shopify Tags' | append: ',' %}
+
+          {% if ctagsArray contains "prq_planpt1Roundup_true" and customer.metafields.klaviyo.FamilyStarCompleted != blank %}
+
+            {% assign fields = fields | append: 'FS_Second_ChildHassel' | append: ',' %}
+            {% assign fields = fields | append: 'FS_Second_ChildTemper' | append: ',' %}
+            {% assign fields = fields | append: 'FS_Second_MyConfidence' | append: ',' %}
+            {% assign fields = fields | append: 'FS_Second_MyWellbeing' | append: ',' %}
+            {% assign fields = fields | append: 'FS_Second_MyChild' | append: ',' %}
+            {% assign fields = fields | append: 'FS_Second_MyParenting' | append: ',' %}
+            {% assign fields = fields | append: 'SecondFamilyStarCompleted' | append: ',' %}
+            {% assign fields = fields | append: 'FamilyStarQuizStage' | append: ',' %}
+            <input type="hidden" id="FS_ChildHassel" name="FS_Second_ChildHassel" value="">
+            <input type="hidden" id="FS_ChildTemper" name="FS_Second_ChildTemper" value="">
+            <input type="hidden" id="FS_MyConfidence" name="FS_Second_MyConfidence" value="">
+            <input type="hidden" id="FS_MyWellbeing" name="FS_Second_MyWellbeing" value="">
+            <input type="hidden" id="FS_MyChild" name="FS_Second_MyChild" value="">
+            <input type="hidden" id="FS_MyParenting" name="FS_Second_MyParenting" value="">
+            <input type="hidden" id="FamilyStarCompleted" name="SecondFamilyStarCompleted" value="Yes">
+            <input type="hidden" id="FamilyStarQuizStage" name="FamilyStarQuizStage" value="Second">
+
+          {% else %}
+
+            {% assign fields = fields | append: 'FS_ChildHassel' | append: ',' %}
+            {% assign fields = fields | append: 'FS_ChildTemper' | append: ',' %}
+            {% assign fields = fields | append: 'FS_MyConfidence' | append: ',' %}
+            {% assign fields = fields | append: 'FS_MyWellbeing' | append: ',' %}
+            {% assign fields = fields | append: 'FS_MyChild' | append: ',' %}
+            {% assign fields = fields | append: 'FS_MyParenting' | append: ',' %}
+            {% assign fields = fields | append: 'FamilyStarQuizStage' | append: ',' %}
+            <input type="hidden" id="FS_ChildHassel" name="FS_ChildHassel" value="">
+            <input type="hidden" id="FS_ChildTemper" name="FS_ChildTemper" value="">
+            <input type="hidden" id="FS_MyConfidence" name="FS_MyConfidence" value="">
+            <input type="hidden" id="FS_MyWellbeing" name="FS_MyWellbeing" value="">
+            <input type="hidden" id="FS_MyChild" name="FS_MyChild" value="">
+            <input type="hidden" id="FS_MyParenting" name="FS_MyParenting" value="">
+            <input type="hidden" id="FamilyStarQuizStage" name="FamilyStarQuizStage" value="First">
+
+          {% endif %}
+
+          {% assign fields = fields | append: 'FamilyStarCompleted' | append: ',' %}
+          <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
+          <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{ctagsArray}}">
+          <input
+            type="hidden"
+            id="fs_first_name"
+            name="first_name"
+            value="{% if customer %}{{ customer.first_name }}{% endif %}"
+          >
+          <input
+            type="hidden"
+            id="fs_last_name"
+            name="last_name"
+            value="{% if customer %}{{ customer.last_name }}{% endif %}"
+          >
+          <input
+            type="hidden"
+            type="email"
+            id="fs_email"
+            name="email"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+          >
+          <input type="hidden" name="$fields" value="$consent,{{ fields | remove_last: "," }}">
+
+        </form>
       </div>
-   </form>
-    </div>
-  </section>
+    </section>
 
-  <script src="{{ 'family-star.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'family-star.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
 {% endif %}
-
-{% endif %}
-
-
-
-
 
 {% schema %}
 {
   "name": "Family Star quiz",
   "settings": [
-    { 
+    {
       "type": "header",
       "content": "Banner"
     },
@@ -1621,7 +828,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       "id": "welcome_button_title",
       "default": "Take the quiz"
     },
-    { 
+    {
       "type": "header",
       "content": "Form"
     },
@@ -1660,7 +867,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       "label": "Button title",
       "default": "Join Now"
     },
-    { 
+    {
       "type": "url",
       "id": "btn_url_1",
       "label": "Button Link"
@@ -1675,7 +882,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       "label": "Button title",
       "default": "About"
     },
-    { 
+    {
       "type": "url",
       "id": "btn_url_2",
       "label": "Button Link"
@@ -1721,6 +928,7 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
       "max": 100,
       "unit": "px",
       "default": 44,
+      "step": 1,
       "label": "Progress Bar Radius"
     }
   ],
@@ -1864,8 +1072,8 @@ window.location.replace("{{shop.url}}/pages/custom-family-star-result");
           "type": "number",
           "id": "max_answer",
           "label": "Maximum Select",
-          "default":1,
-          "info":"Default will 1"
+          "default": 1,
+          "info": "Default will 1"
         }
       ]
     },

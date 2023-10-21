@@ -12,6 +12,7 @@ KlaviyoSubscribe.attachToForms('#fs_quiz', {
     let klaviyoFormSuccessWrapper = document.querySelector('.js-klaviyo-form-success-wrapper');
     klaviyoFormSuccessWrapper.previousElementSibling.classList.add('hidden');
     klaviyoFormSuccessWrapper.classList.remove('hidden');
+    window.sessionStorage.setItem('FamilyStarQuizStage',document.getElementById('FamilyStarQuizStage').value);
   },
   custom_success_message: true
 });

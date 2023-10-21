@@ -7,11 +7,26 @@
 {%- assign MyChild = customer.metafields.klaviyo.FS_MyChild | times: 1 -%}
 {%- assign MyParenting = customer.metafields.klaviyo.FS_MyParenting | times: 1 -%}
 
+{%- assign FamilyStarQuizStage = customer.metafields.klaviyo.FamilyStarQuizStage -%}
+{%- assign SecondFamilyStarCompleted = customer.metafields.klaviyo.SecondFamilyStarCompleted -%}
+{%- assign FS_Second_MyWellbeing = customer.metafields.klaviyo.FS_Second_MyWellbeing | times: 1 -%}
+{%- assign FS_Second_MyParenting = customer.metafields.klaviyo.FS_Second_MyParenting | times: 1 -%}
+{%- assign FS_Second_MyConfidence = customer.metafields.klaviyo.FS_Second_MyConfidence | times: 1 -%}
+{%- assign FS_Second_MyChild = customer.metafields.klaviyo.FS_Second_MyChild | times: 1 -%}
+{%- assign FS_Second_ChildTemper = customer.metafields.klaviyo.FS_Second_ChildTemper | times: 1 -%}
+{%- assign FS_Second_ChildHassel = customer.metafields.klaviyo.FS_Second_ChildHassel | times: 1 -%}
+
+{% assign isSecondResultCalculating = false %}
+
+{% if customer.tags contains "prq_planpt1Roundup_true" and SecondFamilyStarCompleted == blank and FamilyStarQuizStage == "Second" and customer.metafields.klaviyo.FamilyStarCompleted != blank %}
+  {% assign isSecondResultCalculating = true %}
+{% endif %}
+
 {%- assign isQuizCompleted = true -%}
 
 {%- assign isCalculating = false -%}
 
-{%- if FamilyStarCompleted == blank or FamilyStarCompleted == "No" -%}
+{%- if FamilyStarCompleted == blank or isSecondResultCalculating == true -%}
   {%- assign isCalculating = true -%}
 {%- elsif ChildHassel == blank or ChildTemper == blank or MyConfidence == blank or MyWellbeing == blank or MyChild == blank or MyParenting == blank -%}
   {%- assign isCalculating = true -%}
@@ -107,51 +122,73 @@
                 </div>
               {%- endif -%}
             </div>
+
             {% capture graphFacesResult %}
               <ul>
                 {%- for block in section.blocks -%}
                   {%- if block.type == "faces" -%}
                     {%- assign points = 0 -%}
-                    {%- case block.settings.type -%}
-                      {%- when "my_child" -%}
-                        {%- assign points = MyChild -%}
-                      {%- when "child_temper" -%}
-                        {%- assign points = ChildTemper -%}
-                      {%- when "my_confidence" -%}
-                        {%- assign points = MyConfidence -%}
-                      {%- when "my_parenting" -%}
-                        {%- assign points = MyParenting -%}
-                      {%- when "my_wellbeing" -%}
-                        {%- assign points = MyWellbeing -%}
-                      {%- when "child_hassle" -%}
-                        {%- assign points = ChildHassel -%}
-                    {%- endcase -%}
+                    {%- if SecondFamilyStarCompleted != blank -%}
+
+                      {%- case block.settings.type -%}
+                        {%- when "my_child" -%}
+                          {%- assign points = FS_Second_MyChild -%}
+                        {%- when "child_temper" -%}
+                          {%- assign points = FS_Second_ChildTemper -%}
+                        {%- when "my_confidence" -%}
+                          {%- assign points = FS_Second_MyConfidence -%}
+                        {%- when "my_parenting" -%}
+                          {%- assign points = FS_Second_MyParenting -%}
+                        {%- when "my_wellbeing" -%}
+                          {%- assign points = FS_Second_MyWellbeing -%}
+                        {%- when "child_hassle" -%}
+                          {%- assign points = FS_Second_ChildHassel -%}
+                      {%- endcase -%}
+
+                    {%- else -%}
+
+                      {%- case block.settings.type -%}
+                        {%- when "my_child" -%}
+                          {%- assign points = MyChild -%}
+                        {%- when "child_temper" -%}
+                          {%- assign points = ChildTemper -%}
+                        {%- when "my_confidence" -%}
+                          {%- assign points = MyConfidence -%}
+                        {%- when "my_parenting" -%}
+                          {%- assign points = MyParenting -%}
+                        {%- when "my_wellbeing" -%}
+                          {%- assign points = MyWellbeing -%}
+                        {%- when "child_hassle" -%}
+                          {%- assign points = ChildHassel -%}
+                      {%- endcase -%}
+
+                    {%- endif -%}
                     <li>
                       <div class="tooltip_trigger">
-                      {%- if points > 5 -%}
-                        {{ HappySVG }}
-                      {%- else -%}
-                        {{ sadSVG }}
-                      {%- endif -%}
-                      <span>{{ block.settings.title }}</span>
-                      <div class="tooltip">
-                        <div class="tooltip_content">
-                          <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 9.60176C4 10.7314 4.21501 11.8499 4.63275 12.8935C5.05049 13.9371 5.66279 14.8854 6.43467 15.6841C7.20656 16.4829 8.12292 17.1165 9.13144 17.5487C10.14 17.981 11.2209 18.2035 12.3125 18.2035C13.4041 18.2035 14.485 17.981 15.4936 17.5487C16.5021 17.1165 17.4184 16.4829 18.1903 15.6841C18.9622 14.8854 19.5745 13.9371 19.9922 12.8935C20.41 11.8499 20.625 10.7314 20.625 9.60176C20.625 8.47216 20.41 7.35362 19.9922 6.31001C19.5745 5.26639 18.9622 4.31814 18.1903 3.5194C17.4184 2.72065 16.5021 2.08705 15.4936 1.65477C14.485 1.22249 13.4041 1 12.3125 1C11.2209 1 10.14 1.22249 9.13144 1.65477C8.12292 2.08705 7.20656 2.72065 6.43467 3.5194C5.66279 4.31814 5.05049 5.26639 4.63275 6.31001C4.21501 7.35362 4 8.47216 4 9.60176Z" fill="#C9D9D3"/>
-                            <path d="M1 9.60176C1 10.7314 1.21501 11.8499 1.63275 12.8935C2.05049 13.9371 2.66279 14.8854 3.43467 15.6841C4.20656 16.4829 5.12292 17.1165 6.13144 17.5487C7.13996 17.981 8.22089 18.2035 9.3125 18.2035C10.4041 18.2035 11.485 17.981 12.4936 17.5487C13.5021 17.1165 14.4184 16.4829 15.1903 15.6841C15.9622 14.8854 16.5745 13.9371 16.9922 12.8935C17.41 11.8499 17.625 10.7314 17.625 9.60176C17.625 8.47216 17.41 7.35362 16.9922 6.31001C16.5745 5.26639 15.9622 4.31814 15.1903 3.5194C14.4184 2.72065 13.5021 2.08705 12.4936 1.65477C11.485 1.22249 10.4041 1 9.3125 1C8.22089 1 7.13996 1.22249 6.13144 1.65477C5.12292 2.08705 4.20656 2.72065 3.43467 3.5194C2.66279 4.31814 2.05049 5.26639 1.63275 6.31001C1.21501 7.35362 1 8.47216 1 9.60176Z" stroke="#01333E" stroke-width="1.04737" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 14.8019H9.66667C9.43092 14.8019 9.20483 14.705 9.03813 14.5325C8.87143 14.36 8.77778 14.1261 8.77778 13.8821V7.90327C8.77778 7.78129 8.73095 7.66431 8.6476 7.57806C8.56425 7.49181 8.45121 7.44336 8.33333 7.44336H7" stroke="#01333E" stroke-width="0.888889" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8.54644 5.59858C8.4875 5.59858 8.43098 5.57435 8.38931 5.53123C8.34763 5.48811 8.32422 5.42961 8.32422 5.36863C8.32422 5.30764 8.34763 5.24915 8.38931 5.20602C8.43098 5.1629 8.4875 5.13867 8.54644 5.13867" stroke="#01333E" stroke-width="0.888889"/>
-                            <path d="M8.54688 5.59858C8.60581 5.59858 8.66234 5.57435 8.70401 5.53123C8.74568 5.48811 8.7691 5.42961 8.7691 5.36863C8.7691 5.30764 8.74568 5.24915 8.70401 5.20602C8.66234 5.1629 8.60581 5.13867 8.54688 5.13867" stroke="#01333E" stroke-width="0.888889"/>
-                          </svg>                          
-                          <div class="content_top rte">
-                            {{ block.settings.top_description }}
-                          </div>
-                          <hr>
-                          <div class="content_bottom rte">
-                            {{ block.settings.bottom_description }}
+                        {%- if points > 5 -%}
+                          {{ HappySVG }}
+                        {%- else -%}
+                          {{ sadSVG }}
+                        {%- endif -%}
+                        <span>{{ block.settings.title }}</span>
+                        <div class="tooltip">
+                          <div class="tooltip_content">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M4 9.60176C4 10.7314 4.21501 11.8499 4.63275 12.8935C5.05049 13.9371 5.66279 14.8854 6.43467 15.6841C7.20656 16.4829 8.12292 17.1165 9.13144 17.5487C10.14 17.981 11.2209 18.2035 12.3125 18.2035C13.4041 18.2035 14.485 17.981 15.4936 17.5487C16.5021 17.1165 17.4184 16.4829 18.1903 15.6841C18.9622 14.8854 19.5745 13.9371 19.9922 12.8935C20.41 11.8499 20.625 10.7314 20.625 9.60176C20.625 8.47216 20.41 7.35362 19.9922 6.31001C19.5745 5.26639 18.9622 4.31814 18.1903 3.5194C17.4184 2.72065 16.5021 2.08705 15.4936 1.65477C14.485 1.22249 13.4041 1 12.3125 1C11.2209 1 10.14 1.22249 9.13144 1.65477C8.12292 2.08705 7.20656 2.72065 6.43467 3.5194C5.66279 4.31814 5.05049 5.26639 4.63275 6.31001C4.21501 7.35362 4 8.47216 4 9.60176Z" fill="#C9D9D3"/>
+                              <path d="M1 9.60176C1 10.7314 1.21501 11.8499 1.63275 12.8935C2.05049 13.9371 2.66279 14.8854 3.43467 15.6841C4.20656 16.4829 5.12292 17.1165 6.13144 17.5487C7.13996 17.981 8.22089 18.2035 9.3125 18.2035C10.4041 18.2035 11.485 17.981 12.4936 17.5487C13.5021 17.1165 14.4184 16.4829 15.1903 15.6841C15.9622 14.8854 16.5745 13.9371 16.9922 12.8935C17.41 11.8499 17.625 10.7314 17.625 9.60176C17.625 8.47216 17.41 7.35362 16.9922 6.31001C16.5745 5.26639 15.9622 4.31814 15.1903 3.5194C14.4184 2.72065 13.5021 2.08705 12.4936 1.65477C11.485 1.22249 10.4041 1 9.3125 1C8.22089 1 7.13996 1.22249 6.13144 1.65477C5.12292 2.08705 4.20656 2.72065 3.43467 3.5194C2.66279 4.31814 2.05049 5.26639 1.63275 6.31001C1.21501 7.35362 1 8.47216 1 9.60176Z" stroke="#01333E" stroke-width="1.04737" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M11 14.8019H9.66667C9.43092 14.8019 9.20483 14.705 9.03813 14.5325C8.87143 14.36 8.77778 14.1261 8.77778 13.8821V7.90327C8.77778 7.78129 8.73095 7.66431 8.6476 7.57806C8.56425 7.49181 8.45121 7.44336 8.33333 7.44336H7" stroke="#01333E" stroke-width="0.888889" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8.54644 5.59858C8.4875 5.59858 8.43098 5.57435 8.38931 5.53123C8.34763 5.48811 8.32422 5.42961 8.32422 5.36863C8.32422 5.30764 8.34763 5.24915 8.38931 5.20602C8.43098 5.1629 8.4875 5.13867 8.54644 5.13867" stroke="#01333E" stroke-width="0.888889"/>
+                              <path d="M8.54688 5.59858C8.60581 5.59858 8.66234 5.57435 8.70401 5.53123C8.74568 5.48811 8.7691 5.42961 8.7691 5.36863C8.7691 5.30764 8.74568 5.24915 8.70401 5.20602C8.66234 5.1629 8.60581 5.13867 8.54688 5.13867" stroke="#01333E" stroke-width="0.888889"/>
+                            </svg>                          
+                            <div class="content_top rte">
+                              {{ block.settings.top_description }}
+                            </div>
+                            <hr>
+                            <div class="content_bottom rte">
+                              {{ block.settings.bottom_description }}
+                            </div>
                           </div>
                         </div>
-                      </div>
                       </div>
                     </li>
                   {%- endif -%}
@@ -201,19 +238,29 @@
               </div>
               <div class="family-key">
                 <h6>Key</h6>
-                <div class="key-point">
-                  <p>
-                    {{ sadSVG }}
-                    <span> Low scores, not desirable </span>
-                  </p>
-                  <p>                    
-                    {{ HappySVG }}
-                    <span> High scores, desirable </span>
-                  </p>
+                <div class="key--wrapper">
+                  <div class="key-point">
+                    <p>
+                      {{ sadSVG }}
+                      <span> Low scores, not desirable </span>
+                    </p>
+                    <p>                    
+                      {{ HappySVG }}
+                      <span> High scores, desirable </span>
+                    </p>
+                  </div>
+                  {% if SecondFamilyStarCompleted != blank %}
+                    <div id="graph-results" class="graph-colors">
+                    </div>
+                  {% endif %}
                 </div>
               </div>
               <div class="calculating-result--wrapper">
-                <label>Calculating Result...</label>
+                {% if isSecondResultCalculating == true %}
+                  <label>Calculating New Result...</label>
+                {% else %}
+                  <label>Calculating Result...</label>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -229,19 +276,34 @@ const family_chat = document.getElementById('family_chat');
 const family_data = {
   labels: ['My child', 'Child Temper', 'My confidence', 'My parenting', 'My wellbeing', 'Child hassle'],
   datasets: [{
-    label: 'My First Dataset',
+    label: 'Initial results',
     data: [{{MyChild}}, {{ChildTemper}}, {{MyConfidence}}, {{MyParenting}}, {{MyWellbeing}}, {{ChildHassel}}],
     fill: true,
-    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    borderColor: 'rgb(255, 99, 132)',
-    pointBackgroundColor: 'rgb(255, 99, 132)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    backgroundColor: 'rgba(223, 232, 229, 0.6)',
+    borderColor: 'rgb(223, 232, 229)',
+    pointBackgroundColor: '#01333E',
+    pointBorderColor: '#01333E',
+    pointHoverBackgroundColor: '#01333E',
+    pointHoverBorderColor: 'rgb(223, 232, 229)'
   }]
 };  
 
-new Chart(family_chat, {
+
+{% if SecondFamilyStarCompleted != blank %}
+  family_data.datasets.push({
+    label: 'Latest results',
+    data: [{{FS_Second_MyChild}}, {{FS_Second_ChildTemper}}, {{FS_Second_MyConfidence}}, {{FS_Second_MyParenting}}, {{FS_Second_MyWellbeing}}, {{FS_Second_ChildHassel}}],
+    fill: true,
+    backgroundColor: 'rgba(179, 196, 196, 0.5)',
+    borderColor: 'rgb(179, 196, 196)',
+    pointBackgroundColor: '#01333E',
+    pointBorderColor: '#01333E',
+    pointHoverBackgroundColor: '#01333E',
+    pointHoverBorderColor: 'rgb(179, 196, 196)'
+  })
+{% endif %}
+
+let myFamilyChart = new Chart(family_chat, {
   type: 'radar',
   data: family_data,
   options: {
@@ -252,7 +314,6 @@ new Chart(family_chat, {
       line: {
         borderWidth: 1
       }
-
     },
     scales: {
       r: {
@@ -278,11 +339,62 @@ new Chart(family_chat, {
       padding: 1
     },
     plugins: {
-      legend: false,
-      //tooltip: false,          
+      htmlLegend:{
+        containerID:"graph-results"
+      },
+      legend:{
+        display: false
+      },
+      tooltip: false    
     }
-  }
+  },
+  plugins:[
+    {
+      id: 'htmlLegend',
+      afterUpdate(chart, args, options){
+        console.log("afterUpdate..",chart,args,options);
+        const items = chart.options.plugins.legend.labels.generateLabels(chart);
+        console.log(items);
+        let resultColor = {
+          "Initial results":"#DFE8E5",
+          "Latest results":"#C9D9D3"
+        }
+        let itemHTML = items.map(item => {
+          return  `
+            <button type="button" class="result-btn js-result-btn ${!chart.isDatasetVisible(item.datasetIndex) ? 'disabled':''} " data-index="${item.datasetIndex}">
+              <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="0.623047" width="17" height="17" rx="8.5" fill="${resultColor[item.text]}"/>
+                <rect x="0.5" y="0.623047" width="17" height="17" rx="8.5" stroke="#DADADA"/>
+              </svg>
+              <span>${item.text}</span>                    
+            </button>
+          `;
+        });
+        let container = document.getElementById(chart.options.plugins.htmlLegend.containerID);
+        container.innerHTML = itemHTML.join('');
+        container.querySelectorAll('.js-result-btn').forEach(button => {
+          button.addEventListener('click',function(){
+            chart.setDatasetVisibility(parseInt(this.dataset.index), !chart.isDatasetVisible(parseInt(this.dataset.index)));
+            chart.update();
+          });
+        });
+      }
+    }
+  ]
 });
+
+{% if FamilyStarQuizStage == "Second" and SecondFamilyStarCompleted != blank %}
+  window.sessionStorage.removeItem('FamilyStarQuizStage');
+{% endif %}
+
+let sessionFamilyStarQuizStage = window.sessionStorage.getItem('FamilyStarQuizStage');
+if(sessionFamilyStarQuizStage == "Second"){
+  document.querySelector('.family-graph-block').classList.add('calculating');
+  document.querySelector('.calculating-result--wrapper label').innerHTML = "Calculating New Result...";
+  setTimeout(function(){
+    window.location.reload();
+  },10000)
+}
 
 {%- if isCalculating == true -%}
   setTimeout(function(){
