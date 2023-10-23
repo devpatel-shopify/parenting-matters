@@ -1,5 +1,5 @@
 {% assign tarray = customer.tags | join: ',' %}
-{% assign tarray = tarray | append: 'prq_FamilyStarQuiz_true,' %}
+{% assign tarray = tarray | append: ',prq_FamilyStarQuiz_true' %}
 {% assign ctagsArray = tarray | split: ',' %}
 {%- assign FamilyStarQuizStage = customer.metafields.klaviyo.FamilyStarQuizStage -%}
 
@@ -751,7 +751,7 @@
 
           {% assign fields = fields | append: 'FamilyStarCompleted' | append: ',' %}
           <input type="hidden" id="FamilyStarCompleted" name="FamilyStarCompleted" value="Yes">
-          <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{ctagsArray}}">
+          <input type="hidden" id="shopify_tags" name="Shopify Tags" value="{{ ctagsArray }}">
           <input
             type="hidden"
             id="fs_first_name"
@@ -785,53 +785,6 @@
 {
   "name": "Family Star quiz",
   "settings": [
-    { 
-      "type": "header",
-      "content": "Banner"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "t:sections.image-banner.settings.image.label"
-    },
-    {
-      "type": "textarea",
-      "id": "banner_heading",
-      "label": "Heading",
-      "default": "Family Star Quiz"
-    },
-    {
-      "type": "textarea",
-      "id": "banner_completed_heading",
-      "label": "Complete Heading",
-      "default": "Quiz complete!",
-      "info": "This heading will show after quiz completed"
-    },
-    {
-      "type": "header",
-      "content": "Welcome content"
-    },
-    {
-      "type": "textarea",
-      "id": "welcome_title",
-      "label": "Title",
-      "default": "Welcome to the Family Style Quiz"
-    },
-    {
-      "type": "richtext",
-      "id": "welcome_description",
-      "label": "Description"
-    },
-    {
-      "type": "textarea",
-      "label": "Button title",
-      "id": "welcome_button_title",
-      "default": "Take the quiz"
-    },
-    { 
-      "type": "header",
-      "content": "Form"
-    },
     {
       "type": "header",
       "content": "Banner"
