@@ -70,7 +70,7 @@
             endif
           -%}
           {%- if show_dynamic_checkout -%}
-            <button type="button" name="dynamic_payment" class="dynamic_payment_button button button-- button--primary" onclick="document.querySelector('.shopify-payment-button__button').click()"
+            <button type="button" name="dynamic_payment" class="dynamic_payment_button button button-- button--primary" onclick="document.querySelector('.shopify-payment-button__more-options').click()"
               {% unless customer %}
                 disabled
               {% endunless %}

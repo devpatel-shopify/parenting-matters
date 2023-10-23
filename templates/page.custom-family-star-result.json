@@ -80,7 +80,9 @@
         "description": "<p>The Course Introduction section is where you entered the initial questionnaires to define your initial Family Star. <br\/><br\/>The chart here shows your results from the initial questionnaires. <\/p>",
         "btn_text": "Continue with Course",
         "nq_btn_text": "Take a Quizz",
-        "btn_link": "shopify:\/\/pages\/course-dashboard"
+        "btn_link": "shopify:\/\/pages\/course-dashboard",
+        "rt_btn_text": "Re-Take the Quiz",
+        "rt_btn_link": "shopify:\/\/pages\/family-star"
       }
     }
   },
