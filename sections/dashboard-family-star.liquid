@@ -325,14 +325,14 @@ let myFamilyChart = new Chart(family_chat, {
           display:false,
         },
         angleLines: {
-            display: true,
+          display: true,
         },
         pointLabels: {
           color: '#01333E',
         },
-          suggestedMin: 0,
-          suggestedMax: 10
-        }
+        suggestedMin: 0,
+        suggestedMax: 10
+      }
     },
     //tooltip:
     layout: {
@@ -371,17 +371,21 @@ let myFamilyChart = new Chart(family_chat, {
           `;
         });
         let container = document.getElementById(chart.options.plugins.htmlLegend.containerID);
-        container.innerHTML = itemHTML.join('');
-        container.querySelectorAll('.js-result-btn').forEach(button => {
-          button.addEventListener('click',function(){
-            chart.setDatasetVisibility(parseInt(this.dataset.index), !chart.isDatasetVisible(parseInt(this.dataset.index)));
-            chart.update();
-          });
-        });
+        if(container){
+          container.innerHTML = itemHTML.join('');
+          /*container.querySelectorAll('.js-result-btn').forEach(button => {
+            button.addEventListener('click',function(){
+              chart.setDatasetVisibility(parseInt(this.dataset.index), !chart.isDatasetVisible(parseInt(this.dataset.index)));
+              chart.update();
+            });
+          });*/
+        }
       }
     }
   ]
 });
+
+Chart.defaults.borderColor = '#DADADA';
 
 {% if FamilyStarQuizStage == "Second" and SecondFamilyStarCompleted != blank %}
   window.sessionStorage.removeItem('FamilyStarQuizStage');
