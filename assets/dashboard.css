@@ -668,6 +668,7 @@ background: #FFF0C9;
         border-radius: 10px;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        overflow-y: hidden;
     }
     .left_sidebar ul::-webkit-scrollbar {
         display: none;
