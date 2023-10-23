@@ -667,6 +667,7 @@ background: #FFF0C9;
         padding: 16px 10px;
         border-radius: 10px;
         -ms-overflow-style: none;
+        overflow-y: hidden;
         scrollbar-width: none;
     }
     .left_sidebar ul::-webkit-scrollbar {
