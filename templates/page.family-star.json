@@ -488,10 +488,11 @@
         },
         "b4bea16f-e53f-4072-a32a-b907de63370819_4_1": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "klaviyo_id": "fs_exp_wellbeing",
             "title": "My Wellbeing",
-            "q": "Please select the answer that best describes your experience of each over the last 2 weeks:",
+            "q": "Please select the answer that best describes your experience of each over the last 2 weeks for the following questions",
             "a1": "None of the time",
             "a2": "Rarely",
             "a3": "Some of the time",
