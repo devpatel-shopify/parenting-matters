@@ -28,6 +28,14 @@ function nextPrevEvent(){
     let slideType = slide.dataset.type;
     let quiz_content = slide.querySelector('.quiz_content');
 
+    let scrollToCenterSlide = (element) => {
+      window.scrollTo({
+        top: (element.closest('.quiz-section').offsetTop - document.querySelector('.section-header.shopify-section').scrollHeight - 30),
+        left:0,
+        behavior:"smooth"
+      });
+    }
+
     /**
      * Next Button Click Event
      */
@@ -58,6 +66,7 @@ function nextPrevEvent(){
         if(isValid){
           event.currentTarget.closest('.slide').nextElementSibling.classList.remove('hidden');
           event.currentTarget.closest('.slide').classList.add('hidden');
+          scrollToCenterSlide(slide.nextElementSibling);
         }
       })
     }
@@ -72,6 +81,7 @@ function nextPrevEvent(){
         event.preventDefault();
         event.currentTarget.closest('.slide').previousElementSibling.classList.remove('hidden');
         event.currentTarget.closest('.slide').classList.add('hidden');
+        scrollToCenterSlide(slide.previousElementSibling);
       })
     }
 
