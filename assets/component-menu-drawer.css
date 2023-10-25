@@ -319,7 +319,8 @@ div.icon-plus-minus {
   margin: auto;
   transform: translate(-50%, -50%);
 }
-.menu-drawer__menu details[open] .icon-plus-minus:after {
+.menu-drawer__menu details[open] .icon-plus-minus:after,
+.is-active .icon-plus-minus:after {
   content: none;
 }
 .js .menu-drawer__submenu {
