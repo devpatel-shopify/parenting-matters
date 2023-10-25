@@ -192,11 +192,23 @@
                     {%- endif -%}
                     <li>
                       <div class="tooltip_trigger">
-                        {%- if points > 5 -%}
-                          {{ HappySVG }}
-                        {%- else -%}
-                          {{ sadSVG }}
-                        {%- endif -%}
+                        {% if block.settings.type == "my_child" or block.settings.type == "my_parenting" %}
+
+                          {%- if points > 5 -%}
+                            {{ sadSVG }}
+                            {%- else -%}
+                            {{ HappySVG }}
+                          {%- endif -%}
+
+                        {% else %}
+
+                          {%- if points > 5 -%}
+                            {{ HappySVG }}
+                          {%- else -%}
+                            {{ sadSVG }}
+                          {%- endif -%}
+
+                        {% endif %}
                         <span>{{ block.settings.title }}</span>
                         <div class="tooltip">
                           <div class="tooltip_content">
