@@ -64,6 +64,12 @@
               <span itemprop="name">{{ article.author }}</span>
             </span>
           {%- endif -%}
+          
+          {%- if block.settings.blog_show_metafield_author and article.metafields.custom.author != blank -%}
+            <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">{{ article.metafields.custom.author }}</span>
+            </span>
+          {%- endif -%}
         </header>
       {%- when 'content' -%}
         <div class="article-tag  ">
@@ -401,6 +407,12 @@
           "id": "blog_show_author",
           "default": false,
           "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_metafield_author",
+          "default": true,
+          "label": "Show Metafield Author"
         }
       ]
     },

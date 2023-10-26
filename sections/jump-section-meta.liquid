@@ -221,7 +221,7 @@
                 {% if objectData.title != blank %}
                   <div class="down-arrow">
                     <button class="button button--secondary down_arrow js-hide-block">
-                      <h6 style="color:{{ article.font_color.value }}">Exapnd</h6>
+                      <h6 style="color:{{ article.font_color.value }}">Expand</h6>
                       {% render 'icon-arrow' %}
                     </button>
                   </div>
@@ -269,7 +269,9 @@
                           </div>
                         </div>
                         <div class="inner-boxes">
+                          {% assign benefit_metaobject_count = 0 %}
                           {% for benefit_metaobject in article.benefit_metaobject.value %}
+                            {% assign benefit_metaobject_count = benefit_metaobject_count | plus: 1 %}
                             <div
                               class="inner-card {% if forloop.index > 4 %} hidden {% endif %}"
                               style=" background: {{ article.secondary_backgroud_color.value }};"
@@ -287,34 +289,36 @@
                             </div>
                           {% endfor %}
 
-                          <div class="button_space 11">
-                            <a
-                              class="button button--secondary js-read-more aa"
-                              style=" background: {{ article.secondary_backgroud_color.value }};"
-                            >
-                              {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
-                              <span class="btn-text">Read more</span>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
+                          {% if benefit_metaobject_count > 4 %}
+                            <div class="button_space">
+                              <a
+                                class="button button--secondary js-read-more aa"
+                                style=" background: {{ article.secondary_backgroud_color.value }};"
                               >
-                                <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                              >
-                                <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
-                            </a>
-                          </div>
+                                {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
+                                <span class="btn-text">Read more</span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                >
+                                  <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                  <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                >
+                                  <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                              </a>
+                            </div>
+                          {% endif %}
 
                           <div class="right-svg">
                             <svg
