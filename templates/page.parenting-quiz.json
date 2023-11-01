@@ -335,7 +335,7 @@
           "type": "textfield",
           "settings": {
             "klaviyo_id": "pq_comment",
-            "q_group_title": "Comment or description to save with these test results",
+            "q_group_title": "Comments or any other notes to save with these test results",
             "q": ""
           }
         }
