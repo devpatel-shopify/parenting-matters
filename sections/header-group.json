@@ -10,7 +10,8 @@
           "settings": {
             "text": "Discover your Parenting Style",
             "link_text": "Take the quiz",
-            "link": "shopify:\/\/pages\/parenting-style-quiz"
+            "link": "shopify:\/\/pages\/parenting-style-quiz",
+            "enable_purchased_course": true
           }
         }
       },
