@@ -23,7 +23,6 @@
     },
     "e793ec3c-270a-4eb0-a71d-fc5ca36fe050": {
       "type": "dashboard-parenting-style",
-      "disabled": true,
       "settings": {
         "nq_title": "Take a quiz and get your Parenting style.",
         "title": "Your parenting style [parenting_style]",
