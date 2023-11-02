@@ -13,7 +13,7 @@
         "template--20599728210218__f21a889b-197e-4353-9bfd-e8091afafbca-text-1": {
           "type": "text",
           "settings": {
-            "text": "Take our parenting styles quiz. Find out what type of parent you are within minutes and what that means for you and your child. Answer each of the questions below as accurately as you can!",
+            "text": "Take our parenting style quiz. Find out what type of parent you are within minutes and what that means for you and your child. Answer each of the questions below as accurately as you can!",
             "text_style": "body"
           }
         },
@@ -150,7 +150,7 @@
           "settings": {
             "klaviyo_id": "pq_different_need",
             "q_group_title": "How much do you agree with...",
-            "q": "Each child has different needs and so needs to be accommodated to",
+            "q": "Each child should be treated differently according to their needs",
             "a1": "Agree",
             "a2": "Somewhat agree",
             "a3": "Somewhat disagree",
@@ -335,7 +335,7 @@
           "type": "textfield",
           "settings": {
             "klaviyo_id": "pq_comment",
-            "q_group_title": "Comment or description to save with these test results",
+            "q_group_title": "Comments or any other notes to save with these test results",
             "q": ""
           }
         }

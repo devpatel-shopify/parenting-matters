@@ -23,24 +23,42 @@
     },
     "e793ec3c-270a-4eb0-a71d-fc5ca36fe050": {
       "type": "dashboard-parenting-style",
-      "disabled": true,
       "settings": {
+        "nq_title": "Take a quiz and get your Parenting style.",
+        "title": "Your parenting style [parenting_style]",
+        "description": "",
+        "btn_text": "Download PDF",
+        "nq_btn_text": "Take a Quiz",
+        "btn_link": "",
+        "corner_text_1": "Permissive\/Indulgent",
+        "corner_text_2": "Balanced\/Authoritative",
+        "corner_text_3": "Hands-off\/Uninvolved",
+        "corner_text_4": "Authoritarian\/Strict",
+        "bottom_description": ""
       }
     },
     "aa6987e4-5e55-49dc-9389-ee94441221a5": {
       "type": "dashboard-family-star",
       "disabled": true,
       "settings": {
+        "nq_title": "My Family Star",
+        "title": "My Family Star",
+        "description": "",
+        "btn_text": "Go to Family Star",
+        "nq_btn_text": "Take a Quizz",
+        "btn_link": "",
+        "rt_btn_text": "Re-Take the Quiz",
+        "rt_btn_link": ""
       }
     },
     "f659d971-daca-4b48-aed0-61e385298b96": {
       "type": "dashboard_overview",
       "disabled": true,
       "settings": {
-        "left_icon_back_color": "#F7C083",
+        "left_icon_back_color": "#f7c083",
         "left_description": "",
         "left_np_description": "",
-        "right_icon_back_color": "#1C8DA6",
+        "right_icon_back_color": "#1c8da6",
         "right_description": "",
         "right_np_description": ""
       }
