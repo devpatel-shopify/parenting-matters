@@ -38,7 +38,7 @@
         "enable_language_selector": false,
         "mobile_logo_position": "center",
         "loggedin_btn_text": "My Course",
-        "loggedin_url": "shopify:\/\/pages\/course-dashboard",
+        "loggedin_url": "https:\/\/parentingmatters.co.uk\/account",
         "guest_btn_text": "Buy now",
         "guest_url": "shopify:\/\/products\/course",
         "padding_top": 20,
