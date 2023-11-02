@@ -38,7 +38,7 @@
         "enable_language_selector": false,
         "mobile_logo_position": "center",
         "loggedin_btn_text": "My Course",
-        "loggedin_url": "shopify:\/\/pages\/custom-dashboard-overview",
+        "loggedin_url": "shopify:\/\/pages\/course-dashboard",
         "guest_btn_text": "Buy now",
         "guest_url": "shopify:\/\/products\/course",
         "padding_top": 20,
