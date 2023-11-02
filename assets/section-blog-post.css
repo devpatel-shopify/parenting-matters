@@ -258,7 +258,7 @@
     font-size: 14px;
     line-height: 120%;
 }
-.article-tag .share-tag .share-block a{
+.article-tag .share-tag .share-block .list-social__link{
   display:inline-block;
   margin-right:12px;
   padding: 0;
