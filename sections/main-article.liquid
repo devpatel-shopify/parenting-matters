@@ -87,7 +87,28 @@
                   <p>Share this:</p>
 
                   {%- if has_social_icons -%}
-                    {%- render 'social-icons' -%}
+                    {%- assign articleFullUrl = article.url | prepend:'/' | prepend: shop.url -%}
+                    <ul class="footer__list-social list-unstyled list-social">
+                      <li class="list-social__item">
+                        <a href="https://twitter.com/intent/tweet?url={{ articleFullUrl  | url_encode }}" class="link list-social__link" target="_blank">
+                          {%- render 'icon-twitter' -%}
+                          <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                        </a>
+                      </li>
+                      <li class="list-social__item">
+                        <button onclick="navigator.clipboard.writeText('{{ articleFullUrl }}'); alert('Link Copied');" class="link list-social__link">
+                          {%- render 'icon-hyperlink' -%}
+                          <span class="visually-hidden">{{ 'general.social.links.hyperlink' | t }}</span>
+                        </button>
+                      </li>
+                      <li class="list-social__item">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ articleFullUrl | url_encode }}" class="link list-social__link" target="_blank">
+                          {%- render 'icon-facebook' -%}
+                          <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                        </a>
+                      </li>
+                    </ul>
+                    {%- # render 'social-icons' -%}
                   {%- endif -%}
                 </div>
                 <div class="tag-block">
