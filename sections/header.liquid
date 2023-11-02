@@ -332,12 +332,9 @@
         {% comment %}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button"></a>          
         {% endcomment %}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}/pages/about{%- endif -%}" class="header__icon header__icon--account button">
-          {%- if customer -%}
-              My account
-              {%- else -%}
-            Join now
-          {%- endif -%}
+        {%- if customer and customer.tags contains 'Purchased Course' -%}
+          <a href="{{ section.settings.loggedin_url }}" class="header__icon header__icon--account button">
+            {{ section.settings.loggedin_btn_text }}
             <span class="visually-hidden">
               {%- liquid
                 if customer
@@ -348,6 +345,20 @@
               -%}
             </span>
           </a>
+        {%- else -%}
+          <a href="{{ section.settings.guest_url }}" class="header__icon header__icon--account button">
+            {{ section.settings.guest_btn_text }}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+          </a>
+        {%- endif -%}
           {%- if customer -%}
             <a href="{{ routes.account_logout_url }}" class="header__icon header__icon--account button button--secondary">Log out</a>  
           {%- else -%}
@@ -656,6 +667,40 @@
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "header",
+      "content": "Join now Button"
+    },
+    {
+      "type": "header",
+      "content": "For user who purchased the Course"
+    },
+    {
+      "type": "text",
+      "id": "loggedin_btn_text",
+      "label": "Text",
+      "default": "My Course"
+    },
+    {
+      "type": "url",
+      "id": "loggedin_url",
+      "label": "URL"
+    },
+    {
+      "type": "header",
+      "content": "For user who not purchased the Course"
+    },
+    {
+      "type": "text",
+      "id": "guest_btn_text",
+      "label": "Text",
+      "default": "Buy now"
+    },
+    {
+      "type": "url",
+      "id": "guest_url",
+      "label": "URL"
     },
     {
       "type": "header",

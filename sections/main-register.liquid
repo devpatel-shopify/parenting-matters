@@ -67,7 +67,22 @@
           value="{{ form.first_name }}"
         {% endif %}
         autocomplete="given-name"
-        placeholder="Enter your name"
+        placeholder="Enter your First name"
+      >
+    </div>
+    <div class="field-box">
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="Enter your Last name"
       >
     </div>
     <div class="field-box">

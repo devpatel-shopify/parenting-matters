@@ -449,8 +449,8 @@
     },
     "register": {
       "title": "Welcome to Parenting matters",
-      "first_name": "Full name*",
-      "last_name": "Last name",
+      "first_name": "First name*",
+      "last_name": "Last name*",
       "email": "Email address*",
       "password_confirm": "Confirm password",
       "password_confirm_alert": "Passwords do not match.",
