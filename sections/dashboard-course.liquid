@@ -12,8 +12,18 @@
 
 {% if isCoursePurchased == false %}
   <script>
-    window.location.href = "/account";
+    let sessionKey = window.sessionStorage.getItem('thakyouCourseRedirect');
+    if(sessionKey){
+      document.body.classList.add('loading');
+      setTimeout(() => {
+        window.location.reload();
+      }, 10000);
+    }else{
+      window.location.href = "/account";
+    }
   </script>
+{% else %}
+  <script>window.sessionStorage.removeItem('thakyouCourseRedirect');</script>
 {% endif %}
 
 {% assign ctags = customer.tags %}
