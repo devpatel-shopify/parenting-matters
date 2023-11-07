@@ -203,7 +203,7 @@
                       endcapture
                   -%}
                   {%- capture metaobjectContent -%}
-                  <div id="quiz_slide-{{ metaobjectHandle }}" data-type="inner-description"  class="hidden quiz_slide slide" data-meta-step="{{ question | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}"  {{ block.shopify_attributes }}>
+                  <div id="quiz_slide-{{ metaobjectHandle }}" data-sub-slide="quiz_slide-{{ block.id }}" data-type="inner-description"  class="hidden quiz_slide slide" data-meta-step="{{ question | handleize }}" data-klaviyoid="{{ bs.klaviyo_id }}"  {{ block.shopify_attributes }}>
                     <style>
                     #quiz_slide-{{ metaobjectHandle }}{
                         --background-color: {{ bs.background_color | default: background_color }};
@@ -248,7 +248,7 @@
                   </div>
 
                   {%- if add_describe_this_section == true -%}
-                    <div id="quiz_slide-{{ metaobjectHandle }}" data-type="inner-textarea" class="hidden quiz_slide slide inner-slide-content js-step-describe-this" data-meta-step="{{ question | handleize }}">
+                    <div id="quiz_slide-{{ metaobjectHandle }}" data-sub-slide="quiz_slide-{{ block.id }}" data-type="inner-textarea" class="hidden quiz_slide slide inner-slide-content js-step-describe-this" data-meta-step="{{ question | handleize }}">
                       <div class="quiz_header">                    
                         <div class="quiz_progress"><span class="progress"></span></div>
                         <div class="quiz_question_count"><span>Question {{ mainIndex }}/{{ section.blocks.size }}</span></div>
@@ -273,7 +273,7 @@
                   {%- endif -%}
 
                   {%- if add_range_section == true -%}
-                    <div id="quiz_slide-{{ metaobjectHandle }}" data-type="inner-range" class="hidden quiz_slide slide inner-slide-content js-range-step" data-meta-step="{{ question | handleize }}">
+                    <div id="quiz_slide-{{ metaobjectHandle }}" data-sub-slide="quiz_slide-{{ block.id }}" data-type="inner-range" class="hidden quiz_slide slide inner-slide-content js-range-step" data-meta-step="{{ question | handleize }}">
                       <div class="quiz_header">                    
                         <div class="quiz_progress"><span class="progress"></span></div>
                         <div class="quiz_question_count"><span>Question {{ mainIndex }}/{{ section.blocks.size }}</span></div>
