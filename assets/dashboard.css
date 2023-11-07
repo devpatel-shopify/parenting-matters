@@ -499,7 +499,7 @@ background: #FFF0C9;
 .family-graph-block .graph-block .family-key .graph-colors .result-btn {
     background: transparent;
     border: none;
-    padding:none;
+    padding:unset;
     /* cursor: pointer; */
 }
 
