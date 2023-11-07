@@ -342,35 +342,47 @@ slides.forEach((slide) =>{
         let haveInnerSlideCount = 0;
         let jsonContent = JSON.parse(slide.querySelector('[data-metaobjects]').innerText);
         let handleizeValue = this.dataset.textHandleize;
-    
+        let checkedContent = [];
+
+        document.querySelectorAll(`[data-sub-slide="${slide.id}"]`).forEach((element) => {
+          element.remove();
+        });
+
+        slide.querySelectorAll('input[type=checkbox]:checked').forEach(checkboxele => {
+          let handleizeValue = checkboxele.dataset.textHandleize;
+          if(jsonContent[handleizeValue]) checkedContent.push(jsonContent[handleizeValue]);
+        });
+
+        console.log(checkedContent)
+        slide.insertAdjacentHTML("afterend", checkedContent.join(''));
+
+        if(slide.querySelectorAll(".button_submit").length){
+          let submitbtn = slide.querySelector(".button_submit");
+          submitbtn.classList.remove("button_submit");
+          submitbtn.classList.add("button_next");
+          submitbtn.querySelector('span').innerText = "Next";
+          // console.log(submitbtn)
+        }
         
-        if(this.checked && jsonContent[handleizeValue]){
+        let slides = document.querySelectorAll('#fs_quiz .slide');
+        var sBtn =  slides[(slides.length - 1)].querySelector(".button_next");
+        if(sBtn){
+          if(sBtn.classList.contains("button_next")){
+            sBtn.classList.remove("button_next","event-added");
+            sBtn.classList.add('button_submit');
+            sBtn.querySelector('span').innerText = "Submit";
+          }
+        }
+
+        nextPrevEvent();
+        
+        /*if(this.checked && jsonContent[handleizeValue]){
           slide.insertAdjacentHTML("afterend", jsonContent[handleizeValue]);
-
-          if(slide.querySelectorAll(".button_submit").length){
-            let submitbtn = slide.querySelector(".button_submit");
-            submitbtn.classList.remove("button_submit");
-            submitbtn.classList.add("button_next");
-            submitbtn.querySelector('span').innerText = "Next";
-            // console.log(submitbtn)
-          }
-          
-          let slides = document.querySelectorAll('#fs_quiz .slide');
-          var sBtn =  slides[(slides.length - 1)].querySelector(".button_next");
-          if(sBtn){
-            if(sBtn.classList.contains("button_next")){
-              sBtn.classList.remove("button_next","event-added");
-              sBtn.classList.add('button_submit');
-              sBtn.querySelector('span').innerText = "Submit";
-            }
-          }
-
-          nextPrevEvent();
         }else{
           document.querySelectorAll(`[data-meta-step="${handleizeValue}"]`).forEach((element) => {
             element.remove();
           });
-        }
+        }*/
 
         slide.querySelectorAll('input[type=checkbox]:not(:checked)').forEach((checkbox) => {
           checkbox.disabled = (checkedElements.length == maxSelect);
