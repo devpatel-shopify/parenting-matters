@@ -142,23 +142,33 @@
               {%- if shop.customer_accounts_enabled -%}
                 <div class="customer_accounts_buttons">
                   {% comment %} <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_register_url }}{%- endif -%}" class="header__icon header__icon--account button"></a> {% endcomment %}
-                  <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}/pages/about{%- endif -%}" class="header__icon header__icon--account button">
-                    {%- if customer -%}
-                      My account
+                    {%- if customer and customer.tags contains 'Purchased Course' -%}
+                      <a href="{{ section.settings.loggedin_url }}" class="header__icon header__icon--account button">
+                        {{ section.settings.loggedin_btn_text }}
+                        <span class="visually-hidden">
+                          {%- liquid
+                            if customer
+                              echo 'customer.account_fallback' | t
+                            else
+                              echo 'customer.log_in' | t
+                            endif
+                          -%}
+                        </span>
+                      </a>
                     {%- else -%}
-                      Join now
+                      <a href="{{ section.settings.guest_url }}" class="header__icon header__icon--account button">
+                        {{ section.settings.guest_btn_text }}
+                        <span class="visually-hidden">
+                          {%- liquid
+                            if customer
+                              echo 'customer.account_fallback' | t
+                            else
+                              echo 'customer.log_in' | t
+                            endif
+                          -%}
+                        </span>
+                      </a>
                     {%- endif -%}
-                    {% render 'icon-arrow' %}
-                    <span class="visually-hidden">
-                      {%- liquid
-                        if customer
-                          echo 'customer.account_fallback' | t
-                        else
-                          echo 'customer.log_in' | t
-                        endif
-                      -%}
-                    </span>
-                  </a>
                   {%- if customer -%} 
                   <a href="{{ routes.account_logout_url }}" class="header__icon header__icon--account button button--secondary">Log out</a>  
                   {%- else -%}
