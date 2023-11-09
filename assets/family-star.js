@@ -148,12 +148,15 @@ function nextPrevEvent(){
             });
           }
           
-          let ch = sum/d
-          elements.FS_ChildHassel.value = ch;
+          let ch = sum/d;
+          let final_ch = 10.0 - ch;
+
+          elements.FS_ChildHassel.value = final_ch;
+
           console.log('## Child Hassle');
           console.table(formObject);
-          console.log("-->> Child Hassel",ch);
-          finalResult["Child Hassel"] = ch;
+          console.log("-->> Child Hassel",final_ch);
+          finalResult["Child Hassel"] = final_ch;
         }
 
         // Result for Child Temper
@@ -174,12 +177,14 @@ function nextPrevEvent(){
             });
           }
           
-          let ct = sum/d
-          elements.FS_ChildTemper.value = ct;
+          let ct = sum/d;
+          let final_ct = 10.0 - ct;
+
+          elements.FS_ChildTemper.value = final_ct;
           console.log('## Child Templer');
           console.table(formObject);
-          console.log("-->> Child Temper",ct);
-          finalResult["Child Temper"] = ct;
+          console.log("-->> Child Temper",final_ct);
+          finalResult["Child Temper"] = final_ct;
         }
 
         
@@ -269,28 +274,36 @@ function nextPrevEvent(){
           });
 
           var res = parseFloat( sum / 2);
+          let final_res = (res == 1) ? 10 : (10.0 - res);
 
           consoleData.push({
             type:"sum",
             Id:"",
-            value:sum
+            oldResult :0,
+            FinalResult:sum
           });
 
           if(bTitle == "concerns-about-my-child"){
-            elements.FS_MyChild.value = res;
+            elements.FS_MyChild.value = final_res;
+
             consoleData.push({
               type:"My Child",
               Id:"",
-              value:res
+              oldResult:res,
+              FinalResult:final_res
             });
+            finalResult["My Child"] = final_res;
           }
           if(bTitle == "my-parenting"){
-            elements.FS_MyParenting.value = res;
+            elements.FS_MyParenting.value = final_res;
+
             consoleData.push({
               type:"My parenting",
               Id:"",
-              value:res
+              oldResult:res,
+              FinalResult:final_res
             });
+            finalResult["My parenting"] = final_res;
           }
 
           console.log(`# js-block-checkbox -- `,_index);
@@ -353,7 +366,7 @@ slides.forEach((slide) =>{
           if(jsonContent[handleizeValue]) checkedContent.push(jsonContent[handleizeValue]);
         });
 
-        console.log(checkedContent)
+        // console.log(checkedContent)
         slide.insertAdjacentHTML("afterend", checkedContent.join(''));
 
         if(slide.querySelectorAll(".button_submit").length){
