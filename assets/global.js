@@ -1208,7 +1208,8 @@ if(footerBlockswrapper){
     elementClass: 'footer-block--menu', 
     triggerClass: 'footer_links_title', 
     panelClass: 'footer_links', 
-    activeClass: 'is-active'
+    activeClass: 'is-active',
+    ariaEnabled:false
   });
   window.addEventListener("resize", (event) => {
     if(window.screen.width > 767){

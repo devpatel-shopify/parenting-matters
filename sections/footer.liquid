@@ -83,12 +83,12 @@
                   {% endif %}
                 >
                   {%- if block.settings.heading != blank -%}
-                    <h2 class="footer-block__heading inline-richtext {% if block.settings.menu != blank %} footer_links_title{% endif %}">
+                    <span class="h2 footer-block__heading inline-richtext {% if block.settings.menu != blank %} footer_links_title{% endif %}">
                       {{- block.settings.heading -}}
                         {%- if block.settings.menu != blank -%}
                           <div class="icon-plus-minus"></div>
                         {%- endif -%}
-                    </h2>
+                    </span>
                   {%- endif -%}
 
                   {%- case block.type -%}
@@ -204,7 +204,8 @@
                                 class="newsletter-form__button field__button button button--icon"
                                 name="commit"
                                 id="Subscribe"
-                                aria-label="{{ 'newsletter.button_label' | t }}"
+                                {% comment %} aria-label="{{ 'newsletter.button_label' | t }}" {% endcomment %}
+                                aria-label="Sign up"
                               >Sign up
                                 <div class="icon-cover">{% render 'icon-arrow' %}</div>
                               </button>
@@ -287,7 +288,7 @@
       <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}  {% if section.settings.footer_logo != blank %} footer__content-logo{% endif %}">
         {%- if settings.logo != blank -%}
           <div class="footer-logo">
-            <a href="{{ routes.root_url }}">
+            <a href="{{ routes.root_url }}" aria-label="Parenting Matters">
               {{ settings.logo | image_url: width: 165 | image_tag }}
             </a>
           </div>
