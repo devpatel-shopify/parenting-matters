@@ -16,8 +16,12 @@
           "settings": {
             "type": "my_child",
             "title": "My child",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My child<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>My Child<\/strong>",
+            "bottom_description_stage_1": "<p>You are reporting marked difficulties with your child in this area.<\/p><p>This is likely to be upsetting for you and your child.<\/p><p>The good news is that when you use the strategies in the course to improve communication and your relationship with your child, this problem  is very likely to get better.<\/p>",
+            "top_description_stage_2": "<strong>My Child<\/strong>",
+            "bottom_description_stage_2": "<p>You are reporting concerns about your child in this area that are worrying you, and this may be difficult at times. <\/p><p>This is likely to be upsetting for you and your child. <\/p><p>The good news is that when you use the strategies in the course to improve communication and your relationship with your child, this problem  is very likely to get better.<\/p>",
+            "top_description_stage_3": "<strong>My Child<\/strong>",
+            "bottom_description_stage_3": "<p>You have a few concerns about your child in the area you mention, but the score you give them suggests that whilst they concern you, they are not overly serious.<\/p><p>This course should help make the problem less and improve your child's behaviour and more generally make your relationship with your child stronger.<\/p>"
           }
         },
         "c6a1554a-3a43-4627-a72b-69089fdd7808": {
@@ -25,8 +29,12 @@
           "settings": {
             "type": "child_temper",
             "title": "Child temper",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>Child temper<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>Child Temper<\/strong>",
+            "bottom_description_stage_1": "<p>Your score shows that your child's behaviour is difficult in a number of different ways, and this is likely to make life quite challenging.<\/p><p>The evidence suggests that you will find this parenting programme particularly helpful in encouraging better habits in your child so that there is less of the annoying, defiant behaviour. <\/p><p>Thousands of parents doing courses like this report long lasting improvements in their child's behaviour and relationships, and say they experience less stress as a result.<\/p>",
+            "top_description_stage_2": "<strong>Child Temper<\/strong>",
+            "bottom_description_stage_2": "<p>You report that your child? behaviour is difficult behaviour at times, but no more so than average in children of this age. <\/p><p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with. <\/p><p>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>",
+            "top_description_stage_3": "<strong>Child Temper<\/strong>",
+            "bottom_description_stage_3": "<p>Your score indicates that your child may occasionally behave annoyingly,but is generally well behaved. In fact more so than the majority of children this age.<\/p><p>We recognise that a well behaved child isn't always a happy one, so our parenting course is especially designed to show ways that you can help your child reach their full potential intellectually, in friendships, creatively, at school and within the family. By following our programme there is every reason for you to expect your child's confidence to grow further and for there to be long lasting improvements in your relationship.<\/p>"
           }
         },
         "5ca6aea0-f049-4c05-95aa-5c7e4710d377": {
@@ -34,8 +42,12 @@
           "settings": {
             "type": "my_confidence",
             "title": "My confidence",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My confidence<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>My Confidence<\/strong>",
+            "bottom_description_stage_1": "<p>Your replies show that at the moment you are often unsure of how to manage your child's temperamental behaviour and struggle knowing what to do to help them. This is a common feeling! <\/p><p>Most parents following this programme say they feel more confident in handling all situations involving their child because they learn how to stay closer to them and often discover the secret of bringing the best out of them. <\/p><p>With more parenting tools to call on and a clearer idea what to do when, your confidence is very likely to improve.<\/p>",
+            "top_description_stage_2": "<strong>My Confidence<\/strong>",
+            "bottom_description_stage_2": "<p>Your score shows that you are already moderately confident in managing the different ways your child behaves, and much of the time you know what is needed to make a difference. <\/p><p>It is likely that you'd want to build on this, and by following this programme you will join other parents who say they gain in confidence in their relationship with their child as a result. They report that they feel closer to their child and respond to them better, discovering the secrets of bringing out their best. <\/p><p>With more parenting tools to call on and a clearer idea what to do when, your confidence is very likely to improve.<\/p>",
+            "top_description_stage_3": "<strong>My Confidence<\/strong>",
+            "bottom_description_stage_3": "<p>Your response shows that you are comfortable managing your child, and confident in your ability to make a difference to them. <\/p><p>Your progression through this course will definitely help you build on the great relationship you have with your child and increase your capacity to stay close in all stages and phases with them. <\/p><p>Having more parenting tools to call on and a clearer idea what to do when, your confidence is likely to grow further.<\/p>"
           }
         },
         "933eb292-1515-4243-a5be-913c32c52561": {
@@ -43,8 +55,12 @@
           "settings": {
             "type": "my_parenting",
             "title": "My parenting",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My parenting<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>My Parenting<\/strong>",
+            "bottom_description_stage_1": "<p>Your response suggest that you are seriously concerned about improving some aspects of how you get along with your child.<\/p><p>Taking part in this kind of programme has been shown to improve your confidence as a parent, as well as leading to greater enjoyment and involvement with your child.<\/p><p>You are also likely to feel more able to manage your child with calm limits and consequences. These will also help your relationship with any other children you have.<\/p>",
+            "top_description_stage_2": "<strong>My Parenting<\/strong>",
+            "bottom_description_stage_2": "<p>Your response suggests that you are somewhat concerned about how things are going, and definitely want things to improve.<\/p><p>Taking part in this kind of programme has been shown to improve your confidence as a parent, as well as leading to greater enjoyment and involvement with your child.<\/p><p>You are also likely to feel more able to manage your child with calm limits and consequences. These will also help your relationship with any other children you have.<\/p>",
+            "top_description_stage_3": "<strong>My Parenting<\/strong>",
+            "bottom_description_stage_3": "<p>Your response suggests that you are reasonably confident about how things are going, but would like things to improve. <\/p><p>Taking part in this kind of programme is likely to further improve your confidence as a parent, as well as leading to greater enjoyment and involvement with your child.<\/p><p>You are also likely to feel more able to manage them better with calm limits and consequences.<\/p><p>These will also help your relationship with any other children you have.<\/p>"
           }
         },
         "5a2fec57-5661-4c63-9816-57b39e1db0d8": {
@@ -52,8 +68,12 @@
           "settings": {
             "type": "my_wellbeing",
             "title": "My wellbeing",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>My wellbeing<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>My Wellbeing<\/strong>",
+            "bottom_description_stage_1": "<p>Your score suggests that you are feeling that all is not well. You probably know the reasons for your dissatisfaction, and taking the initiative to do a parenting course is a strong move. (If you are feeling persistently low and\/or anxious, you may also find it helpful to speak with your health visitor or GP).<\/p><p>Previous experience has shown that parents who invest time in courses like this will reap the benefits with increased satisfaction in their relationships in general, and with their child in particular, probably because being a parent is such a central part of life. By following the course you can expect to feel more satisfied generally and enjoy a better relationship with your child.<\/p>",
+            "top_description_stage_2": "<strong>My Wellbeing<\/strong>",
+            "bottom_description_stage_2": "<p>Your score shows that you are fairly satisfied with your current situation and suggests that you are moderately resilient and confident when facing life's challenges. <\/p><p>Your skill set will be useful in getting the most from this parenting course and like other parents who take courses similar to this, you are likely to experience increased well-being as you enjoy a closer relationship with your child, recognising that being a parent is such a central part of our lives. <\/p><p>It is reasonable to expect a greater sense of satisfaction with life once you've completed the programme.<\/p>",
+            "top_description_stage_3": "<strong>My Wellbeing<\/strong>",
+            "bottom_description_stage_3": "<p>Your score shows that you are content with life at the moment. This suggests that you are confident and well equipped to cope with life's knocks. <\/p><p>Your skills will help your progression through this parenting programme and like other parents who take courses like this, your sense of well-being is likely to increase as your relationship with your child improves further, since it is such a significant part of life.<\/p><p>It is reasonable to expect that by the end of course you will be more satisfied with life in general and have a stronger bond with your child.<\/p>"
           }
         },
         "b60f9a64-f9ec-44b5-b0c5-1f0c77ce47ae": {
@@ -61,8 +81,12 @@
           "settings": {
             "type": "child_hassle",
             "title": "Child hassle",
-            "top_description": "You report that your child’ behaviour is difficult behaviour at times, but no more so than average in children of this age. <strong>Child hassle<\/strong>",
-            "bottom_description": "<p>This suggests there is room for improvement and you are likely to find this programme really helpful in showing ways to transform your child's annoying habits so they become better behaved and easier to get along with.<br\/><br\/>Experiences of thousands of parents in similar situations to yours prove that following a parenting course like this one helps you bring out the best in your child, makes them more helpful, and leads to better long-term family relationships.<\/p>"
+            "top_description_stage_1": "<strong>Child Hassle<\/strong>",
+            "bottom_description_stage_1": "<p>You are finding your children difficult to manage in everyday situations. <\/p><p>According to your report, they are behaving in a more difficult way than typical children. This is likely to be tiring for you, and they may be getting away with bad habits. <\/p><p>The evidence suggests that taking this course should enable you to get on top of these problems, so that your children behave better and everyday life is easier for you.<\/p>",
+            "top_description_stage_2": "<strong>Child Hassle<\/strong>",
+            "bottom_description_stage_2": "<p>You are finding your child not too bad to manage in everyday situations. According to your report, you are finding their behaviour reasonably manageable, at a level similar to the way the majority of parents experience their children.<\/p><p>However, as with all of us, there is always room for improvement, and this course should help you develop skills to improve their behaviour and stop them getting away with bad habits. <\/p><p>Taking this course should help you to get greater confidence on how to manage these situations, so that your children behave better and everyday life is easier for you, since they need less attention and will get on with things more easily.<\/p>",
+            "top_description_stage_3": "<strong>Child Hassle<\/strong>",
+            "bottom_description_stage_3": "<p>Compared to many parents, you are not finding your children particularly difficult to manage in everyday situations.<\/p><p>According to your report, the level of difficulty you experience is less than average.<\/p><p>However, you clearly have high standards and would like to make things even better, which is commendable. This course should help you improve your child's behaviour and relating style, and stop them developing potentially bad habits and enable you to get greater confidence in how to manage a whole range of situations, so that your children grow up being more helpful, independent, and everyday life is easier for you all.<\/p>"
           }
         }
       },
