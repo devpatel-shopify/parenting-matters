@@ -34,20 +34,22 @@
     <div class="hero-background-design-cover">
       {% render 'hero-bg-home' %}
     </div>
-    <div class="hero-image-home {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      {%- assign imageAlt = section.settings.backgroundImage.alt | default:'Image' -%}
-      {{ section.settings.backgroundImage
-      | image_url: width: 3840
-      | image_tag:
-        loading: 'lazy',
-        width: section.settings.backgroundImage.width,
-        height: section.settings.backgroundImage.height,
-        alt: imageAlt,
-        sizes: '100vw',
-        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-     }}
-      {% comment %} {{ 'hero-home-illustration.svg' | asset_url | img_tag }} {% endcomment %}
-    </div>
+    {% if section.settings.backgroundImage %}
+      <div class="hero-image-home {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- assign imageAlt = section.settings.backgroundImage.alt | default:'Image' -%}
+        {{ section.settings.backgroundImage
+        | image_url: width: 3840
+        | image_tag:
+          loading: 'lazy',
+          width: section.settings.backgroundImage.width,
+          height: section.settings.backgroundImage.height,
+          alt: imageAlt,
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+        }}
+        {% comment %} {{ 'hero-home-illustration.svg' | asset_url | img_tag }} {% endcomment %}
+      </div>
+    {% endif %}
     <div class="hero-home-bottom-design">{% render 'hero-home-bottom-design' %}</div>
   </div>
 
