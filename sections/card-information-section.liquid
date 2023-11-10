@@ -22,7 +22,7 @@
         <div class="card_sticky">
           <div class="child_card">
             {% if section.settings.heading_text != blank %}
-              <h2>{{ section.settings.heading_text }}</h2>
+              <span class="h2">{{ section.settings.heading_text }}</span>
             {% endif %}
           </div>
           <svg width="386" height="359" viewBox="0 0 386 359" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
             {% endif %}
             <div class="card_learn">
               {% if block.settings.card_name != blank %}
-                <h4>{{ block.settings.card_name }}</h4>
+                <span class="h4">{{ block.settings.card_name }}</span>
               {% endif %}
               {% if block.settings.card_paragraph != blank %}
                 <p>{{ block.settings.card_paragraph }}</p>

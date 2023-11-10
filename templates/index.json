@@ -35,6 +35,7 @@
         "template--19650833285418__926b0172-6880-4198-b1e3-b19a9ae88af0-1687513929035ace67-2"
       ],
       "settings": {
+        "backgroundImage": "shopify:\/\/shop_images\/hero-home-illustration.svg",
         "desktop_content_position": "top-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
@@ -153,6 +154,7 @@
     "fd84d383-a0dc-4cc8-a4d1-11772bc163f5": {
       "type": "join-banner-section",
       "settings": {
+        "image": "shopify:\/\/shop_images\/join-banner-image.svg",
         "section_title": "Parenting Matters is here to help you bring out the best in your child.",
         "background_schema": "scheme-32b52632-33b9-49f5-a7f4-917974f3d412",
         "button_text": "Learn more",

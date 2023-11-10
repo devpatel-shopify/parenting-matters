@@ -12,6 +12,7 @@
 }
 .accordion_section .collapsible-content__heading {
     margin-bottom: 48px;
+    display: block;
 }
 .accordion_section .collapsible-content__grid  {
     width: 60%;

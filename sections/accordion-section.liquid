@@ -25,11 +25,11 @@
           style="text-align: {{ section.settings.heading_alignment }};"
         >
           {%- if section.settings.heading != blank -%}
-            <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+            <span class="h2 collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
               {{ section.settings.heading }}
-            </h2>
+            </span>
           {%- else -%}
-            <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
+            <span class="h2 visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</span>
           {% endif %}
           {% if section.settings.button_url != blank or section.settings.button_text != blank %}
             <div class="custom_button">
@@ -97,9 +97,9 @@
                 >
                   <summary id="Summary-{{ block.id }}-{{ section.id }}">
                     {% render 'icon-accordion', icon: block.settings.icon %}
-                    <h5 class="accordion__title inline-richtext">
+                    <span class="h5 accordion__title inline-richtext">
                       {{ block.settings.heading | default: block.settings.page.title }}
-                    </h5>
+                    </span>
                     <div class="accordion_icon">
                       {% render 'icon-plus2' %}
                       {% render 'icon-minus2' %}
