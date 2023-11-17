@@ -60,7 +60,7 @@
           {% endif %}
         </div>
 
-        <div id="target-section--{{ section.id }}" class="jump-open-block js-hide-element hidden">
+        <div id="target-section--{{ section.id }}" class="jump-open-block js-hide-element {% unless request.design_mode and section.blocks.size > 0 %}hidden{% endunless %}">
           <div class="round-text-block">
             {%- if section.settings.percentage_count_1 != blank or section.settings.organisation_text_1 != blank -%}
               <div class="inner-grid-block">
