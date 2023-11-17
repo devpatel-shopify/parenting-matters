@@ -5,10 +5,12 @@
   <div class="page-width">
     <div class="ddp-inner-content">
       <div class="ddp-left-text">
-        <h2>{{ section.settings.ddp_heading }}</h2>
-        <p>
-            {{ section.settings.ddp_text }}
-        </p>
+        {% if section.settings.ddp_heading %}
+          <h1>{{ section.settings.ddp_heading }}</h1>
+        {% endif %}
+        {% if section.settings.ddp_text != blank %}
+          {{ section.settings.ddp_text }}
+        {% endif %}
       </div>
       <div class="ddp-right-img">
         <img src="{{ section.settings.image_add | img_url:'master' }}" alt="" srcset="">
@@ -25,25 +27,25 @@
   "name": "DDP banner",
   "settings": [
     {
-      "type" : "text",
-      "id" : "custom_class",
-      "label" : "Custom class add"
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class add"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "ddp_heading",
       "label": "Heading Text"
     },
     {
-        "type": "richtext",
-        "id": "ddp_text",
-        "label": "Small Text"
-      },
-      {
-        "type": "image_picker",
-        "id": "image_add",
-        "label": "Banner image"
-      }
+      "type": "richtext",
+      "id": "ddp_text",
+      "label": "Small Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_add",
+      "label": "Banner image"
+    }
   ],
   "presets": [
     {

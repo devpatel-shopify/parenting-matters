@@ -121,8 +121,8 @@
 
                         {% if count > 4 %}
                           <div class="button_space">
-                            <a
-                              class="button button--secondary js-read-more"
+                            <button type="button"
+                              class="button button--secondary js-read-more read-more-button"
                               style=" background: {{ article.secondary_backgroud_color.value }};"
                             >
                               {% comment %} {{- article.button_title.value -}} {% endcomment %}
@@ -146,7 +146,7 @@
                               >
                                 <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                               </svg>
-                            </a>
+                            </button>
                           </div>
                         {% endif %}
 
@@ -291,8 +291,8 @@
 
                           {% if benefit_metaobject_count > 4 %}
                             <div class="button_space">
-                              <a
-                                class="button button--secondary js-read-more aa"
+                              <button type="button"
+                                class="button button--secondary js-read-more read-more-button"
                                 style=" background: {{ article.secondary_backgroud_color.value }};"
                               >
                                 {% comment %} <span class="btn-text">{{- article.button_title.value -}}</span> {% endcomment %}
@@ -316,7 +316,7 @@
                                 >
                                   <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>
-                              </a>
+                              </button>
                             </div>
                           {% endif %}
 
@@ -345,21 +345,6 @@
   {% endif %}
 </section>
 <script>
-  let elements = document.querySelectorAll('[data-section-scroll]');
-  elements.forEach(function (element) {
-    element.addEventListener('click', _scrollToDown.bind(this), true);
-  });
-  function _scrollToDown(event) {
-    let elementToScrolls = event.currentTarget.closest('.jump-block').querySelectorAll('.jump-redirect-block');
-    elementToScrolls.forEach(function (elementToScroll) {
-      if (elementToScroll.getAttribute('id') == event.target.getAttribute('id')) {
-        event.preventDefault();
-        let scrollDistance = elementToScroll.offsetTop - document.querySelector('.header').offsetHeight;
-        document.documentElement.scrollTo({ top: scrollDistance, behavior: 'smooth' });
-      }
-    });
-  }
-
   let hideButtons = document.querySelectorAll('.js-hide-block');
   let showButtons = document.querySelectorAll('.js-show-block');
   hideButtons.forEach(function (hideButton) {
@@ -374,19 +359,6 @@
       button.target.closest('.jump-redirect-block').querySelector('.js-hide-element').style.display = 'none';
       button.target.closest('.jump-redirect-block').querySelector('.js-hide-block').classList.remove('hidden');
       button.target.closest('.js-show-block').classList.add('hidden');
-    });
-  });
-
-  // script for benefit dropdown
-  document.querySelectorAll('.js-read-more').forEach((button) => {
-    button.addEventListener('click', () => {
-      button.classList.toggle('open');
-      let innerCard = button.closest('.inner-boxes').querySelectorAll('.inner-card');
-      innerCard.forEach((card, index) => {
-        if (index > 3)
-          button.classList.contains('open') ? card.classList.remove('hidden') : card.classList.add('hidden');
-      });
-      button.querySelector('.btn-text').innerText = button.classList.contains('open') ? 'Read less' : 'Read more';
     });
   });
 </script>

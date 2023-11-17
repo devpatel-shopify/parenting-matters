@@ -1,10 +1,42 @@
 {
   "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true,
+            "blog_show_metafield_author": true
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "featured_image",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+      }
+    },
     "55607522-175c-4465-a0b0-826b70bc72ff": {
       "type": "ddp-banner",
       "settings": {
         "custom_class": "",
-        "ddp_heading": "{{ page.title }}",
+        "ddp_heading": "<strong>Ways to help your child with ADHD at home and school<\/strong>",
         "ddp_text": "",
         "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
       }
@@ -42,9 +74,8 @@
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#f7c083",
-        "title": "Introduction",
-        "subtitle": "How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?",
-        "description": "<p>Whether your child has ADHD or is somewhere on the ADHD spectrum, here are a variety of detailed and evidence-based things you can do to support your child.  To get more advice regarding ADHD diagnosis, see the previous post on ‘Might my child have ADHD?’<\/p>",
+        "heading": "Introduction",
+        "description": "<h4>How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?<\/h4><p>Whether your child has ADHD or is somewhere on the ADHD spectrum, here are a variety of detailed and evidence-based things you can do to support your child.  To get more advice regarding ADHD diagnosis, see the previous post on ‘Might my child have ADHD?’<\/p>",
         "button_name": "Expand",
         "expanded_button_name": "Close",
         "secondary_color": "#f4d3dd",
@@ -64,7 +95,7 @@
           "type": "benifit_steps",
           "settings": {
             "title": "Develop a range of ‘checklists’",
-            "desc_1": "<p>such as  equipment required, and steps involved (which are placed on their desk), or written in a work book, or are written on a notice board which can be easily referred to. <\/p>"
+            "desc_1": "<p>such as  equipment required, and steps involved (which are placed on their desk), or written in a work book, or are written on a notice board which can be easily referred to.<\/p>"
           }
         },
         "cde1ef40-76b0-49fc-a30a-a17891edcb0c": {
@@ -130,14 +161,13 @@
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#c9d9d3",
-        "title": "Develop Better Self-Management",
-        "subtitle": "Remember that children with ADHD require more strategies to help them manage at home and at school, and that they are not being deliberately inconsiderate or difficult – their brains are still catching up,they have difficulties in three main areas; inattentive (poor focus), impulsive and hyperactive.",
-        "description": "<p>As result they need more <em><strong>external structure <\/strong><\/em>to help them learn to focus and organise themselves, they need more encouragement than other children, more help to learn to take more responsibility over their own behaviour and its consequences.  So at school they may need prompting to make sure that they know what they have to do, what they need to have to be able to do it, and prompting so that they begin work within 60 seconds of the teacher’s instruction being given.They need to be very quickly praised if they do it, and reminded and guided to do so if they do not. Seating them near the front of the class, or next to a sensible focused pupil (using the powerful effects of pupil modelling) can also be helpful. <\/p>",
+        "heading": "Develop Better Self-Management",
+        "description": "<h4>Remember that children with ADHD require more strategies to help them manage at home and at school, and that they are not being deliberately inconsiderate or difficult – their brains are still catching up,they have difficulties in three main areas; inattentive (poor focus), impulsive and hyperactive.<\/h4><p>As result they need more <em><strong>external structure <\/strong><\/em>to help them learn to focus and organise themselves, they need more encouragement than other children, more help to learn to take more responsibility over their own behaviour and its consequences.  So at school they may need prompting to make sure that they know what they have to do, what they need to have to be able to do it, and prompting so that they begin work within 60 seconds of the teacher’s instruction being given.They need to be very quickly praised if they do it, and reminded and guided to do so if they do not. Seating them near the front of the class, or next to a sensible focused pupil (using the powerful effects of pupil modelling) can also be helpful. <\/p>",
         "button_name": "Expand",
         "expanded_button_name": "Close",
         "secondary_color": "#f4d3dd",
         "benifit_svg_color_1": "#dd7c9a",
-        "percentage_count_1": "You can try:",
+        "percentage_count_1": "Here are some useful practical strategies to help:",
         "organisation_text_1": "",
         "benifit_backbround_color": "#f4d3dd",
         "benifit_title_color": "#c72457",
@@ -210,9 +240,8 @@
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#ffd978",
-        "title": "Increase Concentration Skills",
-        "subtitle": "You can increase your child's concentration skills in many different ways, here's some to get you started!",
-        "description": "",
+        "heading": "Increase Concentration Skills",
+        "description": "<h4>You can increase your child's concentration skills in many different ways, here's some to get you started!<\/h4>",
         "button_name": "Expand",
         "expanded_button_name": "Close",
         "secondary_color": "#f4d3dd",
@@ -329,9 +358,8 @@
       ],
       "settings": {
         "hide_for_guest_user": true,
-        "bg_color": "#c9d9d3",
-        "title": "Build Better Focus",
-        "subtitle": "",
+        "bg_color": "#ffd978",
+        "heading": "Build Better Focus",
         "description": "",
         "button_name": "Expand",
         "expanded_button_name": "Close",
@@ -345,84 +373,80 @@
         "button_text": "Read more"
       }
     },
-    "522636ba-7b56-4f7c-9e8a-6d8f435fb57b": {
+    "796683d7-bab7-4b92-acd0-c62840558905": {
       "type": "custom-cms-jump-section",
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
-        "title": "Improve Written Work and Their Ability to Express Themselves",
-        "subtitle": "Some children with ADHD struggle to record ideas effectively on paper. Their copying pace is slower and the process of writing quickly is more difficult for them, while their internal thinking will be at least a few steps ahead of what they are able to write down. So written work may be jumbled up with some things being missed out.",
-        "description": "<p>Similarly, the large amount of effort invested into the actual production of written work can mean that there is less attention available for thinking about the way the work is organised as well as the content of the work. As a result, the content of written work can be a poor reflection of actual knowledge and verbal understanding. So your child may be very able verbally but their written work may not do justice to their ideas.   Indeed, they may look at what they have written and feel that it is at odds with what they wanted to say. This can leave your child feeling inadequate and lose confidence. <\/p><p><\/p><p>A way to get around this might be for them to try dictating stories or school work. Most smart phones can have a dictating function or use a recording device. Trying these options can help their fluency and build confidence.  School may be able to reduce the amount of copying required in class, and providing worksheets or copies of handouts makes life easier.<\/p>",
-        "button_name": "",
+        "heading": "Improve Written Work and Their Ability to Express Themselves",
+        "description": "<h4>Some children with ADHD struggle to record ideas effectively on paper. Their copying pace is slower and the process of writing quickly is more difficult for them, while their internal thinking will be at least a few steps ahead of what they are able to write down. So written work may be jumbled up with some things being missed out.<\/h4><p>Similarly, the large amount of effort invested into the actual production of written work can mean that there is less attention available for thinking about the way the work is organised as well as the content of the work. As a result, the content of written work can be a poor reflection of actual knowledge and verbal understanding. So your child may be very able verbally but their written work may not do justice to their ideas.   Indeed, they may look at what they have written and feel that it is at odds with what they wanted to say. This can leave your child feeling inadequate and lose confidence. <\/p><p>A way to get around this might be for them to try dictating stories or school work. Most smart phones can have a dictating function or use a recording device. Trying these options can help their fluency and build confidence.  School may be able to reduce the amount of copying required in class, and providing worksheets or copies of handouts makes life easier.<\/p>",
+        "button_name": "Expand",
         "expanded_button_name": "Close",
         "secondary_color": "#f4d3dd",
         "benifit_svg_color_1": "#dd7c9a",
-        "percentage_count_1": "",
+        "percentage_count_1": "Benifit Title",
         "organisation_text_1": "",
         "benifit_backbround_color": "#f4d3dd",
         "benifit_title_color": "#c72457",
         "benifit_svg_color_2": "#dd7c9a",
-        "button_text": ""
+        "button_text": "Read more"
       }
     },
-    "7afb10ec-ad0d-483b-a230-f5a925ed01b8": {
+    "a4ea64b2-72b2-4db4-a4d0-df7916e30630": {
       "type": "custom-cms-jump-section",
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
-        "title": "Stay Calm and Positive Yourself",
-        "subtitle": "This is key but easier said than done as children with ADHD can be exhausting, frustrating and infuriating!",
-        "description": "<p>FirstLearn as much as you can about ADHD. Understanding the condition can help you navigate its challenges with more clarity and empathy. First things first, take a deep breath. Managing ADHD requires patience, understanding, and a good dose of self-care. Practise Mindfulness: Take moments for yourself to practise mindfulness techniques. Deep breathing, meditation, or even just a few moments of quiet can help you stay centred amidst the busy-ness. Be extra organised but also delegate and ask for help: you don't have to do it all alone. Ask for support from friends, family, or professionals. A strong support network can make a world of difference.Taking care of yourself is essential. This means making an effort to take time for you, to do activities you enjoy, spend time with loved ones, and get enough rest. Remember, you can't pour from an empty cup.<\/p>",
-        "button_name": "",
+        "heading": "Stay Calm and Positive Yourself",
+        "description": "<h4>This is key but easier said than done as children with ADHD can be exhausting, frustrating and infuriating!<\/h4><p>FirstLearn as much as you can about ADHD. Understanding the condition can help you navigate its challenges with more clarity and empathy. First things first, take a deep breath. Managing ADHD requires patience, understanding, and a good dose of self-care. Practise Mindfulness: Take moments for yourself to practise mindfulness techniques. Deep breathing, meditation, or even just a few moments of quiet can help you stay centred amidst the busy-ness. Be extra organised but also delegate and ask for help: you don't have to do it all alone. Ask for support from friends, family, or professionals. A strong support network can make a world of difference.Taking care of yourself is essential. This means making an effort to take time for you, to do activities you enjoy, spend time with loved ones, and get enough rest. Remember, you can't pour from an empty cup.<\/p>",
+        "button_name": "Expand",
         "expanded_button_name": "Close",
-        "secondary_color": "#e9f0ed",
-        "benifit_svg_color_1": "",
-        "percentage_count_1": "",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Benifit Title",
         "organisation_text_1": "",
-        "benifit_backbround_color": "",
-        "benifit_title_color": "",
-        "benifit_svg_color_2": "",
-        "button_text": ""
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
       }
     },
-    "c3ace415-37ee-4533-8eaa-72e2cc32297b": {
+    "6a8a9a82-29e8-4925-be48-52f65e744425": {
       "type": "custom-cms-jump-section",
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
-        "title": "Arrangements for Examinations",
-        "subtitle": "",
-        "description": "<p>Where psychometric testing reveals specific difficulties such as dyslexia, and has been carried out within 24 months of the exam, the pupil will usually be entitled to receive 25% extra time. ADHD may also be able to this, but each examining body needs to be checked out about this. JCQ guidelines do allow for extra time for ADHD, but it must be backed up by the school having made special teaching arrangements for several months before the examination <br\/><br\/>They may also be eligible to use a lap-top when required to write continuously. Some pupils may be placed in a separate room that is free from distraction when taking exams. <\/p>",
-        "button_name": "",
+        "heading": "Arrangements for Examinations",
+        "description": "<p>Where psychometric testing reveals specific difficulties such as dyslexia, and has been carried out within 24 months of the exam, the pupil will usually be entitled to receive 25% extra time. ADHD may also be able to this, but each examining body needs to be checked out about this. JCQ guidelines do allow for extra time for ADHD, but it must be backed up by the school having made special teaching arrangements for several months before the examination <\/p><p>They may also be eligible to use a lap-top when required to write continuously. Some pupils may be placed in a separate room that is free from distraction when taking exams. <\/p>",
+        "button_name": "Expand",
         "expanded_button_name": "Close",
-        "secondary_color": "#e9f0ed",
-        "benifit_svg_color_1": "",
-        "percentage_count_1": "",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Benifit Title",
         "organisation_text_1": "",
-        "benifit_backbround_color": "",
-        "benifit_title_color": "",
-        "benifit_svg_color_2": "",
-        "button_text": ""
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
       }
     },
-    "da5518a5-6004-4b59-a7bb-fb595de0d645": {
+    "47aa958d-e2df-4c01-83fa-0737f0bb5083": {
       "type": "custom-cms-jump-section",
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#ffd978",
-        "title": "And Finally: Medication",
-        "subtitle": "The main medications for ADHD are two closely related stimulants, chemical names methylphenidate and dexamfetamine. Methylphenidate (the generic name) comes in a lot of trade names, for example Ritalin, Medikinet, Xenidate, Equasym and others. They may be tablets or capsules, and while the base formulation last about 4 hours, they can have extended-release versions “XL” which can last most of the school day. Stimulants are by far the most effective medication, and work in around 85% to 90% of children. There are other secondary medications (for example atomoxetine, trade name Strattera) but they don’t work nearly as well.",
-        "description": "<p>The good thing about stimulants is that they are pretty harmless, they are like a strong cup of coffee in and out of your child’s body on the same day. They do not lead to any hangover and usually tolerance does not develop over time, so the same dose can work for years, except for your child will likely to be growing and therefore need an increased dose to match their body weight. The chief side effects are short term, loss of appetite’s and if they are in their body at night time, difficulty getting to sleep; also like a strong cup of coffee it can make them a bit jittery and anxious. This is easily managed by reducing the dose. Every child is different, so some will need more and some will need less, but this is easy to manage according to the response you see. If it doesn’t improve concentration and impulsiveness, then the dose should be raised until you see side effects. And this will be office in the first week.<\/p><p><\/p><p>Stimulant medication can be incredibly effective and brain studies show that the prefrontal area, which doesn’t get as much oxygen and glucose in ADHD, is made normal on brain scanning after one shot of methylphenidate. So some would say that you wouldn’t withhold vitamins from your child, and this is a similar situation, you can make them abnormal brain functioning so that they are a level playing field with other children. And if you don’t like it, you can stop immediately without any withdrawal or hangover effects. As children grow up, their brains go on developing until they are 25 so the majority can stop taking medication, particularly when they get a job and don’t need to concentrate for long periods on relatively boring academic tasks.<\/p><p><\/p><p>Most children with ADHD grow out of many aspects of ADHD and learn to manage it. And don’t forget that there are also so many positive aspects to ADHD too, such as being enthusiastic, creative, lively, a lateral thinker, the ability to hyper focus on interests, making connections others don’t see – ‘out of the box thinking’. They also can have a great sense of fun and enjoyment. Having  ADHD may lead to heightened emotional sensitivity and empathy. They can be well attuned to the emotions and needs of others, making them great friends, listeners, and caregivers.<\/p>",
-        "button_name": "",
+        "heading": "And Finally: Medication",
+        "description": "<h4>The main medications for ADHD are two closely related stimulants, chemical names methylphenidate and dexamfetamine. Methylphenidate (the generic name) comes in a lot of trade names, for example Ritalin, Medikinet, Xenidate, Equasym and others. They may be tablets or capsules, and while the base formulation last about 4 hours, they can have extended-release versions “XL” which can last most of the school day. Stimulants are by far the most effective medication, and work in around 85% to 90% of children. There are other secondary medications (for example atomoxetine, trade name Strattera) but they don’t work nearly as well.<\/h4><p>The good thing about stimulants is that they are pretty harmless, they are like a strong cup of coffee in and out of your child’s body on the same day. They do not lead to any hangover and usually tolerance does not develop over time, so the same dose can work for years, except for your child will likely to be growing and therefore need an increased dose to match their body weight. The chief side effects are short term, loss of appetite’s and if they are in their body at night time, difficulty getting to sleep; also like a strong cup of coffee it can make them a bit jittery and anxious. This is easily managed by reducing the dose. Every child is different, so some will need more and some will need less, but this is easy to manage according to the response you see. If it doesn’t improve concentration and impulsiveness, then the dose should be raised until you see side effects. And this will be office in the first week.<\/p><p>Stimulant medication can be incredibly effective and brain studies show that the prefrontal area, which doesn’t get as much oxygen and glucose in ADHD, is made normal on brain scanning after one shot of methylphenidate. So some would say that you wouldn’t withhold vitamins from your child, and this is a similar situation, you can make them abnormal brain functioning so that they are a level playing field with other children. And if you don’t like it, you can stop immediately without any withdrawal or hangover effects. As children grow up, their brains go on developing until they are 25 so the majority can stop taking medication, particularly when they get a job and don’t need to concentrate for long periods on relatively boring academic tasks.<\/p><p>Most children with ADHD grow out of many aspects of ADHD and learn to manage it. And don’t forget that there are also so many positive aspects to ADHD too, such as being enthusiastic, creative, lively, a lateral thinker, the ability to hyper focus on interests, making connections others don’t see – ‘out of the box thinking’. They also can have a great sense of fun and enjoyment. Having  ADHD may lead to heightened emotional sensitivity and empathy. They can be well attuned to the emotions and needs of others, making them great friends, listeners, and caregivers.<\/p>",
+        "button_name": "Expand",
         "expanded_button_name": "Close",
-        "secondary_color": "#e9f0ed",
-        "benifit_svg_color_1": "",
-        "percentage_count_1": "",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Benifit Title",
         "organisation_text_1": "",
-        "benifit_backbround_color": "",
-        "benifit_title_color": "",
-        "benifit_svg_color_2": "",
-        "button_text": ""
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
       }
     },
     "232eeb30-3e65-499d-b020-7ab46ff26485": {
@@ -482,38 +506,6 @@
         "padding_bottom": 80
       }
     },
-    "main": {
-      "type": "main-article",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {
-            "blog_show_date": true,
-            "blog_show_author": true,
-            "blog_show_metafield_author": true
-          }
-        },
-        "featured_image": {
-          "type": "featured_image",
-          "settings": {
-            "image_height": "adapt"
-          }
-        },
-        "content": {
-          "type": "content",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "title",
-        "featured_image",
-        "content"
-      ],
-      "disabled": true,
-      "settings": {
-      }
-    },
     "f56ca04b-aeee-4361-9840-0994bb30ef76": {
       "type": "featured-blog",
       "settings": {
@@ -536,17 +528,17 @@
     }
   },
   "order": [
+    "main",
     "55607522-175c-4465-a0b0-826b70bc72ff",
     "5ead1514-bef5-488b-9aad-01983a12935c",
     "50504136-e507-462f-866c-3b67915c4683",
     "8ae0ee1b-b71a-4739-8160-e62be207ecc7",
     "a861de36-3174-44b6-90e3-851343c170ec",
-    "522636ba-7b56-4f7c-9e8a-6d8f435fb57b",
-    "7afb10ec-ad0d-483b-a230-f5a925ed01b8",
-    "c3ace415-37ee-4533-8eaa-72e2cc32297b",
-    "da5518a5-6004-4b59-a7bb-fb595de0d645",
+    "796683d7-bab7-4b92-acd0-c62840558905",
+    "a4ea64b2-72b2-4db4-a4d0-df7916e30630",
+    "6a8a9a82-29e8-4925-be48-52f65e744425",
+    "47aa958d-e2df-4c01-83fa-0737f0bb5083",
     "232eeb30-3e65-499d-b020-7ab46ff26485",
-    "main",
     "f56ca04b-aeee-4361-9840-0994bb30ef76"
   ]
 }

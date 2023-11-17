@@ -70,43 +70,6 @@
         "padding_top": 160,
         "padding_bottom": 36
       }
-    },
-    "e3e1b24f-2f5b-453b-8fdd-914f8861811c": {
-      "type": "jump-section",
-      "blocks": {
-        "383346c1-f71a-4b00-b2d0-b2c65e5c1668": {
-          "type": "organisation_steps",
-          "settings": {
-            "bg_color": "#c9d9d3",
-            "secondary_color": "#E9F0ED",
-            "tab_id": "",
-            "title": "test",
-            "subtitle": "",
-            "description": "",
-            "button_name": "",
-            "expanded_button_name": "Close",
-            "percentage_count_1": "",
-            "organisation_text_1": "",
-            "percentage_count_2": "",
-            "organisation_text_2": "",
-            "benifit_title": "",
-            "title_1": "",
-            "desc_1": "",
-            "title_2": "",
-            "desc_2": "",
-            "title_3": "",
-            "desc_3": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "383346c1-f71a-4b00-b2d0-b2c65e5c1668"
-      ],
-      "settings": {
-        "tab_title": ""
-      }
     }
   },
   "order": [
@@ -114,7 +77,6 @@
     "d502b487-b237-4d62-905a-bb306cabf036",
     "ca35a7c8-87f2-405d-ada6-ba383bb2d43c",
     "main",
-    "f56ca04b-aeee-4361-9840-0994bb30ef76",
-    "e3e1b24f-2f5b-453b-8fdd-914f8861811c"
+    "f56ca04b-aeee-4361-9840-0994bb30ef76"
   ]
 }

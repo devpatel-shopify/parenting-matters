@@ -41,3 +41,18 @@
     });
   });
 }
+
+/**
+ * DDP Detail page
+ */
+{
+  document.querySelectorAll('.js-read-more').forEach((button) => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('open');
+      button.closest('.inner-boxes').querySelectorAll('.inner-card').forEach((card, index) => {
+        if (index > 3) card.classList.toggle('hidden',!button.classList.contains('open'));
+      });
+      button.querySelector('.btn-text').innerText = button.classList.contains('open') ? 'Read less' : 'Read more';
+    });
+  });
+}
