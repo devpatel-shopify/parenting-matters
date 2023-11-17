@@ -1,0 +1,306 @@
+{%- assign showSection = true -%}
+{% if section.settings.hide_for_guest_user == true and customer == blank %}
+  {%- assign showSection = false -%}
+{% endif %}
+
+{% if showSection %}
+
+  <style>
+    #shopify-section-{{ section.id }} .inner-card {
+      background: {{ section.settings.benifit_backbround_color }} !important;
+    }
+    #shopify-section-{{ section.id }}  .inner-card h5 {
+      color : {{ section.settings.benifit_title_color }};
+    }
+  </style>
+
+  <section class="jump-block">
+    <div class="page-width log_in">
+      <div class="jump-redirect-block {% if customer %} log_in {% else %} log_out {% endif %}">
+        <div class="jump-details section--{{ section.id }} " style=" background: {{ section.settings.bg_color }};">
+          {%- if section.settings.heading != blank or section.settings.description != blank -%}
+            <div class="jump-grid">
+              {%- if section.settings.heading != blank -%}
+                <div class="jump-title">
+                  <h2>{{- section.settings.heading -}}</h2>
+                  <div class="card_btn_wrapper"></div>
+                </div>
+              {%- endif -%}
+              {%- if section.settings.description != blank -%}
+                <div class="jump-text">
+                  <p>{{- section.settings.description -}}</p>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {% if section.settings.button_name != blank and section.blocks.size > 0 %}
+            <div class="down-arrow">
+              <button
+                type="button"
+                data-target="target-section--{{ section.id }}"
+                data-btn-txt="{{ section.settings.button_name }}"
+                data-expanded-btn-txt="{{ section.settings.expanded_button_name }}"
+                class="button button--secondary down_arrow js-toggle-btn"
+              >
+                <span class="btn-text js-btn-text">
+                  {{- section.settings.button_name -}}
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="icon icon-arrow"
+                  focusable="false"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+                </svg>
+              </button>
+            </div>
+          {% endif %}
+        </div>
+
+        <div id="target-section--{{ section.id }}" class="jump-open-block js-hide-element hidden">
+          <div class="round-text-block">
+            {%- if section.settings.percentage_count_1 != blank or section.settings.organisation_text_1 != blank -%}
+              <div class="inner-grid-block">
+                <div class="grid-box">
+                  <div class="inner-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="330" height="308" viewBox="0 0 330 308" fill="none">
+                      <path d="M329.834 135.753C334.391 234.076 244.168 307.397 157.296 307.397C70.4238 307.397 0 238.584 0 153.699C0 68.8132 70.4238 0 157.296 0C244.168 0 329.834 50.8676 329.834 135.753Z" fill="{{ section.settings.secondary_color }}"  />
+                    </svg>
+                    <div class="grid-title">
+                      {% if section.settings.percentage_count_1 != blank %}
+                        <h2>{{- section.settings.percentage_count_1 -}}</h2>
+                      {% endif %}
+                      {% if section.settings.organisation_text_1 != blank %}
+                        <h6>{{- section.settings.organisation_text_1 -}}</h6>
+                      {% endif %}
+
+                      <svg xmlns="http://www.w3.org/2000/svg" width="73" height="71" viewBox="0 0 73 71" fill="none">
+                        <path d="M22.3233 65.0732C-24.6264 41.681 19.3708 11.3782 24.6276 8.4453C56.1866 -9.16227 68.398 5.57059 71.5103 15.9363C75.9508 30.7256 69.2729 88.4654 22.3233 65.0732Z" fill="{{ section.settings.benifit_svg_color_1 }}" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="inner-boxes">
+                    {% assign count_index = 0 %}
+                    {%- for block in section.blocks -%}
+                      {% assign count_index = count_index | plus: 1 %}
+                      <div class="inner-card {% if forloop.index > 4 %} hidden {% endif %}" {{ block.shopify_attributes }}>
+                        {%- if block.settings.title != blank or block.settings.desc_1 != blank -%}
+                          <div class="card-text">
+                            {% if block.settings.title != blank %}
+                              <h5>{{- block.settings.title -}}</h5>
+                            {% endif %}
+                            {% if block.settings.desc_1 != blank %}
+                              {{- block.settings.desc_1 -}}
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+
+                    {% if count_index > 4 %}
+                      {%- if section.settings.button_text != blank -%}
+                        <div class="button_space">
+                          <button type="button"
+                            class="button button--secondary js-read-more read-more-button"
+                            style=" background: {{ section.settings.benifit_backbround_color }};"
+                          >
+                            <span class="btn-text">Read more</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M12 2V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M22 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      {% endif %}
+                    {% endif %}
+                    <div class="right-svg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="209"
+                        height="195"
+                        viewBox="0 0 209 195"
+                        fill="none"
+                      >
+                        <path d="M0.748559 89.3581C11.2909 -60.5256 139.657 22.7795 153.174 33.4855C234.322 97.758 208.685 146.207 184.652 165.79C150.361 193.73 -9.7938 239.242 0.748559 89.3581Z" fill="{{ section.settings.benifit_svg_color_2 }}" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "DDP Details",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Organisation Steps"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_for_guest_user",
+      "label": "Hide section for the Guest user?*"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Primary backgroud color",
+      "default": "#c9d9d3"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<h4>What is Lorem Ipsum?</h4><p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_name",
+      "label": "Button name",
+      "default": "Expand"
+    },
+    {
+      "type": "text",
+      "id": "expanded_button_name",
+      "label": "Expanded Button name",
+      "default": "Close"
+    },
+    {
+      "type": "header",
+      "content": "Benifit content Block Section"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Block backgroud color",
+      "default": "#F4D3DD"
+    },
+    {
+      "type": "color",
+      "id": "benifit_svg_color_1",
+      "label": "Content Block list SVG color",
+      "default": "#DD7C9A"
+    },
+    {
+      "type": "text",
+      "id": "percentage_count_1",
+      "label": "heading",
+      "default": "Benifit Title"
+    },
+    {
+      "type": "richtext",
+      "id": "organisation_text_1",
+      "label": "Block description"
+    },
+    {
+      "type": "header",
+      "content": "More content List Section"
+    },
+    {
+      "type": "color",
+      "id": "benifit_backbround_color",
+      "label": "background color",
+      "default": "#F4D3DD"
+    },
+    {
+      "type": "color",
+      "id": "benifit_title_color",
+      "label": "title color",
+      "default": "#C72457"
+    },
+    {
+      "type": "color",
+      "id": "benifit_svg_color_2",
+      "label": "SVG Secondary color",
+      "default": "#DD7C9A"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "More content Button text",
+      "default": "Read more"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benifit_steps",
+      "name": "Benifit Steps",
+      "settings": [
+        {
+          "type": "header",
+          "content": "The benefits section"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_1",
+          "label": "Description",
+          "default": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DDP Details",
+      "blocks":[
+        {
+          "type":"benifit_steps"
+        },
+        {
+          "type":"benifit_steps"
+        },
+        {
+          "type":"benifit_steps"
+        },
+        {
+          "type":"benifit_steps"
+        },
+        {
+          "type":"benifit_steps"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
