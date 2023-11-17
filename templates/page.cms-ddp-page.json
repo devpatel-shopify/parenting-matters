@@ -1,0 +1,552 @@
+{
+  "sections": {
+    "55607522-175c-4465-a0b0-826b70bc72ff": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "",
+        "ddp_heading": "{{ page.title }}",
+        "ddp_text": "",
+        "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
+      }
+    },
+    "5ead1514-bef5-488b-9aad-01983a12935c": {
+      "type": "custom-cms-jump-section",
+      "blocks": {
+        "c7e6ed31-0993-4a91-a8ce-be27e4af4148": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Management at home",
+            "desc_1": ""
+          }
+        },
+        "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Management at school",
+            "desc_1": ""
+          }
+        },
+        "fe421c09-c3c6-4805-9ae0-4c539294b7b5": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Medication",
+            "desc_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "c7e6ed31-0993-4a91-a8ce-be27e4af4148",
+        "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4",
+        "fe421c09-c3c6-4805-9ae0-4c539294b7b5"
+      ],
+      "settings": {
+        "hide_for_guest_user": false,
+        "bg_color": "#f7c083",
+        "title": "Introduction",
+        "subtitle": "How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?",
+        "description": "<p>Whether your child has ADHD or is somewhere on the ADHD spectrum, here are a variety of detailed and evidence-based things you can do to support your child.  To get more advice regarding ADHD diagnosis, see the previous post on ‘Might my child have ADHD?’<\/p>",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "There are 3 mainstays of treatment:",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#e9a7bc",
+        "button_text": "Read more"
+      }
+    },
+    "50504136-e507-462f-866c-3b67915c4683": {
+      "type": "custom-cms-jump-section",
+      "blocks": {
+        "dbfa7f68-c29d-4c59-9505-c9b63a069a52": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Develop a range of ‘checklists’",
+            "desc_1": "<p>such as  equipment required, and steps involved (which are placed on their desk), or written in a work book, or are written on a notice board which can be easily referred to. <\/p>"
+          }
+        },
+        "cde1ef40-76b0-49fc-a30a-a17891edcb0c": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Negotiate clear expectations",
+            "desc_1": "<p>about what is required and the level expected<\/p>"
+          }
+        },
+        "7949ca83-7b8c-44b1-8a5a-2d32d0db6ffe": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Prompt your child",
+            "desc_1": "<p>so they learn to self-correct, for example use the PAUSE, PROMPT AND PRAISE method (see Praise Part Two in <em>Parenting Matters<\/em>) which is especially helpful when reading. Or for an older child, adult prompts to help your child to self-correct and self-monitor his work (<em>Stop, Think, Double Check My Work and \/ or Thinking<\/em>). <\/p>"
+          }
+        },
+        "c30bb7a1-3746-4939-9444-551122a93b0d": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Use an egg-timer",
+            "desc_1": "<p>to help break up tasks into smaller more do-able units, and as a way of monitoring their own actions.<\/p>"
+          }
+        },
+        "ea90669b-28b2-4622-bb47-718a889379a0": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Use focused praise statements",
+            "desc_1": "<p>like  ‘…(Name) I liked the way that you were listening – well done…’).<\/p>"
+          }
+        },
+        "b7ca63ed-1e52-4c60-be54-be6501ec800b": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Give a very clear and positive response",
+            "desc_1": "<p>if your child completes a task by the agreed time and to the agreed standard. This may be verbal praise as well as rewards or  progress charts)<\/p>"
+          }
+        },
+        "28f77bf4-164d-486b-8b87-9cb97f9e2f90": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Use a computer",
+            "desc_1": "<p>to allow them to produce ‘initial and final drafts’ of work and to get their ideas down on paper easily and efficiently.<\/p>"
+          }
+        },
+        "c67674ea-d217-48e6-8af7-5e6f99e97997": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Use multi-sensory approaches",
+            "desc_1": "<p>to help process material, particularly spelling (e.g., I See, I Hear, I Read, I Write, I do  – I Remember and Learn).<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "dbfa7f68-c29d-4c59-9505-c9b63a069a52",
+        "cde1ef40-76b0-49fc-a30a-a17891edcb0c",
+        "7949ca83-7b8c-44b1-8a5a-2d32d0db6ffe",
+        "c30bb7a1-3746-4939-9444-551122a93b0d",
+        "ea90669b-28b2-4622-bb47-718a889379a0",
+        "b7ca63ed-1e52-4c60-be54-be6501ec800b",
+        "28f77bf4-164d-486b-8b87-9cb97f9e2f90",
+        "c67674ea-d217-48e6-8af7-5e6f99e97997"
+      ],
+      "settings": {
+        "hide_for_guest_user": false,
+        "bg_color": "#c9d9d3",
+        "title": "Develop Better Self-Management",
+        "subtitle": "Remember that children with ADHD require more strategies to help them manage at home and at school, and that they are not being deliberately inconsiderate or difficult – their brains are still catching up,they have difficulties in three main areas; inattentive (poor focus), impulsive and hyperactive.",
+        "description": "<p>As result they need more <em><strong>external structure <\/strong><\/em>to help them learn to focus and organise themselves, they need more encouragement than other children, more help to learn to take more responsibility over their own behaviour and its consequences.  So at school they may need prompting to make sure that they know what they have to do, what they need to have to be able to do it, and prompting so that they begin work within 60 seconds of the teacher’s instruction being given.They need to be very quickly praised if they do it, and reminded and guided to do so if they do not. Seating them near the front of the class, or next to a sensible focused pupil (using the powerful effects of pupil modelling) can also be helpful. <\/p>",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "You can try:",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
+      }
+    },
+    "8ae0ee1b-b71a-4739-8160-e62be207ecc7": {
+      "type": "custom-cms-jump-section",
+      "blocks": {
+        "f8ec5f26-6de5-444a-b196-5a9f62a345bd": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Check they are paying attention",
+            "desc_1": "<p>make sure that your child has heard you and is engaged before giving a simple instruction.<\/p>"
+          }
+        },
+        "21495dc5-ec9c-4d65-aa14-b83a480609a2": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Repeat instructions",
+            "desc_1": "<p>and where appropriate ask your child to repeat them back so that they are clear that the young person understands (i.e. ‘…right is everyone clear can you summarise (name)…’).<\/p>"
+          }
+        },
+        "ceb9c59c-fc5f-45c5-92de-fb8bf600bc9a": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Make sure that any homework tasks are written in their homework notebook",
+            "desc_1": "<p>and that they are clear what they have to do (i.e. some people have a ‘peer-homework buddy’ who checks that the work is correctly written done, other staff prefer to do this themselves.  In any case it is important that they know exactly what they have to do).<\/p>"
+          }
+        },
+        "a9235471-fc28-42ef-b016-0b06b11cd85f": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Allow slightly longer for them to process information",
+            "desc_1": "<p>before asking for a reply (counting to 10 is a good rule of thumb here for the extra time needed).<\/p>"
+          }
+        },
+        "31d8a7a3-191a-48a6-ae87-9e49679799fd": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Prompt them to slow down",
+            "desc_1": "<p>and go back to check their work (<em>Stop, Think, Check My Work<\/em>).<\/p>"
+          }
+        },
+        "392f3525-0765-4190-b96c-23a86244d3e2": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Follow up instructions and expect them to comply!",
+            "desc_1": ""
+          }
+        },
+        "ad5acc99-b0c7-42c8-a11d-1181fe4d39be": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Provide consistent consequences",
+            "desc_1": "<p>for not doing as asked (i.e. staying in at play and lunch times to complete work, or when at home, missing screen time)<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "f8ec5f26-6de5-444a-b196-5a9f62a345bd",
+        "21495dc5-ec9c-4d65-aa14-b83a480609a2",
+        "ceb9c59c-fc5f-45c5-92de-fb8bf600bc9a",
+        "a9235471-fc28-42ef-b016-0b06b11cd85f",
+        "31d8a7a3-191a-48a6-ae87-9e49679799fd",
+        "392f3525-0765-4190-b96c-23a86244d3e2",
+        "ad5acc99-b0c7-42c8-a11d-1181fe4d39be"
+      ],
+      "settings": {
+        "hide_for_guest_user": false,
+        "bg_color": "#ffd978",
+        "title": "Increase Concentration Skills",
+        "subtitle": "You can increase your child's concentration skills in many different ways, here's some to get you started!",
+        "description": "",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "You can try:",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
+      }
+    },
+    "a861de36-3174-44b6-90e3-851343c170ec": {
+      "type": "custom-cms-jump-section",
+      "blocks": {
+        "64b13a4e-9329-4644-9700-82c5ae6c933a": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Ask them to repeat back instructions or explain them.",
+            "desc_1": ""
+          }
+        },
+        "43353fdd-40ba-4d5b-9e15-074fbfbc9c4f": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Ask how they will perform the task.",
+            "desc_1": ""
+          }
+        },
+        "f28963f6-8434-4db4-af22-a95bb151ac12": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Allow for thinking time",
+            "desc_1": "<p> – it can take 8 seconds to access working memory.<\/p>"
+          }
+        },
+        "eb91a0fd-34f9-487f-8781-9090694122e0": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Work in shorter bursts",
+            "desc_1": "<p>rather than drifting through long periods helps sustain focus. Your child may need to take short breaks to help them maintain their attention.<\/p>"
+          }
+        },
+        "76dbe7b1-f455-42f3-b07d-519ca417df73": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Repeat information,",
+            "desc_1": "<p>along with some visual aids to support the process. Keeping them actively involved and showing demonstrations can be particularly engaging.<\/p>"
+          }
+        },
+        "df25d639-c27b-43e2-a9d3-ae3b61c85fae": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Consider getting them moved closer to the teacher,",
+            "desc_1": "<p>so the teacher can check in with them to make sure  that they are on task, and know about what they are going to be doing next. Sitting in traditional rows at school can reduce stimulation and distraction.<\/p>"
+          }
+        },
+        "f11b18f5-ff31-4ae2-a40d-10ea6f8c7b28": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Get them sitting away from distractions,",
+            "desc_1": "<p>such as windows and doors or any pupils that they might find overly interesting or engaging, as distractions need to be kept to a minimum.<\/p>"
+          }
+        },
+        "81416ed3-3333-45e2-9749-5ae8c7a3c849": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Increase novelty and interest I – this is critical for sustained focus.",
+            "desc_1": "<p>Passive listening must be mixed with active tasks to optimise attention, as this offers a channel for excess energy or being distracted. The task needs to fit with the child’s attention span with descriptive praise used when they are engaged and requiring maximum effort (particularly during writing tasks).<\/p>"
+          }
+        },
+        "99996c82-fa28-466d-ab90-99084bcd9890": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Encourage frequent and active participation",
+            "desc_1": "<p>keep formal teaching (child being talked at) rather brief. An enthusiastic and emotionally charged teaching approach helps to keep the child engaged.<\/p>"
+          }
+        },
+        "d2acf0a1-d631-4ba8-b471-6833fa11cea4": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Offer brief moments of physical exercise",
+            "desc_1": "<p><strong>this helps reduce inattention<\/strong> and it also helps to have regular exercise on a daily basis.<\/p>"
+          }
+        },
+        "5fb152f9-c556-49db-8a90-cbbc7e6a5f15": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Try to schedule difficult and more challenging tasks for the morning",
+            "desc_1": "<p>and leave more active and less academic tasks for the afternoon, as concentration wanes through the day.<\/p>"
+          }
+        },
+        "4785c95d-1755-49ff-b2ea-8c07f73c42c6": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Have a highly predictable routine",
+            "desc_1": "<p>and a high level of verbal feedback helps children to learn. Instructions should be kept short and as concrete as possible to help them commit the information to memory.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "64b13a4e-9329-4644-9700-82c5ae6c933a",
+        "43353fdd-40ba-4d5b-9e15-074fbfbc9c4f",
+        "f28963f6-8434-4db4-af22-a95bb151ac12",
+        "eb91a0fd-34f9-487f-8781-9090694122e0",
+        "76dbe7b1-f455-42f3-b07d-519ca417df73",
+        "df25d639-c27b-43e2-a9d3-ae3b61c85fae",
+        "f11b18f5-ff31-4ae2-a40d-10ea6f8c7b28",
+        "81416ed3-3333-45e2-9749-5ae8c7a3c849",
+        "99996c82-fa28-466d-ab90-99084bcd9890",
+        "d2acf0a1-d631-4ba8-b471-6833fa11cea4",
+        "5fb152f9-c556-49db-8a90-cbbc7e6a5f15",
+        "4785c95d-1755-49ff-b2ea-8c07f73c42c6"
+      ],
+      "settings": {
+        "hide_for_guest_user": true,
+        "bg_color": "#c9d9d3",
+        "title": "Build Better Focus",
+        "subtitle": "",
+        "description": "",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Try some of the following:",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
+      }
+    },
+    "522636ba-7b56-4f7c-9e8a-6d8f435fb57b": {
+      "type": "custom-cms-jump-section",
+      "settings": {
+        "hide_for_guest_user": true,
+        "bg_color": "#c9d9d3",
+        "title": "Improve Written Work and Their Ability to Express Themselves",
+        "subtitle": "Some children with ADHD struggle to record ideas effectively on paper. Their copying pace is slower and the process of writing quickly is more difficult for them, while their internal thinking will be at least a few steps ahead of what they are able to write down. So written work may be jumbled up with some things being missed out.",
+        "description": "<p>Similarly, the large amount of effort invested into the actual production of written work can mean that there is less attention available for thinking about the way the work is organised as well as the content of the work. As a result, the content of written work can be a poor reflection of actual knowledge and verbal understanding. So your child may be very able verbally but their written work may not do justice to their ideas.   Indeed, they may look at what they have written and feel that it is at odds with what they wanted to say. This can leave your child feeling inadequate and lose confidence. <\/p><p><\/p><p>A way to get around this might be for them to try dictating stories or school work. Most smart phones can have a dictating function or use a recording device. Trying these options can help their fluency and build confidence.  School may be able to reduce the amount of copying required in class, and providing worksheets or copies of handouts makes life easier.<\/p>",
+        "button_name": "",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": ""
+      }
+    },
+    "7afb10ec-ad0d-483b-a230-f5a925ed01b8": {
+      "type": "custom-cms-jump-section",
+      "settings": {
+        "hide_for_guest_user": true,
+        "bg_color": "#c9d9d3",
+        "title": "Stay Calm and Positive Yourself",
+        "subtitle": "This is key but easier said than done as children with ADHD can be exhausting, frustrating and infuriating!",
+        "description": "<p>FirstLearn as much as you can about ADHD. Understanding the condition can help you navigate its challenges with more clarity and empathy. First things first, take a deep breath. Managing ADHD requires patience, understanding, and a good dose of self-care. Practise Mindfulness: Take moments for yourself to practise mindfulness techniques. Deep breathing, meditation, or even just a few moments of quiet can help you stay centred amidst the busy-ness. Be extra organised but also delegate and ask for help: you don't have to do it all alone. Ask for support from friends, family, or professionals. A strong support network can make a world of difference.Taking care of yourself is essential. This means making an effort to take time for you, to do activities you enjoy, spend time with loved ones, and get enough rest. Remember, you can't pour from an empty cup.<\/p>",
+        "button_name": "",
+        "expanded_button_name": "Close",
+        "secondary_color": "#e9f0ed",
+        "benifit_svg_color_1": "",
+        "percentage_count_1": "",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "",
+        "benifit_title_color": "",
+        "benifit_svg_color_2": "",
+        "button_text": ""
+      }
+    },
+    "c3ace415-37ee-4533-8eaa-72e2cc32297b": {
+      "type": "custom-cms-jump-section",
+      "settings": {
+        "hide_for_guest_user": true,
+        "bg_color": "#c9d9d3",
+        "title": "Arrangements for Examinations",
+        "subtitle": "",
+        "description": "<p>Where psychometric testing reveals specific difficulties such as dyslexia, and has been carried out within 24 months of the exam, the pupil will usually be entitled to receive 25% extra time. ADHD may also be able to this, but each examining body needs to be checked out about this. JCQ guidelines do allow for extra time for ADHD, but it must be backed up by the school having made special teaching arrangements for several months before the examination <br\/><br\/>They may also be eligible to use a lap-top when required to write continuously. Some pupils may be placed in a separate room that is free from distraction when taking exams. <\/p>",
+        "button_name": "",
+        "expanded_button_name": "Close",
+        "secondary_color": "#e9f0ed",
+        "benifit_svg_color_1": "",
+        "percentage_count_1": "",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "",
+        "benifit_title_color": "",
+        "benifit_svg_color_2": "",
+        "button_text": ""
+      }
+    },
+    "da5518a5-6004-4b59-a7bb-fb595de0d645": {
+      "type": "custom-cms-jump-section",
+      "settings": {
+        "hide_for_guest_user": true,
+        "bg_color": "#ffd978",
+        "title": "And Finally: Medication",
+        "subtitle": "The main medications for ADHD are two closely related stimulants, chemical names methylphenidate and dexamfetamine. Methylphenidate (the generic name) comes in a lot of trade names, for example Ritalin, Medikinet, Xenidate, Equasym and others. They may be tablets or capsules, and while the base formulation last about 4 hours, they can have extended-release versions “XL” which can last most of the school day. Stimulants are by far the most effective medication, and work in around 85% to 90% of children. There are other secondary medications (for example atomoxetine, trade name Strattera) but they don’t work nearly as well.",
+        "description": "<p>The good thing about stimulants is that they are pretty harmless, they are like a strong cup of coffee in and out of your child’s body on the same day. They do not lead to any hangover and usually tolerance does not develop over time, so the same dose can work for years, except for your child will likely to be growing and therefore need an increased dose to match their body weight. The chief side effects are short term, loss of appetite’s and if they are in their body at night time, difficulty getting to sleep; also like a strong cup of coffee it can make them a bit jittery and anxious. This is easily managed by reducing the dose. Every child is different, so some will need more and some will need less, but this is easy to manage according to the response you see. If it doesn’t improve concentration and impulsiveness, then the dose should be raised until you see side effects. And this will be office in the first week.<\/p><p><\/p><p>Stimulant medication can be incredibly effective and brain studies show that the prefrontal area, which doesn’t get as much oxygen and glucose in ADHD, is made normal on brain scanning after one shot of methylphenidate. So some would say that you wouldn’t withhold vitamins from your child, and this is a similar situation, you can make them abnormal brain functioning so that they are a level playing field with other children. And if you don’t like it, you can stop immediately without any withdrawal or hangover effects. As children grow up, their brains go on developing until they are 25 so the majority can stop taking medication, particularly when they get a job and don’t need to concentrate for long periods on relatively boring academic tasks.<\/p><p><\/p><p>Most children with ADHD grow out of many aspects of ADHD and learn to manage it. And don’t forget that there are also so many positive aspects to ADHD too, such as being enthusiastic, creative, lively, a lateral thinker, the ability to hyper focus on interests, making connections others don’t see – ‘out of the box thinking’. They also can have a great sense of fun and enjoyment. Having  ADHD may lead to heightened emotional sensitivity and empathy. They can be well attuned to the emotions and needs of others, making them great friends, listeners, and caregivers.<\/p>",
+        "button_name": "",
+        "expanded_button_name": "Close",
+        "secondary_color": "#e9f0ed",
+        "benifit_svg_color_1": "",
+        "percentage_count_1": "",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "",
+        "benifit_title_color": "",
+        "benifit_svg_color_2": "",
+        "button_text": ""
+      }
+    },
+    "232eeb30-3e65-499d-b020-7ab46ff26485": {
+      "type": "join-card-section-cms",
+      "blocks": {
+        "5090cdd5-0b42-4c8b-98d1-2e45817bddfa": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "heading": "Build Better Focus"
+          }
+        },
+        "38168e14-5884-44f7-b3bd-50e27d356e8f": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "heading": "Improve Written Work and Their Ability to Express Themselves"
+          }
+        },
+        "0bfa2049-954b-426a-b034-949e85781f23": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "heading": "Stay Calm and Positive Yourself"
+          }
+        },
+        "cb2b8c4d-2284-41b0-bf7c-05b0faae2971": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "heading": "Arrangements for Examinations"
+          }
+        },
+        "f693a2df-c550-4006-9f91-861b49926b67": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_15.svg",
+            "heading": "And Finally: Medication"
+          }
+        }
+      },
+      "block_order": [
+        "5090cdd5-0b42-4c8b-98d1-2e45817bddfa",
+        "38168e14-5884-44f7-b3bd-50e27d356e8f",
+        "0bfa2049-954b-426a-b034-949e85781f23",
+        "cb2b8c4d-2284-41b0-bf7c-05b0faae2971",
+        "f693a2df-c550-4006-9f91-861b49926b67"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading_text": "The rest of this content is locked",
+        "small_text": "<p>To continue reading the rest of this article you can become a member by signing up to our course.<\/p>",
+        "button_text": "Join now",
+        "button_url": "shopify:\/\/products\/course",
+        "color_scheme": "scheme-5849700f-ff29-41e9-a34f-481e22379e16",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true,
+            "blog_show_metafield_author": true
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "featured_image",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "f56ca04b-aeee-4361-9840-0994bb30ef76": {
+      "type": "featured-blog",
+      "settings": {
+        "read_more_remove": true,
+        "heading": "Related articles",
+        "heading_size": "h1",
+        "button_text1": "",
+        "button_url": "",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 160,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "55607522-175c-4465-a0b0-826b70bc72ff",
+    "5ead1514-bef5-488b-9aad-01983a12935c",
+    "50504136-e507-462f-866c-3b67915c4683",
+    "8ae0ee1b-b71a-4739-8160-e62be207ecc7",
+    "a861de36-3174-44b6-90e3-851343c170ec",
+    "522636ba-7b56-4f7c-9e8a-6d8f435fb57b",
+    "7afb10ec-ad0d-483b-a230-f5a925ed01b8",
+    "c3ace415-37ee-4533-8eaa-72e2cc32297b",
+    "da5518a5-6004-4b59-a7bb-fb595de0d645",
+    "232eeb30-3e65-499d-b020-7ab46ff26485",
+    "main",
+    "f56ca04b-aeee-4361-9840-0994bb30ef76"
+  ]
+}

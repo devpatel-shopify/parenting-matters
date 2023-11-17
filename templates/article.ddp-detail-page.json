@@ -5,181 +5,8 @@
       "settings": {
       }
     },
-    "8bbc47c7-e3a0-4fe1-8680-1ca297e031e7": {
-      "type": "jump-section",
-      "blocks": {
-        "5455d8c7-b3a2-4016-968a-499e71892080": {
-          "type": "organisation_steps",
-          "settings": {
-            "bg_color": "#c9d9d3",
-            "secondary_color": "#e9f0ed",
-            "tab_id": "intro",
-            "title": "test",
-            "subtitle": "test2",
-            "description": "<p>lorem ipsum<\/p>",
-            "button_name": "test",
-            "expanded_button_name": "Close",
-            "percentage_count_1": "one",
-            "organisation_text_1": "<p>one lorem<\/p>",
-            "percentage_count_2": "two",
-            "organisation_text_2": "<p>two lorem<\/p>",
-            "benifit_title": "lorem 1",
-            "title_1": "lorem 1 ipsum",
-            "desc_1": "<p>lorem  ipsum test<\/p>",
-            "title_2": "",
-            "desc_2": "",
-            "title_3": "",
-            "desc_3": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "5455d8c7-b3a2-4016-968a-499e71892080"
-      ],
-      "disabled": true,
-      "settings": {
-        "tab_title": "Introduction"
-      }
-    },
-    "5ead1514-bef5-488b-9aad-01983a12935c": {
-      "type": "custom-cms-jump-section",
-      "blocks": {
-        "c7e6ed31-0993-4a91-a8ce-be27e4af4148": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Develop a range",
-            "desc_1": "<p>such as  equipment required, and steps involved (which are placed on their desk), or written in a work book, or are written on a notice board which can be easily referred to. <\/p>"
-          }
-        },
-        "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Negotiate clear expectations",
-            "desc_1": "<p>about what is required and the level expected<\/p>"
-          }
-        },
-        "fe421c09-c3c6-4805-9ae0-4c539294b7b5": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Prompt your child",
-            "desc_1": "<p>so they learn to self-correct, for example use the PAUSE, PROMPT AND PRAISE method (see Praise Part Two in <em>Parenting Matters<\/em>) which is especially helpful when reading. Or for an older child, adult prompts to help your child to self-correct and self-monitor his work (<em>Stop, Think, Double Check My Work and \/ or Thinking<\/em>).<\/p>"
-          }
-        },
-        "b9058657-d44d-40ad-adbc-f073eb16639d": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "test 4",
-            "desc_1": "<p>Lorem ipsum test 4<\/p>"
-          }
-        },
-        "e4066177-f09f-4235-90f3-2f41118607f2": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "test 5",
-            "desc_1": "<p>Lorem ipsum test 5<\/p>"
-          }
-        },
-        "0e8dbaa0-d36f-4625-a99a-a0a2811f65ff": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "test 6",
-            "desc_1": "<p>lorem ipsum test 6<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "c7e6ed31-0993-4a91-a8ce-be27e4af4148",
-        "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4",
-        "fe421c09-c3c6-4805-9ae0-4c539294b7b5",
-        "b9058657-d44d-40ad-adbc-f073eb16639d",
-        "e4066177-f09f-4235-90f3-2f41118607f2",
-        "0e8dbaa0-d36f-4625-a99a-a0a2811f65ff"
-      ],
-      "settings": {
-        "bg_color": "#c9d9d3",
-        "secondary_color": "#f4d3dd",
-        "benifit_title_color": "#c72457",
-        "benifit_svg_color_1": "#dd7c9a",
-        "benifit_svg_color_2": "#e9a7bc",
-        "title": "Lorem ipsum 1",
-        "subtitle": "Lorem ipsum 1",
-        "description": "<p>Whether your child has ADHD or is somewhere on the ADHD spectrum, here are a variety of detailed and evidence-based things you can do to support your child.  To get more advice regarding ADHD diagnosis, see the previous post on ‘Might my child have ADHD?’<\/p>",
-        "button_name": "Read more",
-        "expanded_button_name": "Close",
-        "percentage_count_1": "There are 3 mainstays of treatment:",
-        "organisation_text_1": "",
-        "hide_for_customer": false,
-        "button_text": "Read more"
-      }
-    },
-    "50504136-e507-462f-866c-3b67915c4683": {
-      "type": "custom-cms-jump-section",
-      "blocks": {
-        "dbfa7f68-c29d-4c59-9505-c9b63a069a52": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Check they are paying attention",
-            "desc_1": "<p>make sure that your child has heard you and is engaged before giving a simple instruction.<\/p>"
-          }
-        },
-        "cde1ef40-76b0-49fc-a30a-a17891edcb0c": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Repeat instructions",
-            "desc_1": "<p>and where appropriate ask your child to repeat them back so that they are clear that the young person understands (i.e. ‘…right is everyone clear can you summarise (name)…’).<\/p>"
-          }
-        },
-        "7949ca83-7b8c-44b1-8a5a-2d32d0db6ffe": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Make sure that any homework tasks are written in their homework notebook",
-            "desc_1": "<p>and that they are clear what they have to do (i.e. some people have a ‘peer-homework buddy’ who checks that the work is correctly written done, other staff prefer to do this themselves.  In any case it is important that they know exactly what they have to do).<\/p>"
-          }
-        },
-        "c30bb7a1-3746-4939-9444-551122a93b0d": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Allow slightly longer for them to process information",
-            "desc_1": "<p>before asking for a reply (counting to 10 is a good rule of thumb here for the extra time needed).<\/p>"
-          }
-        },
-        "ea90669b-28b2-4622-bb47-718a889379a0": {
-          "type": "benifit_steps",
-          "settings": {
-            "title_1": "Lorem ipsum test",
-            "desc_1": "<p>lorem ipsum test 3<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "dbfa7f68-c29d-4c59-9505-c9b63a069a52",
-        "cde1ef40-76b0-49fc-a30a-a17891edcb0c",
-        "7949ca83-7b8c-44b1-8a5a-2d32d0db6ffe",
-        "c30bb7a1-3746-4939-9444-551122a93b0d",
-        "ea90669b-28b2-4622-bb47-718a889379a0"
-      ],
-      "settings": {
-        "bg_color": "#ffd978",
-        "secondary_color": "#e9f0ed",
-        "benifit_title_color": "#c72457",
-        "benifit_svg_color_1": "#dd7c9a",
-        "benifit_svg_color_2": "#dd7c9a",
-        "title": "Lorem ipsum 2",
-        "subtitle": "Lorem ipsum 1",
-        "description": "<h4>You can increase your child's concentration skills in many different ways, here's some to get you started!<\/h4>",
-        "button_name": "Read more",
-        "expanded_button_name": "Close",
-        "percentage_count_1": "You can try:",
-        "organisation_text_1": "",
-        "hide_for_customer": true,
-        "button_text": "Read more"
-      }
-    },
     "d502b487-b237-4d62-905a-bb306cabf036": {
       "type": "jump-section-meta",
-      "disabled": true,
       "settings": {
       }
     },
@@ -243,16 +70,51 @@
         "padding_top": 160,
         "padding_bottom": 36
       }
+    },
+    "e3e1b24f-2f5b-453b-8fdd-914f8861811c": {
+      "type": "jump-section",
+      "blocks": {
+        "383346c1-f71a-4b00-b2d0-b2c65e5c1668": {
+          "type": "organisation_steps",
+          "settings": {
+            "bg_color": "#c9d9d3",
+            "secondary_color": "#E9F0ED",
+            "tab_id": "",
+            "title": "test",
+            "subtitle": "",
+            "description": "",
+            "button_name": "",
+            "expanded_button_name": "Close",
+            "percentage_count_1": "",
+            "organisation_text_1": "",
+            "percentage_count_2": "",
+            "organisation_text_2": "",
+            "benifit_title": "",
+            "title_1": "",
+            "desc_1": "",
+            "title_2": "",
+            "desc_2": "",
+            "title_3": "",
+            "desc_3": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "383346c1-f71a-4b00-b2d0-b2c65e5c1668"
+      ],
+      "settings": {
+        "tab_title": ""
+      }
     }
   },
   "order": [
     "aebe27a9-f374-4572-b989-8bff1a05d3a8",
-    "8bbc47c7-e3a0-4fe1-8680-1ca297e031e7",
-    "5ead1514-bef5-488b-9aad-01983a12935c",
-    "50504136-e507-462f-866c-3b67915c4683",
     "d502b487-b237-4d62-905a-bb306cabf036",
     "ca35a7c8-87f2-405d-ada6-ba383bb2d43c",
     "main",
-    "f56ca04b-aeee-4361-9840-0994bb30ef76"
+    "f56ca04b-aeee-4361-9840-0994bb30ef76",
+    "e3e1b24f-2f5b-453b-8fdd-914f8861811c"
   ]
 }

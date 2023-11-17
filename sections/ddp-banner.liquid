@@ -1,14 +1,13 @@
 {{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
 {{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
 
-
 <section class="ddp-banner {{ section.settings.custom_class }}">
   <div class="page-width">
     <div class="ddp-inner-content">
       <div class="ddp-left-text">
-        <h2>{{section.settings.ddp_heading}}</h2>
+        <h2>{{ section.settings.ddp_heading }}</h2>
         <p>
-            {{section.settings.ddp_text}}
+            {{ section.settings.ddp_text }}
         </p>
       </div>
       <div class="ddp-right-img">
@@ -43,7 +42,7 @@
       {
         "type": "image_picker",
         "id": "image_add",
-        "label": "DDP banner image"
+        "label": "Banner image"
       }
   ],
   "presets": [
