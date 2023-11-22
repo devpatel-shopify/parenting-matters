@@ -10,7 +10,7 @@
       "type": "main-login",
       "settings": {
         "heading_size": "h1",
-        "small_text": "Quickly get started by signing in using your existing log-in details or hit Create account to sign up.",
+        "small_text": "Get started by signing in with your log-in details or create a new account.",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -24,7 +24,7 @@
     "e793ec3c-270a-4eb0-a71d-fc5ca36fe050": {
       "type": "dashboard-parenting-style",
       "settings": {
-        "nq_title": "Take a quiz and get your Parenting style.",
+        "nq_title": "Take a quiz to identify your Parenting Style.",
         "title": "Your parenting style [parenting_style]",
         "description": "",
         "btn_text": "Download PDF",
@@ -45,7 +45,7 @@
         "title": "My Family Star",
         "description": "",
         "btn_text": "Go to Family Star",
-        "nq_btn_text": "Take a Quizz",
+        "nq_btn_text": "Take a Quiz",
         "btn_link": "",
         "rt_btn_text": "Re-Take the Quiz",
         "rt_btn_link": ""
