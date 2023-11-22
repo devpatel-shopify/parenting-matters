@@ -32,7 +32,7 @@
 .ddp-banner .ddp-inner-content .ddp-right-img{
     width: 34%;
 }
-.ddp-banner .ddp-inner-content .ddp-right-img img{
+.ddp-banner .ddp-inner-content .ddp-right-img .banner-image{
     max-width: 398px;
     width: 100%;
 }
