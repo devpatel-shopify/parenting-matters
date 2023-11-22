@@ -1,26 +1,44 @@
-{{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
-{{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
-
-<section class="ddp-banner {{ section.settings.custom_class }}">
-  <div class="page-width">
-    <div class="ddp-inner-content">
-      <div class="ddp-left-text">
-        {% if section.settings.ddp_heading %}
-          <h1>{{ section.settings.ddp_heading }}</h1>
-        {% endif %}
-        {% if section.settings.ddp_text != blank %}
-          {{ section.settings.ddp_text }}
-        {% endif %}
-      </div>
-      <div class="ddp-right-img">
-        <img src="{{ section.settings.image_add | img_url:'master' }}" alt="" srcset="">
+{%- if section.settings.ddp_heading != blank or section.settings.ddp_text != blank or section.settings.image_add != blank -%}
+  {{ 'ddp-banner.css' | asset_url | stylesheet_tag }}
+  {{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+  
+  <section class="ddp-banner {{ section.settings.custom_class }}">
+    <div class="page-width">
+      <div class="ddp-inner-content">
+        <div class="ddp-left-text">
+          {% if section.settings.ddp_heading %}
+            <h1>{{ section.settings.ddp_heading }}</h1>
+          {% endif %}
+          {% if section.settings.ddp_text != blank %}
+            {{ section.settings.ddp_text }}
+          {% endif %}
+        </div>
+        <div class="ddp-right-img">
+          {%- if section.settings.image_add != blank -%}
+            {%- assign imageAlt = section.settings.image_add.alt | default:'Image' -%}
+            {{ section.settings.image_add
+            | image_url: width: 3840
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.image_add.width,
+              height: section.settings.image_add.height,
+              alt: imageAlt,
+              sizes: '100vw',
+              widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+              class:'banner-image'
+            }}
+          {%- else -%}
+            {{ 'hero-apparel-1' | placeholder_svg_tag:'banner-image' }}
+          {%- endif -%}
+          {% comment %} <img src="{{ section.settings.image_add | img_url:'master' }}" alt="" srcset=""> {% endcomment %}
+        </div>
       </div>
     </div>
-  </div>
-  <div class="ddp-bottom-image">
-    <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-bottom.png?v=1690952576" alt="" srcset="">
-  </div>
-</section>
+    <div class="ddp-bottom-image">
+      <img src="https://cdn.shopify.com/s/files/1/0730/5868/1130/files/ddp-bottom.png?v=1690952576" alt="" srcset="">
+    </div>
+  </section>
+{%- endif -%}
 
 {% schema %}
 {
@@ -34,7 +52,8 @@
     {
       "type": "inline_richtext",
       "id": "ddp_heading",
-      "label": "Heading Text"
+      "label": "Heading Text",
+      "default": "<strong>Lorem ipsum placeholder text.</strong>"
     },
     {
       "type": "richtext",
