@@ -1,0 +1,186 @@
+{{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+
+<section class="ddp-list-block">
+  <div class="page-width">
+    <div class="blog-filter">
+      <p>Filter:</p>
+      <div class="filter-link">
+        <ul>
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+              {%- when 'heading' -%}
+                    {% assign tags = block.settings.tag_title | uniq %}
+                    {{ tags }}
+                    {% if tags != blank %}
+                      <li data-tag="{{ block.settings.tag_title | handleize }}" class="js_tag_select">
+                        {{ tags }}
+                      </li>
+                {% endif %}
+                {% endcase %}
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="ddp-post-list">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+        {%- when 'heading' -%}            
+        <div class="ddp-box {% if forloop.first %}active{% endif %}"  data-tag="{{ block.settings.tag_title | handleize }}">
+          {% if block.settings.image.src %}
+          <div class="ddp-post-img">
+            <a href="{{ block.settings.button_link }}" class="full-unstyled-link">
+              <img
+                srcset="
+                  {%- if block.settings.image.src.width >= 165 -%}{{ block.settings.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if block.settings.image.src.width >= 360 -%}{{ block.settings.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if block.settings.image.src.width >= 533 -%}{{ block.settings.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if block.settings.image.src.width >= 720 -%}{{ block.settings.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if block.settings.image.src.width >= 1000 -%}{{ block.settings.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                  {%- if block.settings.image.src.width >= 1500 -%}{{ block.settings.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {{ block.settings.image.src | image_url }} {{ block.settings.image.src.width }}w
+                "
+                src="{{ block.settings.image.src | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                alt="{{ block.settings.image.src.alt | escape }}"
+                class="motion-reduce"
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >              
+            </a>
+          </div>
+          {% endif %}
+        
+          <div class="ddp-post-details">
+            {% if block.settings.tag_title != blank %}
+            <h5 class="tag ddp_label">{{ block.settings.tag_title }}</h5>
+            {% endif %}
+            <h3><a href="{{ block.settings.button_link }}" class="full-unstyled-link">
+                {{ block.settings.heading }}
+              </a></h3>  
+              <p class="article-card__excerpt rte-width">
+              {{ block.settings.text }}
+              </p>
+
+            {% if block.settings.button_label != blank %}
+            <div class="ddp-button">
+              <a href="{{ block.settings.button_link }}" class="button {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">
+                {{ block.settings.button_label }}
+                {% render 'icon-arrow' %}
+              </a>
+            </div>            
+            {% endif %}
+          </div>
+        </div>
+    
+        {%- endcase -%}
+        {%- endfor -%}
+    </div>
+  </div>
+</section>
+<style>
+ .blog-filter .filter-link ul li.active.js_tag_select {
+    padding: 7px 22px;
+    border: 1px solid #01333E;
+ }
+ .blog-filter .filter-link ul li {
+    text-decoration: none;
+    color: #01333e;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    border-radius: 40px;
+    padding: 7px 0;
+    display: inline-block;
+    text-transform: capitalize;
+    cursor: pointer; 
+}
+</style>
+<script>
+    $('body').on('click', '.js_tag_select', function() {
+        let ele = $(this)
+        let filterData = ele.attr('data-tag')
+        
+        // Reset head
+        ele.parent().children().removeClass('active')
+       
+        // Active head
+        ele.addClass('active')
+        
+        // Reset body
+        $('.ddp-box').removeClass('active')
+       
+        // Active body
+        $('.ddp-box[filter-data*="[' +filterData+ ',"], .ddp-box[filter-data*=",' +filterData+ ',"], .ddp-box[filter-data*=",' +filterData+ ']"]').addClass('active')
+     })
+     
+     $('.js_tag_select').first().click()
+</script>
+
+{% schema %}
+{
+  "name": "DDP page list",
+  "settings": [   
+   
+  ],
+  "blocks": [    
+    {
+      "type": "heading",
+      "name": "DDP details content",
+      "settings": [
+        {
+            "type":"textarea",
+            "id":"tag_title",
+            "label": "Tag title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "page",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type":"checkbox",
+          "id":"button_style_secondary_2",
+          "label": "Enable Secondary Style Button"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DDP page list",
+      "blocks": [
+        {
+          "type": "heading"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

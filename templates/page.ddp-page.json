@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "d5a0fd05-bb8d-41f9-bb62-dc2bbf1e1a9c": {
+      "type": "ddp-banner",
+      "settings": {
+        "custom_class": "",
+        "ddp_heading": "Struggling with particular difficulties with your child?",
+        "ddp_text": "<p>We’ve pulled together some of the main difficulties that parents struggle with, and have come up with simple guides on how you can identify the causes, understand the impact and what you can do to manage these. There's lots more to come here in the coming weeks and months. Let us know if there's a particular difficulty you'd like us to cover.<\/p>",
+        "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "12970cc6-c695-4447-abd3-1affe7f0a24a": {
+      "type": "ddp-page-list",
+      "blocks": {
+        "template--21688716755242__12970cc6-c695-4447-abd3-1affe7f0a24a-heading-1": {
+          "type": "heading",
+          "settings": {
+            "tag_title": "ADHD\nParenting",
+            "image": "shopify:\/\/shop_images\/ADHD.webp",
+            "heading": "Ways to help your child with ADHD",
+            "text": "<p>How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?...<\/p>",
+            "button_label": "Read more",
+            "button_link": "shopify:\/\/pages\/ddp-details",
+            "button_style_secondary_2": false
+          }
+        },
+        "fe04f0c9-7a37-439a-a8a1-9ffc01d44725": {
+          "type": "heading",
+          "settings": {
+            "tag_title": "Parenting",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-11-20_at_16.31.18.png",
+            "heading": "Lorem ipsum",
+            "text": "<p>lorem ipsum content<\/p>",
+            "button_label": "Read more",
+            "button_link": "ddp-details",
+            "button_style_secondary_2": false
+          }
+        },
+        "f3479e50-dff1-43d2-b7e7-e3ed64dcf9e8": {
+          "type": "heading",
+          "settings": {
+            "tag_title": "organize",
+            "image": "shopify:\/\/shop_images\/AdobeStock_631965825.jpg",
+            "heading": "Lorem ipsum 2",
+            "text": "<p>Lorem ipsum 2 content<\/p>",
+            "button_label": "Read more",
+            "button_link": "ddp-details",
+            "button_style_secondary_2": false
+          }
+        },
+        "3a82a543-fa34-4b31-a74e-08d201eb7b23": {
+          "type": "heading",
+          "settings": {
+            "tag_title": "Parenting",
+            "image": "shopify:\/\/shop_images\/game.jpg",
+            "heading": "Lorem ipsum 3",
+            "text": "<p>Lorem ipsum 3 content<\/p>",
+            "button_label": "Read more",
+            "button_link": "ddp-details",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21688716755242__12970cc6-c695-4447-abd3-1affe7f0a24a-heading-1",
+        "fe04f0c9-7a37-439a-a8a1-9ffc01d44725",
+        "f3479e50-dff1-43d2-b7e7-e3ed64dcf9e8",
+        "3a82a543-fa34-4b31-a74e-08d201eb7b23"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "d5a0fd05-bb8d-41f9-bb62-dc2bbf1e1a9c",
+    "main",
+    "12970cc6-c695-4447-abd3-1affe7f0a24a"
+  ]
+}
