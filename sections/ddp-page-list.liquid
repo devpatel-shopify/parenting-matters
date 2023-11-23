@@ -1,170 +1,399 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 {{ 'ddp-post-link.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {% for block in section.blocks %}
+    {%- case block.type -%}
+      {%- when "page" -%}
+        .section-{{ section.id }}-{{ block.id }}-padding {
+          padding-top: {{ block.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ block.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+      
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-{{ block.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+        }
+    {%- endcase -%}
+  {%- endfor -%}
+{%- endstyle -%}
 
-<section class="ddp-list-block">
-  <div class="page-width">
-    <div class="blog-filter">
-      <p>Filter:</p>
-      <div class="filter-link">
-        <ul>
-            {%- for block in section.blocks -%}
-              {% case block.type %}
-              {%- when 'heading' -%}
-                    {% assign tags = block.settings.tag_title | uniq %}
-                    {{ tags }}
-                    {% if tags != blank %}
-                      <li data-tag="{{ block.settings.tag_title | handleize }}" class="js_tag_select">
-                        {{ tags }}
-                      </li>
-                {% endif %}
-                {% endcase %}
-            {% endfor %}
-        </ul>
+<section class="ddp-post-list">
+  {%- assign allTags = blank -%}
+
+  {% for block in section.blocks %}
+    {% if block.type == "page" %}
+      {%- assign cmsTag = block.settings.tags | newline_to_br | split: '<br />' | join: ',' -%}
+      {%- assign allTags = allTags | append: cmsTag | append: ',' -%}
+    {% endif %}
+  {% endfor %}
+
+  {% if allTags != blank %}
+    <div class="page-tag-filters page-width">
+      <p class="filter-label">Filter: </p>
+      {%- assign tagArray = allTags | split: ',' | uniq -%}
+      <div class="page-filter--wrapper">
+        <button type="button" class="js-filter-btn filter-btn button--tertiary active" data-tag="all">View All</button>
+        {% for tag in tagArray %}
+          <button type="button" class="js-filter-btn filter-btn button--tertiary" data-tag="{{ tag | handleize }}">{{ tag }}</button>
+        {% endfor %}
       </div>
     </div>
-    <div class="ddp-post-list">
-        {%- for block in section.blocks -%}
-        {% case block.type %}
-        {%- when 'heading' -%}            
-        <div class="ddp-box {% if forloop.first %}active{% endif %}"  data-tag="{{ block.settings.tag_title | handleize }}">
-          {% if block.settings.image.src %}
-          <div class="ddp-post-img">
-            <a href="{{ block.settings.button_link }}" class="full-unstyled-link">
-              <img
-                srcset="
-                  {%- if block.settings.image.src.width >= 165 -%}{{ block.settings.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                  {%- if block.settings.image.src.width >= 360 -%}{{ block.settings.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                  {%- if block.settings.image.src.width >= 533 -%}{{ block.settings.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                  {%- if block.settings.image.src.width >= 720 -%}{{ block.settings.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                  {%- if block.settings.image.src.width >= 1000 -%}{{ block.settings.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                  {%- if block.settings.image.src.width >= 1500 -%}{{ block.settings.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                  {{ block.settings.image.src | image_url }} {{ block.settings.image.src.width }}w
-                "
-                src="{{ block.settings.image.src | image_url: width: 533 }}"
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                alt="{{ block.settings.image.src.alt | escape }}"
-                class="motion-reduce"
-                {% unless lazy_load == false %}
-                  loading="lazy"
-                {% endunless %}
-                width="{{ block.settings.image.width }}"
-                height="{{ block.settings.image.height }}"
-              >              
-            </a>
-          </div>
-          {% endif %}
-        
-          <div class="ddp-post-details">
-            {% if block.settings.tag_title != blank %}
-            <h5 class="tag ddp_label">{{ block.settings.tag_title }}</h5>
-            {% endif %}
-            <h3><a href="{{ block.settings.button_link }}" class="full-unstyled-link">
-                {{ block.settings.heading }}
-              </a></h3>  
-              <p class="article-card__excerpt rte-width">
-              {{ block.settings.text }}
-              </p>
+  {% endif %}
 
-            {% if block.settings.button_label != blank %}
-            <div class="ddp-button">
-              <a href="{{ block.settings.button_link }}" class="button {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">
-                {{ block.settings.button_label }}
-                {% render 'icon-arrow' %}
-              </a>
-            </div>            
-            {% endif %}
+  {% for block in section.blocks %}
+    {%- case block.type -%}
+      {%- when "page" -%}
+        {% assign scheme1 = settings.color_schemes | first %}
+        {%- assign tagsArray = block.settings.tags | newline_to_br | split: '<br />' -%}
+        {%- assign tagList = blank -%}
+        {% for tag in tagsArray %}
+          {%- assign tmp = tag | handleize -%}
+          {%- assign tagList = tagList | append: tmp | append: ',' -%}
+        {% endfor %}
+        
+        <div data-tag="all,{{ tagList | remove_last: ',' }}" class="js-image-with-text-wrapper image-with-text image-with-text--{{ block.settings.content_layout }} page-width isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless block.settings.color_scheme == scheme1 and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-{{ block.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if block.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if block.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+            <div class="image-with-text__media-item image-with-text__media-item--{{ block.settings.desktop_image_width }} image-with-text__media-item--{{ block.settings.desktop_content_position }} grid__item">
+              {% if block.settings.page != blank %}
+                <a href="{{ block.settings.page.url }}">
+              {% endif %}
+              <div
+                class="image-with-text__media image-with-text__media--{{ block.settings.height }} gradient color-{{ block.settings.color_scheme }} global-media-settings {% if block.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}{% if block.settings.image_behavior != 'none' %} animate--{{ block.settings.image_behavior }}{% endif %}"
+                {% if block.settings.height == 'adapt' and block.settings.image != blank %}
+                  style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+                {% endif %}
+              >
+                {%- if block.settings.image != blank -%}
+                  {%- if block.settings.image_behavior == 'ambient' -%}
+                    {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
+                    {%- capture sizes -%}
+                      (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                      (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+                    {%- endcapture -%}
+                  {%- else -%}
+                    {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                    {%- capture sizes -%}
+                      (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                      (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                    {%- endcapture -%}
+                  {%- endif -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1500
+                    | image_tag: loading: 'lazy', sizes: sizes, widths: widths
+                  }}
+                {%- else -%}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              {% if block.settings.page != blank %}
+                </a>
+              {% endif %}
+            </div>
+            <div class="image-with-text__text-item grid__item">
+              <div
+                id="ImageWithText--{{ section.id }}"
+                class="image-with-text__content image-with-text__content--{{ block.settings.desktop_content_position }} image-with-text__content--desktop-{{ block.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ block.settings.mobile_content_alignment }} image-with-text__content--{{ block.settings.height }} gradient color-{{ block.settings.color_scheme }} content-container"
+              >
+              {% if block.settings.tags != blank %}
+                {%- assign tags = block.settings.tags | newline_to_br | split: '<br />' -%}
+                <div class="page-tags-wrapper">
+                  {% for tag in tags %}
+                    <span class="tag-label">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.heading %}
+                <span class="h3 image-with-text__heading inline-richtext {{ block.settings.heading_size }}">
+                  {{ block.settings.heading }}
+                </span>
+              {% endif %}
+  
+              <div class="image-with-text__text rte {{ block.settings.text_style }}">
+                {{ block.settings.description }}
+              </div>
+  
+              {%- if block.settings.button_label != blank -%}
+                <a
+                  {% if block.settings.page == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.page.url }}"
+                  {% endif %}
+                  class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{ block.settings.button_label | escape }}
+                  {% render 'icon-arrow' %}
+                </a>
+              {%- endif -%}
+  
+              </div>
+            </div>
           </div>
         </div>
-    
-        {%- endcase -%}
-        {%- endfor -%}
-    </div>
-  </div>
+    {%- endcase -%}
+  {% endfor %}
 </section>
-<style>
- .blog-filter .filter-link ul li.active.js_tag_select {
-    padding: 7px 22px;
-    border: 1px solid #01333E;
- }
- .blog-filter .filter-link ul li {
-    text-decoration: none;
-    color: #01333e;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    border-radius: 40px;
-    padding: 7px 0;
-    display: inline-block;
-    text-transform: capitalize;
-    cursor: pointer; 
-}
-</style>
+
 <script>
-    $('body').on('click', '.js_tag_select', function() {
-        let ele = $(this)
-        let filterData = ele.attr('data-tag')
-        
-        // Reset head
-        ele.parent().children().removeClass('active')
-       
-        // Active head
-        ele.addClass('active')
-        
-        // Reset body
-        $('.ddp-box').removeClass('active')
-       
-        // Active body
-        $('.ddp-box[filter-data*="[' +filterData+ ',"], .ddp-box[filter-data*=",' +filterData+ ',"], .ddp-box[filter-data*=",' +filterData+ ']"]').addClass('active')
-     })
-     
-     $('.js_tag_select').first().click()
+  let section = document.querySelector('#shopify-section-{{ section.id }}');
+  let pages = document.querySelectorAll('.js-image-with-text-wrapper');
+  section.querySelectorAll('.js-filter-btn').forEach(button => {
+    button.addEventListener('click',function() {
+      let tag = this.dataset.tag;
+      section.querySelector('.js-filter-btn.active').classList.remove('active');
+      this.classList.add('active');
+      pages.forEach(page => {
+        let tags = page.dataset.tag.split(',');
+        console.log(tags);
+        page.classList.toggle('hidden',!(tags.includes(tag)));
+      });
+    });
+  });
 </script>
 
 {% schema %}
 {
   "name": "DDP page list",
-  "settings": [   
-   
-  ],
-  "blocks": [    
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
     {
-      "type": "heading",
-      "name": "DDP details content",
+      "type": "page",
+      "name": "Page",
       "settings": [
         {
-            "type":"textarea",
-            "id":"tag_title",
-            "label": "Tag title"
+          "type": "textarea",
+          "id": "tags",
+          "label": "Tags",
+          "default": "Tag1\nTag2",
+          "info": "Add Each Tags in new line."
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Select image"
+          "label": "t:sections.image-with-text.settings.image.label"
         },
         {
-          "type": "inline_richtext",
+          "type": "text",
           "id": "heading",
-          "label": "Heading"
+          "label": "Title",
+          "default": "Title"
         },
         {
           "type": "richtext",
-          "id": "text",
-          "label": "Description"
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
         },
         {
           "type": "text",
           "id": "button_label",
-          "label": "Button label"
+          "label": "Button Title",
+          "default": "Read More"
         },
         {
           "type": "page",
-          "id": "button_link",
-          "label": "Button link"
+          "id": "page",
+          "label": "Page"
         },
         {
-          "type":"checkbox",
-          "id":"button_style_secondary_2",
-          "label": "Enable Secondary Style Button"
+          "type": "select",
+          "id": "height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.image-with-text.settings.height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.image-with-text.settings.height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.image-with-text.settings.height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.image-with-text.settings.height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.image-with-text.settings.height.label"
+        },
+        {
+          "type": "select",
+          "id": "desktop_image_width",
+          "options": [
+            {
+              "value": "small",
+              "label": "t:sections.image-with-text.settings.desktop_image_width.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.image-with-text.settings.desktop_image_width.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.image-with-text.settings.desktop_image_width.options__3.label"
+            }
+          ],
+          "default": "medium",
+          "label": "t:sections.image-with-text.settings.desktop_image_width.label",
+          "info": "t:sections.image-with-text.settings.desktop_image_width.info"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "image_first",
+              "label": "t:sections.image-with-text.settings.layout.options__1.label"
+            },
+            {
+              "value": "text_first",
+              "label": "t:sections.image-with-text.settings.layout.options__2.label"
+            }
+          ],
+          "default": "image_first",
+          "label": "t:sections.image-with-text.settings.layout.label",
+          "info": "t:sections.image-with-text.settings.layout.info"
+        },
+        {
+          "type": "select",
+          "id": "desktop_content_position",
+          "options": [
+            {
+              "value": "top",
+              "label": "t:sections.image-with-text.settings.desktop_content_position.options__1.label"
+            },
+            {
+              "value": "middle",
+              "label": "t:sections.image-with-text.settings.desktop_content_position.options__2.label"
+            },
+            {
+              "value": "bottom",
+              "label": "t:sections.image-with-text.settings.desktop_content_position.options__3.label"
+            }
+          ],
+          "default": "top",
+          "label": "t:sections.image-with-text.settings.desktop_content_position.label"
+        },
+        {
+          "type": "select",
+          "id": "desktop_content_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__3.label"
+            }
+          ],
+          "default": "left",
+          "label": "t:sections.image-with-text.settings.desktop_content_alignment.label"
+        },
+        {
+          "type": "select",
+          "id": "content_layout",
+          "options": [
+            {
+              "value": "no-overlap",
+              "label": "t:sections.image-with-text.settings.content_layout.options__1.label"
+            },
+            {
+              "value": "overlap",
+              "label": "t:sections.image-with-text.settings.content_layout.options__2.label"
+            }
+          ],
+          "default": "no-overlap",
+          "label": "t:sections.image-with-text.settings.content_layout.label"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "background-1"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.animation.content"
+        },
+        {
+          "type": "select",
+          "id": "image_behavior",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.all.animation.image_behavior.options__1.label"
+            },
+            {
+              "value": "ambient",
+              "label": "t:sections.all.animation.image_behavior.options__2.label"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.all.animation.image_behavior.label"
+        },
+        {
+          "type": "header",
+          "content": "Mobile layout"
+        },
+        {
+          "type": "select",
+          "id": "mobile_content_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.image-with-text.settings.mobile_content_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.image-with-text.settings.mobile_content_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.image-with-text.settings.mobile_content_alignment.options__3.label"
+            }
+          ],
+          "default": "left",
+          "label": "t:sections.image-with-text.settings.mobile_content_alignment.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
         }
       ]
     }
@@ -174,7 +403,13 @@
       "name": "DDP page list",
       "blocks": [
         {
-          "type": "heading"
+          "type": "page"
+        },
+        {
+          "type": "page"
+        },
+        {
+          "type": "page"
         }
       ]
     }
