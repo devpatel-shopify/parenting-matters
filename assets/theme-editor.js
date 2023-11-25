@@ -3,6 +3,19 @@ function hideProductModal() {
   productModal && productModal.forEach((modal) => modal.hide());
 }
 
+function handleLoaderPopup(event) {
+  let section = event.target
+  if (event.type == "shopify:section:select" || event.type == "shopify:section:load") {
+    if(section.matches('.main-loading-popup')){
+      document.body.classList.add('loading-popup-enabled');
+    }
+  }else if(event.type = "shopify:section:deselect"){
+    if(section.matches('.main-loading-popup')){
+      document.body.classList.remove('loading-popup-enabled');
+    }
+  }
+}
+
 document.addEventListener('shopify:block:select', function (event) {
   hideProductModal();
   const blockSelectedIsSlide = event.target.classList.contains('slideshow__slide');
@@ -25,8 +38,9 @@ document.addEventListener('shopify:block:deselect', function (event) {
   if (parentSlideshowComponent.autoplayButtonIsSetToPlay) parentSlideshowComponent.play();
 });
 
-document.addEventListener('shopify:section:load', () => {
+document.addEventListener('shopify:section:load', (event) => {
   hideProductModal();
+  handleLoaderPopup(event)
   const zoomOnHoverScript = document.querySelector('[id^=EnableZoomOnHover]');
   if (!zoomOnHoverScript) return;
   if (zoomOnHoverScript) {
@@ -36,11 +50,17 @@ document.addEventListener('shopify:section:load', () => {
   }
 });
 
+document.addEventListener('shopify:section:select', (event) => {
+  hideProductModal();
+  handleLoaderPopup(event);
+});
+
+document.addEventListener('shopify:section:deselect', (event) => {
+  hideProductModal()
+  handleLoaderPopup(event);
+});
+
 document.addEventListener('shopify:section:reorder', () => hideProductModal());
-
-document.addEventListener('shopify:section:select', () => hideProductModal());
-
-document.addEventListener('shopify:section:deselect', () => hideProductModal());
 
 document.addEventListener('shopify:inspector:activate', () => hideProductModal());
 

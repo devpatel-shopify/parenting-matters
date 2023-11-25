@@ -14,7 +14,7 @@
   <script>
     let sessionKey = window.sessionStorage.getItem('thakyouCourseRedirect');
     if(sessionKey){
-      document.body.classList.add('loading');
+      document.body.classList.add('loading-popup-enabled');
       setTimeout(() => {
         window.location.reload();
       }, 10000);
