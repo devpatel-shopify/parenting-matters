@@ -11,7 +11,8 @@
             "text": "Discover your Parenting Style",
             "link_text": "Take the quiz",
             "link": "shopify:\/\/pages\/parenting-style-quiz",
-            "enable_purchased_course": true
+            "enable_purchased_course": true,
+            "hide_after_parenting_quiz": true
           }
         }
       },
@@ -45,9 +46,14 @@
         "padding_bottom": 20
       }
     },
-    "loading-popup":{
+    "loading-popup": {
       "type": "loading-popup",
-      "settings": {}
+      "settings": {
+        "description": "<p>We are loading your personalised course for you now, you will be able to find everything under My Course in a short minute!<\/p>",
+        "overlayColor": "#fdf8ec",
+        "backgrouncColor": "#ffd978",
+        "textColor": "#01333e"
+      }
     }
   },
   "order": [
