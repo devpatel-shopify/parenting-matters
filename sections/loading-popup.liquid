@@ -1,0 +1,114 @@
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+{% style %}
+  .loading-popup-enabled .section-loading-popup{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .section-loading-popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity:0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9998;
+    background: {{ section.settings.overlayColor }};
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    visibility:hidden;
+    transition:0.5s all ease-in-out;
+  }
+
+  .section-loading-popup .loading-popup-wrapper {
+    display: flex;
+    height: auto;
+    padding: 56.5px 131px 57.5px 132px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 40px;
+    background: {{ section.settings.backgrouncColor }};
+    gap: 33px;
+    max-width: 762px;
+  }
+
+  .section-loading-popup .loader {
+    width: 122px;
+    height: 125px;
+  }
+
+  .section-loading-popup .description {
+    color: {{ section.settings.textColor }};
+    text-align: center;
+    font-family: Switzer;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.22px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-loading-popup .loading-popup-wrapper {
+      padding: 30px;
+    }
+  }
+{% endstyle %}
+
+<div class="section-loading-popup">
+  <div class="loading-popup-wrapper">
+    <dotlottie-player
+      src="https://lottie.host/2c8c7b38-40dd-447b-a50e-5949b157cfc0/Hh8nUK93Om.json"
+      background="transparent"
+      speed="1"
+      loop
+      autoplay
+      class="loader"
+    ></dotlottie-player>
+    <div class="description">
+      {{ section.settings.description }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Loading Popup",
+  "class": "main-loading-popup",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We are loading your personalised course for you now, you will be able to find everything under My Course in a short minute!</p>"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "overlayColor",
+      "label": "Overlay Color",
+      "default": "#fdf8ec"
+    },
+    {
+      "type": "color",
+      "id": "backgrouncColor",
+      "label": "Background",
+      "default": "#ffd978"
+    },
+    {
+      "type": "color",
+      "id": "textColor",
+      "label": "Text",
+      "default": "#01333e"
+    }
+  ]
+}
+{% endschema %}

@@ -44,10 +44,15 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "loading-popup":{
+      "type": "loading-popup",
+      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "loading-popup"
   ]
 }
