@@ -1,3 +1,12 @@
+document.addEventListener('keypress',function name(event) {
+  if(event.keyCode == 13){
+    event.preventDefault();
+    let slide = document.querySelector('.quiz_questions .quiz_slide:not(.hidden)');
+    let nextButton = slide.querySelector('.button_next') || slide.querySelector('.button_submit');
+    nextButton.click();
+  }
+});
+
 document.addEventListener('DOMContentLoaded',function () {
 
   KlaviyoSubscribe.attachToForms('#pq_quiz', {
@@ -36,6 +45,14 @@ document.addEventListener('DOMContentLoaded',function () {
   });
   
   const slides = document.querySelectorAll('#pq_quiz .slide');
+
+  let scrollToCenterSlide = (element) => {
+    window.scrollTo({
+      top: (element.closest('.quiz-section').offsetTop - document.querySelector('.section-header.shopify-section').scrollHeight - 30),
+      left:0,
+      behavior:"smooth"
+    });
+  }
   
   slides.forEach((slide) =>{
   
@@ -61,6 +78,7 @@ document.addEventListener('DOMContentLoaded',function () {
           slide.nextElementSibling.classList.remove('hidden');
           slide.classList.add('hidden');
         }
+        scrollToCenterSlide(slide.nextElementSibling);
       });
     }
   
@@ -72,6 +90,7 @@ document.addEventListener('DOMContentLoaded',function () {
         event.preventDefault();
         slide.previousElementSibling.classList.remove('hidden');
         slide.classList.add('hidden');
+        scrollToCenterSlide(slide.previousElementSibling);
       })
     }
   
