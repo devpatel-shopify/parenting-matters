@@ -1,3 +1,12 @@
+document.addEventListener('keypress',function name(event) {
+  if(event.keyCode == 13){
+    event.preventDefault();
+    let slide = document.querySelector('.quiz_questions .quiz_slide:not(.hidden)');
+    let nextButton = slide.querySelector('.button_next') || slide.querySelector('.button_submit');
+    nextButton.click();
+  }
+});
+
 KlaviyoSubscribe.attachToForms('#fs_quiz', {
   hide_form_on_success: false,
   extra_properties: {
