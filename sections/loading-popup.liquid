@@ -1,5 +1,3 @@
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-
 {% style %}
   .loading-popup-enabled .section-loading-popup{
     opacity: 1;
@@ -37,9 +35,9 @@
     max-width: 762px;
   }
 
-  .section-loading-popup .loader {
-    width: 122px;
-    height: 125px;
+  .section-loading-popup dotlottie-player {
+    width: 122px !important;
+    height: 125px !important;
   }
 
   .section-loading-popup .description {
@@ -62,14 +60,9 @@
 
 <div class="section-loading-popup">
   <div class="loading-popup-wrapper">
-    <dotlottie-player
-      src="https://lottie.host/2c8c7b38-40dd-447b-a50e-5949b157cfc0/Hh8nUK93Om.json"
-      background="transparent"
-      speed="1"
-      loop
-      autoplay
-      class="loader"
-    ></dotlottie-player>
+    {%- if section.settings.loader -%}
+      {{ section.settings.loader }}
+    {%- endif -%}
     <div class="description">
       {{ section.settings.description }}
     </div>
@@ -81,6 +74,12 @@
   "name": "Loading Popup",
   "class": "main-loading-popup",
   "settings": [
+    {
+      "type": "html",
+      "id": "loader",
+      "label": "loader HTML",
+      "info": "Copy the Embed HTML code from [lottiefiles](https:\/\/lottiefiles.com\/animations\/animation-1700290294066-DrnCPxfSCZ) and Paste here."
+    },
     {
       "type": "richtext",
       "id": "description",
