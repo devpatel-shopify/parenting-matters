@@ -681,3 +681,7 @@
   }
 }
 
+.quiz_completed .quiz_footer .quiz_heading a {
+  color: rgb(var(--color-foreground));
+  text-decoration:none;
+}
