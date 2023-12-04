@@ -41,6 +41,82 @@
         "image_add": "shopify:\/\/shop_images\/Group_1_2.svg"
       }
     },
+    "2fa7c473-d075-4c0f-9d8b-f7ded088cf3b": {
+      "type": "custom-cms-jump-section",
+      "settings": {
+        "hide_for_guest_user": false,
+        "bg_color": "#f7c083",
+        "text_color": "#333B3E",
+        "heading": "Could my child have ADHD?",
+        "description": "<p>As a doctor,  sitting in my consulting room I could often spot children who appear to have  ADHD within a few minutes –  full of energy and curiosity, they would be the ones who climbed on the couch, got wrapped in the paper roll , and who, within minutes found their way behind my chair and tried to get into the drawers -  While their parents tried to have a conversation without being interrupted!<\/p><p>Children with ADHD have a brain that is wired slightly differently, showing 3 main characteristics; 1, typically being more impulsive, not thinking first and interrupting often; 2, they have a short attention span for their age, finding it hard to concentrate as well as having  difficulties listening and following instructions; 3, they may be hyperactive, seldom sitting still and bouncing around full of energy.   <\/p><p>These little scenarios will likely be played out, at home, at school and even in the playground. Such children are not being deliberately naughty or rude, but they do have a slightly different engine!<\/p><p>Sadly, these children all too often get missed at school – they make careless mistakes, don’t seem to listen when spoken to, or to follow instructions, complete chores or manage homework. They are easily distracted in class and at home. Their teachers, parents and family might find them exasperating as they seem to be lazy, and can come across as thoughtless. What’s more, when it comes to school, they may be capable at times, yet frequently do not complete their work and getbehind.    To compound the problem, at school they are usually the last to get started,  and as a result are slow in finishing work which is often disorganised.<\/p><p>ADHD is due to brain immaturity in these children’s prefrontal lobes, which means that their ability to sustain concentration and draw down information from the upper brain is impaired; for them it is like working through treacle to get something “from brain to page”. Often their ability to process material is greatly reduced, and synthesising material from different parts of their memory is especially hard. For example recalling different remembered facts to write an essay may be particularly difficult. While finding the “right answer” from a puzzle, choosing from answers that are in front of them such as multiple-choice questionnaires can be easier.<\/p><p>Being a parent or teacher of a child with ADHD can be incredibly frustrating, sometimes these children can pull the rabbit out of the bag, other times they can’t get underway, particularly with demanding task.  They are master procrastinators, frequently only starting work at the last possible moment. This is because their brain works differently -  being under stimulated, they only really get going when the pressure is on.  As a result, homework can often take 3 times longer than for other children in their class.<\/p><p>To compound this, they may have ‘time blindness’ when they are engaged in an interesting task and don’t realise hours are passing. Consequently parents say that their child can’t possibly have ADHD as he can spend HOURS concentrating on a videogame or their Play Station!!  This is common in ADHD, because video screens provide constant ever-changing immediate stimulation which is addictive for the ADHD brain. Such children then find it especially hard to change their focus of attention when they are asked to. This is typically the case on video games, because nothing is more engaging if you are distractible and ever hungry for new stimulation. This is because   video games hit them with a new sound or visual image every second or so - perfect brain food if you have ADHD!<\/p><p>But children (and adults) with ADHD also have wonderful attributes too! They are often fun, energetic, live in the moment, are creative and full of plans, as well as being great at thinking outside the box and coming up with original and inspired ideas.  In later life, they can do well. But it’s a challenge for them to be stuck in a boring class for 6 or 8 hours a day! <\/p><p>So the task is to support them through school, avoiding 3 poor outcomes: firstly, that they feel bad about themselves and feel they are stupid; secondly, that because of this they fall in with a lazy “bad” crowd, particularly in as teenagers, who don’t like school and maybe on the verge of dropping out, misbehaving, even taking drugs et cetera. Thirdly, they may underachieve in exams, so end up not doing themselves justice, and get placed in a lower set than their intelligence justifies, underachieving in GCSEs and A-levels, and not achieving their potential. The good news is that if they go to work, university or do an apprenticeship on something they are interested in, they will then thrive and show their strengths.<\/p>",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Benifit Title",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
+      }
+    },
+    "41770e88-6005-4864-a4c4-d5bd44e135da": {
+      "type": "custom-cms-jump-section",
+      "blocks": {
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-1": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Signs of INATTENTIVENESS (difficulty concentrating and focusing)",
+            "desc_1": "<p>The main signs of inattentiveness are:<\/p><ul><li>having a sn span and being easily distracted<\/li><li>making careless mistakes short attention– for example, in schoolwork<\/li><li>appearing forgetful or often losing things<\/li><li>being unable to stick to tedious or time-consuming tasks<\/li><li>appearing to be unable to listen to, or carry out, instructions<\/li><li>Frequently changing activity or task<\/li><li>having difficulty with organising tasks<\/li><li>being unable to concentrate on tasks, particularly routine and boring ones<\/li><li>Procrastinating – finding it hard to get going with a task<\/li><\/ul>"
+          }
+        },
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-2": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Signs of IMPULSIVENESS",
+            "desc_1": "<ul><li>talking too much<\/li><li>being unable to wait their turn<\/li><li>acting without thinking<\/li><li>interrupting conversations<\/li><li>little or no sense of danger<\/li><li>Has difficulty thinking before acting<\/li><\/ul>"
+          }
+        },
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-3": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Signs of HYPERACTIVITY ",
+            "desc_1": "<ul><li>being unable to sit still, especially in calm or quiet surroundings<\/li><li>constantly fidgeting and fiddling with things<\/li><li>excessive physical movement, as if driven by motor<\/li><\/ul>"
+          }
+        },
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-4": {
+          "type": "benifit_steps",
+          "settings": {
+            "title": "Here are 10 ways to help your child at home",
+            "desc_1": "<p>As you can see there is a considerable list of  signs of ADHD, many of them you may already be familiar with! However it can be easy to develop a negative view of a child with ADHD as they require a considerable amount of patience and understanding to avoid getting irritated and making your child feel bad about themselves. So here are some initial suggestions that should help.<\/p><ol><li><strong>Create Structure and Routine:<\/strong> Contrary to what you might expect, a predictable schedule provides stability and helps your child feel more organized and in control. Having a daily routine that includes regular meal times, sleep patterns (including plenty of sleep) , and lots of opportunity for  free play,  as well as  designated study times for older children, all of which can help your child settle.<\/li><li><strong>Give Clear Calm Instructions<\/strong>: Make sure you have their attention – get eye contact and check they have ‘heard’ your request when giving your child directions. Often they are not being disobedient, but simply haven’t  registered the instruction! Encourage your child to repeat instructions back to ensure your child actually understood what is being asked of them. Keep instructions to a minimum so they pay attention when needed.  And avoid nagging as they will tune you out! This way you are also more able to follow up and they know you mean business!<\/li><li><strong>Give frequent praise and rewards (Positive Reinforcement)<\/strong>: Praise and reward your child for their efforts and accomplishments. This may be difficult when they are being annoying! You may have to actively look out small improvements in their behaviour and show them that you have noticed. Positive reinforcement helps motivate and build self-esteem. Focus on their strengths, efforts and progress. Describe and celebrate their small achievements – but they should be earned and genuine. Try to avoid praising looks, or attributes they can’t change.  And a child with ADHD may need praising every few seconds, because otherwise they will be onto the next thing and forget what you are praising them for “in one ear and out of the other”<\/li><li><strong>Minimize processed foods, sugary snacks, and artificial additives:<\/strong> Even if your child eats a healthy diet much of the time, eating ultra processed foods (foods made in factories with ingredients you haven’t heard of, wrapped in plastic, and foods that your grandparents wouldn’t recognise!) you will undo much of the benefits of the healthy foods. A thriving gut microbiome, fed by plenty of fibre in your child’s diet,  made up of those trillions of bacteria and other microbes, will then be able produce substances that can help boost your child’s mood and brain function.  In contrast sweet, starchy highly processed foods can negatively affect your child’s mood and behaviour. <\/li><li><strong>Break Tasks into Manageable Steps:<\/strong> Help your child tackle complex tasks by breaking them down into smaller, more manageable steps. This approach makes tasks less overwhelming, and easier for them to focus and complete tasks successfully. Give them frequent prompts and reminders, use stickers for getting dressed, doing homework, et cetera.<\/li><li><strong>Limit Distractions:<\/strong> By creating a calm and organised environment that minimizes distractions, your child is less likely to get distracted and to divert to something else. So for example designating a quiet study area, reducing clutter, and limiting screen time will help them settle if they have a task to do. Use noise-cancelling headphones or white noise machines if necessary.<\/li><li><strong>Provide a Healthy Mediterranean Style diet for your child:<\/strong> This has been shown to be the healthiest way of eating, offering a balanced diet rich in whole grains, fruits, vegetables, peas, beans and lentils (you can gradually slip these into familiar dishes) as well as nuts, seeds plenty of protein (required for growth and energy) and healthy fats. Getting the right nutrients for the brain is particularly important for these children. Avoiding inflammatory ultra  processed foods, and lots of sweet and refined carbohydrates, as well as swopping to a more anti-inflammatory Mediterranean style diet can help reduce ADHD symptoms. It is increasingly that an improved diet can have an impact on the brain.<\/li><li><strong>Encourage Physical Activity: <\/strong>This can relax your child and help them to learn to pay attention to the game or task, especially if its an activity they enjoy.   Regular physical activity can help channel excess energy. Engaging in sports, outdoor play, or even simple exercises can improve focus, reduce hyperactivity, and promote overall well-being. Let them go for a runaround every hour or so, even if it is only for 10 minutes, and especially after school.<\/li><li><strong>Collaborate with Teachers and Professionals:<\/strong> Maintain open communication with your child's teachers and seek their support. Work  with any professionals, such as therapists,  counsellors or other professionals, who can provide additional strategies and guidance. Learn as much as you can about ADHD to better understand your child's challenges and strengths. Share this knowledge with your child, teachers, and other caregivers to increase understanding and support. Some teachers will be well clued up about ADHD, others not so much and may just think it is due to a character deficit! <\/li><li><strong>Practice Mindfulness and Relaxation Techniques<\/strong>: You can do this with your child from a young age. Teach your child simple relaxation techniques, such as deep breathing or mindfulness exercises, to manage stress, improve self-regulation, and increase focus. Teach your child to trace their finger running it from the base of your thumb up  and over each finger to the base of the little finger to help them settle. Or count backwards to 6.<\/li><\/ol><p><\/p><p>To meet criteria to get  a diagnosis of ADHD it has to be getting in the way of their daily life, relationships at home, with friends, at school and with hobbies. And that this is over a period of 6 months. <\/p><p>Although there are some similarities, every  child is different, so it's important to tailor these strategies to your child's individual needs. Try to remind yourself that they are not trying to be difficult! Be patient and try to provide the unconditional love and support that will help you and your child along the way. Recruit help and try to look after yourself too.  We hope these tips help you to find the support for your child and the strength to  provide the unconditional love and support that will help you and your child along the way. <\/p><p><strong>If you think you or your child may have attention deficit hyperactivity disorder (ADHD), speak to a GP, although they are not able to formally make the diagnosis. You can also speak to your health visitor, child’s teacher or their school’s special educational needs co-ordinator (SENCO). They may refer your child for assessment; to a Child Psychiatrist, a paediatrician (a children’s doctor) or another qualified health professional with the training and expertise.  <\/strong><\/p><p><strong>Our following article tells you how you can help your child at home, and what they can do at school to help. And if they get a diagnosis, there is a possibility of them getting medication.<\/strong><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-1",
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-2",
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-3",
+        "template--21655973200170__41770e88-6005-4864-a4c4-d5bd44e135da-benifit_steps-4"
+      ],
+      "settings": {
+        "hide_for_guest_user": false,
+        "bg_color": "#000000",
+        "text_color": "#fff",
+        "heading": "So, might my child  have ADHD?",
+        "description": "<p>ADHD is pretty common, occurring in about 6% of boys and 3% of girls. And a child may be on the ADHD spectrum, having some characteristics of ADHD without having the full diagnosis.<\/p><p>For a diagnosis it is important to note that the symptoms of inattentiveness, impulsiveness, and moving around much more than children of their age (“hyperactivity”) should be present both at home and school. Being like this just home is not enough and could be due to other factors such as anxiety; and if it is just a school, it could be due to specific learning difficulties such as dyslexia.<\/p><p>Also it is important to recognise that it might not occur on its own, but might be part of a “neurodiverse” picture that includes some autistic features such as rigidity about changes to routine, inability to understand other people’s points of view, and impaired turn taking in conversation. And some children are very anxious, so you will know that they are sensitive, worriers, and nervous, which can also make them have difficulty in concentration when they feel this way. While other children may just present with challenging, oppositional and defiant behaviour but can concentrate fine on most things and anything they are interested in -they are more likely to have so-called “conduct problems”.<\/p><p>The assessment is best done by a child and adolescent mental health professional, but knowing the criteria for a diagnosis is useful. So here are some things to look out for;  The three main characteristics are INATTENTIVENESS (difficulty concentrating and focusing), IMPULSIVENESS, and HYPERACTIVITY.<\/p>",
+        "button_name": "Expand",
+        "expanded_button_name": "Close",
+        "secondary_color": "#f4d3dd",
+        "benifit_svg_color_1": "#dd7c9a",
+        "percentage_count_1": "Signs of ADHD",
+        "organisation_text_1": "",
+        "benifit_backbround_color": "#f4d3dd",
+        "benifit_title_color": "#c72457",
+        "benifit_svg_color_2": "#dd7c9a",
+        "button_text": "Read more"
+      }
+    },
     "5ead1514-bef5-488b-9aad-01983a12935c": {
       "type": "custom-cms-jump-section",
       "blocks": {
@@ -71,9 +147,11 @@
         "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4",
         "fe421c09-c3c6-4805-9ae0-4c539294b7b5"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#f7c083",
+        "text_color": "#333B3E",
         "heading": "Introduction",
         "description": "<h4>How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?<\/h4><p>Whether your child has ADHD or is somewhere on the ADHD spectrum, here are a variety of detailed and evidence-based things you can do to support your child.  To get more advice regarding ADHD diagnosis, see the previous post on ‘Might my child have ADHD?’<\/p>",
         "button_name": "Expand",
@@ -158,9 +236,11 @@
         "28f77bf4-164d-486b-8b87-9cb97f9e2f90",
         "c67674ea-d217-48e6-8af7-5e6f99e97997"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#c9d9d3",
+        "text_color": "#333B3E",
         "heading": "Develop Better Self-Management",
         "description": "<h4>Remember that children with ADHD require more strategies to help them manage at home and at school, and that they are not being deliberately inconsiderate or difficult – their brains are still catching up,they have difficulties in three main areas; inattentive (poor focus), impulsive and hyperactive.<\/h4><p>As result they need more <em><strong>external structure <\/strong><\/em>to help them learn to focus and organise themselves, they need more encouragement than other children, more help to learn to take more responsibility over their own behaviour and its consequences.  So at school they may need prompting to make sure that they know what they have to do, what they need to have to be able to do it, and prompting so that they begin work within 60 seconds of the teacher’s instruction being given.They need to be very quickly praised if they do it, and reminded and guided to do so if they do not. Seating them near the front of the class, or next to a sensible focused pupil (using the powerful effects of pupil modelling) can also be helpful. <\/p>",
         "button_name": "Expand",
@@ -237,9 +317,11 @@
         "392f3525-0765-4190-b96c-23a86244d3e2",
         "ad5acc99-b0c7-42c8-a11d-1181fe4d39be"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#ffd978",
+        "text_color": "#333B3E",
         "heading": "Increase Concentration Skills",
         "description": "<h4>You can increase your child's concentration skills in many different ways, here's some to get you started!<\/h4>",
         "button_name": "Expand",
@@ -359,6 +441,7 @@
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#ffd978",
+        "text_color": "#333B3E",
         "heading": "Build Better Focus",
         "description": "",
         "button_name": "Expand",
@@ -378,6 +461,7 @@
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
+        "text_color": "#333B3E",
         "heading": "Improve Written Work and Their Ability to Express Themselves",
         "description": "<h4>Some children with ADHD struggle to record ideas effectively on paper. Their copying pace is slower and the process of writing quickly is more difficult for them, while their internal thinking will be at least a few steps ahead of what they are able to write down. So written work may be jumbled up with some things being missed out.<\/h4><p>Similarly, the large amount of effort invested into the actual production of written work can mean that there is less attention available for thinking about the way the work is organised as well as the content of the work. As a result, the content of written work can be a poor reflection of actual knowledge and verbal understanding. So your child may be very able verbally but their written work may not do justice to their ideas.   Indeed, they may look at what they have written and feel that it is at odds with what they wanted to say. This can leave your child feeling inadequate and lose confidence. <\/p><p>A way to get around this might be for them to try dictating stories or school work. Most smart phones can have a dictating function or use a recording device. Trying these options can help their fluency and build confidence.  School may be able to reduce the amount of copying required in class, and providing worksheets or copies of handouts makes life easier.<\/p>",
         "button_name": "Expand",
@@ -397,6 +481,7 @@
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
+        "text_color": "#333B3E",
         "heading": "Stay Calm and Positive Yourself",
         "description": "<h4>This is key but easier said than done as children with ADHD can be exhausting, frustrating and infuriating!<\/h4><p>FirstLearn as much as you can about ADHD. Understanding the condition can help you navigate its challenges with more clarity and empathy. First things first, take a deep breath. Managing ADHD requires patience, understanding, and a good dose of self-care. Practise Mindfulness: Take moments for yourself to practise mindfulness techniques. Deep breathing, meditation, or even just a few moments of quiet can help you stay centred amidst the busy-ness. Be extra organised but also delegate and ask for help: you don't have to do it all alone. Ask for support from friends, family, or professionals. A strong support network can make a world of difference.Taking care of yourself is essential. This means making an effort to take time for you, to do activities you enjoy, spend time with loved ones, and get enough rest. Remember, you can't pour from an empty cup.<\/p>",
         "button_name": "Expand",
@@ -416,6 +501,7 @@
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#c9d9d3",
+        "text_color": "#333B3E",
         "heading": "Arrangements for Examinations",
         "description": "<p>Where psychometric testing reveals specific difficulties such as dyslexia, and has been carried out within 24 months of the exam, the pupil will usually be entitled to receive 25% extra time. ADHD may also be able to this, but each examining body needs to be checked out about this. JCQ guidelines do allow for extra time for ADHD, but it must be backed up by the school having made special teaching arrangements for several months before the examination <\/p><p>They may also be eligible to use a lap-top when required to write continuously. Some pupils may be placed in a separate room that is free from distraction when taking exams. <\/p>",
         "button_name": "Expand",
@@ -435,6 +521,7 @@
       "settings": {
         "hide_for_guest_user": true,
         "bg_color": "#ffd978",
+        "text_color": "#333B3E",
         "heading": "And Finally: Medication",
         "description": "<h4>The main medications for ADHD are two closely related stimulants, chemical names methylphenidate and dexamfetamine. Methylphenidate (the generic name) comes in a lot of trade names, for example Ritalin, Medikinet, Xenidate, Equasym and others. They may be tablets or capsules, and while the base formulation last about 4 hours, they can have extended-release versions “XL” which can last most of the school day. Stimulants are by far the most effective medication, and work in around 85% to 90% of children. There are other secondary medications (for example atomoxetine, trade name Strattera) but they don’t work nearly as well.<\/h4><p>The good thing about stimulants is that they are pretty harmless, they are like a strong cup of coffee in and out of your child’s body on the same day. They do not lead to any hangover and usually tolerance does not develop over time, so the same dose can work for years, except for your child will likely to be growing and therefore need an increased dose to match their body weight. The chief side effects are short term, loss of appetite’s and if they are in their body at night time, difficulty getting to sleep; also like a strong cup of coffee it can make them a bit jittery and anxious. This is easily managed by reducing the dose. Every child is different, so some will need more and some will need less, but this is easy to manage according to the response you see. If it doesn’t improve concentration and impulsiveness, then the dose should be raised until you see side effects. And this will be office in the first week.<\/p><p>Stimulant medication can be incredibly effective and brain studies show that the prefrontal area, which doesn’t get as much oxygen and glucose in ADHD, is made normal on brain scanning after one shot of methylphenidate. So some would say that you wouldn’t withhold vitamins from your child, and this is a similar situation, you can make them abnormal brain functioning so that they are a level playing field with other children. And if you don’t like it, you can stop immediately without any withdrawal or hangover effects. As children grow up, their brains go on developing until they are 25 so the majority can stop taking medication, particularly when they get a job and don’t need to concentrate for long periods on relatively boring academic tasks.<\/p><p>Most children with ADHD grow out of many aspects of ADHD and learn to manage it. And don’t forget that there are also so many positive aspects to ADHD too, such as being enthusiastic, creative, lively, a lateral thinker, the ability to hyper focus on interests, making connections others don’t see – ‘out of the box thinking’. They also can have a great sense of fun and enjoyment. Having  ADHD may lead to heightened emotional sensitivity and empathy. They can be well attuned to the emotions and needs of others, making them great friends, listeners, and caregivers.<\/p>",
         "button_name": "Expand",
@@ -530,6 +617,8 @@
   "order": [
     "main",
     "55607522-175c-4465-a0b0-826b70bc72ff",
+    "2fa7c473-d075-4c0f-9d8b-f7ded088cf3b",
+    "41770e88-6005-4864-a4c4-d5bd44e135da",
     "5ead1514-bef5-488b-9aad-01983a12935c",
     "50504136-e507-462f-866c-3b67915c4683",
     "8ae0ee1b-b71a-4739-8160-e62be207ecc7",
