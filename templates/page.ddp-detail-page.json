@@ -124,6 +124,7 @@
       "blocks": {
         "c7e6ed31-0993-4a91-a8ce-be27e4af4148": {
           "type": "benifit_steps",
+          "disabled": true,
           "settings": {
             "title": "Management at home",
             "desc_1": ""
@@ -131,6 +132,7 @@
         },
         "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4": {
           "type": "benifit_steps",
+          "disabled": true,
           "settings": {
             "title": "Management at school",
             "desc_1": ""
@@ -138,6 +140,7 @@
         },
         "fe421c09-c3c6-4805-9ae0-4c539294b7b5": {
           "type": "benifit_steps",
+          "disabled": true,
           "settings": {
             "title": "Medication",
             "desc_1": ""
