@@ -10,7 +10,7 @@
       --color-foreground:{{ section.settings.text_color }};
       --color-secondary-button-text:{{ section.settings.text_color.red }},{{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
       {% if section.settings.bg_color.red == 0 and section.settings.bg_color.green == 0 and section.settings.bg_color.blue == 0 %}
-        --color-secondary-button:"0,0,0";
+        --color-secondary-button: 0,0,0;
       {% endif %}
     }
     #shopify-section-{{ section.id }} .section--{{ section.id }}{
