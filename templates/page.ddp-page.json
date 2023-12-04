@@ -44,6 +44,7 @@
         },
         "90d9a8b9-741d-46ed-a9c8-7aa88bf4ccdf": {
           "type": "page",
+          "disabled": true,
           "settings": {
             "tags": "Child\nParent",
             "image": "shopify:\/\/shop_images\/3.png",
