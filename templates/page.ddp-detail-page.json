@@ -145,6 +145,7 @@
         "d84c4ae4-053b-4cf8-a29f-784f7d0b37e4",
         "fe421c09-c3c6-4805-9ae0-4c539294b7b5"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#f7c083",
@@ -232,6 +233,7 @@
         "28f77bf4-164d-486b-8b87-9cb97f9e2f90",
         "c67674ea-d217-48e6-8af7-5e6f99e97997"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#c9d9d3",
@@ -311,6 +313,7 @@
         "392f3525-0765-4190-b96c-23a86244d3e2",
         "ad5acc99-b0c7-42c8-a11d-1181fe4d39be"
       ],
+      "disabled": true,
       "settings": {
         "hide_for_guest_user": false,
         "bg_color": "#ffd978",
