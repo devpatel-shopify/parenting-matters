@@ -6,11 +6,13 @@
 {% if showSection %}
 
   <style>
+    #shopify-section-{{ section.id }}{
+      --color-foreground:{{ section.settings.text_color }};
+      --color-secondary-button-text:{{ section.settings.text_color }};
+    }
     #shopify-section-{{ section.id }} .section--{{ section.id }}{
       background: {{ section.settings.bg_color }};
       color:{{ section.settings.text_color }};
-      --color-foreground:{{ section.settings.text_color }};
-      --color-secondary-button-text:{{ section.settings.text_color }};
     }
     #shopify-section-{{ section.id }} .inner-card {
       background: {{ section.settings.benifit_backbround_color }} !important;
