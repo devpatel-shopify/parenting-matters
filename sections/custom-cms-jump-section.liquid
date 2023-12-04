@@ -8,7 +8,7 @@
   <style>
     #shopify-section-{{ section.id }}{
       --color-foreground:{{ section.settings.text_color }};
-      --color-secondary-button-text:{{ section.settings.text_color }};
+      --color-secondary-button-text:{{ section.settings.text_color.red }},{{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
     }
     #shopify-section-{{ section.id }} .section--{{ section.id }}{
       background: {{ section.settings.bg_color }};
