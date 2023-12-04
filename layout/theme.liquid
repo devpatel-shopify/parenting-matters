@@ -448,8 +448,8 @@
     {{ 'flickity.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
+    {{ 'jump-section.css' | asset_url | stylesheet_tag }}
     {% if template.suffix == "ddp-detail-page" %}
-      {{ 'jump-section.css' | asset_url | stylesheet_tag }}
     {% endif %}
 
     {%- unless settings.type_body_font.system? -%}
