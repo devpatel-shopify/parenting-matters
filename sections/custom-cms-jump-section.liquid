@@ -6,11 +6,16 @@
 {% if showSection %}
 
   <style>
+    #shopify-section-{{ section.id }}{
+      --color-foreground:{{ section.settings.text_color }};
+      --color-secondary-button-text:{{ section.settings.text_color.red }},{{ section.settings.text_color.green }}, {{ section.settings.text_color.blue }};
+      {% if section.settings.bg_color.red == 0 and section.settings.bg_color.green == 0 and section.settings.bg_color.blue == 0 %}
+        --color-secondary-button: 0,0,0;
+      {% endif %}
+    }
     #shopify-section-{{ section.id }} .section--{{ section.id }}{
       background: {{ section.settings.bg_color }};
       color:{{ section.settings.text_color }};
-      --color-foreground:{{ section.settings.text_color }};
-      --color-secondary-button-text:{{ section.settings.text_color }};
     }
     #shopify-section-{{ section.id }} .inner-card {
       background: {{ section.settings.benifit_backbround_color }} !important;
@@ -20,7 +25,7 @@
     }
   </style>
 
-  <section class="jump-block">
+  <section class="jump-block page--ddp-detail">
     <div class="page-width log_in">
       <div class="jump-redirect-block {% if customer %} log_in {% else %} log_out {% endif %}">
         <div class="jump-details section--{{ section.id }}">

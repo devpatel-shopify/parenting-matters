@@ -44,14 +44,13 @@
         },
         "90d9a8b9-741d-46ed-a9c8-7aa88bf4ccdf": {
           "type": "page",
-          "disabled": true,
           "settings": {
             "tags": "Child\nParent",
-            "image": "shopify:\/\/shop_images\/3.png",
-            "heading": "Ways to help your child with ADHD",
-            "description": "<p>How to help your child with ADHD at home, what they should do at school, and if they get a diagnosis, is there is a possibility of them needing medication?...<\/p>",
+            "image": "shopify:\/\/shop_images\/marisa-howenstine_1.jpg",
+            "heading": "Could my child have ADHD?",
+            "description": "<p>ADHD is pretty common, occurring in about 6% of boys and 3% of girls. And a child may be on the ADHD spectrum, having some characteristics of ADHD without having the full diagnosis...<\/p>",
             "button_label": "Read More",
-            "page": "ddp-details",
+            "page": "ways-to-help-your-child-with-adhd-at-home-and-school",
             "height": "adapt",
             "desktop_image_width": "medium",
             "layout": "image_first",
