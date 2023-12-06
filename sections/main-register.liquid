@@ -30,181 +30,190 @@
   <p>{{ section.settings.small_text }}</p>
   {% comment %} return_to:routes.account_url {% endcomment %}
   {%- form 'create_customer', novalidate: 'novalidate' -%}
+    {%- assign firstError = form.errors | first -%}
     {%- if form.errors -%}
       <script>
         window.sessionStorage.removeItem('redirect_to');
       </script>
-      <h2 class="form__message" tabindex="-1" autofocus>
-        <svg aria-hidden="true" focusable="false">
-          <use href="#icon-error" />
-        </svg>
-        {{ 'templates.contact.form.error_heading' | t }}
-      </h2>
-      <ul>
-        {%- for field in form.errors -%}
-          <li>
-            {%- if field == 'form' -%}
-              {{ form.errors.messages[field] }}
-            {%- else -%}
-              <a href="#RegisterForm-{{ field }}">
-                {{ form.errors.translated_fields[field] | capitalize }}
+      {% if firstError == "form" %}
+        <h2 class="form__message" tabindex="-1" autofocus>
+          {{ 'templates.contact.form.email_sent_message' | t }}
+        </h2>
+      {% else %}
+        <h2 class="form__message" tabindex="-1" autofocus>
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+        <ul>
+          {%- for field in form.errors -%}
+            <li>
+              {%- if field == 'form' -%}
                 {{ form.errors.messages[field] }}
-              </a>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
+              {%- else -%}
+                <a href="#RegisterForm-{{ field }}">
+                  {{ form.errors.translated_fields[field] | capitalize }}
+                  {{ form.errors.messages[field] }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {% endif %}
     {%- endif -%}
-    <div class="field-box">
-      <label for="RegisterForm-FirstName">
-        {{ 'customer.register.first_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your first name"
-      >
-    </div>
-    <div class="field-box">
-      <label for="RegisterForm-LastName">
-        {{ 'customer.register.last_name' | t }}
-      </label>
-      <input
-        type="text"
-        name="customer[last_name]"
-        id="RegisterForm-LastName"
-        {% if form.last_name %}
-          value="{{ form.last_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="Enter your last name"
-      >
-    </div>
-    <div class="field-box">
-      <label for="RegisterForm-email">
-        {{ 'customer.register.email' | t }}
-      </label>
-      <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
-        {% endif %}
-        placeholder="Enter your email"
-      >
-    </div>
-
-    {%- if form.errors contains 'email' -%}
-      <span id="RegisterForm-email-error" class="form__message">
-        <svg aria-hidden="true" focusable="false">
-          <use href="#icon-error" />
-        </svg>
-        {{ form.errors.translated_fields.email | capitalize }}
-        {{ form.errors.messages.email }}.
-      </span>
-    {%- endif -%}
-    <div class="field-box">
-      <label for="RegisterForm-password">
-        {{ 'customer.register.password' | t }}*
-      </label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-    </div>
-    <div class="field-box">
-      <label for="RegisterForm-password">
-        {{ 'customer.register.password_confirm' | t }}*
-      </label>
-      <input
-        type="password"
-        name="customer[password_confirmation]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="Enter your password"
-      >
-        <span class="error hidden" style="color: red;">
-          {{ 'customer.register.password_confirm_alert' | t }}*
+    {%- unless firstError == "form" -%}
+      <div class="field-box">
+        <label for="RegisterForm-FirstName">
+          {{ 'customer.register.first_name' | t }}
+        </label>
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          placeholder="Enter your first name"
+        >
+      </div>
+      <div class="field-box">
+        <label for="RegisterForm-LastName">
+          {{ 'customer.register.last_name' | t }}
+        </label>
+        <input
+          type="text"
+          name="customer[last_name]"
+          id="RegisterForm-LastName"
+          {% if form.last_name %}
+            value="{{ form.last_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          placeholder="Enter your last name"
+        >
+      </div>
+      <div class="field-box">
+        <label for="RegisterForm-email">
+          {{ 'customer.register.email' | t }}
+        </label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          {% if form.email %}
+            value="{{ form.email }}"
+          {% endif %}
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-email-error"
+          {% endif %}
+          placeholder="Enter your email"
+        >
+      </div>
+  
+      {%- if form.errors contains 'email' -%}
+        <span id="RegisterForm-email-error" class="form__message">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email }}.
         </span>
-    </div>
-    {%- if form.errors contains 'password' -%}
-      <span id="RegisterForm-password-error" class="form__message">
-        <svg aria-hidden="true" focusable="false">
-          <use href="#icon-error" />
-        </svg>
-        {{ form.errors.translated_fields.password | capitalize }}
-        {{ form.errors.messages.password }}.
-      </span>
-    {%- endif -%}
-    <div class="login-button">
-      <button type="submit" class="button button--primary js-form-submit-btn" data-redirect="{{ routes.account_url }}">
-        {{ 'customer.register.submit' | t }}
-        <svg
-          aria-hidden="true"
-          class="icon icon-arrow"
-          focusable="false"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {%- endif -%}
+      <div class="field-box">
+        <label for="RegisterForm-password">
+          {{ 'customer.register.password' | t }}*
+        </label>
+        <input
+          type="password"
+          name="customer[password]"
+          id="RegisterForm-password"
+          aria-required="true"
+          {% if form.errors contains 'password' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-password-error"
+          {% endif %}
+          placeholder="Enter your password"
         >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-        </svg>
-      </button>
-      <p>or</p>
-      <a class="button button--secondary" href="{{ routes.account_login_url }}">
-        {{ 'customer.login_page.sign_in' | t }}
-        <svg
-          aria-hidden="true"
-          class="icon icon-arrow"
-          focusable="false"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      </div>
+      <div class="field-box">
+        <label for="RegisterForm-password">
+          {{ 'customer.register.password_confirm' | t }}*
+        </label>
+        <input
+          type="password"
+          name="customer[password_confirmation]"
+          id="RegisterForm-password"
+          aria-required="true"
+          {% if form.errors contains 'password' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-password-error"
+          {% endif %}
+          placeholder="Enter your password"
         >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-        </svg>
-      </a>
-    </div>
-    {% comment %} <div class="button-block">
-      <button class="button button--primary">
-        {{ 'customer.register.submit' | t }}
-        <svg
-          aria-hidden="true"
-          class="icon icon-arrow"
-          focusable="false"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
-        </svg>
-      </button>
-    </div> {% endcomment %}
+          <span class="error hidden" style="color: red;">
+            {{ 'customer.register.password_confirm_alert' | t }}*
+          </span>
+      </div>
+      {%- if form.errors contains 'password' -%}
+        <span id="RegisterForm-password-error" class="form__message">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ form.errors.translated_fields.password | capitalize }}
+          {{ form.errors.messages.password }}.
+        </span>
+      {%- endif -%}
+      <div class="login-button">
+        <button type="submit" class="button button--primary js-form-submit-btn" data-redirect="{{ routes.account_url }}">
+          {{ 'customer.register.submit' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <p>or</p>
+        <a class="button button--secondary" href="{{ routes.account_login_url }}">
+          {{ 'customer.login_page.sign_in' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
+        </a>
+      </div>
+      {% comment %} <div class="button-block">
+        <button class="button button--primary">
+          {{ 'customer.register.submit' | t }}
+          <svg
+            aria-hidden="true"
+            class="icon icon-arrow"
+            focusable="false"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5561 0.385992C10.217 0.0873893 9.69997 0.12026 9.40136 0.45941C9.10276 0.79856 9.13563 1.31556 9.47478 1.61416L18.0699 9.18165H1.4217C0.969828 9.18165 0.603516 9.54796 0.603516 9.99983C0.603516 10.4517 0.969828 10.818 1.4217 10.818H18.0721L9.47484 18.386C9.13566 18.6845 9.10274 19.2015 9.40131 19.5407C9.69988 19.8799 10.2169 19.9128 10.5561 19.6142L20.0822 11.2287L20.0827 11.2282C20.2568 11.0746 20.3963 10.8858 20.4918 10.6742C20.5805 10.4777 20.6294 10.2658 20.636 10.0507C20.637 10.0339 20.6375 10.0169 20.6375 9.99983C20.6375 9.98206 20.637 9.96441 20.6358 9.94692C20.6288 9.73324 20.5799 9.52282 20.4918 9.32764C20.3963 9.11604 20.2568 8.92719 20.0827 8.77363L20.0822 8.77318L10.5561 0.385992Z" fill="currentColor"></path>
+          </svg>
+        </button>
+      </div> {% endcomment %}
+    {%- endunless -%}
   {%- endform -%}
 </div>
 
