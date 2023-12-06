@@ -27,7 +27,7 @@
   <h1 class=" {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
     {{ 'customer.register.title' | t }}
   </h1>
-  <p>{{ section.settings.small_text }}</p>
+  {% comment %}<p>{{ section.settings.small_text }}</p>{% endcomment %}
   {% comment %} return_to:routes.account_url {% endcomment %}
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- assign firstError = form.errors | first -%}
