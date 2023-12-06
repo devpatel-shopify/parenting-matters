@@ -38,13 +38,16 @@
     {% endif %}
 
     {% comment  %} To redirect customer who haven't purchased course  {% endcomment %}
-    {% if template contains "family-star" and request.design_mode == false  %}
-      {% unless customer and customer.tags contains "Purchased Course" %}
-        <script type="text/javascript">
-          window.location.replace("{{shop.url}}/products/course");
-        </script>
-      {% endunless %}
-    {% endif %}
+    {%- if request.design_mode == false -%}
+      {% if template contains "family-star" or template.name == "account" %}
+        {% unless customer and customer.tags contains "Purchased Course" %}
+          <script type="text/javascript">
+            window.location.replace("{{shop.url}}/products/course");
+            window.sessionStorage.removeItem('redirect_to');
+          </script>
+        {% endunless %}
+      {% endif %}
+    {%- endif -%}
 
     {%- if request.design_mode -%}
       <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
