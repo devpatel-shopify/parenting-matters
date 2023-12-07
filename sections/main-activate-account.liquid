@@ -75,7 +75,7 @@
         {% endif %}
       >
       
-      {%- if form.errors contains 'password' -%}
+      {% comment %} {%- if form.errors contains 'password' -%}
         <small id="password-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
             <use href="#icon-error" />
@@ -83,7 +83,7 @@
           {{ form.errors.translated_fields.password | capitalize }}
           {{ form.errors.messages.password }}
         </small>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
     </div>
 
     <div class="field-box">
@@ -102,7 +102,7 @@
         {% endif %}
       >
       
-      {%- if form.errors contains 'password_confirmation' -%}
+      {% comment %} {%- if form.errors contains 'password_confirmation' -%}
         <small id="password_confirmation-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
             <use href="#icon-error" />
@@ -110,7 +110,8 @@
           {{ form.errors.translated_fields.password_confirmation | capitalize }}
           {{ form.errors.messages.password_confirmation }}
         </small>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
+      
     </div>
 
     <button class="button button--primary">

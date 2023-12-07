@@ -19,6 +19,7 @@
   <div
     class="announcement-bar-main utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} utility-bar--bottom-border{% endif %}"
     {{ block.shopify_attributes }}
+    data-close-permanent="{{ section.settings.close_permanently }}"
   >
     {%- if blockSize == 1 -%}
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
@@ -136,7 +137,7 @@
 {
   "name": "t:sections.announcement-bar.name",
   "max_blocks": 12,
-  "class": "announcement-bar-section",
+  "class": "announcement-bar-section hidden",
   "settings": [
     {
       "type": "color_scheme",
@@ -155,6 +156,13 @@
       "id": "auto_rotate",
       "label": "t:sections.announcement-bar.settings.auto_rotate.label",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "close_permanently",
+      "label": "Close Permanently?",
+      "default": true,
+      "info": "Close permanently after click on close button"
     },
     {
       "type": "range",

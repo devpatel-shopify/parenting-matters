@@ -1174,10 +1174,20 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 // close announcement
 var close_announcement = document.querySelector(".close-announcement");
-var announcement_bar = document.querySelector(".announcement-bar");
+var announcement_bar = document.querySelector(".announcement-bar-main");
 if(close_announcement && announcement_bar){
+  let closeParmanent = announcement_bar.dataset.closePermanent;
+  let AnnouncementClosePermanent = window.localStorage.getItem('AnnouncementClosePermanent');
+  console.log(closeParmanent == true && !AnnouncementClosePermanent,AnnouncementClosePermanent,closeParmanent,announcement_bar)
+  if (closeParmanent == "true" && !AnnouncementClosePermanent) { 
+    announcement_bar.parentElement.classList.remove('hidden');
+  }
+
   close_announcement.addEventListener("click", (e) => {
-    announcement_bar.parentElement.remove();
+    announcement_bar.parentElement.classList.add('hidden');
+    if (closeParmanent == "true") {
+      window.localStorage.setItem('AnnouncementClosePermanent',true)
+    }
   });
 }
 
