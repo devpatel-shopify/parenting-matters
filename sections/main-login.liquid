@@ -59,13 +59,15 @@
         </small>
       {%- endif -%}
 
-      <button>
-        {{ 'customer.login_page.submit' | t }}
-      </button>
+      <div class="login-button">
+        <button type="submit">
+          {{ 'customer.login_page.submit' | t }}
+        </button>
+        <a href="#login" class="button button--secondary">
+          {{ 'customer.login_page.cancel' | t }}
+        </a>
+      </div>
 
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
     {%- endform -%}
   </div>
 

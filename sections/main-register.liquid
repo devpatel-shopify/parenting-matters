@@ -37,7 +37,11 @@
       </script>
       {% if firstError == "form" %}
         <h2 class="form__message" tabindex="-1" autofocus>
-          {{ 'templates.contact.form.email_sent_message' | t }}
+          {%- if form.errors.messages[firstError] contains "This email address is already associated with an account" -%}
+            <span>{{ form.errors.messages[firstError] }}</span>
+          {%- else -%}
+            {{ 'templates.contact.form.email_sent_message' | t }}
+          {%- endif -%}
         </h2>
       {% else %}
         <h2 class="form__message" tabindex="-1" autofocus>
@@ -116,7 +120,7 @@
         >
       </div>
   
-      {%- if form.errors contains 'email' -%}
+      {% comment %} {%- if form.errors contains 'email' -%}
         <span id="RegisterForm-email-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
             <use href="#icon-error" />
@@ -124,7 +128,7 @@
           {{ form.errors.translated_fields.email | capitalize }}
           {{ form.errors.messages.email }}.
         </span>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
       <div class="field-box">
         <label for="RegisterForm-password">
           {{ 'customer.register.password' | t }}*
@@ -160,7 +164,7 @@
             {{ 'customer.register.password_confirm_alert' | t }}*
           </span>
       </div>
-      {%- if form.errors contains 'password' -%}
+      {% comment %} {%- if form.errors contains 'password' -%}
         <span id="RegisterForm-password-error" class="form__message">
           <svg aria-hidden="true" focusable="false">
             <use href="#icon-error" />
@@ -168,7 +172,7 @@
           {{ form.errors.translated_fields.password | capitalize }}
           {{ form.errors.messages.password }}.
         </span>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
       <div class="login-button">
         <button type="submit" class="button button--primary js-form-submit-btn" data-redirect="{{ routes.account_url }}">
           {{ 'customer.register.submit' | t }}
