@@ -263,7 +263,7 @@
         "send": "Submit",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:",
-        "email_sent_message": "You have now created an account, please go to your emails and follow the link we’ve sent you to verify your email address"
+        "email_sent_message": "You have now created an account, please go to your emails and follow the link we’ve sent you to verify your email address."
       }
     }
   },
