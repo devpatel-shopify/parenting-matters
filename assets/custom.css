@@ -116,7 +116,8 @@ p:last-child {
 
 .template--pagecustom-course sticky-header[data-sticky-type=always]{
   border-bottom: 1px solid #C9D9D3;
-  background: #F9E8E2;
+  /* background: #F9E8E2; */
+  background: #fff0c9;
 }
 .template--pagecustom-course .scrolled-past-header sticky-header[data-sticky-type=always]{
   border: 0;
