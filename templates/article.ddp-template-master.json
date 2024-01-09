@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "featured_image",
+        "content"
+      ],
+      "settings": {
+      }
+    },
+    "f56ca04b-aeee-4361-9840-0994bb30ef76": {
+      "type": "featured-blog",
+      "settings": {
+        "read_more_remove": false,
+        "heading": "Related articles",
+        "heading_size": "h1",
+        "button_text1": "Explore our blog",
+        "button_url": "",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 160,
+        "padding_bottom": 36
+      }
+    },
+    "684e8cd4-d260-4977-b27d-9e15978e9966": {
+      "type": "klaviyo-email-sing-up-form",
+      "settings": {
+        "klaviyo_form": "<div class=\"klaviyo-form-WhM7jN\"><\/div>",
+        "full_width": false,
+        "email_image": "shopify:\/\/shop_images\/get-icon.png",
+        "heading_text": "Sign up to receive free tips and the latest news",
+        "heading_small": "",
+        "button_text": "Button",
+        "button_url": "",
+        "color_scheme": "scheme-03b25c0b-5848-4640-9610-44041ad6a1f9",
+        "border_color": "#c72457",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f56ca04b-aeee-4361-9840-0994bb30ef76",
+    "684e8cd4-d260-4977-b27d-9e15978e9966"
+  ]
+}
