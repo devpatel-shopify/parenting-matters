@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -336,7 +345,7 @@
         "heading_text": "The rest of this content is locked",
         "small_text": "<p>To continue reading the rest of this article you can become a member by signing up to our course.<\/p>",
         "button_text": "Join now",
-        "button_url": "shopify:\/\/products\/course",
+        "button_url": "shopify:\/\/products\/courses",
         "color_scheme": "scheme-5849700f-ff29-41e9-a34f-481e22379e16",
         "padding_top": 80,
         "padding_bottom": 80
