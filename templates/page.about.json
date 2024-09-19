@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -108,10 +117,10 @@
             "rule_icon_2": "shopify:\/\/shop_images\/Icon_17.svg",
             "update_text": "Rules: Part 2",
             "task_button_name": "Complete",
-            "task_url": "shopify:\/\/products\/course",
+            "task_url": "shopify:\/\/products\/courses",
             "update_text_2": "Play: Part 1",
             "task_button_name_2": "Start",
-            "task_url_2": "shopify:\/\/products\/course",
+            "task_url_2": "shopify:\/\/products\/courses",
             "background_color": "#fdf8ec",
             "background_schema_2": "scheme-f8ee90c8-67f1-4387-b23a-3c0422fc9c89",
             "layout_2": "image_first"
@@ -364,7 +373,7 @@
         "heading_text": "What you’ll get when you join",
         "small_text": "",
         "button_text": "Buy the course",
-        "button_url": "shopify:\/\/products\/course",
+        "button_url": "shopify:\/\/products\/courses",
         "top_radius": true,
         "color_scheme": "background-1",
         "padding_top": 160,
