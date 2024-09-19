@@ -49,7 +49,7 @@
         "loggedin_btn_text": "My Course",
         "loggedin_url": "shopify:\/\/pages\/course-dashboard",
         "guest_btn_text": "Buy now",
-        "guest_url": "shopify:\/\/products\/courses",
+        "guest_url": "shopify:\/\/products\/course",
         "padding_top": 20,
         "padding_bottom": 20
       }
