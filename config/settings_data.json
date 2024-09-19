@@ -128,7 +128,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "course_product": "courses",
+    "course_product": "course",
     "title_1": "Course",
     "link_1": "shopify:\/\/pages\/course-dashboard",
     "show_course_only_1": true,
