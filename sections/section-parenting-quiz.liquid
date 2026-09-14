@@ -187,7 +187,7 @@
                       <div class="range_bar"></div>
                       <div class="range_wrapper">
                         {%- for radio in (1..4) -%}
-                        {%- capture values -%} {% cycle '-2', '-1', '1', '2' - %}{%- endcapture -%}
+                        {%- capture values -%} {% cycle '-2', '-1', '1', '2' %}{%- endcapture -%}
                           <div class="radio_item">
                             <input class="visually-hidden" type="radio" id="{{ name }}-{{ block.id }}-{{ forloop.index }}" name="{{ name }}" value="{{ values }}" data-input-index="{{ slide_forloop }}" data-val="{{ values }}" required>
                             <label for="{{ name }}-{{ block.id }}-{{ forloop.index }}" class="radio_label"><span class="box"></span></label>
@@ -1196,4 +1196,13 @@
   ]
 }
 {% endschema %}
-  
+  {%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% cycle '-2', '-1', '1', '2' - %}"
+  to: "{% cycle '-2', '-1', '1', '2' %}"
+  position: 9121..9153
+{%- endcomment -%}
